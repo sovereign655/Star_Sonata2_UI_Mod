@@ -17,7 +17,7 @@ To install the UI mod, follow these steps:
 ## Features
 
 - **Enhanced Visuals**: Improved graphics and layouts for better clarity and aesthetics.
-- **Ranger Scope Sound Overhaul**:Reduced the jarring sound effects for Ranger Scope when firing and charging.
+- **Ranger Scope Sound Overhaul**: Completely new SFX when firing and charging Ranger Scope.
 - **Compatibility**: Ensures full compatibility with the latest version of Star Sonata 2.
 
 ## Contributing
@@ -43,6 +43,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 - Original UI Mod by markoz
 - Community Contributors
+- SFX by **https://mixkit.co/** 'All of our sound effects are free to download and ready to use in your next video or audio project, under the Mixkit License.'
 
 Thank you for exploring the Star Sonata 2 UI Mod. Your feedback and contributions are welcome!
 
