@@ -1,6 +1,6 @@
 # Star Sonata 2 UI Mod
 
-This repository hosts the modifications for the Omega UI Mod created by Marcoz, tailored specifically for Star Sonata 2. The project aims to enhance the user interface to improve the gaming experience by providing a clearer and more efficient layout.
+This repository hosts the modifications for the Omega UI Mod created by markoz, tailored specifically for Star Sonata 2. The project aims to enhance the user interface to improve the gaming experience by providing a clearer and more efficient layout.
 
 ## Video Demonstration
 
@@ -36,12 +36,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-- **Creator**: Marcoz
+- **Creator**: markoz
 - **Modifier**: [Your GitHub Profile](https://github.com/sovereign655)
 
 ## Acknowledgements
 
-- Original UI Mod by Marcoz
+- Original UI Mod by markoz
 - Community Contributors
 
 Thank you for exploring the Star Sonata 2 UI Mod. Your feedback and contributions are welcome!
