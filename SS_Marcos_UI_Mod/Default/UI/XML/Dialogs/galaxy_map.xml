@@ -1,0 +1,77 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="galaxyMapDialog" />
+		<int name="Flags" value="0" />
+		<rect name="Rect" value="0, 375, 500, 755" />
+		<position name="MinSize" value="170, 170" />
+		<rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+		<colorf name="Tint" value="1.0, 1.0, 1.0, 0.8" />
+		<bool name="Movable" value="true" />
+		<bool name="Visible" value="false" />
+		<bool name="ClickThrough" value="true" />
+		<int name="BorderStyle" value="2" />
+		<string name="AnimatorTag" value="FadeInOnMouseOver" />	
+		<int name="ResizeBorderWidth" value="5" />
+		<bool name="TopResizable" value="true" />
+		<bool name="RightResizable" value="true" />
+		<bool name="BottomResizable" value="true" />
+		<bool name="LeftResizable" value="true" />
+		<bool name="Square" value="false" />
+		<bool name="KeepOnScreen" value="true" />
+		<bool name="HideOnLogout" value="true" />
+		<string name="SoundShow" value="DialogOpen.wav" />
+		<string name="SoundHide" value="DialogClose.wav" />	
+	</attributes>
+	<bindings>
+		<signal name="revealed" slot="bringToTop" id="galaxyMapDialog" />
+		<signal name="moved" slot="DialogMoved" id="LogicManager" />
+		<signal name="evt_resize" slot="DialogMoved" id="LogicManager" />
+		<signal name="visibility_change" slot="DialogVisibilityChanged" id="LogicManager" />
+		<signal name="evt_mouse_on_border" slot="DialogMouseOnBorder" id="LogicManager" />
+		
+		<signal name="revealed" slot="toggleActiveState" id="galaxyMapToggle" />
+		<signal name="hidden" slot="toggleActiveState" id="galaxyMapToggle" />
+		<signal name="hidden" slot="mapHidden" id="galaxyMap2d" />
+	</bindings>
+
+	<element type="galaxymap2d">
+		<attributes>
+			<string name="IdName" value="galaxyMap" />
+			<int name="Id" value="1" />
+			<rect name="Rect" value="5, 22, 251, 271" />
+		</attributes>
+	</element>
+	
+	<element type="customStaticText">
+		<attributes>
+			<int name="Id" value="0" />
+			<string name="IdName" value="galaxyMapTitle" />
+			<string name="TextID" value="id_gal_map_header" />				
+			<string name="Caption" value="Galaxy Map" />
+			<rect name="Rect" value="3, 3, 200, 17" />
+			<!-- We need to set InheritTint to true so that it fades with the window -->
+			<bool name="InheritTint" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="set_title_text" id="galaxyMap" />
+		</bindings>
+	</element>
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="galaxyMapCloseButton" />
+			<int name="Id" value="66" />
+			<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+			<rect name="Rect" value="-20, 2, -2, 18" />
+			<texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+			<texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="false" />
+			<!--bool name="InheritTint" value="false" /--> <!-- We need to set InheritTint to true so that it fades with the window -->
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="toggleVisibility" id="galaxyMapDialog" />
+		</bindings>
+	</element>	
+</element>
+

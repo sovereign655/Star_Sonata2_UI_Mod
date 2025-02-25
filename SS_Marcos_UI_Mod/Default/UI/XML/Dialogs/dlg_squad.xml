@@ -1,0 +1,467 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="squadDialog" />
+		<rect name="Rect" value="8, 43, -8, -8" />
+		<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />  
+		<int name="Flags" value="0" />
+		<bool name="Movable" value="false" />
+		<bool name="Visible" value="true" />
+		<bool name="DrawBackground" value="true" />
+		<bool name="HideOnLogout" value="true" />
+	</attributes>
+	<bindings>
+		<signal name="created" slot="SquadDialogRevealed" id="SquadManager" />
+		<signal name="revealed" slot="SquadDialogRevealed" id="SquadManager" />
+	</bindings>
+	<!-- The main group. -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="squadMainGroup" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+			<bool name="Visible" value="false" />
+		</attributes>
+		<bindings>
+			<slot name="show" signal="show_main_group" id="SquadManager" />
+			<signal name="revealed" slot="hide" id="squadCreateSquadGroup" />
+			<signal name="revealed" slot="hide" id="squadConfirmLeaveGroup" />
+			<signal name="revealed" slot="hide" id="squadNameEntryGroup" />
+			<signal name="revealed" slot="hide" id="squadSetInstanceDiffGroup" />
+		</bindings>
+		<!-- Target Description/Info -->
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="squadTargetLabel" />
+				<string name="TextID" value="id_squad_target_label" />
+				<rect name="Rect" value="8, 8, 118, 34" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="center" />
+				<string name="ToolTip" value="The most recently targeted player." />
+			</attributes>
+		</element>
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="squadTargetText" />
+				<rect name="Rect" value="8, 34, 118, 60" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="top" />
+				<bool name="OverrideColorEnabled" value="true" />
+				<color name="OverrideColor" value="A0FFFFFF" />
+				<bool name="WordWrap" value="true" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="target_static_text" id="SquadManager" />
+			</bindings>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="squadAddTargetButton" />
+				<string name="TextID" value="id_squad_invite_target" />
+				<rect name="Rect" value="-180, 8, -85, 32" />
+				<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+				<string name="ToolTip" value="Add most recently targeted player to your squad." />    
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="SquadDialogInviteTargetClicked" id="SquadManager" />
+				<slot name="setEnabled" signal="invite_target_button_enabled" id="SquadManager" />
+			</bindings>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="squadAddOtherButton" />
+				<string name="TextID" value="id_squad_invite_other" />
+				<rect name="Rect" value="-180, 36, -85, 60" />
+				<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+				<string name="ToolTip" value="Manually add a player to your squad." />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="SquadDialogInviteOtherClicked" id="SquadManager" />
+			</bindings>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="squadBootButton" />
+				<string name="TextID" value="id_squad_boot" />
+				<rect name="Rect" value="-80, 8, -8, 32" />
+				<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+				<string name="ToolTip" value="Boot selected player from your squad." />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="SquadDialogBootClicked" id="SquadManager" />
+				<slot name="setEnabled" signal="boot_button_enabled" id="SquadManager" />
+			</bindings>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="squadLeaveButton" />
+				<string name="TextID" value="id_squad_leave" />
+				<rect name="Rect" value="-80, 36, -8, 60" />
+				<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+				<string name="ToolTip" value="Leave your current squad." />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="SquadDialogLeaveClicked" id="SquadManager" />
+			</bindings>
+		</element>
+		<!-- The members table, enclosed in a box. -->
+		<element type="customStaticText">
+			<attributes>
+				<rect name="Rect" value="0, 60, 0, -55" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+				<bool name="Border" value="false" />
+				<int name="ScrolledLines" value="0" />
+			</attributes>
+			<element type="customTable">
+				<attributes>
+					<string name="IdName" value="squadMembersTable" />
+					<rect name="Rect" value="8, 8, -8, -8" />
+					<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+					<int name="ColumnCount" value="2" />
+					<string name="Column0name" value="Name" />
+					<color name="Column0color" value="ffb7f9ff" />
+					<int name="Column0width" value="170" />
+					<enum name="Column0OrderingMode" value="ascend_descend" />
+					<string name="Column1name" value="Rank" />
+					<color name="Column1color" value="ffb7f9ff" />
+					<int name="Column1width" value="88" />
+					<enum name="Column1OrderingMode" value="ascend_descend" />
+					<bool name="ResizableColumns" value="false" />
+					<int name="DrawFlags" value="4" />
+				</attributes>
+				<bindings>
+					<slot name="setAll" signal="table_all" id="SquadManager" />
+					<signal name="item_selected_data" slot="SquadDialogMemberSelect" id="SquadManager" />
+					<signal name="item_double_clicked_data" slot="SquadDialogTableDoubleClickedData" id="SquadManager" />
+					<signal name="item_right_clicked_data" slot="SquadDialogTableRightClickedData" id="SquadManager" />
+				</bindings>
+			</element>
+		</element>
+		<!-- Set Difficulty Button -->
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="difficultyMenuButton" />
+				<string name="TextID" value="id_squad_diff_menu" />
+				<rect name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+				<rect name="Rect" value="-145, -29, -8, -5" />
+				<string name="ToolTip" value="Change the difficulty of all instance-based content." />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="SquadDialogDifficultyMenuClicked" id="SquadManager" />
+			</bindings>
+		</element>
+    <!-- Show Squad Damage Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="showSquadDamageButton" />
+        <string name="TextID" value="id_squad_show_damage" />
+        <rect name="PercRect" value="0.0, 1.0, 0.0, 1.0" />
+        <rect name="Rect" value="8, -54, 145, -30" />
+		<string name="ToolTip" value="Display the amount of damage each squad member has done in combat." />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="SquadDialogShowSquadDamageClicked" id="SquadManager" />
+      </bindings>
+    </element>
+    <!-- Reset Squad Damage Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="resetSquadDamageButton" />
+        <string name="TextID" value="id_squad_reset_damage" />
+        <rect name="PercRect" value="0.0, 1.0, 0.0, 1.0" />
+        <rect name="Rect" value="8, -29, 145, -5" />
+		<string name="ToolTip" value="Reset the squad damage log." />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="SquadDialogResetSquadDamageClicked" id="SquadManager" />
+      </bindings>
+    </element>
+	</element>
+	<!-- Main Group -->
+
+	<!-- Squad difficulty group -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="squadSetInstanceDiffGroup" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+			<bool name="Visible" value="false" />
+		</attributes>
+		<bindings>
+			<slot name="show" signal="show_instance_diff_group" id="SquadManager" />
+			<signal name="revealed" slot="hide" id="squadMainGroup" />
+			<signal name="revealed" slot="hide" id="squadConfirmLeaveGroup" />
+			<signal name="revealed" slot="hide" id="squadNameEntryGroup" />
+			<signal name="revealed" slot="SetSliderInstanceDiffDefault" id="SquadManager" />
+		</bindings>
+		<!-- Squad Difficulty Text -->
+		<element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_squad_instancediff" />
+				<string name="Caption" value="Instance difficulty:" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />  
+				<rect name="Rect" value="8, 8, -8, -8" />   
+			</attributes>
+			<!-- Squad Difficulty Text -->
+			<element type="customStaticText">
+				<attributes>
+					<string name="IdName" value="optionsinstancediff" />
+					<string name="TextID" value="" />
+					<int name="Id" value="34" />
+					<string name="Caption" value="1.0" />
+					<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />  
+					<rect name="Rect" value="-35, 0, 0, 30" />
+					<string name="ToolTip" value="Difficulty level" />
+				</attributes>
+				<bindings>
+					<slot name="setText" signal="static_instancediff_text" id="SquadManager" />
+				</bindings>
+			</element>
+			<!-- Difficulty Slider -->
+			<element type="slider">
+				<attributes>
+					<string name="IdName" value="optionsSliderinstancediff" />
+					<rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />  
+					<rect name="Rect" value="0, 20, 270, 40" /> 
+					<string name="ToolTip" value="Increases the difficulty of all instance-based content." />
+					<int name="SmallStep" value="10" />
+				</attributes>
+				<bindings>
+					<signal name="value_changed" slot="SetSliderInstanceDiff" id="SquadManager" />
+					<slot name="setText" signal="slider_instancediff_text" id="SquadManager" />
+				</bindings>
+			</element>  
+			<!-- Confirm Button -->
+			<element type="customButton">
+				<attributes>
+					<string name="IdName" value="difficultyConfirmButton" />
+					<string name="TextID" value="id_squad_diff_confirm" />
+					<rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+					<rect name="Rect" value="8, 50, 80, 74" />
+				</attributes>
+				<bindings>
+					<signal name="button_clicked" slot="SquadDialogConfirmDiffClicked" id="SquadManager" />
+				</bindings>
+			</element>
+			<!-- Cancel Button -->
+			<element type="customButton">
+				<attributes>
+					<string name="IdName" value="difficultyCancelButton" />
+					<string name="TextID" value="id_squad_diff_cancel" />
+					<rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+					<rect name="Rect" value="88, 50, 160, 74" />
+				</attributes>
+				<bindings>
+					<signal name="button_clicked" slot="SquadDialogCancelDiffClicked" id="SquadManager" />
+				</bindings>
+			</element>
+			<!-- modifier explanation -->
+			<element type="customStaticText">
+				<attributes>
+					<string name="IdName" value="optionsinstancediffmods" />
+					<string name="TextID" value="" />
+					<int name="Id" value="34" />
+					<string name="Caption" value="" />
+					<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />  
+					<rect name="Rect" value="8, 82, 8, -8" />
+					<string name="ToolTip" value="Difficulty effects" />
+				</attributes>
+				<bindings>
+					<slot name="setText" signal="static_instancediff_mod_table" id="SquadManager" />
+				</bindings>
+			</element>
+			
+		</element>
+	</element>
+	<!-- Squad difficulty group -->
+
+	<!-- The "create squad" group. -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="squadCreateSquadGroup" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<rect name="Rect" value="42, 77, -42, 212" />
+			<bool name="Border" value="true" />
+			<bool name="Visible" value="false" />
+		</attributes>
+		<bindings>
+			<slot name="show" signal="show_create_squad_group" id="SquadManager" />
+			<signal name="revealed" slot="hide" id="squadMainGroup" />
+			<signal name="revealed" slot="hide" id="squadConfirmLeaveGroup" />
+			<signal name="revealed" slot="hide" id="squadNameEntryGroup" />
+			<signal name="revealed" slot="hide" id="squadSetInstanceDiffGroup" />
+		</bindings>
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="squadCreateSquadPrompt" />
+				<string name="TextID" value="id_squad_create_squad_prompt" />
+				<rect name="Rect" value="8, 8, -8, 64" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="center" />
+			</attributes>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="squadCreateButton" />
+				<string name="TextID" value="id_squad_create" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+				<rect name="Rect" value="16, 72, -16, 120" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="SquadDialogCreateClicked" id="SquadManager" />
+			</bindings>
+		</element>
+	</element>
+	<!-- Create Squad Group -->
+	<!-- The leave confirmation group. -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="squadConfirmLeaveGroup" />
+			<rect name="Rect" value="42, 77, -42, 223" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<bool name="Border" value="true" />
+			<int name="ScrolledLines" value="0" />
+			<bool name="Visible" value="false" />
+		</attributes>
+		<bindings>
+			<slot name="show" signal="show_confirm_leave_group" id="SquadManager" />
+			<signal name="revealed" slot="hide" id="squadMainGroup" />
+			<signal name="revealed" slot="hide" id="squadCreateSquadGroup" />
+			<signal name="revealed" slot="hide" id="squadNameEntryGroup" />
+			<signal name="revealed" slot="hide" id="squadSetInstanceDiffGroup" />
+		</bindings>
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="squadConfirmLeavePrompt" />
+				<string name="TextID" value="id_squad_confirm_leave_prompt" />
+				<rect name="Rect" value="8, 8, -8, 64" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="center" />
+			</attributes>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="squadConfirmLeaveButton" />
+				<string name="TextID" value="id_squad_confirm_leave" />
+				<rect name="Rect" value="16, 60, -16, 92" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="SquadDialogConfirmLeaveClicked" id="SquadManager" />
+			</bindings>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="squadCancelLeaveButton" />
+				<string name="TextID" value="id_squad_cancel_leave" />
+				<rect name="Rect" value="16, 98, -16, 130" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="SquadDialogCancelLeaveClicked" id="SquadManager" />
+			</bindings>
+		</element>
+	</element>
+	<!-- Leave Confirmation Group -->
+	<!-- The name entry group. -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="squadNameEntryGroup" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<rect name="Rect" value="42, 77, -42, 268" />
+			<bool name="Border" value="true" />
+			<bool name="visible" value="false" />
+			<int name="ScrolledLines" value="0" />
+		</attributes>
+		<bindings>
+			<slot name="show" signal="show_name_entry_group" id="SquadManager" />
+			<signal name="revealed" slot="hide" id="squadMainGroup" />
+			<signal name="revealed" slot="hide" id="squadCreateSquadGroup" />
+			<signal name="revealed" slot="hide" id="squadConfirmLeaveGroup" />
+			<signal name="revealed" slot="hide" id="squadSetInstanceDiffGroup" />
+		</bindings>
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="squadNameEntryPrompt" />
+				<string name="TextID" value="id_squad_name_entry_prompt" />
+				<rect name="Rect" value="16, 16, -16, 48" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="top" />
+			</attributes>
+		</element>
+		<element type="customEditBox">
+			<attributes>
+				<string name="IdName" value="squadNameEntryEdit" />
+				<rect name="Rect" value="16, 56, -16, 88" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="center" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="name_edit_text" id="SquadManager" />
+				<signal name="value_changed" slot="SquadDialogNameEditChanged" id="SquadManager" />
+				<slot name="makeFocus" signal="revealed" id="squadNameEntryGroup" />
+			</bindings>
+		</element>
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="squadNameEntryEditError" />
+				<rect name="Rect" value="16, 90, -16, 108" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="top" />
+				<string name="Caption" value="" />
+				<bool name="OverrideColorEnabled" value="true" />
+				<color name="OverrideColor" value="C0F00010" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="name_edit_error_text" id="SquadManager" />
+			</bindings>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="squadNameEntryConfirmButton" />
+				<string name="TextID" value="id_squad_confirm_invite" />
+				<rect name="Rect" value="16, 108, -16, 140" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="SquadDialogConfirmAddClicked" id="SquadManager" />
+				<slot name="setEnabled" signal="confirm_add_button_enabled" id="SquadManager" />
+			</bindings>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="squadNameEntryCancelButton" />
+				<string name="TextID" value="id_squad_cancel_invite" />
+				<rect name="Rect" value="16, 146, -16, 178" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="SquadDialogCancelAddClicked" id="SquadManager" />
+			</bindings>
+		</element>
+	</element>
+	<!-- Name Entry Group -->
+	<!-- Member context menu. -->
+	<element type="customContextMenu">
+		<attributes>
+			<string name="Visible" value="false" />
+			<string name="IdName" value="squadMemberContextMenu" />
+			<int name="CloseHandling" value="4" />
+			<int name="ItemCount" value="6" />
+			<string name="TextID0" value="id_squad_context_whisper" />
+			<string name="TextID1" value="id_squad_context_boot" />
+      <string name="TextID2" value="id_squad_context_transfer_leadership" />
+			<string name="IsSeparator3" value="true" />
+			<string name="TextID4" value="id_squad_context_friends_add" />
+			<string name="TextID5" value="id_squad_context_team_invite" />
+			<bool name="KeepOnScreen" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="popup" signal="table_context_popup" id="SquadManager" />
+			<slot name="setItemEnabled" signal="table_context_item_enabled" id="SquadManager" />
+			<signal name="item_selected_index" slot="SquadDialogTableContextItemSelectedIndex" id="SquadManager" />
+		</bindings>
+	</element>
+</element>

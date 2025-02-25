@@ -1,0 +1,34 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="under_bottom_bar" />
+    <int name="Flags" value="0" />
+    <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+    <rect name="Rect" value="0, -110, 0, 0" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="true" />
+    <bool name="StayAtBack" value="true" />
+    <bool name="DrawBackground" value="false" />
+    <bool name="ClickThrough" value="true" />
+  </attributes>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="under_bottom_bar_class_alert" />
+      <string name="TextID" value="" />
+      <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+      <rect name="Rect" value="-163, -108, -83, -34" />
+      <texture name="Image" value="UI/Images/Icons/alert_icon.png" />
+      <rect name="ImageRect" value="0, 0, 80, 74" />
+      <texture name="PressedImage" value="UI/Images/Icons/alert_icon.png" />
+      <rect name="PressedImageRect" value="0, 0, 80, 74" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+      <bool name="Visible" value="false" />
+      <string name="ToolTip" value="Class Skill Point Available" />
+      <string name="ToolTipBody" value="You can train a class skill by clicking on the class skills tab in the character window and selecting a skill to train."/>
+    </attributes>
+    <bindings>
+      <slot name="setVisible" signal="show_class_available_alert" id="CharManager" />
+      <signal name="button_clicked" slot="ForceClassSkillTab" id="CharManager" />
+    </bindings>
+  </element>
+</element>

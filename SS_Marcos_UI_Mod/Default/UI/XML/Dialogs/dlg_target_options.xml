@@ -1,0 +1,34 @@
+﻿<!-- 
+  dlg_target_options.xml
+  
+  A container window for floating tooltips. Wraps a CGUItargetOptions element.
+-->
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="TargetOptionsDialog" />
+    
+	<!--<rect name="Rect" value="-100, 100, 200, 500" />-->
+	<rect name="Rect" value="-120, -200, -10, 0" />
+		<rectf name="PercRect" value="1.0, 0.5, 1.0, 0.5" />
+		<!--<string name="AnimatorTag" value="FadeInOnMouseOver" />-->
+    <colorf name="Tint" value="1.0, 1.0, 1.0, 1.0" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="false" />
+    <bool name="TrackMouseOverChildren" value="true" />
+    <int name="BorderStyle" value="4" />
+    <int name="Flags" value="0" />
+  </attributes>
+
+  <element type="targetOptions">
+    <attributes>
+      <string name="IdName" value="targetOptions" />
+      <int name="Id" value="33" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+      <rect name="Rect" value="4, 4, -4, -4" />
+      <bool name="InheritTint" value="true" />
+    </attributes>
+  </element>
+  
+  
+</element>
+

@@ -1,0 +1,12 @@
+<element type="spacepanel">
+	<attributes>
+		<string name="IdName" value="mainSpacePanel" />
+		<rect name="Rect" value="0, 0, 0, 0" />
+		<rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+		<bool name="AcceptsDrop" value="true" />
+	</attributes>
+	<bindings>
+		<slot name="setVisible" signal="space_panel_visible" id="ConnectManager" />
+	</bindings>
+	
+</element>

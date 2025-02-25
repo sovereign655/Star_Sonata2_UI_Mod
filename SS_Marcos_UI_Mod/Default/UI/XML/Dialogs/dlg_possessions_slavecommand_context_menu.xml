@@ -1,0 +1,25 @@
+<element type="customContextMenu">
+	<attributes>
+		<bool name="Visible" value="false" />
+		<string name="IdName" value="possessionRemoteCommandMenu" />
+		<int name="CloseHandling" value="4" />
+		<int name="ItemCount" value="3" />
+		<string name="TextID0" value="id_slave_followme" />
+		<int name="CommandID0" value="0" />
+		<string name="TextID1" value="id_slave_leavestasis" />
+		<int name="CommandID1" value="1" />
+    <string name="TextID1" value="id_slave_inventory" />
+		<int name="CommandID1" value="2" />
+		<string name="TextID2" value="id_slave_release" />
+		<int name="CommandID2" value="3" />
+    <string name="TextID1" value="id_slave_repair" />
+		<int name="CommandID1" value="4" />
+		<bool name="KeepOnScreen" value="true" />
+	</attributes>
+	<bindings>
+		<slot name="popup" signal="remote_command_popup" id="RemoteCommandContextManager" />
+		<slot name="setText" signal="remote_command_text" id="RemoteCommandContextManager" />
+		<slot name="setUserData" signal="remote_command_data" id="RemoteCommandContextManager" />
+		<signal name="item_selected_data" slot="OnRemoteCommandMenuOptions" id="RemoteCommandContextManager" />
+	</bindings>
+</element>

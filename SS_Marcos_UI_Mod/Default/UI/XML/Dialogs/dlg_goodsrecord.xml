@@ -1,0 +1,152 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="goodsRecordDialog" />
+		<int name="Flags" value="0" />
+		<rectf name="PercRect" value="0, 0, 1, 1" />
+		<rect name="Rect" value="13, 96, -13, -13" />
+		<bool name="Movable" value="false" />
+		<bool name="Visible" value="false" />
+		<bool name="DrawBackground" value="true" />
+	</attributes>
+	<bindings>
+		<signal name="revealed" slot="PopulateGoodsTable" id="GoodsRecordManager" />
+	</bindings>	
+	
+	<element type="customImage">
+		<attributes>
+			<rect name="Rect" value="0, 0, 512, 400" />
+			<texture name="Texture" value="UI/Images/Backgrounds/general.png" />
+			<bool name="ScaleImage" value="False" />
+			<bool name="UseAlphaChannel" value="true" />
+		</attributes>
+	</element>			
+	
+	<element type="customTable">
+		<attributes>
+			<string name="IdName" value="goodsRecordTableGoods" />
+			<string name="TextID" value="" />
+			<int name="Id" value="119" />
+			<rectf name="PercRect" value="0, 0, 0, 0" />
+			<rect name="Rect" value="8, 35, 486, 351" />
+			<int name="ColumnCount" value="5" />
+			<string name="Column0name" value="Item" />
+			<color name="Column0color" value="ffb7f9ff" />
+			<int name="Column0width" value="120" />
+			<enum name="Column0OrderingMode" value="" />
+			<string name="Column1name" value="Base" />
+			<color name="Column1color" value="ffb7f9ff" />
+			<int name="Column1width" value="93" />
+			<enum name="Column1OrderingMode" value="" />
+			<string name="Column2name" value="Galaxy" />
+			<color name="Column2color" value="ffb7f9ff" />
+			<int name="Column2width" value="140" />
+			<enum name="Column2OrderingMode" value="" />			
+			<string name="Column3name" value="Jumps" />
+			<color name="Column3color" value="ffb7f9ff" />
+			<int name="Column3width" value="40" />
+			<enum name="Column3OrderingMode" value="" />			
+			<string name="Column4name" value="Profit" />			
+			<color name="Column4color" value="ffb7f9ff" />
+			<int name="Column4width" value="70" />
+			<enum name="Column4OrderingMode" value="" />
+			<!--<string name="Column4name" value="Sell" />
+			<color name="Column4color" value="ffb7f9ff" />
+			<int name="Column4width" value="90" />
+			<enum name="Column4OrderingMode" value="" />-->
+			<bool name="ResizableColumns" value="false" />
+			<int name="DrawFlags" value="0" />
+			<bool name="DrawBack" value="true" />
+			<bool name="UseOverrideBgColor" value="true" />
+			<color name="OverrideBgColor" value="BF000000" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="table_goods_text" id="GoodsRecordManager" />
+			<slot name="setColor" signal="table_goods_colors" id="GoodsRecordManager" />
+		</bindings>		
+	</element>
+
+	<element type="customTabControl">
+		<attributes>
+			<bool name="Visible" value="false" />
+			<string name="IdName" value="goodsRecordTabPropSelSort" />
+			<string name="TextID" value="" />
+			<int name="Id" value="120" />
+			<rect name="Rect" value="10, 11, 436, 37" />
+			<int name="ActiveTab" value="0" />
+		</attributes>
+		
+		<element type="customButton">
+			<attributes>
+				<string name="TextID" value="" />
+				<rect name="Rect" value="36, 1, 68, 33" />
+				<bool name="Visible" value="false" />
+				<texture name="DisabledImage" value="" />
+				<rect name="DisabledImageRect" value="0, 0, 0, 0" />
+			</attributes>
+		</element>
+
+		<element type="customButton">
+			<attributes>
+				<string name="TextID" value="" />
+				<rect name="Rect" value="68, 1, 100, 33" />
+				<bool name="Visible" value="false" />
+				<texture name="DisabledImage" value="" />
+				<rect name="DisabledImageRect" value="0, 0, 0, 0" />
+			</attributes>
+		</element>
+
+		<element type="customButton">
+			<attributes>
+				<string name="TextID" value="" />
+				<rect name="Rect" value="54, 1, 102, 53" />
+				<bool name="Visible" value="false" />
+				<int name="TabOrder" value="3" />
+				<texture name="DisabledImage" value="" />
+				<rect name="DisabledImageRect" value="0, 0, 0, 0" />
+			</attributes>
+		</element>
+
+		<element type="customButton">
+			<attributes>
+				<string name="TextID" value="" />
+				<rect name="Rect" value="102, 1, 150, 53" />
+				<bool name="Visible" value="false" />
+				<int name="TabOrder" value="3" />
+				<texture name="DisabledImage" value="" />
+				<rect name="DisabledImageRect" value="0, 0, 0, 0" />
+			</attributes>
+		</element>
+
+		<element type="customTab">
+			<attributes>
+				<string name="TextID" value="" />
+				<string name="Caption" value="caption_tab" />
+				<rect name="Rect" value="1, 52, 781, 112" />
+				<enum name="RightAlign" value="lowerRight" />
+				<enum name="BottomAlign" value="lowerRight" />
+				<int name="TabNumber" value="0" />
+				<color name="TextColor" value="ffb7f9ff" />
+			</attributes>
+		</element>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="goodsRecordGalRestrict" />
+			<int name="Id" value="147" />
+			<string name="Caption" value="This Galaxy Only" />
+			<rectf name="PercRect" value="0, 1, 0, 1" />
+			<rect name="Rect" value="8, -31, 108, -8" />
+			<texture name="DisabledImage" value="" />
+			<rect name="DisabledImageRect" value="0, 0, 0, 0" />
+			<bool name="PushButton" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="button_galrestrict_visible" id="GoodsRecordManager" />
+			<slot name="setPressed" signal="button_galrestrict_pressed" id="GoodsRecordManager" />
+			<signal name="button_down" slot="GalRestrict" id = "GoodsRecordManager" />
+			<signal name="button_up" slot="GalUnRestrict" id = "GoodsRecordManager" />
+		</bindings>		
+	</element>
+	
+</element>

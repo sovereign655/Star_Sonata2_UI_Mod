@@ -1,0 +1,128 @@
+<element type="container">
+	<attributes>
+		<string name="IdName" value="notificationsGrid" />
+		<rect name="Rect" value="0, 0, 0, 0" />
+		<rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+		<bool name="Visible" value="true" />
+	</attributes>
+
+	<!-- Notification Icon 0 -->
+	<element type="notification">
+		<attributes>			
+			<string name="IdName" value="notif0" />
+			<int name="Id" value="0" />
+			<string name="Caption" value="" />
+			<rect name="Rect" value="0, -206, 32, -174" />
+			<rectf name="PercRect" value="0.45, 1.0, 0.45, 1.0" />
+
+			<bool name="Visible" value="false" />
+			<string name="ToolTip" value="Title" />
+			<string name="ToolTipBody" value="Content" />
+			<int name="MousePauseTime" value="500" />
+			<rect name="ToolTipRect" value="0, 0, -6, -42" />
+		</attributes>
+		<bindings>
+			<signal name="showNotification" slot="ShowMessageBox" id="NotificationsManager" />
+		</bindings>
+	</element>
+
+	<!-- Notification Icon 1 -->
+	<element type="notification">
+		<attributes>			
+			<string name="IdName" value="notif1" />
+			<int name="Id" value="1" />
+			<string name="Caption" value="" />
+			<rect name="Rect" value="0, -240, 32, -208" />
+			<rectf name="PercRect" value="0.45, 1.0, 0.45, 1.0" />
+
+			<bool name="Visible" value="false" />
+			<string name="ToolTip" value="Title" />
+			<string name="ToolTipBody" value="Content" />
+			<int name="MousePauseTime" value="500" />
+			<rect name="ToolTipRect" value="0, 0, -6, -42" />
+		</attributes>
+		<bindings>
+			<signal name="showNotification" slot="ShowMessageBox" id="NotificationsManager" />
+		</bindings>
+	</element>
+
+  <!-- Notification Icon 2 -->
+  <element type="notification">
+    <attributes>
+      <string name="IdName" value="notif2" />
+      <int name="Id" value="2" />
+      <string name="Caption" value="" />
+      <rect name="Rect" value="0, -274, 32, -242" />
+      <rectf name="PercRect" value="0.45, 1.0, 0.45, 1.0" />
+
+      <bool name="Visible" value="false" />
+      <string name="ToolTip" value="Title" />
+      <string name="ToolTipBody" value="Content" />
+      <int name="MousePauseTime" value="500" />
+      <rect name="ToolTipRect" value="0, 0, -6, -42" />
+    </attributes>
+    <bindings>
+      <signal name="showNotification" slot="ShowMessageBox" id="NotificationsManager" />
+    </bindings>
+  </element>
+
+  <!-- Notification Icon 4 -->
+  <element type="notification">
+    <attributes>
+      <string name="IdName" value="notif3" />
+      <int name="Id" value="3" />
+      <string name="Caption" value="" />
+      <rect name="Rect" value="34, -206, 66, -174" />
+      <rectf name="PercRect" value="0.45, 1.0, 0.45, 1.0" />
+
+      <bool name="Visible" value="false" />
+      <string name="ToolTip" value="Title" />
+      <string name="ToolTipBody" value="Content" />
+      <int name="MousePauseTime" value="500" />
+      <rect name="ToolTipRect" value="0, 0, -6, -42" />
+    </attributes>
+    <bindings>
+      <signal name="showNotification" slot="ShowMessageBox" id="NotificationsManager" />
+    </bindings>
+  </element>
+
+  <!-- Notification Icon 5 -->
+  <element type="notification">
+    <attributes>
+      <string name="IdName" value="notif4" />
+      <int name="Id" value="4" />
+      <string name="Caption" value="" />
+      <rect name="Rect" value="34, -240, 66, -208" />
+      <rectf name="PercRect" value="0.45, 1.0, 0.45, 1.0" />
+
+      <bool name="Visible" value="false" />
+      <string name="ToolTip" value="Title" />
+      <string name="ToolTipBody" value="Content" />
+      <int name="MousePauseTime" value="500" />
+      <rect name="ToolTipRect" value="0, 0, -6, -42" />
+    </attributes>
+    <bindings>
+      <signal name="showNotification" slot="ShowMessageBox" id="NotificationsManager" />
+    </bindings>
+  </element>
+
+  <!-- Notification Icon 6 -->
+  <element type="notification">
+    <attributes>
+      <string name="IdName" value="notif5" />
+      <int name="Id" value="5" />
+      <string name="Caption" value="" />
+      <rect name="Rect" value="34, -274, 66, -242" />
+      <rectf name="PercRect" value="0.45, 1.0, 0.45, 1.0" />
+
+      <bool name="Visible" value="false" />
+      <string name="ToolTip" value="Title" />
+      <string name="ToolTipBody" value="Content" />
+      <int name="MousePauseTime" value="500" />
+      <rect name="ToolTipRect" value="0, 0, -6, -42" />
+    </attributes>
+    <bindings>
+      <signal name="showNotification" slot="ShowMessageBox" id="NotificationsManager" />
+    </bindings>
+  </element>
+</element>

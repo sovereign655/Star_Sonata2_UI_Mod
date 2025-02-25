@@ -1,0 +1,27 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="instanceTestDialog" />
+		<rect name="Rect" value="20, 20, 400, 500" />
+		<int name="Flags" value="0" />
+		<bool name="Visible" value="true" />
+		<bool name="Movable" value="true" />
+	</attributes>
+	
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="instanceTestText*" />
+			<string name="TextID" value="" />
+			<rect name="Rect" value="20, 20, 360, 400" />
+			<bool name="Border" value="true" />
+			<string name="Caption" value="Blah blah blah blah blah" />
+		</attributes>
+	</element>
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="instanceTestButton*" />
+			<rect name="Rect" value="100, 420, 300, 480" />
+			<string name="Caption" value="Click me!" />
+		</attributes>
+	</element>
+</element>

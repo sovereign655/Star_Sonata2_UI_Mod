@@ -1,0 +1,185 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="lockoutDialog" />
+    <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+    <rect name="Rect" value="8, 69, -8, -8" />
+    <int name="Flags" value="0" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="true" />
+    <bool name="DrawBackground" value="true" />
+  </attributes>
+  <bindings>
+    <signal name="created" slot="OnInitLockouts" id="LockoutManager" />
+  </bindings>
+	<element type="customImage">
+		<attributes>
+			<string name="TextID" value="" />
+			<rect name="Rect" value="7, 7, 91, 91" />
+			<texture name="Texture" value="UI/Images/Skin/sunkenpanes_512.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<color name="Color" value="88ffffff" />
+			<bool name="ScaleImage" value="true" />
+		</attributes>
+	</element>
+  <!-- Black background alpha -->
+  <!--
+  <element type="customImage">
+    <attributes>
+      <string name="TextID" value="" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="8, 8, -8, 91" />
+        <texture name="Texture" value="UI/Images/SkillTree/black.png" />
+      <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="A0000000" />
+      <bool name="ScaleImage" value="true" />
+    </attributes>
+  </element>
+  -->
+  <!-- Image for top left -->
+  <element type="customImage">
+    <attributes>
+      <string name="TextID" value="" />
+      <rect name="Rect" value="13, 15, 85, 85" />
+      <texture name="Texture" value="UI/Images/Items/iconlarge/Neuro-Key.png" />
+      <bool name="UseAlphaChannel" value="true" />
+      <color name="Color" value="33ffffff" />
+      <bool name="ScaleImage" value="true" />
+    </attributes>
+  </element>
+  <!--  Daily reset title label -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="Caption" value="Daily Reset:" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="99, 8, -8,91" />
+      <bool name="Border" value="False" />
+      <int name="ScrolledLines" value="0" />
+      <enum name="HTextAlign" value="TopLeft" />
+      <enum name="Font" value="mediumBoldFont" />
+    </attributes>
+  </element>
+  <!-- Daily lockout description timer -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="characterDailyLockoutTime" />
+      <string name="TextID" value="" />
+      <int name="Id" value="52" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="105, 25, -8, 78" />
+      <int name="ScrolledLines" value="0" />
+      <enum name="HTextAlign" value="TopLeft" />
+      <string name="ToolTip" value="Time until daily missions and lockouts reset." />
+      <!--<enum name="Font" value="largeBoldFont" />-->
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_daily_reset_time" id="LockoutManager" />
+    </bindings>
+  </element>
+  <!-- Weekly reset title label -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="Caption" value="Weekly Reset:" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="99, 44, -8, 91" />
+      <bool name="Border" value="False" />
+      <int name="ScrolledLines" value="0" />
+      <enum name="HTextAlign" value="TopLeft" />
+      <enum name="Font" value="mediumBoldFont" />
+    </attributes>
+    <bindings>
+    </bindings>
+  </element>
+  <!-- Lockout  -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="characterWeeklyLockoutTime" />
+      <!--<int name="Id" value="52" />-->
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="105, 61, -8, 91" />
+      <int name="ScrolledLines" value="0" />
+      <enum name="HTextAlign" value="TopLeft" />
+      <string name="ToolTip" value="Time until weekly missions and lockouts reset." />
+      <!--<enum name="Font" value="largeBoldFont" />-->
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_weekly_reset_time" id="LockoutManager" />
+    </bindings>
+  </element>
+  <!-- Lockout search bar -->
+  <element type="customEditBox">
+		<attributes>
+			<string name="IdName" value="characterLockoutTableSearch" />
+			<string name="TextID" value="" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<rect name="Rect" value="8, 95, -8, 125" />
+			<string name="PlaceholderText" value="Search..." />
+			<string name="ToolTip" value="Search your active lockouts." />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="LockoutSearchChanged" id="LockoutManager" />
+			<slot name="setText" signal="lockout_search_text" id="LockoutManager" />
+		</bindings>
+	</element>
+  <!-- lockout table -->
+  <element type="customTable">
+    <attributes>
+      <string name="IdName" value="characterTableSkills" />
+      <string name="TextID" value="" />
+      <int name="Id" value="60" />
+      <!--<rect name="Rect" value="8, 100, -8, -32" />-->
+      <rect name="Rect" value="8, 130, -8, -8" />
+      <rectf name="PercRect" value="0, 0, 1, 1"/>
+      <int name="ColumnCount" value="3" />
+	  
+	  <int name="ActiveTab" value="0" />
+	  <enum name="CurrentOrdering" value="ascending" />
+	  <int name="SecondaryTab" value="1" />
+	  
+      <string name="Column0name" value="Type" />
+      <color name="Column0color" value="ffb7f9ff" />
+      <int name="Column0width" value="36" />
+      <enum name="Column1OrderingMode" value="ascend_descend" />
+      <string name="Column1name" value="Lockout" />
+      <color name="Column1color" value="ffb7f9ff" />
+      <int name="Column1width" value="251" />
+      <enum name="Column1OrderingMode" value="ascend_descend" />
+      <string name="Column2name" value="Time Remaining" />
+      <color name="Column2color" value="ffb7f9ff" />
+      <int name="Column2width" value="36" />
+      <enum name="Column2OrderingMode" value="ascend_descend" />
+      <enum name="Column2OrderingType" value="numerical" />
+      <bool name="ResizableColumns" value="false" />
+      <int name="DrawFlags" value="4" />
+    </attributes>
+    <bindings>
+      <slot name="setAll" signal="table_galaxy_lockouts_all" id="LockoutManager" />
+      <!--<signal name="item_selected_data" slot="SetSkillDescription" id="CharManager" />-->
+    </bindings>
+  </element>
+<!--
+  <element type="customStaticText">
+    <attributes>
+      <string name="Caption" value="Filter:" />
+      <rect name="PercRect" value="0.0, 1.0, 0.0, 1.0" />
+      <rect name="Rect" value="16, -28, 56, -8" />
+      <bool name="Border" value="False" />
+      <int name="ScrolledLines" value="0" />
+      <enum name="Font" value="mediumBoldFont" />
+    </attributes>
+    <bindings>
+    </bindings>
+  </element>
+
+  <element type="customEditBox">
+    <attributes>
+      <string name="IdName" value="lockoutTableSearch" />
+      <string name="TextID" value="" />
+      <rect name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+      <rect name="Rect" value="56, -28, -8, -8" />
+    </attributes>
+    <bindings>
+      <signal name="value_changed" slot="LockoutTableSearchChanged" id="LockoutManager" />
+      <slot name="setText" signal="table_lockout_search_text" id="LockoutManager" />
+    </bindings>
+  </element>-->
+</element>

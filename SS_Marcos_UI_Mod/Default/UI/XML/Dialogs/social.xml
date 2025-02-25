@@ -1,0 +1,74 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="socialDialog" />
+    <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />	
+    <rect name="Rect" value="10, 101, -10, -40" />	
+		<int name="Flags" value="0" />
+		<bool name="Movable" value="false" />
+		<bool name="Visible" value="false" />
+		<bool name="DrawBackground" value="true" />
+	</attributes>
+	<bindings>
+		<signal name="created" slot="LoadConfigOptions" id="OptionsManager" />
+	</bindings>
+  <!-- Swear Filter Checkbox -->
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="optionsCheckOralSoap" />
+			<string name="TextID" value="id_swearfilter" />
+			<int name="Id" value="24" />
+			<string name="Caption" value="Swear Filter" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="8, 8, -8, 30" />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetCheckOralSoap" id="OptionsManager" />
+			<slot name="setValue" signal="check_oralsoap_text" id="OptionsManager" />
+		</bindings>
+	</element>
+  <!-- Ignore Team Group Invites Checkbox -->
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="optionsCheckIgnoreInvites" />
+			<string name="TextID" value="id_ignoreinvites" />
+			<int name="Id" value="38" />
+			<string name="Caption" value="Ignore Team/Group invites" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="8, 30, -8, 52" />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetCheckIgnoreInvites" id="OptionsManager" />
+			<slot name="setValue" signal="check_ignoreinvites_text" id="OptionsManager" />
+		</bindings>
+	</element>
+  <!-- Team Members On line Checkbox -->
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="optionsCheckTeamMemberStatus" />
+			<string name="TextID" value="id_teammemberstatus" />
+			<int name="Id" value="39" />
+			<string name="Caption" value="Display team members on-line status." />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="8, 52, -8, 74" />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetCheckTeamMemberStatus" id="OptionsManager" />
+			<slot name="setValue" signal="check_teammemberstatus_text" id="OptionsManager" />
+		</bindings>
+	</element>
+  <!-- Chat Timestamps Checkbox -->
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="optionsCheckTimestamps" />
+			<string name="TextID" value="id_timestamps" />
+			<int name="Id" value="39" />
+			<string name="Caption" value="Display timestamps on chat messages" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="8, 74, -8, 96" />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetCheckTimestamps" id="OptionsManager" />
+			<slot name="setValue" signal="check_timestamp_text" id="OptionsManager" />
+		</bindings>
+	</element>
+</element>

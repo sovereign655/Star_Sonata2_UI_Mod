@@ -1,0 +1,713 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="ingameSubscriptionDialog" />
+    <int name="Id" value="2673" />
+    <rect name="Rect" value="210, 150, 810, 600" />
+    <!--<position name="MinSize" value="500, 400" />
+    <position name="MaxSize" value="850, 952" />-->
+    <int name="Flags" value="0" />
+    <bool name="Movable" value="true" />
+    <bool name="Visible" value="false" />
+    <int name="BorderStyle" value="2" />
+    <!--<int name="ResizeBorderWidth" value="5" />
+    <bool name="RightResizable" value="true" />
+    <bool name="BottomResizable" value="true" />-->
+    <bool name="HideOnLogout" value="true" />
+    <bool name="KeepOnScreen" value="true" />
+    <string name="SoundShow" value="DialogOpen.wav" />
+    <string name="SoundHide" value="DialogClose.wav" />
+  </attributes>
+  <bindings>
+    <signal name="revealed" slot="bringToTop" id="ingameSubscriptionDialog" />
+    <signal name="revealed" slot="toggleActiveState" id="subscriptionbutton" />
+    <signal name="hidden" slot="toggleActiveState" id="subscriptionbutton" />
+  </bindings>
+  <!-- START BENEFITS/STATUS AREA-->
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="" />
+      <string name="Caption" value="" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+      <rect name="Rect" value="0, 0, 0, -185" />
+      <bool name="Background" value="false" />
+    </attributes>
+    <!--<element type="customStaticText">
+      <attributes>
+        <string name="TextID" value="" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, 52, -8, -4" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="55000000" />
+      </attributes>
+    </element>-->
+    <element type="customStaticText">
+      <attributes>
+        <string name="Caption" value="Manage Subscription" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+        <rect name="Rect" value="20, 8, -30, 60" />
+        <bool name="Border" value="False" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="center" />
+        <enum name="VTextAlign" value="topLeft" />
+        <enum name="Font" value="suiGenLarge" />
+        <bool name="OverrideColorEnabled" value="true" />
+        <color name="OverrideColor" value="ffffffff" />
+      </attributes>
+    </element>
+    <!-- SP amount -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="TextID" value="" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+        <rect name="Rect" value="-188, 52, -8, 117" />
+        <bool name="Background" value="false" />
+
+      </attributes>
+      <element type="customStaticText">
+        <attributes>
+          <string name="TextID" value="" />
+          <string name="Caption" value="" />
+          <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+          <rect name="Rect" value="0, 0, 0, 0" />
+          <bool name="Background" value="true" />
+          <bool name="OverrideBgColorEnabled" value="true" />
+          <color name="OverrideBgColor" value="99000000" />
+        </attributes>
+      </element>
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="sp_amount_subpage" />
+          <string name="Caption" value="loading..." />
+          <string name="TextID" value="" />
+          <string name="Caption" value="" />
+          <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+          <rect name="Rect" value="-20, 8, -76, -8" />
+          <enum name="HTextAlign" value="lowerRight" />
+          <enum name="VTextAlign" value="center" />
+          <enum name="Font" value="suiGenLarge" />
+          <bool name="OverrideColorEnabled" value="true" />
+          <color name="OverrideColor" value="ffff8c00" />
+        </attributes>
+        <bindings>
+          <slot name="setText" signal="static_current_space_points" id="StoreManager" />
+        </bindings>
+      </element>
+      <element type="customImage">
+        <attributes>
+          <string name="IdName" value="sp_amount_spimage" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="1.0, 0.5, 1.0, 0.5" />
+          <rect name="Rect" value="-72, -31, -8, 33" />
+          <texture name="Texture" value="UI/Images/Store/sp_large.png" />
+          <bool name="UseAlphaChannel" value="true" />
+        </attributes>
+      </element>
+    </element>
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="sp_buySP_subpage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+        <rect name="Rect" value="-188, 117, -8, 142" />
+        <texture name="Image" value="UI/Images/Store/Buy SP or SPEX.png" />
+        <rect name="ImageRect" value="0, 0, 180, 25" />
+        <texture name="PressedImage" value="UI/Images/Store/Buy SP or SPEX.png" />
+        <rect name="PressedImageRect" value="0, 0, 180, 23" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="toggleVisibility" id="ingameSpacepointDialog" />
+      </bindings>
+    </element>
+    <!--BENEFITS-->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="sub_description" />
+        <string name="TextID" value="" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 0.5, 1.0" />
+        <rect name="Rect" value="8, 52, -4, -4" />
+        <bool name="Background" value="false" />
+      </attributes>
+      <element type="customStaticText">
+        <attributes>
+          <string name="TextID" value="" />
+          <string name="Caption" value="" />
+          <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+          <rect name="Rect" value="0, 0, 0, 0" />
+          <bool name="Background" value="true" />
+          <bool name="OverrideBgColorEnabled" value="true" />
+          <color name="OverrideBgColor" value="55000000" />
+        </attributes>
+        <element type="customStaticText">
+          <attributes>
+            <string name="Caption" value="Benefits" />
+            <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+            <rect name="Rect" value="0, 1, 0, 0" />
+            <bool name="Border" value="False" />
+            <enum name="HTextAlign" value="center" />
+            <enum name="VTextAlign" value="topLeft" />
+            <enum name="Font" value="outlineLarge" />
+            <bool name="OverrideColorEnabled" value="true" />
+            <color name="OverrideColor" value="ffffffff" />
+          </attributes>
+        </element>
+        <element type="customStaticText">
+          <attributes>
+            <string name="TextID" value="id_subdescription" />
+            <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+            <rect name="Rect" value="8, 34, -8, -8" />
+            <bool name="Border" value="False" />
+            <enum name="HTextAlign" value="topLeft" />
+            <enum name="VTextAlign" value="topLeft" />
+            <enum name="Font" value="largeBoldFont" />
+            <bool name="OverrideColorEnabled" value="true" />
+            <color name="OverrideColor" value="ffffffff" />
+            <bool name="AutoScroll" value="true" />
+          </attributes>
+        </element>
+      </element>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+        <rect name="Rect" value="4, 52, 108, 142" />
+        <texture name="Texture" value="UI\Images\Store\subscription_bot.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="ScaleImage" value="true" />
+      </attributes>
+    </element>
+    <!-- STATUS AREA-->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="substatus_box" />
+        <string name="TextID" value="" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.5, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="4, 150, -8, -4" />
+        <bool name="Background" value="false" />
+      </attributes>
+      <element type="customStaticText">
+        <attributes>
+          <string name="TextID" value="" />
+          <string name="Caption" value="" />
+          <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+          <rect name="Rect" value="0, 0, 0, 0" />
+          <bool name="Background" value="true" />
+          <bool name="OverrideBgColorEnabled" value="true" />
+          <color name="OverrideBgColor" value="55000000" />
+        </attributes>
+        <element type="customStaticText">
+          <attributes>
+            <string name="Caption" value="Subscription Status" />
+            <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+            <rect name="Rect" value="0, 1, 0, 0" />
+            <bool name="Border" value="False" />
+            <enum name="HTextAlign" value="center" />
+            <enum name="VTextAlign" value="topLeft" />
+            <enum name="Font" value="outlineLarge" />
+            <bool name="OverrideColorEnabled" value="true" />
+            <color name="OverrideColor" value="ffffffff" />
+          </attributes>
+        </element>
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="subtime" />
+            <string name="Caption" value="loading" />
+            <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+            <rect name="Rect" value="0, 34, 0, -8" />
+            <bool name="Border" value="False" />
+            <int name="ScrolledLines" value="0" />
+            <enum name="HTextAlign" value="center" />
+            <enum name="VTextAlign" value="center" />
+            <enum name="Font" value="suiGenSmall" />
+            <bool name="OverrideColorEnabled" value="true" />
+            <color name="OverrideColor" value="ffffffff" />
+          </attributes>
+          <bindings>
+            <slot name="setText" signal="static_sub_time_remaining" id="StoreManager" />
+          </bindings>
+        </element>
+
+      </element>
+    </element>
+  </element>
+  <!-- START SUB BUTTONS-->
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="" />
+      <string name="Caption" value="" />
+      <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+      <rect name="Rect" value="0, -185, 0, 0" />
+      <bool name="Background" value="false" />
+    </attributes>
+    <element type="customStaticText">
+      <attributes>
+        <string name="TextID" value="" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, 4, -8, -8" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="55000000" />
+      </attributes>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="Caption" value="Convert  Space Points" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+        <rect name="Rect" value="20, 16, -30, 60" />
+        <bool name="Border" value="False" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="center" />
+        <enum name="VTextAlign" value="topLeft" />
+        <enum name="Font" value="suiGenLarge" />
+        <bool name="OverrideColorEnabled" value="true" />
+        <color name="OverrideColor" value="ffffffff" />
+      </attributes>
+    </element>
+
+    <!-- Buy 1 Month Subscription -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="1monthsub_purchasebox" />
+        <string name="TextID" value="" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+        <rect name="Rect" value="20, 60, 150, 170" />
+        <bool name="Background" value="false" />
+      </attributes>
+      <element type="customStaticText">
+        <attributes>
+          <string name="TextID" value="" />
+          <string name="Caption" value="" />
+          <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+          <rect name="Rect" value="0, 0, 0, 0" />
+          <bool name="Background" value="true" />
+          <bool name="OverrideBgColorEnabled" value="true" />
+          <color name="OverrideBgColor" value="55000000" />
+        </attributes>
+
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="1monthsub_spacepoints" />
+            <string name="Caption" value="20" />
+            <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+            <rect name="Rect" value="0, 34, -60, 65" />
+            <bool name="Border" value="False" />
+            <int name="ScrolledLines" value="0" />
+            <enum name="HTextAlign" value="lowerRight" />
+            <enum name="VTextAlign" value="lowerRight" />
+            <enum name="Font" value="suiGenSmall" />
+            <bool name="OverrideColorEnabled" value="true" />
+            <color name="OverrideColor" value="ffff8c00" />
+          </attributes>
+        </element>
+        <element type="customImage">
+          <attributes>
+            <string name="TextID" value="" />
+            <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+            <rect name="Rect" value="-60, 35, -8, 67" />
+            <texture name="Texture" value="UI/Images/Store/sp_small.png" />
+            <bool name="UseAlphaChannel" value="true" />
+          </attributes>
+        </element>
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="1monthsub_amount" />
+            <string name="Caption" value="30 Days" />
+            <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+            <rect name="Rect" value="0, 1, 0, 0" />
+            <bool name="Border" value="False" />
+            <enum name="HTextAlign" value="center" />
+            <enum name="VTextAlign" value="topLeft" />
+            <enum name="Font" value="outlineLarge" />
+            <bool name="OverrideColorEnabled" value="true" />
+            <color name="OverrideColor" value="ffffffff" />
+          </attributes>
+        </element>
+        <!--
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="1monthsub_savings" />
+            <string name="Caption" value="" />
+            <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+            <rect name="Rect" value="0, 64, 0, 0" />
+            <bool name="Border" value="False" />
+            <enum name="HTextAlign" value="center" />
+            <enum name="VTextAlign" value="topLeft" />
+            <enum name="Font" value="microLarge" />
+            <bool name="OverrideColorEnabled" value="true" />
+            <color name="OverrideColor" value="ff4e8449" />
+          </attributes>
+        </element>-->
+        <element type="customButton">
+          <attributes>
+            <string name="IdName" value="1monthsub_buybutton" />
+            <string name="Caption" value="" />
+            <rectf name="PercRect" value="0.5, 1.0, 0.5, 1.0" />
+            <rect name="Rect" value="-35, -34, 35, -4" />
+            <texture name="Image" value="UI/Images/Store/buy_small.png" />
+            <rect name="ImageRect" value="0, 0, 70, 30" />
+            <texture name="PressedImage" value="UI/Images/Store/buy_small_p.png" />
+            <rect name="PressedImageRect" value="0, 0, 70, 30" />
+            <texture name="Texture" value="UI/Images/Store/Items/default.png" />
+            <bool name="UseAlphaChannel" value="true" />
+            <bool name="Border" value="true" />
+            <bool name="Visible" value="true" />
+          </attributes>
+          <bindings>
+            <signal name="button_clicked" slot="BuySubscriptionButtonClicked" id="StoreManager" arg="20" />
+          </bindings>
+        </element>
+
+      </element>
+    </element>
+    <!-- 2 month sub -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="2monthsub_purchasebox" />
+        <string name="TextID" value="" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+        <rect name="Rect" value="163, 60, 293, 170" />
+        <bool name="Background" value="false" />
+      </attributes>
+      <element type="customStaticText">
+        <attributes>
+          <string name="TextID" value="" />
+          <string name="Caption" value="" />
+          <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+          <rect name="Rect" value="0, 0, 0, 0" />
+          <bool name="Background" value="true" />
+          <bool name="OverrideBgColorEnabled" value="true" />
+          <color name="OverrideBgColor" value="55000000" />
+        </attributes>
+
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="2monthsub_spacepoints" />
+            <string name="Caption" value="40" />
+            <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+            <rect name="Rect" value="0, 34, -60, 65" />
+            <bool name="Border" value="False" />
+            <int name="ScrolledLines" value="0" />
+            <enum name="HTextAlign" value="lowerRight" />
+            <enum name="VTextAlign" value="lowerRight" />
+            <enum name="Font" value="suiGenSmall" />
+            <bool name="OverrideColorEnabled" value="true" />
+            <color name="OverrideColor" value="ffff8c00" />
+          </attributes>
+        </element>
+        <element type="customImage">
+          <attributes>
+            <string name="TextID" value="" />
+            <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+            <rect name="Rect" value="-60, 35, -8, 67" />
+            <texture name="Texture" value="UI/Images/Store/sp_small.png" />
+            <bool name="UseAlphaChannel" value="true" />
+          </attributes>
+        </element>
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="2monthsub_amount" />
+            <string name="Caption" value="60 Days" />
+            <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+            <rect name="Rect" value="0, 1, 0, 0" />
+            <bool name="Border" value="False" />
+            <enum name="HTextAlign" value="center" />
+            <enum name="VTextAlign" value="topLeft" />
+            <enum name="Font" value="outlineLarge" />
+            <bool name="OverrideColorEnabled" value="true" />
+            <color name="OverrideColor" value="ffffffff" />
+          </attributes>
+        </element>
+        <!--
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="2monthsub_savings" />
+            <string name="Caption" value="16% savings!" />
+            <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+            <rect name="Rect" value="0, 64, 0, 0" />
+            <bool name="Border" value="False" />
+            <enum name="HTextAlign" value="center" />
+            <enum name="VTextAlign" value="topLeft" />
+            <enum name="Font" value="microLarge" />
+            <bool name="OverrideColorEnabled" value="true" />
+            <color name="OverrideColor" value="ff4e8449" />
+          </attributes>
+        </element>-->
+        <element type="customButton">
+          <attributes>
+            <string name="IdName" value="2monthsub_buybutton" />
+            <string name="Caption" value="" />
+            <rectf name="PercRect" value="0.5, 1.0, 0.5, 1.0" />
+            <rect name="Rect" value="-35, -34, 35, -4" />
+            <texture name="Image" value="UI/Images/Store/buy_small.png" />
+            <rect name="ImageRect" value="0, 0, 70, 30" />
+            <texture name="PressedImage" value="UI/Images/Store/buy_small_p.png" />
+            <rect name="PressedImageRect" value="0, 0, 70, 30" />
+            <texture name="Texture" value="UI/Images/Store/Items/default.png" />
+            <bool name="UseAlphaChannel" value="true" />
+            <bool name="Border" value="true" />
+            <bool name="Visible" value="true" />
+          </attributes>
+          <bindings>
+            <signal name="button_clicked" slot="BuySubscriptionButtonClicked" id="StoreManager" arg="40" />
+          </bindings>
+        </element>
+
+      </element>
+    </element>
+    <!-- 3 month sub -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="3monthsub_purchasebox" />
+        <string name="TextID" value="" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+        <rect name="Rect" value="307, 60, 437, 170" />
+        <bool name="Background" value="false" />
+      </attributes>
+      <element type="customStaticText">
+        <attributes>
+          <string name="TextID" value="" />
+          <string name="Caption" value="" />
+          <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+          <rect name="Rect" value="0, 0, 0, 0" />
+          <bool name="Background" value="true" />
+          <bool name="OverrideBgColorEnabled" value="true" />
+          <color name="OverrideBgColor" value="55000000" />
+        </attributes>
+
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="3monthsub_spacepoints" />
+            <string name="Caption" value="60" />
+            <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+            <rect name="Rect" value="0, 34, -55, 65" />
+            <bool name="Border" value="False" />
+            <int name="ScrolledLines" value="0" />
+            <enum name="HTextAlign" value="lowerRight" />
+            <enum name="VTextAlign" value="lowerRight" />
+            <enum name="Font" value="suiGenSmall" />
+            <bool name="OverrideColorEnabled" value="true" />
+            <color name="OverrideColor" value="ffff8c00" />
+          </attributes>
+        </element>
+        <element type="customImage">
+          <attributes>
+            <string name="TextID" value="" />
+            <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+            <rect name="Rect" value="-55, 35, -8, 67" />
+            <texture name="Texture" value="UI/Images/Store/sp_small.png" />
+            <bool name="UseAlphaChannel" value="true" />
+          </attributes>
+        </element>
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="3monthsub_amount" />
+            <string name="Caption" value="90 Days" />
+            <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+            <rect name="Rect" value="0, 1, 0, 0" />
+            <bool name="Border" value="False" />
+            <enum name="HTextAlign" value="center" />
+            <enum name="VTextAlign" value="topLeft" />
+            <enum name="Font" value="outlineLarge" />
+            <bool name="OverrideColorEnabled" value="true" />
+            <color name="OverrideColor" value="ffffffff" />
+          </attributes>
+        </element>
+        <!--
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="120SP_savings" />
+            <string name="Caption" value="25% savings!" />
+            <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+            <rect name="Rect" value="0, 64, 0, 0" />
+            <bool name="Border" value="False" />
+            <enum name="HTextAlign" value="center" />
+            <enum name="VTextAlign" value="topLeft" />
+            <enum name="Font" value="microLarge" />
+            <bool name="OverrideColorEnabled" value="true" />
+            <color name="OverrideColor" value="ff4e8449" />
+          </attributes>
+        </element>-->
+        <element type="customButton">
+          <attributes>
+            <string name="IdName" value="3monthsub_buybutton" />
+            <string name="Caption" value="" />
+            <rectf name="PercRect" value="0.5, 1.0, 0.5, 1.0" />
+            <rect name="Rect" value="-35, -34, 35, -4" />
+            <texture name="Image" value="UI/Images/Store/buy_small.png" />
+            <rect name="ImageRect" value="0, 0, 70, 30" />
+            <texture name="PressedImage" value="UI/Images/Store/buy_small_p.png" />
+            <rect name="PressedImageRect" value="0, 0, 70, 30" />
+            <texture name="Texture" value="UI/Images/Store/Items/default.png" />
+            <bool name="UseAlphaChannel" value="true" />
+            <bool name="Border" value="true" />
+            <bool name="Visible" value="true" />
+          </attributes>
+          <bindings>
+            <signal name="button_clicked" slot="BuySubscriptionButtonClicked" id="StoreManager" arg="60" />
+          </bindings>
+        </element>
+
+      </element>
+    </element>
+    <!-- 4 months -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="4monthsub_purchasebox" />
+        <string name="TextID" value="" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+        <rect name="Rect" value="450, 60, 580, 170" />
+        <bool name="Background" value="false" />
+      </attributes>
+      <element type="customStaticText">
+        <attributes>
+          <string name="TextID" value="" />
+          <string name="Caption" value="" />
+          <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+          <rect name="Rect" value="0, 0, 0, 0" />
+          <bool name="Background" value="true" />
+          <bool name="OverrideBgColorEnabled" value="true" />
+          <color name="OverrideBgColor" value="55000000" />
+        </attributes>
+
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="4monthsub_spacepoints" />
+            <string name="Caption" value="80" />
+            <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+            <rect name="Rect" value="0, 34, -55, 65" />
+            <bool name="Border" value="False" />
+            <int name="ScrolledLines" value="0" />
+            <enum name="HTextAlign" value="lowerRight" />
+            <enum name="VTextAlign" value="lowerRight" />
+            <enum name="Font" value="suiGenSmall" />
+            <bool name="OverrideColorEnabled" value="true" />
+            <color name="OverrideColor" value="ffff8c00" />
+          </attributes>
+        </element>
+        <element type="customImage">
+          <attributes>
+            <string name="TextID" value="" />
+            <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+            <rect name="Rect" value="-55, 35, -8, 67" />
+            <texture name="Texture" value="UI/Images/Store/sp_small.png" />
+            <bool name="UseAlphaChannel" value="true" />
+          </attributes>
+        </element>
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="4monthsub_amount" />
+            <string name="Caption" value="120 Days" />
+            <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+            <rect name="Rect" value="0, 1, 0, 0" />
+            <bool name="Border" value="False" />
+            <enum name="HTextAlign" value="center" />
+            <enum name="VTextAlign" value="topLeft" />
+            <enum name="Font" value="outlineLarge" />
+            <bool name="OverrideColorEnabled" value="true" />
+            <color name="OverrideColor" value="ffffffff" />
+          </attributes>
+        </element>
+        <!--
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="12monthsub_savings" />
+            <string name="Caption" value="28% savings!" />
+            <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+            <rect name="Rect" value="0, 64, 0, 0" />
+            <bool name="Border" value="False" />
+            <enum name="HTextAlign" value="center" />
+            <enum name="VTextAlign" value="topLeft" />
+            <enum name="Font" value="microLarge" />
+            <bool name="OverrideColorEnabled" value="true" />
+            <color name="OverrideColor" value="ff4e8449" />
+          </attributes>
+        </element>-->
+        <element type="customButton">
+          <attributes>
+            <string name="IdName" value="4monthsub_buybutton" />
+            <string name="Caption" value="" />
+            <rectf name="PercRect" value="0.5, 1.0, 0.5, 1.0" />
+            <rect name="Rect" value="-35, -34, 35, -4" />
+            <texture name="Image" value="UI/Images/Store/buy_small.png" />
+            <rect name="ImageRect" value="0, 0, 70, 30" />
+            <texture name="PressedImage" value="UI/Images/Store/buy_small_p.png" />
+            <rect name="PressedImageRect" value="0, 0, 70, 30" />
+            <texture name="Texture" value="UI/Images/Store/Items/default.png" />
+            <bool name="UseAlphaChannel" value="true" />
+            <bool name="Border" value="true" />
+            <bool name="Visible" value="true" />
+          </attributes>
+          <bindings>
+            <signal name="button_clicked" slot="BuySubscriptionButtonClicked" id="StoreManager" arg="80" />
+          </bindings>
+        </element>
+
+      </element>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="buySubProcessing" />
+        <string name="TextID" value="" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, 54, -8, -8" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="aa000000" />
+        <bool name="Visible" value="false" />
+      </attributes>
+      <bindings>
+        <slot name="setVisible" signal="static_show_sub_processing" id="StoreManager" />
+      </bindings>
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="buySubProcessing_TEXT" />
+          <string name="Caption" value="Processing..." />
+          <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+          <rect name="Rect" value="4, 4, -4, -4" />
+          <bool name="Border" value="False" />
+          <enum name="HTextAlign" value="center" />
+          <enum name="VTextAlign" value="center" />
+          <bool name="OverrideColorEnabled" value="true" />
+          <color name="OverrideColor" value="ffffffff" />
+          <enum name="Font" value="suiGenLarge" />
+        </attributes>
+        <bindings>
+          <slot name="setText" signal="static_sub_processing_text" id="StoreManager" />
+        </bindings>
+      </element>
+    </element>
+  </element>
+  <!-- END SUB BUTTONS-->
+
+  <!-- Close button-->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="ingameSubscriptionCloseButton" />
+      <int name="Id" value="966" />
+      <rect name="Rect" value="-18, 2, -2, 18" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+      <texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="toggleVisibility" id="ingameSubscriptionDialog" />
+    </bindings>
+  </element>
+</element>
+
+

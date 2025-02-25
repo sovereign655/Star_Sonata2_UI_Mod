@@ -1,0 +1,211 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="shipInventoryDialogEx*" />
+		<int name="Flags" value="0" />
+		<rect name="Rect" value="300, 196, 593, 560" />
+    <position name="MinSize" value="293, 364" />
+    <position name="MaxSize" value="410, 972" />
+		<bool name="Movable" value="true" />
+		<bool name="Visible" value="true" />
+		<int name="BorderStyle" value="2" />
+		<bool name="KeepOnScreen" value="true" />
+		<bool name="HideOnLogout" value="true" />
+    <int name="ResizeBorderWidth" value="5" />
+    <bool name="BottomResizable" value="true" />
+    <bool name="RightResizable" value="true" />
+		<string name="SoundShow" value="DialogOpen.wav" />
+		<string name="SoundHide" value="DialogClose.wav" />
+	</attributes>
+	<bindings>
+		<slot name="toggleVisibility" signal="dialog_inventory_visible" id="MyPropertyManager" />
+		<slot name="bringToTop" signal="dialog_to_top" id="MyPropertyManager" />
+		<signal name="created" slot="bringToTop" id="shipInventoryDialogEx" />
+		<signal name="moved" slot="DialogMoved" id="LogicManager" />
+		<signal name="visibility_change" slot="DialogVisibilityChanged" id="LogicManager" />
+	</bindings>
+
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="InventoryHeader*" />
+			<int name="Id" value = "22" />
+			<string name="TextID" value="" />
+			<string name="Caption" value="Equipment" />
+			<rect name="Rect" value="5, 3, 251, 17" />
+		</attributes>
+		<!--<bindings>
+			<slot name="setText" signal="inventory_header_text" id="InventoryManager*" />
+		</bindings>		-->
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="inventoryAll*" />
+			<string name="TextID" value="" />
+			<int name="Id" value="16" />
+			<string name="Caption" value="All" />
+			<rect name="Rect" value="2, 20, 31, 40" />
+		</attributes>
+		<!--<bindings>
+			<signal name="button_clicked" slot="SetInventoryMode" id="InventoryManager*" arg="INVENTORY_ALL" />
+		</bindings>-->
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="inventoryEquipped*" />
+			<string name="TextID" value="" />
+			<int name="Id" value="17" />
+			<string name="Caption" value="Equipped" />
+			<rect name="Rect" value="33, 20, 91, 40" />
+		</attributes>
+		<!--<bindings>
+			<signal name="button_clicked" slot="SetInventoryMode" id="InventoryManager*" arg="INVENTORY_EQUIPPED" />
+		</bindings>-->
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="inventoryUnequipped*" />
+			<string name="TextID" value="" />
+			<int name="Id" value="17" />
+			<string name="Caption" value="Unequipped" />
+			<rect name="Rect" value="93, 20, 169, 40" />
+		</attributes>
+		<!--<bindings>
+			<signal name="button_clicked" slot="SetInventoryMode" id="InventoryManager*" arg="INVENTORY_UNEQUIPPED" />
+		</bindings>-->
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="inventoryInFlightUse*" />
+			<string name="TextID" value="" />
+			<int name="Id" value="18" />
+			<string name="Caption" value="In-flight use" />
+			<rect name="Rect" value="171, 20, 247, 40" />
+		</attributes>
+		<!--<bindings>
+			<signal name="button_clicked" slot="SetInventoryMode" id="InventoryManager*" arg="INVENTORY_INFLIGHTUSE" />
+		</bindings>-->
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="inventoryBase*" />
+			<string name="TextID" value="" />
+			<int name="Id" value="19" />
+			<string name="Caption" value="Station" />
+			<rect name="Rect" value="249, 20, 287, 40" />
+		</attributes>
+		<!--<bindings>
+			<signal name="button_clicked" slot="SetInventoryMode" id="InventoryManager*" arg="INVENTORY_BASE" />
+		</bindings>-->
+	</element>
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="inventoryCargo*" />
+      <string name="TextID" value="" />
+      <int name="Id" value="23" />
+      <string name="Caption" value="Cargo" />
+      <rect name="Rect" value="289, 20, 329, 40" />
+    </attributes>
+  </element>
+  
+	<element type="customTable">
+		<attributes>
+			<rect name="Rect" value="2, 40, -6, -28" />
+			<rectf name="PercRect" value="0, 0, 1, 1"/>
+			<enum name="RightAlign" value="lowerRight" />
+			<string name="IdName" value="shipItemList*" />
+			<bool name="Draggable" value="true" />
+			<string name="TextID" value="" />
+			<int name="Id" value="150" />
+			<int name="ColumnCount" value="6" />
+			<int name="ActiveTab" value="0" />
+			<int name="SecondaryTab" value="5" />	 <!-- will order those == using that (usually used so that if you order by type, they will also be ordered by their name in each type) -->
+			<enum name="CurrentOrdering" value="ascending" />
+			<bool name="ResizableColumns" value="false" />
+
+			<string name="Column0name" value=".." />
+			<int name="Column0width" value="10" />
+			<enum name="Column0OrderingMode" value="ascend_descend" />
+			
+			<string name="Column1name" value="TL" />
+			<int name="Column1width" value="25" />
+			<enum name="Column1OrderingMode" value="ascend_descend" />
+			<enum name="Column1OrderingType" value="numerical" />
+
+			<string name="Column2name" value="T" />
+			<int name="Column2width" value="25" />
+			<enum name="Column2OrderingMode" value="ascend_descend" />
+
+			<string name="Column3name" value="E" />
+			<int name="Column3width" value="25" />
+			<enum name="Column3OrderingMode" value="ascend_descend" />		
+
+			<string name="Column4name" value="#" />
+			<int name="Column4width" value="25" />
+			<enum name="Column4OrderingMode" value="ascend_descend" />
+			<enum name="Column4OrderingType" value="numerical" />
+
+			<string name="Column5name" value="Item" />
+			<int name="Column5width" value="179" />
+			<enum name="Column5OrderingMode" value="ascend_descend" />
+
+			<int name="DrawFlags" value="4" />
+			<bool name="MultiSelection" value="true" />
+			<string name="IconBankName" value="items_small" />
+			<bool name="KeyNavigation" value="false" />
+			<bool name="AcceptsDrop" value="true" />
+		</attributes>
+		<!--<bindings>
+			<slot name="setText" signal="table_items_text" id="InventoryManager*" />
+      <slot name="setColor" signal="table_items_color" id="InventoryManager" />
+			<slot name="setIcon" signal="table_items_icons" id="InventoryManager*" />
+			<signal name="item_double_clicked_index" slot="OnLButtonDblClk" id="InventoryManager*" />
+			<signal name="item_right_clicked_index" slot="OnRButtonDown" id="InventoryManager*" />
+			<signal name="item_selected_index" slot="OnTableChanged" id="InventoryManager*" />
+			<signal name="dropped" slot="InventoryManagerItemDropped" id="InventoryManager*" />
+		</bindings>-->
+	</element>
+
+	<element type="customEditBox">
+		<attributes>
+			<string name="IdName" value="InventorySearch*" />
+			<string name="TextID" value="" />
+			<int name="Id" value="20" />
+			<rectf name="PercRect" value="0, 1, 1, 1"/>
+			<rect name="Rect" value="6, -26, -7, -6" />
+			<string name="PlaceholderText" value="Search..." />
+			<string name="ToolTip" value="Search for items on this ship." />
+		</attributes>
+	</element>
+	<!-- <element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="InventorySearchText*" />
+			<string name="TextID" value="" />
+			<int name="Id" value="21" />
+			<string name="Caption" value="Search: " />
+			<rectf name="PercRect" value="0, 1, 0, 1"/>
+			<rect name="Rect" value="3, -24, 47, -5" />
+		</attributes>
+	</element> -->
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="inventoryCloseButton*" />
+			<int name="Id" value="66" />
+			<rect name="Rect" value="-22, 2, -6, 18" />
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+			<texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+			<texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="false" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="DestroyGuiDialog" id="GuiFactory" arg="shipInventoryDialogEx|*" />
+		</bindings>
+	</element>
+
+</element>

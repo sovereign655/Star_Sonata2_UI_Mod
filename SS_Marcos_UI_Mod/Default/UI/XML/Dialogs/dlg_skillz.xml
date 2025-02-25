@@ -1,0 +1,176 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="skillzDialog" />
+    <int name="Flags" value="0" />
+    <rectf name="PercRect" value="0, 0, 1, 1" />
+    <rect name="Rect" value="13, 96, -13, -13" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="false" />
+    <bool name="DrawBackground" value="true" />
+  </attributes>
+  <bindings>
+    <signal name="revealed" slot="OnInitSkillz" id="SkillzManager" />
+  </bindings>
+
+  <element type="customImage">
+    <attributes>
+      <string name="IdName" value="neuroBGimage"/>
+      <rectf name="PercRect" value="1, 0, 1, 0" />
+      <rect name="Rect" value="-512, 0, 0, 522" />
+      <texture name="Texture" value="UI/Images/Backgrounds/Neuro Training 0.png" />
+      <bool name="ScaleImage" value="False" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+    <bindings>
+      <slot name="loadImage" signal="image_load" id="SkillzManager"/>
+    </bindings>
+  </element>
+
+  <element type="customTable">
+    <attributes>
+      <string name="IdName" value="skillzTableSkill" />
+      <string name="TextID" value="" />
+      <int name="Id" value="124" />
+      <rectf name="PercRect" value="0, 0, 1.0, 0.7" />
+      <rect name="Rect" value="8, 33, -225, -3" />
+      <int name="ColumnCount" value="4" />
+      <string name="Column0name" value="Skill" />
+	  <int name="ActiveTab" value="0" />
+	  <enum name="CurrentOrdering" value="ascending" />
+      <color name="Column0color" value="ffb7f9ff" />
+      <int name="Column0width" value="135" />
+      <enum name="Column0OrderingMode" value="ascend_descend" />
+      <string name="Column1name" value="Cost" />
+      <color name="Column1color" value="ffb7f9ff" />
+      <int name="Column1width" value="35" />
+      <enum name="Column1OrderingMode" value="ascend_descend" />
+      <string name="Column2name" value="Limit" />
+      <color name="Column2color" value="ffb7f9ff" />
+      <int name="Column2width" value="25" />
+      <enum name="Column2OrderingMode" value="ascend_descend" />
+      <string name="Column3name" value="Level" />
+      <color name="Column3color" value="ffb7f9ff" />
+      <int name="Column3width" value="26" />
+      <enum name="Column3OrderingMode" value="ascend_descend" />
+      <bool name="ResizableColumns" value="false" />
+      <int name="DrawFlags" value="4" />
+      <bool name="MultiSelection" value="true" />
+      <bool name="DrawBack" value="true" />
+      <bool name="UseOverrideBgColor" value="true" />
+      <color name="OverrideBgColor" value="8F000000" />
+    </attributes>
+    <bindings>
+      <slot name="setAll" signal="table_skill_all" id="SkillzManager" />
+      <signal name="item_double_clicked_data" slot="OnDblclkSkillList" id="SkillzManager" />
+      <signal name="item_selected_data" slot="OnClickList" id="SkillzManager" />
+      <signal name="item_selected_data" slot="UpdateSkillDescriptionWindow" id="SkillzManager" />
+    </bindings>
+
+  </element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_skillpoints" />
+      <string name="Caption" value="Available points:" />
+      <rectf name="PercRect" value="0, 1, 0, 1" />
+      <rect name="Rect" value="124, -30, 240, -8" />
+      <int name="ScrolledLines" value="0" />
+      <enum name="VTextAlign" value="center" />
+      <bool name="WordWrap" value="false" />
+	  <enum name="Font" value="largeBoldFont" />
+    </attributes>
+  </element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="skillzStaticSkillPoints" />
+      <string name="TextID" value="" />
+      <int name="Id" value="126" />
+      <string name="Caption" value="0" />
+      <rectf name="PercRect" value="0, 1, 1, 1" />
+      <rect name="Rect" value="240, -35, -8, -4" />
+      <int name="ScrolledLines" value="0" />
+      <enum name="Font" value="largeBoldFont" />
+      <enum name="VTextAlign" value="center" />
+      <enum name="HTextAlign" value="upperLeft" />
+      <bool name="WordWrap" value="false" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_skillpoints_text" id="SkillzManager" />
+    </bindings>
+  </element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="skillzStaticSkillDesc" />
+      <string name="Caption" value="" />
+      <rectf name="PercRect" value="0.0, 0.7, 1.0, 1.0" />
+      <rect name="Rect" value="8, 3, -225, -39" />
+      <bool name="AutoScroll" value="true" />
+      <bool name="WordWrap" value="true" />
+      <bool name="Background" value="true" />
+      <bool name="Border" value="true" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_skilldesc_text" id="SkillzManager" />
+    </bindings>
+  </element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_trainneuron" />
+      <string name="Caption" value="Train your neurons." />
+      <rect name="Rect" value="14, 11, 150, 34" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+  </element>
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="skillzButtonAcquire" />
+      <string name="TextID" value="" />
+      <int name="Id" value="152" />
+      <string name="Caption" value="Acquire Skill" />
+      <rectf name="PercRect" value="0, 1, 0, 1" />
+      <rect name="Rect" value="8, -31, 116, -8" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnAcquire" id="SkillzManager" />
+    </bindings>
+  </element>
+
+  <!--<element type="customButton">
+    <attributes>
+      <string name="IdName" value="skillzButtonAcquire" />
+      <string name="TextID" value="" />
+      <int name="Id" value="125" />
+      <rect name="Rect" value="367, 238, 468, 261" />
+      <rectf name="PercRect" value="0, 1, 0, 1" />
+      <rect name="Rect" value="8, -31, 109, -8" />
+      <texture name="Image" value="res/buttons/acquire.bmp" />
+      <rect name="ImageRect" value="0, 0, 104, 26" />
+      <texture name="PressedImage" value="res/buttons/acquireD.bmp" />
+      <rect name="PressedImageRect" value="0, 0, 104, 26" />
+      <texture name="DisabledImage" value="res/buttons/acquireX.bmp" />
+      <rect name="PressedImageRect" value="0, 0, 104, 26" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnAcquire" id="SkillzManager" />
+    </bindings>
+  </element>-->
+
+  <!--<element type="customImage">
+    <attributes>
+      <string name="IdName" value="skillzImageWrithe" />
+      <rect name="Rect" value="0, 13, 252, 368" />
+      <texture name="Texture" value="Content/Default/UI/Images/station/neural/body0.png" />
+
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+    <bindings>
+      <slot name="loadImage" signal="image_load" id="SkillzManager" />
+    </bindings>
+  </element>-->
+</element>

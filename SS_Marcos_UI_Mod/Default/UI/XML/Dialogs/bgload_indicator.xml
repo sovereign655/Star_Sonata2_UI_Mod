@@ -1,0 +1,42 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="bgloadindicator" />
+    <int name="Flags" value="0" />
+    <rect name="Rect" value="-220, 100, -120, 200" />
+		<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="true" />
+    <bool name="StayAtBack" value="true" />
+    <bool name="DrawBackground" value="false" />
+  </attributes>
+  
+  <element type="customImage">
+    <attributes>
+      <string name="IdName" value="bgloadindicatorimg" />
+      <rect name="Rect" value="0, 0, 100, 100" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="ScaleImage" value="false" />
+      <texture name="Texture" value="bgload.image" />
+      <color name="Color" value="00000000" />
+    </attributes>      
+    <bindings>
+      <slot name="setColor" signal="bgloadindicatorimg" id="bgloadindicator" />
+      <slot name="setToolTipText" signal="bgloadindicatorimgtt" id="bgloadindicator" />
+    </bindings>
+  </element>
+  <element type="customImage">
+    <attributes>
+      <string name="IdName" value="bgloadindicatorimgf" />
+      <rect name="Rect" value="0, 0, 100, 100" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="ScaleImage" value="false" />
+      <texture name="Texture" value="bgload.image" />
+      <color name="Color" value="00000000" />
+    </attributes>      
+    <bindings>
+      <slot name="setRelativePosition" signal="bgloadindicatorimgfrect" id="bgloadindicator" />
+      <slot name="setColor" signal="bgloadindicatorimgf" id="bgloadindicator" />
+      <slot name="setToolTipText" signal="bgloadindicatorimgtt" id="bgloadindicator" />
+    </bindings>
+  </element>
+</element>

@@ -1,0 +1,60 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="contactsDialog" />
+    <rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+    <rect name="Rect" value="-250, -205, 250, 205" />
+    <int name="Flags" value="0" />
+    <position name="MinSize" value="500, 410" />
+    <position name="MaxSize" value="600, 652" />	
+    <bool name="Movable" value="true" />
+    <int name="BorderStyle" value="2" />
+    <int name="ResizeBorderWidth" value="5" />
+    <bool name="Visible" value="false" />
+    <bool name="BottomResizable" value="true" />
+    <bool name="RightResizable" value="true" />		
+    <int name="ResizeBorderWidth" value="2" />
+    <bool name="KeepOnScreen" value="true" />
+    <bool name="HideOnLogout" value="true" />
+    <string name="SoundShow" value="DialogOpen.wav" />
+    <string name="SoundHide" value="DialogClose.wav" />
+  </attributes>
+  <bindings>
+    <signal name="revealed" slot="ContactsDialogRevealed" id="ContactsManager" />
+    <signal name="revealed" slot="bringToTop" id="contactsDialog" />
+    <signal name="hidden" slot="ContactsDialogHidden" id="ContactsManager" />	
+    <signal name="revealed" slot="toggleActiveState" id="contactsCommandToggle" />
+    <signal name="hidden" slot="toggleActiveState" id="contactsCommandToggle" />	
+    <signal name="created" slot="setText" id="contactsTabs"  arg="Squad|Team|Friends" />
+    <signal name="created" slot="setActiveTab" id="contactsTabs"  arg="Squad" />
+    <signal name="moved" slot="DialogMoved" id="LogicManager" />	
+    <signal name="visibility_change" slot="DialogVisibilityChanged" id="LogicManager" />
+  </bindings>
+  <!--Tab Control-->
+  <element type="customTabControl">
+    <attributes>
+      <int name="Id" value="100" />
+      <string name="IdName" value="contactsTabs" />
+      <rect name="Rect" value="8, 8, 201, 42" />
+      <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+    </attributes>
+    <bindings>
+      <signal name="item_selected_text" slot="ContactsDialogActiveTabChanged" id="ContactsManager" />
+      <slot name="setText" signal="active_tab_changed" id="ContactsManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+	  <attributes>
+      <string name="IdName" value="contactsButtonClose" />
+      <int name="Id" value="66" />
+      <rect name="Rect" value="-18, 2, -2, 18" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+      <texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+	  </attributes>
+	  <bindings>
+      <signal name="button_clicked" slot="toggleVisibility" id="contactsDialog"/>	
+	  </bindings>
+  </element>  
+</element>

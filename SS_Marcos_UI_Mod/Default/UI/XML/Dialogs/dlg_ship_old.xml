@@ -1,0 +1,610 @@
+	<element type="customWindow">
+		<attributes>
+			<string name="IdName" value="shipInfoDialog" />
+			<int name="Id" value="667" />
+			<!--<rect name="Rect" value="296, 80, 650, 275" />-->
+			<rect name="Rect" value="0, 0, 780, 586" />
+			<position name="MinSize" value="780, 586" />
+			<position name="MaxSize" value="1069, 900" />	  
+			<int name="Flags" value="0" />
+			<bool name="Movable" value="true" />
+			<int name="ResizeBorderWidth" value="5" />
+			<bool name="Visible" value="false" />
+			<bool name="BottomResizable" value="true" />
+			<bool name="RightResizable" value="true" />					
+			<int name="BorderStyle" value="2" />
+			<bool name="KeepOnScreen" value="true" />
+			<string name="SoundShow" value="DialogOpen.wav" />
+			<string name="SoundHide" value="DialogClose.wav" />
+			<bool name="HideOnLogout" value="true" />
+		</attributes>
+		<bindings>
+			<signal name="revealed" slot="bringToTop" id="shipInfoDialog" />
+      <signal name="revealed" slot="RefreshShipData" id="ShipInfoManager" />	
+			<signal name="revealed" slot="toggleActiveState" id="shipCommandToggle" />
+			<signal name="hidden" slot="toggleActiveState" id="shipCommandToggle" />
+      <slot name="setVisible" signal="dialog_shipinfo_visible" id="ShipInfoManager" />
+			
+			<signal name="moved" slot="DialogMoved" id="LogicManager" />	
+			<signal name="visibility_change" slot="DialogVisibilityChanged" id="LogicManager" />
+		</bindings>
+		
+		<element type="customImage">
+			<attributes>
+				<string name="TextID" value="" />
+				<rect name="Rect" value="5, 5, 170, 37" />
+				<texture name="Texture" value="UI/Images/Dialogs/shipheader.png" />
+				<bool name="UseAlphaChannel" value="true" />
+			</attributes>
+		</element>
+    
+    <element type="itempreview">
+      <attributes>
+        <bool name="Visible" value="true" />
+        <int name="Id" value="100" />
+		<rect name="Rect" value="16, 60, 272, 188" />
+      </attributes>
+    </element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="shipStaticHullName" />
+				<string name="TextID" value="" />
+				<int name="Id" value="15" />
+				<string name="Caption" value="hullname" />
+				<rect name="Rect" value="16, 200, 272, 224" />
+        <enum name="Font" value="largeBoldFont" />
+        <enum name="HTextAlign" value="center" />
+        <enum name="VTextAlign" value="center" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_name_text" id="ShipInfoManager" />
+        <slot name="setToolTipText" signal="static_statstring_text" id="ShipInfoManager" />
+			</bindings>
+		</element>
+    
+    <!-- <element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_shiptechlev" />
+				<string name="Caption" value="Tech" />
+				<rect name="Rect" value="16, 230, 272, 246" />
+			</attributes>
+		</element> -->
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="shipStaticTechLevel" />
+				<string name="TextID" value="" />
+				<int name="Id" value="17" />
+				<string name="Caption" value="tech" />
+				<rect name="Rect" value="16, 230, 272, 246" />
+        <enum name="HTextAlign" value="center" />
+        <enum name="VTextAlign" value="center" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_tech_text" id="ShipInfoManager" />
+			</bindings>			
+		</element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_shiptopspeed" />
+				<string name="Caption" value="Top Speed:" />
+				<rect name="Rect" value="16, 250, 272, 266" />
+			</attributes>
+		</element>
+    
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="shipStaticTopSpeed" />
+				<string name="TextID" value="" />
+				<int name="Id" value="18" />
+				<string name="Caption" value="speed" />
+				<rect name="Rect" value="96, 250, 222, 266" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_maxspeed_text" id="ShipInfoManager" />
+			</bindings>			
+		</element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_shiphullspace" />
+				<string name="Caption" value="Hull Space: " />
+				<rect name="Rect" value="16, 270, 272, 286" />
+			</attributes>
+		</element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="shipStaticSpace" />
+				<string name="TextID" value="" />
+				<int name="Id" value="19" />
+				<string name="Caption" value="hull space" />
+				<rect name="Rect" value="96, 270, 272, 286" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_space_text" id="ShipInfoManager" />
+			</bindings>
+		</element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_shipweight" />
+				<string name="Caption" value="Weight:" />
+				<rect name="Rect" value="16, 290, 272, 306" />
+			</attributes>
+		</element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="shipStaticWeight" />
+				<string name="TextID" value="" />
+				<int name="Id" value="16" />
+				<string name="Caption" value="weight" />
+				<rect name="Rect" value="96, 290, 272, 306" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_weight_text" id="ShipInfoManager" />
+			</bindings>
+		</element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_shipshields" />
+				<string name="Caption" value="Max Shields:" />
+				<rect name="Rect" value="16, 310, 272, 326" />
+			</attributes>
+		</element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="shipStaticShields" />
+				<string name="TextID" value="" />
+				<int name="Id" value="19" />
+				<string name="Caption" value="shields" />
+				<rect name="Rect" value="96, 310, 272, 326" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_shield_text" id="ShipInfoManager" />
+			</bindings>
+		</element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_shipenergy" />
+				<string name="Caption" value="Max Energy:" />
+				<rect name="Rect" value="16, 330, 272, 346" />
+			</attributes>
+		</element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="shipStaticEnergy" />
+				<string name="TextID" value="" />
+				<int name="Id" value="20" />
+				<string name="Caption" value="energy" />
+				<rect name="Rect" value="96, 330, 272, 346" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_energy_text" id="ShipInfoManager" />
+			</bindings>
+		</element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_shipmaxturn" />
+				<string name="Caption" value="Max Turning:" />
+				<rect name="Rect" value="16, 350, 272, 366" />
+			</attributes>
+		</element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="shipStaticTurning" />
+				<string name="TextID" value="" />
+				<int name="Id" value="20" />
+				<string name="Caption" value="turning" />
+				<rect name="Rect" value="96, 350, 272, 366" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_turning_text" id="ShipInfoManager" />
+			</bindings>
+		</element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_shipmaxthrust" />
+				<string name="Caption" value="Max Thrust:" />
+				<rect name="Rect" value="16, 370, 272, 386" />
+			</attributes>
+		</element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="shipStaticThrust" />
+				<string name="TextID" value="" />
+				<int name="Id" value="20" />
+				<string name="Caption" value="thrust" />
+				<rect name="Rect" value="96, 370, 272, 386" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_thrust_text" id="ShipInfoManager" />
+			</bindings>
+		</element>
+    
+    <!--<element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_shipvisibility" />
+				<string name="Caption" value="Visibility:" />
+				<rect name="Rect" value="16, 390, 272, 406" />
+			</attributes>
+		</element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="shipStaticVis" />
+				<string name="TextID" value="" />
+				<int name="Id" value="20" />
+				<string name="Caption" value="visibility" />
+				<rect name="Rect" value="96, 390, 272, 406" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_visibility_text" id="ShipInfoManager" />
+			</bindings>
+		</element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_shipreflectivity" />
+				<string name="Caption" value="Reflectivity:" />
+				<rect name="Rect" value="16, 410, 272, 426" />
+			</attributes>
+		</element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="shipStaticReflect" />
+				<string name="TextID" value="" />
+				<int name="Id" value="20" />
+				<string name="Caption" value="reflectivity" />
+				<rect name="Rect" value="96, 410, 272, 426" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_reflectivity_text" id="ShipInfoManager" />
+			</bindings>
+		</element> -->
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_shipresistances" />
+				<string name="Caption" value="Resistances" />
+				<rect name="Rect" value="280, 40, 516, 56" />
+        <string name="ToolTip" value="Modification to the amount of damage your ship takes." />
+        <enum name="Font" value="smallBoldFont" />
+			</attributes>
+		</element>
+   
+  <element type="customTable">
+		<attributes>
+			<rect name="Rect" value="280, 80, 516, 256" />
+			<enum name="RightAlign" value="lowerRight" />			
+			<string name="IdName" value="resistStatList" />
+			<bool name="Draggable" value="false" />
+			<string name="TextID" value="" />
+			<int name="Id" value="8953" />
+			<int name="ColumnCount" value="3" />
+			<int name="ActiveTab" value="0" />
+			<int name="SecondaryTab" value="1" />
+      <bool name="DrawBack" value="false" />
+			<enum name="CurrentOrdering" value="ascending" />
+			<bool name="ResizableColumns" value="false" />
+      <!-- <int name="CellWidthPadding" value="2" /> -->
+      <int name="CellHeightPadding" value="2" />
+      
+      <string name="Column0name" value="T" />
+			<int name="Column0width" value="25" />
+			<enum name="Column0OrderingMode" value="ascend_descend" />
+
+			<string name="Column1name" value="Resistances" />
+			<int name="Column1width" value="150" />
+			<enum name="Column1OrderingMode" value="ascend_descend" />
+			
+			<string name="Column2name" value="" />
+			<int name="Column2width" value="150" />
+			<enum name="Column2OrderingMode" value="ascend_descend" />
+      <enum name="Column2OrderingType" value="alphabetical" />
+
+			<int name="DrawFlags" value="4" />
+			<bool name="MultiSelection" value="false" />
+			<bool name="KeyNavigation" value="false" />
+			<bool name="AcceptsDrop" value="false" />
+      <string name="IconBankName" value="buffs_small" />
+		</attributes>
+		<bindings>
+			<slot name="setAll" signal="table_resist_all" id="ShipInfoManager" />
+			<!--<slot name="setText" signal="table_items_text" id="ShipInfoManager" />
+
+			<slot name="setMultiSelectedIndex" signal="table_items_select" id="InventoryManager" />
+			<signal name="item_double_clicked_index" slot="OnLButtonDblClk" id="InventoryManager" />
+			<signal name="item_right_clicked_index" slot="OnRButtonDown" id="InventoryManager" />
+			<signal name="item_selected_data" slot="OnTableChanged" id="InventoryManager" />
+			<signal name="item_mouse_paused_data" slot="OnTableItemMousePausedData" id="InventoryManager" />
+			<signal name="item_hovered_data" slot="OnTableItemHoveredData" id="InventoryManager" />
+			<signal name="mouse_left" slot="HideHoverTooltip" id="InventoryManager" />
+			<signal name="dragged" slot="InventoryManagerItemDragged" id="InventoryManager" />
+			<signal name="dropped" slot="InventoryManagerItemDropped" id="InventoryManager" /> -->
+
+		</bindings>
+	</element>
+
+    <element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_shiptweakbonus" />
+				<string name="Caption" value="Buffs" />
+				<rect name="Rect" value="280, 260, 516, 276" />
+        <string name="ToolTip" value="Bonues granted by Neurotweaks, Field Generators and Auras." />
+        <enum name="Font" value="smallBoldFont" />
+			</attributes>
+		</element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="shipStaticNeuroTweak" />
+				<string name="TextID" value="" />
+				<int name="Id" value="22" />
+				<string name="Caption" value="neurotweak" />
+				<rect name="Rect" value="280, 280, 516, 296" />
+        <string name="ToolTip" value="Neurotweaking affects buffs granted by some Neurotweaks, Field Generators and Auras." />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_neurotweak_text" id="ShipInfoManager" />
+			</bindings>
+		</element>
+  
+  <element type="customTable">
+		<attributes>
+			<rect name="Rect" value="280, 300, 516, 429" />
+			<enum name="RightAlign" value="lowerRight" />			
+			<string name="IdName" value="buffStatList" />
+			<bool name="Draggable" value="true" />
+			<string name="TextID" value="" />
+			<int name="Id" value="8951" />
+			<int name="ColumnCount" value="3" />
+			<int name="ActiveTab" value="0" />
+			<int name="SecondaryTab" value="1" />
+			<enum name="CurrentOrdering" value="ascending" />
+      <!-- <int name="CellWidthPadding" value="2" /> -->
+      <int name="CellHeightPadding" value="2" />
+
+
+			<bool name="ResizableColumns" value="false" />
+
+			<string name="Column0name" value="T" />
+			<int name="Column0width" value="25" />
+			<enum name="Column0OrderingMode" value="ascend_descend" />
+			
+			<string name="Column1name" value="Name" />
+			<int name="Column1width" value="150" />
+			<enum name="Column1OrderingMode" value="ascend_descend" />
+      <enum name="Column1OrderingType" value="alphabetical" />
+			
+			<string name="Column2name" value="Value" />
+			<int name="Column2width" value="25" />
+			<enum name="Column2OrderingMode" value="ascend_descend" />
+
+			<enum name="Column2OrderingType" value="numerical" />
+			
+			<int name="DrawFlags" value="4" />
+			<bool name="MultiSelection" value="false" />
+			<string name="IconBankName" value="buffs_small" />
+			<bool name="KeyNavigation" value="false" />
+			<bool name="AcceptsDrop" value="false" />
+		</attributes>
+		<bindings>
+			<slot name="setAll" signal="table_buffs_all" id="ShipInfoManager" />
+		</bindings>
+	</element>
+  
+  <element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_shipweaponstable" />
+				<string name="Caption" value="Weapon Stats" />
+				<rect name="Rect" value="16, 413, 128, 429" />
+        <string name="ToolTip" value="Damage, range, recoil and other final values of equipped weapons." />
+        <enum name="Font" value="smallBoldFont" />
+			</attributes>
+		</element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_shipshowcrits" />
+				<string name="Caption" value="Show Crits? :" />
+        <string name="ToolTip" value="Update weapons stats to reflect critical hit damage, DPE and average DPS changes based on critical hit statistics." />
+				<rect name="Rect" value="180, 413, 256, 429" />
+        <enum name="RightAlign" value="lowerRight" />	
+			</attributes>
+		</element>
+    
+    <element type="customCheckBox">
+			<attributes>
+        <string name="IdName" value="shipInfoShowCrits" />
+				<string name="TextID" value="id_shipshowcrits" />
+				<rect name="Rect" value="256, 413, 272, 429" />		
+			</attributes>
+			<bindings>
+				<signal name="value_changed" slot="ShowCrits" id="ShipInfoManager" />
+        <slot name="setValue" signal="check_show_crits" id="ShipInfoManager" />
+			</bindings>
+		</element>	
+  
+  <element type="customTable">
+		<attributes>
+			<rect name="Rect" value="16, 433, 516, 576" />
+			<enum name="RightAlign" value="lowerRight" />			
+			<string name="IdName" value="weaponStatList" />
+			<bool name="Draggable" value="true" />
+			<string name="TextID" value="" />
+			<int name="Id" value="8953" />
+			<int name="ColumnCount" value="7" />
+			<int name="ActiveTab" value="0" />
+			<int name="SecondaryTab" value="1" />
+			<enum name="CurrentOrdering" value="ascending" />
+      <!-- <int name="CellWidthPadding" value="2" /> -->
+      <int name="CellHeightPadding" value="2" />
+
+
+			<bool name="ResizableColumns" value="false" />
+
+			<string name="Column0name" value="T" />
+			<int name="Column0width" value="25" />
+			<enum name="Column0OrderingMode" value="ascend_descend" />
+			
+			<string name="Column1name" value="Name" />
+			<int name="Column1width" value="150" />
+			<enum name="Column1OrderingMode" value="ascend_descend" />
+      <enum name="Column1OrderingType" value="alphabetical" />
+			
+			<string name="Column2name" value="DPS" />
+			<int name="Column2width" value="25" />
+			<enum name="Column2OrderingMode" value="ascend_descend" />
+			<enum name="Column2OrderingType" value="numerical" />
+      
+      <string name="Column3name" value="DPE" />
+			<int name="Column3width" value="25" />
+			<enum name="Column3OrderingMode" value="ascend_descend" />
+			<enum name="Column3OrderingType" value="numerical" />
+      
+      <string name="Column4name" value="Damage" />
+			<int name="Column4width" value="25" />
+			<enum name="Column4OrderingMode" value="ascend_descend" />
+			<enum name="Column4OrderingType" value="numerical" />
+      
+      <string name="Column5name" value="Recoil" />
+			<int name="Column5width" value="25" />
+			<enum name="Column5OrderingMode" value="ascend_descend" />
+			<enum name="Column5OrderingType" value="numerical" />
+      
+      <string name="Column6name" value="Range" />
+			<int name="Column6width" value="25" />
+			<enum name="Column6OrderingMode" value="ascend_descend" />
+			<enum name="Column6OrderingType" value="numerical" />
+			
+			<int name="DrawFlags" value="4" />
+			<bool name="MultiSelection" value="false" />
+			<string name="IconBankName" value="items_small" />
+			<bool name="KeyNavigation" value="false" />
+			<bool name="AcceptsDrop" value="false" />
+		</attributes>
+		<bindings>
+			<slot name="setAll" signal="table_weapons_all" id="ShipInfoManager" />
+		</bindings>
+	</element>
+  
+  <element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_shipaugbonus" />
+				<string name="Caption" value="Augmenter, Class and Mod Bonuses" />
+				<rect name="Rect" value="524, 40, 760, 56" />
+        <string name="ToolTip" value="Stat bonuses from Augmenters, Class Skills, Mods and Items." />
+        <enum name="Font" value="smallBoldFont" />
+			</attributes>
+		</element>
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="shipStaticTweak" />
+				<string name="TextID" value="" />
+				<int name="Id" value="21" />
+				<string name="Caption" value="augtweak" />
+				<rect name="Rect" value="524, 60, 760, 76" />
+        <string name="ToolTip" value="Augmenter Tweaking affects bonuses from augmenters but not mods, other items or class skills." />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_augtweak_text" id="ShipInfoManager" />
+			</bindings>
+		</element>
+  
+  <element type="customTable">
+		<attributes>
+			<rect name="Rect" value="524, 80, 760, 576" />
+			<enum name="RightAlign" value="lowerRight" />			
+			<string name="IdName" value="augmenterStatList" />
+			<bool name="Draggable" value="true" />
+			<string name="TextID" value="" />
+			<int name="Id" value="8950" />
+			<int name="ColumnCount" value="3" />
+			<int name="ActiveTab" value="0" />
+			<int name="SecondaryTab" value="1" />
+			<enum name="CurrentOrdering" value="ascending" />
+			<bool name="ResizableColumns" value="false" />
+      <!-- <int name="CellWidthPadding" value="2" /> -->
+      <int name="CellHeightPadding" value="2" />
+
+			<string name="Column0name" value="T" />
+			<int name="Column0width" value="25" />
+			<enum name="Column0OrderingMode" value="ascend_descend" />
+			
+			<string name="Column1name" value="Name" />
+			<int name="Column1width" value="200" />
+			<enum name="Column1OrderingMode" value="ascend_descend" />
+      <enum name="Column1OrderingType" value="alphabetical" />
+			
+			<string name="Column2name" value="Value" />
+			<int name="Column2width" value="25" />
+			<enum name="Column2OrderingMode" value="ascend_descend" />
+			<enum name="Column2OrderingType" value="numerical" />
+			
+			<int name="DrawFlags" value="4" />
+			<bool name="MultiSelection" value="false" />
+			<string name="IconBankName" value="items_small" />
+			<bool name="KeyNavigation" value="false" />
+			<bool name="AcceptsDrop" value="false" />
+		</attributes>
+		<bindings>
+			<slot name="setAll" signal="table_augmenter_all" id="ShipInfoManager" />
+			<!--<slot name="setText" signal="table_items_text" id="ShipInfoManager" />
+
+			<slot name="setMultiSelectedIndex" signal="table_items_select" id="InventoryManager" />
+			<signal name="item_double_clicked_index" slot="OnLButtonDblClk" id="InventoryManager" />
+			<signal name="item_right_clicked_index" slot="OnRButtonDown" id="InventoryManager" />
+			<signal name="item_selected_data" slot="OnTableChanged" id="InventoryManager" />
+			<signal name="item_mouse_paused_data" slot="OnTableItemMousePausedData" id="InventoryManager" />
+			<signal name="item_hovered_data" slot="OnTableItemHoveredData" id="InventoryManager" />
+			<signal name="mouse_left" slot="HideHoverTooltip" id="InventoryManager" />
+			<signal name="dragged" slot="InventoryManagerItemDragged" id="InventoryManager" />
+			<signal name="dropped" slot="InventoryManagerItemDropped" id="InventoryManager" /> -->
+
+		</bindings>
+	</element>
+  
+    <!--
+		<element type="customImage">
+			<attributes>
+				<int name="Id" value="668" />
+				<rect name="Rect" value="216, 60, 344, 188" />
+				<texture name="renderTargetShipInfo" value="renderTargetShipInfo" />
+				<bool name="UseAlphaChannel" value="true" />
+			</attributes>
+		</element>
+    -->
+    
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="shipButtonClose" />
+        <int name="Id" value="66" />
+        <rect name="Rect" value="-18, 2, -2, 18" />
+        <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+        <texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+        <texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="toggleVisibility" id="shipInfoDialog" />
+        <signal name="button_clicked" slot="HideCustom" id="shipInfoDialog" />
+        <signal name="button_clicked" slot="HideCustom" id="ShipInfoManager" />
+      </bindings>
+    </element>	
+    
+	</element>

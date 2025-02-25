@@ -1,0 +1,70 @@
+	<element type="customWindow">
+		<attributes>
+			<string name="IdName" value="suicideDialog" />
+			<string name="TextID" value="id_suicidedlg" />
+			<string name="Caption" value="Suicide Confirmation" />
+			<rect name="Rect" value="0, 0, 279, 141" />
+			<rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+			<int name="Flags" value="0" />
+			<bool name="Movable" value="true" />
+			<bool name="Visible" value="false" />
+			<int name="BorderStyle" value="2" />
+			<int name="ResizeBorderWidth" value="0" />
+			<bool name="KeepOnScreen" value="true" />
+			<string name="SoundShow" value="DialogOpen.wav" />
+			<string name="SoundHide" value="DialogClose.wav" />
+		</attributes>
+    <bindings>
+      <slot name="setVisible" signal="dialog_visible" id="SuicideManager" />
+    </bindings>
+
+    <element type="customButton">
+			<attributes>
+				<string name="IdName" value="suicideButtonOK" />
+				<string name="TextID" value="id_suicideyes" />
+				<string name="Caption" value="Ok" />
+				<rect name="Rect" value="109, 107, 184, 130" />
+			</attributes>
+      <bindings>
+        <signal name="button_clicked" slot="toggleVisibility" id="suicideDialog" />
+        <signal name="button_clicked" slot="ConfirmSuicide" id="SuicideManager" />
+		<signal name="button_clicked" slot="setText" id="suicideEditDie" arg="" />
+		
+      </bindings>
+    </element>
+
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="suicideButtonCancel" />
+				<string name="TextID" value="id_suicideno" />
+				<string name="Caption" value="Cancel" />
+				<rect name="Rect" value="193, 107, 268, 130" />
+			</attributes>
+      <bindings>
+        <signal name="button_clicked" slot="toggleVisibility" id="suicideDialog" />
+      </bindings>
+    </element>
+
+		<element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_suicidereally" />
+				<string name="Caption" value="Do you wish to enter ship stasis?\n\nType 'Yes' below and click 'Ok'" />
+				<rect name="Rect" value="10, 11, 268, 63" />
+			</attributes>
+		</element>
+
+		<element type="customEditBox">
+			<attributes>
+				<string name="IdName" value="suicideEditDie" />
+				<string name="TextID" value="" />
+				<int name="Id" value="15" />
+				<int name="MaxChars" value="3" />
+				<rect name="Rect" value="10, 61, 70, 84" />
+			</attributes>
+      <bindings>
+        <signal name="value_changed" slot="SuicideComfirmationTextChanged" id="SuicideManager" />
+        <slot name="setText" signal="edit_confirmation_text" id="SuicideManager" />
+      </bindings>
+    </element>
+
+</element>

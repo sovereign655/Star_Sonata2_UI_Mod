@@ -1,0 +1,63 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="TestWindow2" />
+		<rect name="Rect" value="500, 50, 700, 500" />
+		<int name="Flags" value="0" />
+		<int name="BorderStyle" value="2" />
+		<int name="ResizeBorderWidth" value="0" />
+		<bool name="Movable" value="true" />
+	</attributes>
+	
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="testText" />
+			<rect name="Rect" value="50, 50, 150, 100" />
+		</attributes>
+	</element>
+	
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="testText2" />
+			<rect name="Rect" value="50, 150, 150, 200" />
+		</attributes>
+	</element>
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="openTest4" />
+			<rect name="Rect" value="50, 250, 150, 350" />
+			<texture name="Image" value="img/ui/station/buttons/undock.png" />
+			<rect name="ImageRect" value="0, 0, 73, 48" />
+			<texture name="PressedImage" value="img/ui/station/buttons/undockpressed.png" />
+			<rect name="PressedImageRect" value="0, 0, 73, 48" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="false" />
+		</attributes>
+		
+		<bindings>
+			<signal name="button_clicked" slot="DestroyGuiDialog" id="GuiFactory" arg="TestWindow" />
+		</bindings>
+	</element>
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="openTest3" />
+			<rect name="Rect" value="50, 350, 150, 450" />
+			<texture name="Image" value="img/ui/station/buttons/undock.png" />
+			<rect name="ImageRect" value="0, 0, 73, 48" />
+			<texture name="PressedImage" value="img/ui/station/buttons/undockpressed.png" />
+			<rect name="PressedImageRect" value="0, 0, 73, 48" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="false" />
+		</attributes>
+		
+		<bindings>
+			<signal name="button_clicked" slot="CreateGuiDialog" id="GuiFactory" arg="TestWindow" />
+			<!--
+				<signal name="button_clicked" slot="show" id="TestWindow2" />
+				<signal name="button_clicked" slot="setText" id="testText2" arg="Man" />
+				<signal name="button_clicked" slot="setText" id="testText" arg="Blah" />
+				-->
+		</bindings>
+	</element>
+</element>

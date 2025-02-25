@@ -1,0 +1,9 @@
+<element type="container">
+    <attributes>
+        <string name="IdName" value="topmostLayer" />
+        <bool name="Visible" value="true" />
+        <bool name="FixedOrder" value="true" />
+        <rect name="Rect" value="0, 0, 0, 0" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+    </attributes>
+</element>

@@ -1,0 +1,162 @@
+	<element type="customWindow">
+		<attributes>									
+			<string name="IdName" value="moderatorDialog" />
+			<int name="Id" value="2673" />
+			<rect name="Rect" value="210, 150, 660, 500" />
+			<position name="MinSize" value="450, 350" />
+			<position name="MaxSize" value="850, 952" />
+			<int name="Flags" value="0" />
+			<bool name="Movable" value="true" />
+			<bool name="Visible" value="false" />
+			<int name="BorderStyle" value="2" />
+			<int name="ResizeBorderWidth" value="5" />
+			<bool name="RightResizable" value="true" />	
+      <bool name="BottomResizable" value="true" />
+			<bool name="HideOnLogout" value="true" />
+			<bool name="KeepOnScreen" value="true" />	
+			<string name="SoundShow" value="DialogOpen.wav" />
+			<string name="SoundHide" value="DialogClose.wav" />	
+		</attributes>
+		<bindings>
+			<signal name="revealed" slot="RefreshModerator" id="ModeratorManager" />
+			<signal name="revealed" slot="toggleActiveState" id="moderate" />
+			<signal name="hidden" slot="toggleActiveState" id="moderate" />
+			<signal name="evt_resize" slot="DialogMoved" id="LogicManager" />
+			<signal name="evt_mouse_on_border" slot="DialogMouseOnBorder" id="LogicManager" />
+		</bindings>
+		
+		<element type="customImage">
+			<attributes>
+				<string name="TextID" value="" />
+				<rect name="Rect" value="5, 5, 239, 28" />
+				<texture name="Texture" value="UI/Images/Dialogs/moderator.png" />
+				<bool name="UseAlphaChannel" value="true" />
+			</attributes>
+		</element>
+		
+		<element type="customTable">
+			<attributes>
+				<string name="IdName" value="moderatorTableLoggedPlayers" />
+				<string name="TextID" value="" />
+				<int name="Id" value="73" />
+				<rectf name="PercRect" value="0.5,0,1,1"/>
+				<rect name="Rect" value="4, 40, -8, -8" />
+				<int name="ColumnCount" value="2" />
+				<string name="Column0name" value="Name" />
+				<color name="Column0color" value="00FFFFFF" />
+				<int name="Column0width" value="150" />
+				<enum name="Column0OrderingMode" value="" />
+				<string name="Column1name" value="Status" />
+				<color name="Column1color" value="00FFFFFF" />
+				<int name="Column1width" value="25" />
+				<enum name="Column1OrderingMode" value="" />
+				<bool name="ResizableColumns" value="false" />
+				<int name="DrawFlags" value="0" />
+				<bool name="AutoScroll" value="true" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="table_loggedplayers_text" id="ModeratorManager" />
+				<signal name="item_selected_index" slot="PlayerSelectedChange" id="ModeratorManager" />
+			</bindings>							
+		</element>
+
+		<element type="customEditBox">
+			<attributes>
+				<bool name="WordWrap" value="true" />
+				<bool name="MultiLine" value="false" />
+				<string name="IdName" value="moderatorEditModReason" />
+				<string name="TextID" value="" />
+				<int name="Id" value="74" />
+				<rect name="Rect" value="8, 60, -4, 200" />
+        <rectf name="PercRect" value="0,0,0.5,0"/>
+				<enum name="HTextAlign" value="upperLeft" />
+				<enum name="VTextAlign" value="upperLeft" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="edit_reason_text" id="ModeratorManager" />
+				<signal name="value_changed" slot="ChangeReason" id="ModeratorManager" />
+			</bindings>				
+		</element>
+
+		<element type="staticText">
+			<attributes>
+				<string name="TextID" value="" />
+				<rect name="Rect" value="10, 40, 200, 60" />
+				<int name="ScrolledLines" value="0" />
+				<string name="Caption" value="Reason"/>
+			</attributes>
+		</element>
+
+		<element type="customEditBox">
+			<attributes>
+				<bool name="WordWrap" value="true" />
+				<bool name="MultiLine" value="true" />
+				<string name="IdName" value="moderatorEditModTime" />
+				<string name="TextID" value="" />
+				<int name="Id" value="75" />
+				<rect name="Rect" value="8, 224, -4, 245" />
+        <rectf name="PercRect" value="0,0,0.5,0"/>        
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="edit_time_text" id="ModeratorManager" />
+				<signal name="value_changed" slot="ChangeTime" id="ModeratorManager" />
+			</bindings>				
+		</element>
+
+		<element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="" />
+				<string name="Caption" value="Time (in minutes)"/>
+        <rect name="Rect" value="10, 204, 200, 225" />
+				<int name="ScrolledLines" value="0" />
+			</attributes>		
+		</element>
+
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="moderatorButtonModMute" />
+				<int name="Id" value="76" />
+				<string name="Caption" value="Mute" />
+				<rect name="Rect" value="10, 250, 70, 271" />
+				<texture name="DisabledImage" value="" />
+				<rect name="DisabledImageRect" value="0, 0, 0, 0" />
+        <string name="ToolTip" value="Mutes the player selected." />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="Mute" id="ModeratorManager" />
+			</bindings>			
+		</element>
+
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="moderatorButtonModReload" />
+				<int name="Id" value="76" />
+				<string name="Caption" value="Refresh" />
+        <rect name="Rect" value="80, 250, 140, 271" />
+				<texture name="DisabledImage" value="" />
+				<rect name="DisabledImageRect" value="0, 0, 0, 0" />
+        <string name="ToolTip" value="Clears the reason and time input fields." />
+			</attributes>
+			<bindings>
+			<signal name="button_clicked" slot="RefreshModerator" id="ModeratorManager" />
+			</bindings>			
+		</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="moderatorButtonClose" />
+			<int name="Id" value="966" />
+			<rect name="Rect" value="-18, 2, -2, 18" />
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+			<texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+			<texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="false" />
+		</attributes>
+		<bindings>
+      <signal name="button_clicked" slot="toggleVisibility" id="moderatorDialogInfo"/>
+			<signal name="button_clicked" slot="toggleVisibility" id="moderatorDialog" />
+		</bindings>
+	</element>
+</element>
+

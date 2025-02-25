@@ -1,0 +1,438 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="deviceOptionsDialogIngame" />    
+    <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />	
+    <rect name="Rect" value="10, 101, -10, -40" />	
+		<int name="Flags" value="0" />
+		<bool name="Movable" value="false" />
+		<bool name="Visible" value="true" />
+		<bool name="DrawBackground" value="true" />
+	</attributes> 	
+	<bindings>
+		<signal name="created" slot="LoadDeviceOptions" id="DeviceOptionsManager" />
+		<signal name="created" slot="makeFocus" id="deviceOptionsDialog" />
+	</bindings>
+  <!-- Automatic Settings Button -->
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="deviceOptionsBenchAuto" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="10, 10, -10, 34" />  
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="true" />
+			<string name="Caption" value="Automatic Settings (Disabled)" />
+			<string name="ToolTip" value="Renders predefined scenes to test your computer and sets graphic options accordingly. (Disabled until issues are fixed)" />
+		</attributes>
+		<bindings>
+		<signal name="button_clicked" slot="ManualAutoConfig" id="OptionsManager" />
+		</bindings> 
+	</element>
+  <!-- Ambient Text -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_ambient" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="10, 38, -10, 100" />      
+			<string name="ToolTip" value="Sets the level of ambient lighting. Turn this up if you feel the game is too dark." />
+		</attributes>
+    <!-- Ambient Percentage Text -->
+    <!--
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="optionsStaticAmbient" />
+        <string name="TextID" value="" />
+        <int name="Id" value="22" />
+        <string name="Caption" value="0" />
+        <rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />	
+        <rect name="Rect" value="-19, 0, 0, 30" />
+        <string name="ToolTip" value="Percentage of ambient lighting." />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_ambient_text" id="OptionsManager" />
+      </bindings>
+    </element>    
+    -->
+    <!-- Ambient Slider -->
+    <element type="slider">
+      <attributes>
+        <string name="IdName" value="optionsSliderAmbient" />
+        <rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />	
+        <rect name="Rect" value="0, 20, 430, 40" /> 
+        <string name="ToolTip" value="Sets the level of ambient lighting. Turn this up if you feel the game is too dark." />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetSliderAmbient" id="DeviceOptionsManager" />
+        <slot name="setValue" signal="slider_abient" id="DeviceOptionsManager" />
+      </bindings>
+    </element>    
+	</element>
+  <!-- FPS Limit Text -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="deviceOptionsStaticGraphicsLevel" />
+			<string name="TextID" value="id_fps_cap" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="10, 230, -10, 250" /> 
+			<string name="ToolTip" value="Limit the number of game loops to that value per second, as to lower CPU usage." />
+		</attributes>
+    <!-- FPS Limit Edit Box -->    
+    <element type="customEditBox">
+      <attributes>
+        <string name="IdName" value="deviceOptionsEditFpsCap" />
+        <string name="TextID" value="" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+        <rect name="Rect" value="120, 0, -10, 20" />
+        <string name="ToolTip" value="Limit the number of game loops to that value per second, as to lower CPU usage." />
+      </attributes>
+      <bindings>	
+        <signal name="value_changed" slot="SetFpsCap" id="DeviceOptionsManager" />
+        <slot name="setText" signal="edit_fpscap_text" id="DeviceOptionsManager" />
+      </bindings>
+    </element>     
+	</element>
+  <!-- Fullscreen Checkbox -->
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsFullScreen" />
+			<string name="TextID" value="id_full_screen" />
+      <rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />	
+			<rect name="Rect" value="10, 250, 230, 280" />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetFullScreen" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="full_screen_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+  <!-- Hardware Cursor Checkbox -->
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsUseHardwareCursor" />
+			<string name="TextID" value="id_use_hardware_cursor" />
+      <rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />	
+			<rect name="Rect" value="10, 273, 230, 303" />
+			<string name="ToolTip" value="Improves cursor responsiveness when hardware permit." />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetUseHardwareCursor" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="use_hardware_cursor_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+  <!-- Vertical Sync Checkbox -->	
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsVerticalSync" />
+			<string name="TextID" value="id_vertical_sync" />
+      <rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />	
+			<rect name="Rect" value="10, 296, 230, 326" />
+			<string name="ToolTip" value="Eliminates screen tearing." />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetVerticalSync" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="vertical_sync_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+  <!-- Faster GUI Rendering Checkbox -->		
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsOptGUIRender" />
+			<string name="TextID" value="id_gui_rendering" />
+      <rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />	
+			<rect name="Rect" value="10, 320, 230, 350" />
+			<string name="ToolTip" value="Checking this will improve performance but it may not work for some computers. In cases of emergency, it can be disabled by using the Scroll Lock key." />		
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetOptGUIRender" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="opt_gui_rendering_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+  <!-- Orthographic Camera Checkbox -->		
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsOptOrthoCam" />
+			<string name="TextID" value="id_orth_cam" />
+      <rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />	
+			<rect name="Rect" value="10, 343, 230, 373" />
+			<string name="ToolTip" value="Checking this will force a top down view, and change the view from perspective to orthographic. This will give a much more accurate feeling of 2 dimensions." />		
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetOptOrthCam" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="opt_ortho_cam_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+	<!-- HDR Checkbox -->	
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsOptHDR" />
+			<string name="TextID" value="id_hdr" />
+      <rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />	
+			<rect name="Rect" value="10, 366, 230, 396" />
+			<string name="ToolTip" value="High Dynamic Range uses special shaders which add more color and detail to the game." />		
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetOptHDR" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="opt_hdr_check" id="DeviceOptionsManager" />
+			<slot name="setVisible" signal="opt_hdr_visible" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+	<!-- SSAO Checkbox -->		
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsOptSSAO" />
+			<string name="TextID" value="id_ssao" />
+      <rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />	
+			<rect name="Rect" value="10, 390, 230, 420" />
+			<string name="ToolTip" value="Screen Space Ambient Occlusion adds smooth shadowing to objects." />		
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetOptSSAO" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="opt_ssao_check" id="DeviceOptionsManager" />
+			<slot name="setVisible" signal="opt_ssao_visible" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+  <!-- Column 2 Options -->
+  <!-- Background Client Rendering Checkbox -->	
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsBGClientRender" />
+			<string name="TextID" value="id_bg_client_render" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="240, 250, -10, 280" />
+			<string name="ToolTip" value="Continue rendering when client loses focus. Disabling this can improve preformance when multi-clienting." />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetRenderBg" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="bgrender_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+	<!-- Detach Rendering Present Checkbox -->	
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsDetachPresent" />
+			<string name="TextID" value="id_detach_present" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="240, 273, -10, 303" />
+			<string name="ToolTip" value="Detach rendering present to a secondary thread." />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetDetachPresent" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="detachpresent_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+  <!-- High Quality Textures Checkbox -->
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsLowQualityTextures" />
+			<string name="TextID" value="id_low_qual_textures" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="240, 296, -10, 326" />
+			<string name="ToolTip" value="Uses higher quality textures. Unchecking this will drastically reduce the amount of memory used." />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetUseLowQualTextures" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="low_texture_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+  <!-- High Quality Models Checkbox -->
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsHighQualityModels" />
+			<string name="TextID" value="id_high_qual_models" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="240, 320, -10, 350" />
+			<string name="ToolTip" value="Uses higher quality models. Unchecking this will reduce the video card load." />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetUseLowQualModels" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="low_models_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+	<!-- DDS Textures Checkbox -->
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsDDSTexture" />
+			<string name="TextID" value="id_dds_texture" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="240, 343, -10, 373" />
+			<string name="ToolTip" value="DDS textures offer reduced memory usage when supported by the GPU, required for texture preload." />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetDDSTexture" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="dds_texture_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+	<!-- Preload Textures Checkbox -->
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsPreloadTexture" />
+			<string name="TextID" value="id_preload_texture" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="240, 366, -10, 396" />
+			<string name="ToolTip" value="Pre-load textures into memory so that they are not loaded during play, does nothing without DDS texture enabled." />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetPreloadTexture" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="preload_texture_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+	<!-- Restart Notification -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="RestartNotification" />
+			<string name="Caption" value="" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />	
+			<rect name="Rect" value="10, 430, -10, -10" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_restart_text" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+  <!-- Frame Skip Text -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="deviceOptionsFrameskip" />
+			<string name="TextID" value="id_frameskip" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="10, 205, -10, 225" /> 
+			<string name="ToolTip" value="Improves the input response time at the cost of fps." />
+		</attributes>
+    <!-- Frame Skip Combo Box -->
+    <element type="customComboBox">
+      <attributes>
+        <string name="IdName" value="deviceOptionsComboFrameskip" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+        <rect name="Rect" value="120, 0, -8, 20" />
+        <int name="TabOrder" value="3" />
+        <string name="ToolTip" value="Improves the input response time at the cost of fps." />
+      </attributes>
+      <bindings>
+        <signal name="item_selected_index" slot="SetFrameskip" id="DeviceOptionsManager" />
+        <slot name="setSelectedIndex" signal="combo_frameskip_select" id="DeviceOptionsManager" />
+        <slot name="setText" signal="combo_frameskip_text" id="DeviceOptionsManager" />
+      </bindings>
+    </element>
+	</element>
+  <!-- AA Text -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="deviceOptionsStaticAALevel" />
+			<string name="TextID" value="" />
+			<string name="Caption" value="Anti-Aliasing:" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="10, 180, -10, 195" /> 
+			<string name="ToolTip" value="Smooths jagged edges. High levels are better but can require a high end video card." />
+		</attributes>
+    <!-- AA Combo Box -->    
+    <element type="customComboBox">
+      <attributes>
+        <string name="IdName" value="deviceOptionsComboAA" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+        <rect name="Rect" value="120, 0, -8, 20" />
+        <int name="TabOrder" value="3" />
+        <string name="ToolTip" value="Smooths jagged edges. High levels are better but can require a high end video card." />
+      </attributes>
+      <bindings>
+        <signal name="item_selected_index" slot="SetAA" id="DeviceOptionsManager" />
+        <slot name="setSelectedIndex" signal="combo_aa_select" id="DeviceOptionsManager" />
+        <slot name="setText" signal="combo_aa_text" id="DeviceOptionsManager" />
+      </bindings>
+    </element>
+	</element>
+  <!-- Graphics Quality Text -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="deviceOptionsStaticGraphicsLevel" />
+			<string name="TextID" value="id_graphics_level" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="10, 155, -10, 170" /> 
+      <string name="ToolTip" value="Sets the detail of textures used within the game." />
+		</attributes>
+    <!-- Graphics Quality Combo Box -->
+    <element type="customComboBox">
+      <attributes>
+        <string name="IdName" value="deviceOptionsComboGraphicsLevel" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+        <rect name="Rect" value="120, 0, -8, 20" />
+        <int name="TabOrder" value="3" />
+        <string name="ToolTip" value="Sets the detail of textures used within the game." />
+      </attributes>
+      <bindings>
+        <signal name="item_selected_index" slot="SetGraphicsLevel" id="DeviceOptionsManager" />
+        <slot name="setSelectedIndex" signal="combo_graphicslevels_select" id="DeviceOptionsManager" />
+        <slot name="setText" signal="combo_graphicslevels_text" id="DeviceOptionsManager" />
+      </bindings>
+    </element>
+	</element>
+  <!-- Filtering Text -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="deviceOptionsStaticGraphicsLevel" />
+			<string name="TextID" value="" />
+			<string name="Caption" value="Filtering:" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="10, 130, -10, 150" /> 
+			<string name="ToolTip" value="Minimizes blurriness, shimmering and blocking in textures." />
+		</attributes>
+    <!-- Filtering Combo Box -->
+    <element type="customComboBox">
+      <attributes>
+        <string name="IdName" value="deviceOptionsComboFiltering" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+        <rect name="Rect" value="120, 0, -8, 20" />
+        <int name="TabOrder" value="3" />
+        <string name="ToolTip" value="Minimizes blurriness, shimmering and blocking in textures." />
+      </attributes>
+      <bindings>
+        <signal name="item_selected_index" slot="SetFiltering" id="DeviceOptionsManager" />
+        <slot name="setSelectedIndex" signal="combo_filtering_select" id="DeviceOptionsManager" />
+        <slot name="setText" signal="combo_filtering_text" id="DeviceOptionsManager" />
+      </bindings>
+    </element>   
+	</element>
+  <!-- Resolution Text -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_resolution" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="10, 105, -10, 125" />  
+      <string name="ToolTip" value="Set the number of pixels of the horizontal and vertical axis." />
+		</attributes>
+    <!-- Resolution Combo Box -->
+    <element type="customComboBox">
+      <attributes>
+        <string name="IdName" value="deviceOptionsComboResolution" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+        <rect name="Rect" value="120, 0, -8, 20" />
+        <int name="TabOrder" value="3" />
+        <string name="ToolTip" value="Set the number of pixels of the horizontal and vertical axis." />
+      </attributes>
+      <bindings>
+        <signal name="item_selected_text" slot="SetResolution" id="DeviceOptionsManager" />
+        <slot name="setText" signal="combo_resolutions_text" id="DeviceOptionsManager" />
+        <slot name="setSelectedIndex" signal="combo_resolutions_select" id="DeviceOptionsManager" />
+      </bindings>
+    </element>    
+	</element>
+  <!-- Pixel Depth Text -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_pixel_depth" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="10, 80, -10, 100" />      
+			<string name="ToolTip" value="Number of bits used to represent colors." />
+		</attributes>
+    <!-- Pixel Depth Combo Box -->
+    <element type="customComboBox">
+      <attributes>
+        <string name="IdName" value="deviceOptionsComboPixelDepth" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+        <rect name="Rect" value="120, 0, -8, 20" />
+        <int name="TabOrder" value="3" />
+        <string name="ToolTip" value="Number of bits used to represent colors." />
+      </attributes>
+      <bindings>
+        <signal name="item_selected_text" slot="SetBitDepth" id="DeviceOptionsManager" />
+        <slot name="setText" signal="combo_bitdepths_text" id="DeviceOptionsManager" />
+      </bindings>
+    </element>
+	</element>	
+</element>

@@ -1,0 +1,181 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="lagkillerDialog" />
+		<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+		<rect name="Rect" value="14, 144, -10, 618" />	
+		<int name="Flags" value="0" />
+		<bool name="Movable" value="false" />
+		<bool name="Visible" value="false" />
+		<bool name="DrawBackground" value="true" />
+	</attributes>
+	<bindings>
+		<signal name="created" slot="LoadLKConfigOptions" id="LagKillerManager" />
+	</bindings>
+
+	<!--lagkiller enable checkbox-->
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsEnableLK" />
+			<string name="Caption" value="Enable Lag Killer" />
+			<rect name="Rect" value="20, 20, 140, 40" />
+			<string name="ToolTip" value="The lagkiller cuts whatever it can to attempt to keep FPS above a minimum level. The minimum level is set based on your average FPS over the last few minutes. You can uncheck this box to disable the lagkiller." />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetLagKiller" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="lagkiller_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+
+	<!--min/max static texts and edit boxes-->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="deviceOptionsLKMinText" />
+			<string name="Caption" value="Lag Killer minimum level:" />
+			<rectf name="PercRect" value="1, 0, 1, 0" />
+			<rect name="Rect" value="-200, 20, -50, 38" />
+			<int name="ScrolledLines" value="0" />
+		</attributes>
+	</element>
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="deviceOptionsLKMaxText" />
+			<string name="Caption" value="Lag Killer maximum level:" />
+			<rectf name="PercRect" value="1, 0, 1, 0" />
+			<rect name="Rect" value="-200, 42, -50, 60" />
+			<int name="ScrolledLines" value="0" />
+		</attributes>
+	</element>
+	<element type="customEditBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsLKMin" />
+			<string name="Caption" value="" />
+			<rectf name="PercRect" value="1, 0, 1, 0" />
+			<rect name="Rect" value="-50, 20, -20, 38" />
+			<string name="ToolTip" value="Minimum lag killer level at all times" />
+		</attributes>
+		<bindings>
+		
+			<signal name="value_changed" slot="SetLagkillerMin" id="LagKillerManager" />
+			<slot name="setValue" signal="editbox_lkl" id="LagKillerManager" />
+		</bindings>
+	</element>
+	<element type="customEditBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsLKMax" />
+			<string name="Caption" value="" />
+			<rectf name="PercRect" value="1, 0, 1, 0" />
+			<rect name="Rect" value="-50, 42, -20, 60" />
+			<string name="ToolTip" value="Maximum lag killer level at all times" />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetLagKillerMax" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="lagkiller_checkMax" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+
+	<!--code generated lkc options, info and values-->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="deviceOptionsLKInfo" />
+			<string name="Caption" value="Lag Killer Control options" />
+			<rectf name="PercRect" value="0, 0, 1, 1" />
+			<rect name="Rect" value="20, 64, -20, -140" />
+			<int name="ScrolledLines" value="0" />
+			<bool name="Border" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="LagKillerControlText" id="DeviceOptionsManager" />
+		</bindings>		
+	</element>
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="deviceOptionsLKInfoDesc" />
+			<string name="Caption" value="Lag Killer Control option description" />
+			<rectf name="PercRect" value="0, 1, 1, 1" />
+			<rect name="Rect" value="150, -130, -20, -20" />
+			<int name="ScrolledLines" value="0" />
+			<bool name="Border" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="LagKillerControlTextDescription" id="DeviceOptionsManager" />
+		</bindings>		
+	</element>
+
+	<!--override/impact edit boes for lkc option-->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="deviceOptionsLKOverrideText" />
+			<string name="Caption" value="Override:"/>
+			<rectf name="PercRect" value="0, 1, 0, 1" />
+			<rect name="Rect" value="20, -130, 110, -112" />
+			<int name="ScrolledLines" value="0" />
+		</attributes>
+	</element>
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="deviceOptionsLKImpactText" />
+			<string name="Caption" value="Impact factor:"/>
+			<rectf name="PercRect" value="0, 1, 0, 1" />
+			<rect name="Rect" value="20, -106, 110, -90" />
+			<int name="ScrolledLines" value="0" />
+		</attributes>
+	</element>
+	<element type="customEditBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsLKOverride" />
+			<string name="Caption" value="" />
+			<rectf name="PercRect" value="0, 1, 0, 1" />
+			<rect name="Rect" value="110, -130, 140, -112" />
+			<string name="ToolTip" value="Lag Killer Control setting override" />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetLagKillerOverride" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="lagkiller_checkOverride" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+	<element type="customEditBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsLKImpact" />
+			<string name="Caption" value="" />
+			<rectf name="PercRect" value="0, 1, 0, 1" />
+			<rect name="Rect" value="110, -106, 140, -90" />
+			<string name="ToolTip" value="Lag Killer Control setting impact factor" />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetLagKillerImpact_enabled" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="lagkiller_checkImpact" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+
+	<!--default buttons-->
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="deviceOptionsLKDefaultSelect" />
+			<string name="Caption" value="Default selected" />
+			<string name="ToolTip" value="Default selected Lag Killer Control value"/>
+			<rectf name="PercRect" value="0, 1, 0, 1"/>
+			<rect name="Rect" value="20, -75, 140, -55" />
+			<bool name="NoClip" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="setEnabled" signal="SetLagKillerOptionDefault" id="DeviceOptionsManager" />
+			<signal name="button_clicked" slot="SetLagKillerOptionDefault" id="DeviceOptionsManager" />			
+		</bindings>		
+	</element>
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="deviceOptionsLKDefaultAll" />
+			<string name="Caption" value="Default all" />
+			<string name="ToolTip" value="Default all Lag Killer Control valuea"/>
+			<rectf name="PercRect" value="0, 1, 0, 1" />
+			<rect name="Rect" value="20, -40, 140, -20" />
+			<bool name="NoClip" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="setEnabled" signal="SetLagKillerAllDefault_enabled" id="DeviceOptionsManager" />
+			<signal name="button_clicked" slot="SetLagKillerAllDefault" id="DeviceOptionsManager" />			
+		</bindings>		
+	</element>
+
+
+</element>

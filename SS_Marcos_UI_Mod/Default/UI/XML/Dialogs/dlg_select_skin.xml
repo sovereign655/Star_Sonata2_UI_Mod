@@ -1,0 +1,643 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="selectSkinDialog" />
+    <string name="Caption" value="Select,Try or Buy a skin" />
+    <rect name="Rect" value="-512, -288, 512, 288" />
+    <rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+    <int name="Flags" value="0" />
+    <int name="BorderStyle" value="2" />
+    <bool name="Movable" value="true" />
+    <bool name="Visible" value="false" />
+    <int name="BorderStyle" value="2" />
+    <int name="ResizeBorderWidth" value="0" />
+    <bool name="KeepOnScreen" value="true" />
+    <string name="SoundShow" value="DialogOpen.wav" />
+    <string name="SoundHide" value="DialogClose.wav" />
+  </attributes>
+  <bindings>
+    <slot name='setVisible' signal='skinselect_visible' id='ShipsManager' />
+    <signal name="revealed" slot="bringToTop" id="selectSkinDialog" />
+  </bindings>
+
+  <element type="customImage">
+    <attributes>
+      <string name="TextID" value="" />
+      <!--<string name="AnimatorTag" value="HighlightOnMouseOver" />-->
+      <rect name="Rect" value="210, 20, 1024, 576" />
+      <texture name="Texture" value="UI/Images/Dialogs/BarfsPaintShop.png" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+  </element>
+  <element type="customImage">
+    <attributes>
+      <string name="TextID" value="" />
+      <!--<string name="AnimatorTag" value="HighlightOnMouseOver" />-->
+      <rect name="Rect" value="20, 20, 220, 220" />
+      <texture name="Texture" value="UI/Images/MissionGivers/09.png" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+  </element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="skinSloganText" />
+      <string name="Caption" value="Slogan is fed from the game client" />
+      <rect name="Rect" value="240, 70, 1024, 150" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="TabStop" value="true" />
+      <enum name="Font" value="outlineLarge" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="Border" value="false" />
+      <enum name="HTextAlign" value="left" />
+      <color name="Color" value="ffffffff" />
+      <bool name="OverrideColorEnabled" value="true" />
+      <color name="OverrideColor" value="ffffffff" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="skin_slogan_text" id="ShipsManager" />
+    </bindings>
+  </element>
+  <!-- start sp box-->
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="" />
+      <string name="Caption" value="" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="-188, 70, -8, 135" />
+      <bool name="Background" value="false" />
+    </attributes>
+    <element type="customStaticText">
+      <attributes>
+        <string name="TextID" value="" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="0, 0, 0, 0" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="99000000" />
+      </attributes>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="sp_amount_skinpage" />
+        <string name="Caption" value="loading..." />
+        <string name="TextID" value="" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="-20, 8, -76, -8" />
+        <enum name="HTextAlign" value="lowerRight" />
+        <enum name="VTextAlign" value="center" />
+        <enum name="Font" value="suiGenLarge" />
+        <bool name="OverrideColorEnabled" value="true" />
+        <color name="OverrideColor" value="ffff8c00" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_current_space_points" id="StoreManager" />
+      </bindings>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="1.0, 0.5, 1.0, 0.5" />
+        <rect name="Rect" value="-72, -31, -8, 33" />
+        <texture name="Texture" value="UI/Images/Store/sp_large.png" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="sp_buySP_skinpage" />
+      <string name="TextID" value="" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="-188, 135, -8, 160" />
+      <texture name="Image" value="UI/Images/Store/Buy SP or SPEX.png" />
+      <rect name="ImageRect" value="0, 0, 180, 25" />
+      <texture name="PressedImage" value="UI/Images/Store/Buy SP or SPEX.png" />
+      <rect name="PressedImageRect" value="0, 0, 180, 23" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="toggleVisibility" id="ingameSpacepointDialog" />
+    </bindings>
+  </element>
+  <!-- end sp box-->
+  <element type="itempreview">
+    <attributes>
+      <int name="Id" value="2001" />
+      <string name="Caption" value="" />
+      <rect name="Rect" value="26, 180, 198, 400" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <int name="BorderStyle" value="2" />
+    </attributes>
+  </element>
+
+  <element type="itempreview">
+    <attributes>
+      <int name="Id" value="2002" />
+      <string name="Caption" value="" />
+      <rect name="Rect" value="226, 180, 398, 400" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+    </attributes>
+  </element>
+
+  <element type="itempreview">
+    <attributes>
+      <int name="Id" value="2003" />
+      <string name="Caption" value="" />
+      <rect name="Rect" value="426, 180, 598, 400" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+    </attributes>
+  </element>
+
+  <element type="itempreview">
+    <attributes>
+      <int name="Id" value="2004" />
+      <string name="Caption" value="" />
+      <rect name="Rect" value="626, 180, 798, 400" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+    </attributes>
+  </element>
+
+  <element type="itempreview">
+    <attributes>
+      <int name="Id" value="2005" />
+      <string name="Caption" value="" />
+      <rect name="Rect" value="826, 180, 998, 400" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+    </attributes>
+  </element>
+
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="skinSelectTextOne" />
+      <string name="Caption" value="Skin One" />
+      <rect name="Rect" value="16, 390, 208, 470" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="Border" value="true" />
+      <enum name="HTextAlign" value="center" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="button_skin1_text" id="ShipsManager" />
+      <slot name="setVisible" signal="button_skin1_visible" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="skinSelectButtonOne" />
+      <string name="Caption" value="Default Skin" />
+      <rect name="Rect" value="16, 478, 208, 510" />
+      <int name="Id" value="541" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <slot name="setVisible" signal="button_skin1s_visible" id="ShipsManager" />
+      <signal name="button_clicked" slot="OnSkinbutton1s" id="ShipsManager" />
+      <slot name="setText" signal="button_skin1Select_text" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="skinSelectButtonOneBuy" />
+      <string name="Caption" value="Buy for 11 SP" />
+      <rect name="Rect" value="16, 510, 208, 542" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnSkinbutton1b" id="ShipsManager" />
+      <slot name="setText" signal="button_skin1Buy_text" id="ShipsManager" />
+      <slot name="setVisible" signal="button_skin1b_visible" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="skinSelectTextTwo" />
+      <string name="Caption" value="Skin Two" />
+      <rect name="Rect" value="216, 390, 408, 470" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="Border" value="true" />
+      <enum name="HTextAlign" value="center" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="button_skin2_text" id="ShipsManager" />
+      <slot name="setVisible" signal="button_skin2_visible" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="skinSelectButtonTwoSelect" />
+      <string name="Caption" value="Try Skin" />
+      <rect name="Rect" value="216, 478, 408, 510" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnSkinbutton2s" id="ShipsManager" />
+      <slot name="setText" signal="button_skin2Select_text" id="ShipsManager" />
+      <slot name="setVisible" signal="button_skin2s_visible" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="skinSelectButtonTwoBuy" />
+      <string name="Caption" value="Buy for 12 SP" />
+      <rect name="Rect" value="216, 510, 408, 542" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnSkinbutton2b" id="ShipsManager" />
+      <slot name="setText" signal="button_skin2Buy_text" id="ShipsManager" />
+      <slot name="setVisible" signal="button_skin2b_visible" id="ShipsManager" />
+    </bindings>
+  </element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="skinSelectTextThree" />
+      <string name="Caption" value="Skin Three" />
+      <rect name="Rect" value="416, 390, 608, 470" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="Border" value="true" />
+      <enum name="HTextAlign" value="center" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="button_skin3_text" id="ShipsManager" />
+      <slot name="setVisible" signal="button_skin3_visible" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="skinSelectButtonThree" />
+      <string name="Caption" value="Select Skin" />
+      <rect name="Rect" value="416, 478, 608, 510" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnSkinbutton3s" id="ShipsManager" />
+      <slot name="setText" signal="button_skin3Select_text" id="ShipsManager" />
+      <slot name="setVisible" signal="button_skin3s_visible" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="skinSelectButtonThreeBuy" />
+      <string name="Caption" value="Buy for 13 SP" />
+      <rect name="Rect" value="416, 510, 608, 542" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnSkinbutton3b" id="ShipsManager" />
+      <slot name="setText" signal="button_skin3Buy_text" id="ShipsManager" />
+      <slot name="setVisible" signal="button_skin3b_visible" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="skinSelectTextFour" />
+      <string name="Caption" value="Skin Four" />
+      <rect name="Rect" value="616, 390, 808, 470" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="Border" value="true" />
+      <enum name="HTextAlign" value="center" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="button_skin4_text" id="ShipsManager" />
+      <slot name="setVisible" signal="button_skin4_visible" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="skinSelectButtonFour" />
+      <string name="Caption" value="Select Skin" />
+      <rect name="Rect" value="616, 478, 808, 510" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnSkinbutton4s" id="ShipsManager" />
+      <slot name="setText" signal="button_skin4Select_text" id="ShipsManager" />
+      <slot name="setVisible" signal="button_skin4s_visible" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="skinSelectButtonFourBuy" />
+      <string name="Caption" value="Buy for 14 SP" />
+      <rect name="Rect" value="616, 510, 808, 542" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnSkinbutton4b" id="ShipsManager" />
+      <slot name="setText" signal="button_skin4Buy_text" id="ShipsManager" />
+      <slot name="setVisible" signal="button_skin4b_visible" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="skinSelectTextFive" />
+      <string name="Caption" value="Skin Five" />
+      <rect name="Rect" value="816, 390, 1008, 470" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="Border" value="true" />
+      <enum name="HTextAlign" value="center" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="button_skin5_text" id="ShipsManager" />
+      <slot name="setVisible" signal="button_skin5_visible" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="skinSelectButtonFive" />
+      <string name="Caption" value="Select Skin" />
+      <rect name="Rect" value="816, 478, 1008, 510" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnSkinbutton5s" id="ShipsManager" />
+      <slot name="setText" signal="button_skin5Select_text" id="ShipsManager" />
+      <slot name="setVisible" signal="button_skin5s_visible" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="skinSelectButtonFiveBuy" />
+      <string name="Caption" value="Buy for 15 SP" />
+      <rect name="Rect" value="816, 510, 1008, 542" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnSkinbutton5b" id="ShipsManager" />
+      <slot name="setText" signal="button_skin5Buy_text" id="ShipsManager" />
+      <slot name="setVisible" signal="button_skin5b_visible" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customButton">    <!-- those are not implemented for now. But they will be added once needed -->
+    <attributes>
+      <string name="IdName" value="skinOffsetInc" />
+      <string name="Caption" value="--&gt;" />
+      <rect name="Rect" value="948, 550, 1008, 570" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="ScaleImage" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnIncButtonClick" id="ShipsManager" />
+      <slot name="setVisible" signal="button_offsetinc_visible" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="SkinOffsetDec" />
+      <string name="Caption" value="&lt;--" />
+      <rect name="Rect" value="886, 550, 946 , 570" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="ScaleImage" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnDecButtonClick" id="ShipsManager" />
+      <slot name="setVisible" signal="button_offsetdec_visible" id="ShipsManager" />
+    </bindings>
+  </element>
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="skinButtonClose" />
+      <int name="Id" value="66" />
+      <rect name="Rect" value="-18, 2, -2, 18" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+      <texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="toggleVisibility" id="selectSkinDialog" />
+    </bindings>
+  </element>
+</element>

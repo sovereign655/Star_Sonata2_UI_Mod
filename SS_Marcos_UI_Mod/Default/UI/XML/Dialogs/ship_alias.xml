@@ -1,0 +1,71 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="shipAliasDialog" />
+		<int name="Id" value="155" />		
+		<int name="Flags" value="0" />
+		<rect name="Rect" value="0, 196, 270, 256" />
+		<bool name="Movable" value="true" />
+		<bool name="Visible" value="false" />
+		<int name="BorderStyle" value="2" />
+	</attributes>
+	<bindings>
+		<!-- <slot name="toggleVisibility" signal="dialog_inventory_visible" id="MyPropertyManager" /> -->
+		<slot name="setVisible" signal="dialog_alias_visible" id="MyPropertyManager" />
+		<slot name="setVisible" signal="dialog_alias_visible" id="ShipsManager" />
+	</bindings>
+
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="AliasHeader" />
+			<int name="Id" value = "22" />
+			<string name="TextID" value="" />				
+			<string name="Caption" value="Set a new alias for your ship" />
+			<rect name="Rect" value="3, 3, 200, 17" />		
+		</attributes>
+		<bindings>			
+			<!-- <slot name="setText" signal="inventory_header_text" id="InventoryManager" /> -->
+		</bindings>		
+	</element>
+
+	<element type="customEditBox">
+		<attributes>
+			<string name="IdName" value="aliasInput" />
+			<string name="TextID" value="" />
+			<int name="Id" value="20" />
+			<rect name="Rect" value="2, 30, 220, 60" />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="AliasChanged" id="ShipsManager" />
+			<slot name="setText" signal="ship_alias_text" id="MyPropertyManager" />
+			<slot name="setText" signal="ship_alias_text" id="ShipsManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="aliasSetButton" />
+			<string name="TextID" value="" />
+			<int name="Id" value="21" />
+			<string name="Caption" value="set" />
+			<rect name="Rect" value="222, 30, 250, 60" />
+		</attributes>
+		<bindings>
+			<signal name='button_clicked' slot='SetAlias' id='ShipsManager' />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="aliasCancelButton" />
+			<string name="TextID" value="" />
+			<int name="Id" value="21" />
+			<string name="Caption" value="X" />
+			<rect name="Rect" value="252, 30, 270, 60" />
+		</attributes>
+		<bindings>
+			<signal name='button_clicked' slot='CancelAlias' id='ShipsManager' />
+		</bindings>
+	</element>
+
+</element>
+

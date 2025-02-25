@@ -1,0 +1,29 @@
+	<element type="customWindow">
+		<attributes>
+			<string name="IdName" value="specialIndicatorDialog" />
+			<int name="Id" value="9999" />
+			<rect name="Rect" value="0, 0, 64, 64" />
+			<int name="Flags" value="0" />
+			<bool name="Movable" value="false" />
+      <bool name="Visible" value="false" />
+      <bool name="ClickThrough" value="true" />
+			<int name="ResizeBorderWidth" value="0" />
+      <bool name="HideOnLogout" value="true" />
+		</attributes>
+		<bindings>			
+			<slot name="setVisible" signal="dialog_specialIndicator_visible" id="SpecialIndicatorManager" />				
+		</bindings>
+		
+		<element type="customImage">
+			<attributes>
+				<string name="IdName" value="specialindicator" />
+				<rect name="Rect" value="0, 0, 64, 64" />
+				<texture name="Texture" value="UI/Images/Misc/missionindicator_up.png" />
+				<bool name="UseAlphaChannel" value="true" />
+			</attributes>
+			<bindings>
+				<slot name="loadImage" signal="image_mission_indicator" id="SpecialIndicatorManager" />				
+			</bindings>
+		</element>
+
+	</element>

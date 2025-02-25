@@ -1,0 +1,203 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="optionsDialog" />
+		<rect name="Rect" value="-240, -300, 240, 300" />
+		<rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+    <position name="MinSize" value="480, 600" />
+    <position name="MaxSize" value="760, 1000" />
+		<int name="Flags" value="0" />
+		<bool name="Movable" value="true" />
+		<bool name="Visible" value="false" />
+		<int name="BorderStyle" value="2" />
+    <int name="ResizeBorderWidth" value="5" />
+    <bool name="BottomResizable" value="true" />
+    <!-- <bool name="RightResizable" value="true" /> -->    
+		<int name="ResizeBorderWidth" value="0" />
+		<bool name="KeepOnScreen" value="true" />
+		<string name="SoundShow" value="DialogOpen.wav" />
+		<string name="SoundHide" value="DialogClose.wav" />
+	</attributes>
+	<bindings>
+		<signal name="revealed" slot="LoadConfigOptions" id="OptionsManager" />
+		<signal name="revealed" slot="LoadConfigOptions" id="DeviceOptionsManager" />
+		<signal name="revealed" slot="LoadLKConfigOptions" id="LagKillerManager" />
+		<signal name="revealed" slot="OnCreateKeys" id="KeysManager" />
+		<signal name="revealed" slot="bringToTop" id="optionsDialog" />
+		<signal name="revealed" slot="toggleActiveState" id="optionsCommandToggle" />
+		<signal name="hidden" slot="toggleActiveState" id="optionsCommandToggle" />
+		<signal name="created" slot="setText" id="optionsTab"  arg="Sound|Graphics|Display|Social|Keys" />
+		<signal name="created" slot="setUserData" id="optionsTab"  arg="soundDialog|deviceOptionsDialogIngame|displayDialog|socialDialog|keysDialog|lagkillerDialog" />
+		<signal name="key_pressed_m" slot="toggleActiveState" id="optionsCommandToggle" />
+		<slot name="setVisible" signal="options_dialog_visible" id="ConnectManager" />
+	</bindings>
+  <!-- Options Title -->
+	<element type="customImage">
+		<attributes>
+			<string name="TextID" value="" />
+			<!--<rect name="Rect" value="5, 5, 170, 37" />-->
+      <rect name="Rect" value="10, 20, 175, 52" />
+			<texture name="Texture" value="UI/Images/Dialogs/optheader.png" />
+			<bool name="UseAlphaChannel" value="true" />
+		</attributes>
+	</element>
+  <!-- Options Tab Control -->
+	<element type="customTabControl">
+		<attributes>
+			<string name="IdName" value="optionsTab" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />	
+			<rect name="Rect" value="8, 67, -8, -40" />
+			<int name="ActiveTab" value="0" />
+		</attributes>
+		<bindings>
+			<signal name="item_selected_data" slot="CreateGuiDialog" id="GuiFactory" />
+			<signal name="item_last_selected_data" slot="DestroyGuiDialog" id="GuiFactory" />				
+		</bindings>
+	</element>
+	  <!-- Switch Button -->	
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="optionsButtonSwitch" />
+      <string name="TextID" value="" />
+      <int name="Id" value="23" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="-263, 11, -190, 59" />
+      <texture name="Image" value="UI/Images/Dialogs/switch.png" />
+      <rect name="ImageRect" value="0, 0, 73, 48" />
+      <texture name="PressedImage" value="UI/Images/Dialogs/switchD.png" />
+      <rect name="PressedImageRect" value="0, 0, 73, 48" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+      <string name="ToolTip" value="Return to the character selection screen to switch characters." />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="CreateGuiDialog" id="GuiFactory" arg="connectionDialog"/>
+      <signal name="button_clicked" slot="CharSwitchButton" id="ConnectManager" />
+    </bindings>	
+  </element>  
+  <!-- Logout Button -->	
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="optionsButtonConnect" />
+      <string name="TextID" value="" />
+      <int name="Id" value="23" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="-182, 11, -109, 59" />
+      <texture name="Image" value="UI/Images/Dialogs/logout.png" />
+      <rect name="ImageRect" value="0, 0, 73, 48" />
+      <texture name="PressedImage" value="UI/Images/Dialogs/logoutD.png" />
+      <rect name="PressedImageRect" value="0, 0, 73, 48" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+      <string name="ToolTip" value="Return to the login screen." />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="CreateGuiDialog" id="GuiFactory" arg="connectionDialog"/>
+      <signal name="button_clicked" slot="DisconectButton" id="ConnectManager" />
+    </bindings>	
+  </element>  
+  <!-- Exit Game Button -->		
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="optionsButtonExitGame" />
+      <string name="TextID" value="" />
+      <int name="Id" value="23" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="-101, 11, -28, 59" />
+      <texture name="Image" value="UI/Images/Dialogs/exit.png" />
+      <rect name="ImageRect" value="0, 0, 73, 48" />
+      <texture name="PressedImage" value="UI/Images/Dialogs/exitD.png" />
+      <rect name="PressedImageRect" value="0, 0, 73, 48" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+      <string name="ToolTip" value="To exit the game entirely." />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="ExitGame" id="GameManager" />
+    </bindings>
+  </element>   
+  <!-- OK button -->
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="optionsButtonOK" />
+			<int name="Id" value="15" />
+			<string name="Caption" value="OK" />
+      <rectf name="PercRect" value="0.0, 1.0, 0.0, 1.0" />
+			<rect name="Rect" value="8, -32, 108, -8" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="true" />
+      <string name="ToolTip" value="Applies and closes the option dialogue." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="SubmitOptions" id="OptionsManager" />
+			<signal name="button_clicked" slot="toggleVisibility" id="optionsDialog" />
+			<signal name="button_clicked" slot="SaveDeviceOptions" id="DeviceOptionsManager" />
+			<signal name="button_clicked" slot="ChangeKeyController" id="KeysManager" />
+		</bindings>
+	</element>
+  <!-- Apply button -->  
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="optionsButtonApply" />
+			<int name="Id" value="15" />
+			<string name="Caption" value="Apply" />
+      <rectf name="PercRect" value="0.0, 1.0, 0.0, 1.0" />
+			<rect name="Rect" value="116, -32, 216, -8" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="true" />
+      <string name="ToolTip" value="Applies the new settings." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="SubmitOptions" id="OptionsManager" />
+			<signal name="button_clicked" slot="SaveDeviceOptions" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+  <!-- Cancel button -->  
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="optionsButtonCancel" />
+			<int name="Id" value="16" />
+			<string name="Caption" value="Cancel" />
+      <rectf name="PercRect" value="0.0, 1.0, 0.0, 1.0" />
+			<rect name="Rect" value="224, -32, 324, -8" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="true" />
+      <string name="ToolTip" value="Closes the option dialogue without applying changes." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="toggleVisibility" id="optionsDialog" />
+		</bindings>
+	</element>	
+  <!-- Reset to Default button -->  
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="optionsResetButton" />
+			<string name="TextID" value="Restore Defaults" />
+			<int name="Id" value="32" />
+			<string name="Caption" value="Default Settings" />
+      <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+			<rect name="Rect" value="-138, -32, -8, -8" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="true" />
+      <string name="ToolTip" value="Restores all settings to default values." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="DefaultOptions" id="OptionsManager" />
+		</bindings>
+	</element>
+  <!-- Close top right button -->
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="optionsButtonClose" />
+			<int name="Id" value="66" />
+			<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+			<rect name="Rect" value="-20, 2, -2, 18" />      
+			<texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+			<texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="false" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="toggleVisibility" id="optionsDialog" />
+		</bindings>
+	</element>	
+</element>

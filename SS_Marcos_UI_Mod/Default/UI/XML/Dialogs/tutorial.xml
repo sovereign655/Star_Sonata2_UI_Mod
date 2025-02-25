@@ -1,0 +1,50 @@
+	<element type="customWindow">
+		<attributes>
+			<string name="IdName" value="tutorialDialog" />
+			<int name="Id" value="1667" />
+			<rect name="Rect" value="400, 120, 700, 220" />
+			<int name="Flags" value="0" />
+			<bool name="Movable" value="true" />
+			<bool name="Visible" value="false" />
+			<int name="BorderStyle" value="2" />
+			<int name="ResizeBorderWidth" value="0" />
+		</attributes>
+		<bindings>			
+			<signal name="moved" slot="DialogMoved" id="LogicManager" />
+			<signal name="visibility_change" slot="DialogVisibilityChanged" id="LogicManager" />
+			<slot name="setVisible" signal="dialog_tutorial_visible" id="TutorialManager" />				
+		</bindings>
+		
+		<element type="customImage">
+			<attributes>
+				<string name="IdName" value="botMood" />
+				<rect name="Rect" value="5, 5, 69, 69" />
+				<texture name="Texture" value="UI/Images/Tutorial/bot1.png" />
+				<bool name="UseAlphaChannel" value="true" />
+			</attributes>
+			<bindings>
+				<slot name="loadImage" signal="image_tutorial_mood" id="TutorialManager" />				
+			</bindings>
+		</element>
+		
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="tutorialMessage" />
+				<string name="Caption" value="Tutorial Msg." />
+				<rect name="Rect" value="74, 5, 295, 95" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_tutorial_text" id="TutorialManager" />		
+			</bindings>
+		</element>
+
+		<element type="itempreview">
+		  <attributes>
+			<bool name="Visible" value="true" />
+			<int name="Id" value="100" />
+			<rect name="Rect" value="216, 60, 344, 188" />
+		  </attributes>
+		</element>
+		
+
+	</element>

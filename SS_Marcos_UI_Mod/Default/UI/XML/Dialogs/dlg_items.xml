@@ -1,0 +1,100 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="itemsDialog" />
+    <int name="Flags" value="0" />
+    <rectf name="PercRect" value="0, 0, 1, 1" />
+    <rect name="Rect" value="13, 96, -13, -13" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="false" />
+    <bool name="DrawBackground" value="true" />
+  </attributes>
+  <bindings>
+    <signal name="revealed" slot="RefreshItems" id="ItemsManager" />
+  </bindings>
+<!--
+  <element type="customImage">
+    <attributes>
+      <rect name="Rect" value="0, 0, 512, 400" />
+      <texture name="Texture" value="UI/Images/Backgrounds/trade.png" />
+      <bool name="ScaleImage" value="False" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+  </element>
+-->
+    <element type="customEditBox">
+    <attributes>
+      <string name="IdName" value="baseinventorySearch" />
+      <string name="TextID" value="" />
+      <int name="Id" value="20" />
+      <rectf name="PercRect" value="0, 0, 1, 0" />
+      <rect name="Rect" value="8, 6, -8, 29" />
+      <string name="PlaceholderText" value="Search..." />
+      <string name="ToolTip" value="Search for items on this station." />
+    </attributes>
+    <bindings>
+      <signal name="value_changed" slot="BaseSearchChanged" id="ItemsManager" />
+      <slot name="setText" signal="base_search_text" id="ItemsManager" />
+    </bindings>
+  </element>
+
+  <element type="customTable">
+    <attributes>
+      <string name="IdName" value="itemsTableBaseItems" />
+      <string name="TextID" value="" />
+      <int name="Id" value="122" />
+      <rectf name="PercRect" value="0, 0, 1, 1" />
+      <rect name="Rect" value="8, 35, -8, -13" />
+      <bool name="Draggable" value="true" />
+      <bool name="ResizableColumns" value="false" />
+      <string name="IconBankName" value="items_small" />
+      <int name="ColumnCount" value="6" />
+      <int name="ActiveTab" value="5" />
+      <int name="SecondaryTab" value="3" />	 <!-- will order those == using that (usually used so that if you order by type, they will also be ordered by their name in each type) -->
+      <enum name="CurrentOrdering" value="ascending" />
+
+      <string name="Column0name" value=".." />
+      <int name="Column0width" value="10" />
+      <enum name="Column0OrderingMode" value="ascend_descend" />
+
+      <string name="Column1name" value="#" />
+      <int name="Column1width" value="80" />
+      <enum name="Column1OrderingMode" value="ascend_descend" />
+      <enum name="Column1OrderingType" value="numerical" />
+
+      <string name="Column2name" value="T" />
+      <int name="Column2width" value="200" />
+      <enum name="Column2OrderingMode" value="ascend_descend" />
+
+      <string name="Column3name" value="ITEM" />
+      <int name="Column3width" value="29" />
+      <enum name="Column3OrderingMode" value="ascend_descend" />
+
+      <string name="Column4name" value="EQP" />
+      <int name="Column4width" value="154" />
+      <enum name="Column4OrderingMode" value="ascend_descend" />
+
+      <string name="Column5name" value="TYPE" />
+      <int name="Column5width" value="154" />
+      <enum name="Column5OrderingMode" value="ascend_descend" />
+
+      <int name="DrawFlags" value="4" />
+      <bool name="DrawBack" value="true" />
+      <bool name="UseOverrideBgColor" value="true" />
+      <color name="OverrideBgColor" value="8F000000" />
+      <bool name="MultiSelection" value="true" />
+      <bool name="AcceptsDrop" value="true" />
+    </attributes>
+    <bindings>
+      <slot name="setAll" signal="table_baseitems_all" id="ItemsManager" />
+      <slot name="setText" signal="table_baseitems_text" id="ItemsManager" />
+      <signal name="item_right_clicked_data" slot="OnRclickBaseItems" id="ItemsManager" />
+      <signal name="item_double_clicked_data" slot="OnDblclkBaseItems" id="ItemsManager" />
+      <signal name="item_selected_data" slot="OnSelectBaseItems" id="ItemsManager" />
+      <signal name="item_mouse_paused_data" slot="ItemManagerTableItemMousePausedData" id="ItemsManager" />
+      <signal name="item_hovered_data" slot="ItemManagerTableItemHoveredData" id="ItemsManager" />
+      <signal name="mouse_left" slot="ItemManagerHideHoverTooltip" id="ItemsManager" />
+      <signal name="dragged" slot="OnItemDragged" id="ItemsManager" />
+      <signal name="dropped" slot="OnItemDrop" id="ItemsManager" />
+    </bindings>
+  </element>
+</element>

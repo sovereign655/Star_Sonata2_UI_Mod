@@ -1,0 +1,70 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="controlDialogLog" />
+    <int name="Flags" value="0" />
+    <rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+    <rect name="Rect" value="-200, -250, 200, 250" />
+    <bool name="Movable" value="true" />
+    <bool name="Visible" value="false" />
+    <bool name="DrawBackground" value="true" />
+		<string name="SoundShow" value="DialogOpen.wav" />
+	  <string name="SoundHide" value="DialogClose.wav" />    
+  </attributes>
+  <bindings>
+    <signal name="revealed" slot="OnInitProps" id="ControlManager" />
+    <signal name="hidden" slot="OnHideProps" id="ControlManager" />
+  </bindings>
+	<!-- Window Title -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="Caption" value="Base Log Export" />
+			<rect name="Rect" value="8, 8, -8, 24" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<enum name="VTextAlign" value="center" />
+			<enum name="HTextAlign" value="left" />
+			<int name="ScrolledLines" value="0" />
+			<enum name="Font" value="largeBoldFont" />
+			<bool name="OverrideColorEnabled" value="true" />
+			<color name="OverrideColor" value="ffffffff" />        
+		</attributes>
+	</element>
+	<element type="customStaticText">
+		<attributes>
+			<string name="Caption" value="Undock to freeze base log." />
+			<rect name="Rect" value="120, 13, -8, 24" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<enum name="VTextAlign" value="center" />
+			<enum name="HTextAlign" value="left" />
+			<int name="ScrolledLines" value="0" />
+		</attributes>
+	</element>  
+  <element type="customEditBox">
+    <attributes>
+			<string name="IdName" value="baseExportLog" />
+			<int name="Id" value="510" /> 
+      <rect name="Rect" value="8, 32, -8, -8" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+			<bool name="WordWrap" value="true" />
+			<bool name="MultiLine" value="true" />
+			<enum name="HTextAlign" value="Left" />
+			<enum name="VTextAlign" value="top" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="table_baselog_text" id="ControlManager" />
+    </bindings>
+  </element>
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="baseExportLogButtonClose" />
+			<rect name="Rect" value="-18, 2, -2, 18" />
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+			<texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+			<texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="false" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="toggleVisibility" id="controlDialogLog" />
+		</bindings>
+	</element>
+</element>

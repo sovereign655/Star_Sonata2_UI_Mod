@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<images>
+	<small.box.blue target="UI/Images/Buttons/spaceobject-boxes-blue.png" />
+	<small.box.gray target="UI/Images/Buttons/spaceobject-boxes-gray.png" />
+	<small.box.orange target="UI/Images/Buttons/spaceobject-boxes-orange.png" />
+	<small.box.bars target="UI/Images/Buttons/spaceobject-box-bar.png" />
+	<small.box.blue.bars target="UI/Images/Buttons/spaceobject-box-blue-bar.png" />
+  
+	<small.boxPlus.blue target="UI/Images/Buttons/spaceobject-boxes-blue-med.png" />
+	<small.boxPlus.gray target="UI/Images/Buttons/spaceobject-boxes-gray-med.png" />
+	<small.boxPlus.orange target="UI/Images/Buttons/spaceobject-boxes-orange-med.png" />
+	<small.boxPlus.bars target="UI/Images/Buttons/spaceobject-box-bar-med.png" />
+	<small.boxPlus.blue.bars target="UI/Images/Buttons/spaceobject-box-blue-bar-med.png" />
+	
+	<medium.box.blue target="UI/Images/Buttons/hotkey-boxes-blue.png" />
+	<medium.box.gray target="UI/Images/Buttons/hotkey-boxes-gray.png" />
+	<medium.box.orange target="UI/Images/Buttons/hotkey-boxes-orange.png" />
+	<medium.box.orange.ready target="UI/Images/Buttons/hotkey-boxes-orange-ready.png" />
+	<medium.box.bars target="UI/Images/Buttons/hotkey-box-bar.png" />
+	
+	<target.box.blue target="UI/Images/Buttons/target-box.png" />
+	<target.box.bars target="UI/Images/Buttons/target-box-bar.png" />
+	<target.box.blue.bars target="UI/Images/Buttons/target-box-blue-bar.png" />
+	
+	<bars.main.energy target="UI/Images/Progress/bars-main-energy.png" />
+	<bars.main.shield target="UI/Images/Progress/bars-main-shield.png" />
+	<bars.main.vis target="UI/Images/Progress/bars-main-vis.png" />
+	<bars.main.weapon target="UI/Images/Progress/bars-main-weapon.png" />
+	<bars.main.xp target="UI/Images/Progress/bars-main-xp.png"/>
+	<bars.main.all target="UI/Images/Progress/bars-main-all.png"/>
+  
+	<bars.icon.orange target="UI/Images/Progress/bars-icon-box-orange.png" />
+	<bars.icon.blue target="UI/Images/Progress/bars-icon-box-blue.png" />
+	<bars.icon.gray target="UI/Images/Progress/bars-icon-box-gray.png" />
+	<small.shield.icon target="UI/Images/Items/iconsmall/Shield.png" />
+	<small.energy.icon target="UI/Images/Items/iconsmall/tiny9.png" />
+	<small.weapon.icon target="UI/Images/Items/iconsmall/Weapon.png" />
+	<small.cloak.icon target="UI/Images/Items/iconsmall/Cloak.png" />
+	<small.cargo.icon target="UI/Images/Items/iconsmall/Hullspace.png" />
+	<small.speed.icon target="UI/Images/Items/iconsmall/Engine.png" />
+	<small.credits.icon target="UI/Images/Items/iconsmall/Credits.png" />
+  
+	<command.icon target="UI/Images/Buttons/command-boxes-blue.png" />
+	<command.icon.orange target="UI/Images/Buttons/command-box-orange-highlight.png" />
+	<command.icon.small target="UI/Images/Buttons/command-boxes-small-blue.png" />
+
+	<command.icon.buddylist target="UI/Images/Icons/buddy-list.png" />
+	<command.icon.inventory target="UI/Images/Icons/cargo.png" />
+	<command.icon.character target="UI/Images/Icons/character.png" />
+	<command.icon.galaxymap target="UI/Images/Icons/galmap.png" />
+	<command.icon.settings target="UI/Images/Icons/settings.png" />
+	<command.icon.ship target="UI/Images/Icons/ship.png" />
+	<command.icon.dock target="UI/Images/Icons/dock.png" />
+	<command.icon.warp target="UI/Images/Icons/warp.png" />
+	<command.icon.radar target="UI/Images/Icons/radar.png" />
+	<command.icon.question target="UI/Images/Icons/question.png" />
+
+	<logo.small target="UI/Images/Dialogs/logosmall.bmp" />
+	<splash.image target="UI/Images/Dialogs/splash.bmp" />
+
+	<ok.up target="UI/Images/Buttons/ok.bmp" />
+	<ok.down target="UI/Images/Buttons/okD.bmp" />
+	<cancel.up target="UI/Images/Buttons/cancel.bmp" />
+	<cancel.down target="UI/Images/Buttons/cancelD.bmp" />
+	
+	<arrow.left target="UI/Images/Buttons/arrow_left.png" />
+	<arrow.right target="UI/Images/Buttons/arrow_right.png" />
+	
+	<window.close.up target="UI/Images/Dialogs/closeup.bmp" />
+	<window.close.down target="UI/Images/Dialogs/closedown.bmp" />
+
+	<big.progress.bar.filled target="UI/Images/Progress/bar_long_filled.png" />
+	<big.progress.bar.empty target="UI/Images/Progress/bar_long_empty.png" />
+	
+	<misc.anchor target="UI/Images/Buttons/anchor.png" />
+
+	<background.station.ships target="UI/Images/Backgrounds/ships.png" />
+	
+	<lagkiller.background target="UI/Images/Misc/lagkillerbg.png"/>
+	<lagkiller.text target="UI/Images/Misc/lagkillertxt.png"/>
+  
+  <bgload.image target="UI/Images/Misc/bgload.png"/>
+</images>

@@ -1,0 +1,3 @@
+<root>
+	<dialog xml="UI/XML/Dialogs/dlg_device_options.xml" deferred="false" />
+</root>

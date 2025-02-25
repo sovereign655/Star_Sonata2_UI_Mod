@@ -1,0 +1,324 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="bottomBar"/>
+		<int name="id" value="9999"/>
+		<rect name="Rect" value="8, -63, 0, 31"/>
+		<rectf name="PercRect" value="0.0, 1.0, 0.95, 1.0"/>
+		<int name="Flags" value="0"/>
+		<int name="BorderStyle" value="0"/>
+		<bool name="StayAtBack" value="true"/>
+    <bool name="ClickThrough" value="false" />
+    <bool name="DrawBackground" value="false" />
+	</attributes>
+
+
+  <!--Inventory Window-->
+	<element type="actionbutton">
+		<attributes>
+			<int name="TabOrder" value="20"/>
+			<int name="Id" value="100"/>
+			<string name="IdName" value="inventoryCommandToggle"/>
+			<rect name="Rect" value="-34, 4, -4, 34"/>
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0"/>
+			<texture name="Image" value="command.icon"/>
+			<rect name="ImageRect" value="0, 0, 30, 30"/>
+			<texture name="ActiveImage" value="command.icon"/>
+			<rect name="ActiveImageRect" value="36, 0, 66, 30"/>
+			<texture name="HoverImage" value="command.icon"/>
+			<rect name="HoverImageRect" value="72, 0, 102, 30"/>
+			<texture name="TagImage" value="command.icon.inventory"/>
+			<bool name="UseAlphaChannel" value="true"/>
+			<bool name="Border" value="false"/>
+			<string name="ToolTip" value="Inventory (F12, i)"/>
+			<string name="ToolTipBody" value="A list of items in your ship."/>
+			<texture name="ToolTipImage" value="command.icon.inventory"/>
+			<int name="MousePauseTime" value="500"/>
+			<rect name="ToolTipRect" value="0, 0, -6, -42"/>
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="toggleVisibility" id="shipInventoryDialog"/>
+		</bindings>
+  <!--Radar-->
+	</element>
+	<element type="actionbutton">
+		<attributes>
+			<int name="TabOrder" value="19"/>
+			<int name="Id" value="100"/>
+			<string name="IdName" value="radarCommand"/>
+			<rect name="Rect" value="-470, 4, -440, 34"/>
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0"/>
+			<texture name="Image" value="command.icon"/>
+			<rect name="ImageRect" value="0, 0, 30, 30"/>
+			<texture name="ActiveImage" value="command.icon"/>
+			<rect name="ActiveImageRect" value="36, 0, 66, 30"/>
+			<texture name="HoverImage" value="command.icon"/>
+			<rect name="HoverImageRect" value="72, 0, 102, 30"/>
+			<texture name="TagImage" value="command.icon.radar"/>
+			<bool name="UseAlphaChannel" value="true"/>
+			<bool name="Border" value="false"/>
+			<string name="ToolTip" value="Radar (F11)"/>
+			<string name="ToolTipBody" value="Show or hide the radar."/>
+			<texture name="ToolTipImage" value="command.icon.radar"/>
+			<int name="MousePauseTime" value="500"/>
+			<rect name="ToolTipRect" value="0, 0, -6, -42"/>
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="toggleVisibility" id="radarDialog"/>
+		</bindings>
+	</element>
+  <!-- Ship Detail Window -->
+	<element type="actionbutton">
+		<attributes>
+			<int name="TabOrder" value="18"/>
+			<int name="Id" value="100"/>
+			<string name="IdName" value="shipCommandToggle"/>
+			<rect name="Rect" value="-68, 4, -38, 34"/>
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0"/>
+			<texture name="Image" value="command.icon"/>
+			<rect name="ImageRect" value="0, 0, 30, 30"/>
+			<texture name="ActiveImage" value="command.icon"/>
+			<rect name="ActiveImageRect" value="36, 0, 66, 30"/>
+			<texture name="HoverImage" value="command.icon"/>
+			<rect name="HoverImageRect" value="72, 0, 102, 30"/>
+			<texture name="TagImage" value="command.icon.ship"/>
+			<bool name="UseAlphaChannel" value="true"/>
+			<bool name="Border" value="false"/>
+			<string name="ToolTip" value="Ship Details (F10)"/>
+			<string name="ToolTipBody" value="Information about your ship."/>
+			<texture name="ToolTipImage" value="command.icon.ship"/>
+			<int name="MousePauseTime" value="500"/>
+			<rect name="ToolTipRect" value="0, 0, -6, -42"/>
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="toggleVisibility" id="shipInfoDialog"/>
+		</bindings>
+	</element>
+  <!-- Charecter Menu-->
+	<element type="actionbutton">
+		<attributes>
+			<int name="TabOrder" value="17"/>
+			<int name="Id" value="100"/>
+			<string name="IdName" value="characterCommandToggle"/>
+			<rect name="Rect" value="-102, 4, -72, 34"/>
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0"/>
+			<texture name="Image" value="command.icon"/>
+			<rect name="ImageRect" value="0, 0, 30, 30"/>
+			<texture name="ActiveImage" value="command.icon"/>
+			<rect name="ActiveImageRect" value="36, 0, 66, 30"/>
+			<texture name="HoverImage" value="command.icon"/>
+			<rect name="HoverImageRect" value="72, 0, 102, 30"/>
+			<texture name="TagImage" value="command.icon.character"/>
+			<bool name="UseAlphaChannel" value="true"/>
+			<bool name="Border" value="false"/>
+			<string name="ToolTip" value="Character (F9, M for missions)"/>
+			<string name="ToolTipBody" value="View character details."/>
+			<texture name="ToolTipImage" value="command.icon.character"/>
+			<int name="MousePauseTime" value="500"/>
+			<rect name="ToolTipRect" value="0, 0, -6, -42"/>
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="toggleVisibility" id="characterDialog"/>
+		</bindings>
+	</element>
+	<element type="actionbutton">
+		<attributes>
+			<int name="TabOrder" value="16"/>
+			<int name="Id" value="100"/>
+			<string name="IdName" value="contactsCommandToggle"/>
+			<rect name="Rect" value="-136, 4, -106, 34"/>
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0"/>
+			<texture name="Image" value="command.icon"/>
+			<rect name="ImageRect" value="0, 0, 30, 30"/>
+			<texture name="ActiveImage" value="command.icon"/>
+			<rect name="ActiveImageRect" value="36, 0, 66, 30"/>
+			<texture name="HoverImage" value="command.icon"/>
+			<rect name="HoverImageRect" value="72, 0, 102, 30"/>
+			<texture name="TagImage" value="command.icon.buddylist"/>
+			<bool name="UseAlphaChannel" value="true"/>
+			<bool name="Border" value="false"/>
+			<string name="ToolTip" value="Social (F8)"/>
+			<string name="ToolTipBody" value="View your squad, team and friends list."/>
+			<texture name="ToolTipImage" value="command.icon.buddylist"/>
+			<int name="MousePauseTime" value="500"/>
+			<rect name="ToolTipRect" value="0, 0, -6, -42"/>
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="toggleVisibility" id="contactsDialog"/>
+		</bindings>
+	</element>
+  <!--Settings Button-->
+	<element type="actionbutton">
+		<attributes>
+			<int name="TabOrder" value="15"/>
+			<int name="Id" value="100"/>
+			<string name="IdName" value="optionsCommandToggle"/>
+			<rect name="Rect" value="-170, 4, -140, 34"/>
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0"/>
+			<texture name="Image" value="command.icon"/>
+			<rect name="ImageRect" value="0, 0, 30, 30"/>
+			<texture name="ActiveImage" value="command.icon"/>
+			<rect name="ActiveImageRect" value="36, 0, 66, 30"/>
+			<texture name="HoverImage" value="command.icon"/>
+			<rect name="HoverImageRect" value="72, 0, 102, 30"/>
+			<texture name="TagImage" value="command.icon.settings"/>
+			<bool name="UseAlphaChannel" value="true"/>
+			<bool name="Border" value="false"/>
+			<string name="ToolTip" value="Settings (F7, O)"/>
+			<string name="ToolTipBody" value="Graphics, sound and interface settings."/>
+			<texture name="ToolTipImage" value="command.icon.settings"/>
+			<int name="MousePauseTime" value="500"/>
+			<rect name="ToolTipRect" value="0, 0, -6, -42"/>
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="toggleVisibility" id="optionsDialog"/>
+		</bindings>
+	</element>
+  <!--Galaxy Map Button-->
+	<element type="actionbutton">
+		<attributes>
+			<int name="TabOrder" value="14"/>
+			<int name="Id" value="100"/>
+			<bool name="visible" value="false"/>
+			<string name="IdName" value="galaxyMapToggle"/>
+			<rect name="Rect" value="-272, 4, -242, 34"/>
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0"/>
+			<texture name="Image" value="command.icon"/>
+			<rect name="ImageRect" value="0, 0, 30, 30"/>
+			<texture name="ActiveImage" value="command.icon"/>
+			<rect name="ActiveImageRect" value="36, 0, 66, 30"/>
+			<texture name="HoverImage" value="command.icon"/>
+			<rect name="HoverImageRect" value="72, 0, 102, 30"/>
+			<texture name="TagImage" value="command.icon.galaxymap"/>
+			<rectf name="TagImageRect" value="1, 1, 23, 23"/>
+			<bool name="UseAlphaChannel" value="true"/>
+			<bool name="Border" value="false"/>
+			<string name="ToolTip" value="Map (F6, full screen: P)"/>
+			<string name="ToolTipBody" valure="Right click to show galaxy info."/>
+			<texture name="ToolTipImage" value="command.icon.galaxymap"/>
+			<int name="MousePauseTime" value="500"/>
+			<rect name="ToolTipRect" value="0, 0, -6, -42"/>
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="toggleVisibility" id="galaxyMapDialog"/>
+			<signal name="button_right_clicked" slot="BottomBarManagerGalaxyPlateRightClicked" id="BottomBarManager"/>
+			<slot name="show" signal="hide_galaxy_plate" id="BottomBarManager"/>
+			<slot name="hide" signal="show_galaxy_plate" id="BottomBarManager"/>
+		</bindings>
+	</element>
+  <!--minimized galaxy map button-->
+	<element type="galaxyplate">
+		<attributes>
+			<int name="TabOrder" value="13"/>
+			<string name="IdName" value="bottomBarGalaxyPlate"/>
+			<int name="Id" value="100"/>
+			<rect name="Rect" value="0, 4, -150, 34"/>
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0"/>
+			<texture name="Image" value="command.icon"/>
+			<rect name="ImageRect" value="0, 0, 30, 30"/>
+			<texture name="ActiveImage" value="command.icon"/>
+			<rect name="ActiveImageRect" value="36, 0, 66, 30"/>
+			<texture name="HoverImage" value="command.icon"/>
+			<rect name="HoverImageRect" value="72, 0, 102, 30"/>
+			<texture name="TagImage" value="command.icon.settings"/>
+			<bool name="UseAlphaChannel" value="true"/>
+			<bool name="Border" value="false"/>
+			<string name="ToolTip" value="Map (F6, full screen: P)"/>
+			<string name="ToolTipBody" value="Right click to hide galaxy info."/>
+			<texture name="ToolTipImage" value="command.icon.galaxymap"/>
+			<int name="MousePauseTime" value="500"/>
+			<rect name="ToolTipRect" value="0, 0, -6, -42"/>
+		</attributes>
+		<bindings>
+			<signal name="clicked" slot="toggleVisibility" id="galaxyMapDialog"/>
+			<signal name="right_clicked" slot="BottomBarManagerGalaxyPlateRightClicked" id="BottomBarManager"/>
+			<slot name="hide" signal="hide_galaxy_plate" id="BottomBarManager"/>
+			<slot name="show" signal="show_galaxy_plate" id="BottomBarManager"/>
+		</bindings>
+	</element>
+  <!--Moderation Button-->
+	<element type="actionbutton">
+		<attributes>
+			<int name="TabOrder" value="12"/>
+			<int name="Id" value="100"/>
+			<string name="IdName" value="moderate"/>
+			<bool name="Visible" value="false"/>
+			<rect name="Rect" value="-272, 4, -242, 34"/>
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0"/>
+			<texture name="Image" value="command.icon"/>
+			<rect name="ImageRect" value="0, 0, 30, 30"/>
+			<texture name="ActiveImage" value="command.icon"/>
+			<rect name="ActiveImageRect" value="36, 0, 66, 30"/>
+			<texture name="HoverImage" value="command.icon"/>
+			<rect name="HoverImageRect" value="72, 0, 102, 30"/>
+			<texture name="TagImage" value="UI/Images/Icons/moderator.png"/>
+			<bool name="UseAlphaChannel" value="true"/>
+			<bool name="Border" value="false"/>
+			<string name="ToolTip" value="Moderator Panel"/>
+			<string name="ToolTipBody" value="Open your handy toolset of ban hammers and silencers."/>
+			<texture name="ToolTipImage" value="UI/Images/Icons/moderator.png"/>
+			<int name="MousePauseTime" value="500"/>
+			<rect name="ToolTipRect" value="0, 0, -6, -42"/>
+		</attributes>
+		<bindings>
+      <signal name="button_clicked" slot="toggleVisibility" id="moderatorDialogInfo"/>
+			<signal name="button_clicked" slot="toggleVisibility" id="moderatorDialog"/>
+			<slot name="setVisible" signal="button_mod_visible" id="ModeratorManager"/>
+      <signal name="button_clicked" slot="toggleActiveState" id="moderate" />
+		</bindings>
+	</element>
+  <!--Store-->
+	<element type="actionbutton">
+		<attributes>
+			<int name="TabOrder" value="11"/>
+			<int name="Id" value="100"/>
+			<string name="IdName" value="store"/>
+			<bool name="Visible" value="false"/>
+			<rect name="Rect" value="-134, 4, -104, 34"/>
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0"/>
+			<texture name="Image" value="command.icon"/>
+			<rect name="ImageRect" value="0, 0, 30, 30"/>
+			<texture name="ActiveImage" value="command.icon.orange"/>
+			<rect name="ActiveImageRect" value="36, 0, 66, 30"/>
+			<texture name="HoverImage" value="command.icon"/>
+			<rect name="HoverImageRect" value="72, 0, 102, 30"/>
+			<texture name="TagImage" value="UI/Images/Icons/store.png"/>
+			<bool name="UseAlphaChannel" value="true"/>
+			<bool name="Border" value="false"/>
+			<string name="ToolTip" value="Galactic Exchange"/>
+			<texture name="ToolTipImage" value="UI/Images/Icons/store.png"/>
+			<int name="MousePauseTime" value="500"/>
+			<rect name="ToolTipRect" value="0, 0, -6, -42"/>
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="toggleVisibility" id="ingameStoreDialog"/>
+			<slot name="setVisible" signal="store_button_visible" id="StoreManager"/>
+		</bindings>
+	</element>
+  <!--Subscription Management-->
+	<element type="actionbutton">
+		<attributes>
+			<int name="TabOrder" value="10"/>
+      <int name="Id" value="100"/>
+			<string name="IdName" value="subscriptionbutton"/>
+			<bool name="Visible" value="true"/>
+			<rect name="Rect" value="-134, 4, -104, 34"/>
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0"/>
+			<texture name="Image" value="command.icon"/>
+			<rect name="ImageRect" value="0, 0, 30, 30"/>
+			<texture name="ActiveImage" value="command.icon.orange"/>
+			<rect name="ActiveImageRect" value="36, 0, 66, 30"/>
+			<texture name="HoverImage" value="command.icon"/>
+			<rect name="HoverImageRect" value="72, 0, 102, 30"/>
+			<texture name="TagImage" value="UI/Images/Icons/store.png"/>
+			<bool name="UseAlphaChannel" value="true"/>
+			<bool name="Border" value="false"/>
+			<string name="ToolTip" value="Subscription Management"/>
+			<texture name="ToolTipImage" value="UI/Images/Icons/store.png"/>
+			<int name="MousePauseTime" value="500"/>
+			<rect name="ToolTipRect" value="0, 0, -6, -42"/>
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="toggleVisibility" id="ingameSubscriptionDialog"/>
+		</bindings>
+	</element>
+</element>

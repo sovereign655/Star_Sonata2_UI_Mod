@@ -1,0 +1,512 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="avatarDialog" />
+    <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+    <rect name="Rect" value="8, 69, -8, -8" />
+    <int name="Flags" value="0" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="true" />
+    <bool name="DrawBackground" value="true" />
+  </attributes>
+  <bindings>
+    <signal name="created" slot="RefreshAll" id="CharManager" />
+  </bindings>
+  <!-- Avatar Background Image -->
+  <element type="customImage">
+    <attributes>
+      <string name="TextID" value="" />
+      <rect name="Rect" value="8, 8, 200, 200" />
+      <texture name="Texture" value="UI/Images/Skin/sunkenpanes_512.png" />
+      <bool name="UseAlphaChannel" value="true" />
+      <color name="Color" value="88ffffff" />
+      <bool name="ScaleImage" value="true" />
+    </attributes>
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rect name="Rect" value="-64, -64, 64, 64" />
+        <rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+        <texture name="Texture" value="UI/Images/target/bgship.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="88ffffff" />
+        <bool name="ScaleImage" value="true" />
+      </attributes>
+    </element>
+  </element>
+  <!-- Avatar Ship Image, possibly player avatar in future -->
+  <!-- Character Static Level -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="characterStaticLevel" />
+      <string name="TextID" value="" />
+      <int name="Id" value="50" />
+      <rect name="Rect" value="10, 170, 190, 200" />
+      <int name="ScrolledLines" value="0" />
+      <enum name="HTextAlign" value="center" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_level_text" id="CharManager" />
+    </bindings>
+  </element>
+  <!-- start sp box-->
+  <!--
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="" />
+      <string name="Caption" value="" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="-188, 8, -8, 73" />
+      <bool name="Background" value="false" />
+    </attributes>
+    <element type="customStaticText">
+      <attributes>
+        <string name="TextID" value="" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="0, 0, 0, 0" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="99000000" />
+      </attributes>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="sp_amount_charAvatar" />
+        <string name="Caption" value="440" />
+        <string name="TextID" value="" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="-20, 8, -76, -8" />
+        <enum name="HTextAlign" value="lowerRight" />
+        <enum name="VTextAlign" value="center" />
+        <enum name="Font" value="suiGenLarge" />
+        <bool name="OverrideColorEnabled" value="true" />
+        <color name="OverrideColor" value="ffff8c00" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_spacepoints_text" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="1.0, 0.5, 1.0, 0.5" />
+        <rect name="Rect" value="-72, -31, -8, 33" />
+        <texture name="Texture" value="UI/Images/Store/sp_large.png" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="sp_buySP_charAvatar" />
+      <string name="TextID" value="" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="-188, 73, -8, 98" />
+      <texture name="Image" value="UI/Images/Store/Buy SP or SPEX.png" />
+      <rect name="ImageRect" value="0, 0, 180, 25" />
+      <texture name="PressedImage" value="UI/Images/Store/Buy SP or SPEX.png" />
+      <rect name="PressedImageRect" value="0, 0, 180, 23" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="toggleVisibility" id="ingameSpacepointDialog" />
+    </bindings>
+  </element>
+  -->
+  <!-- end sp box-->
+  <!-- Character Information Container -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="" />
+      <string name="Caption" value="" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="210, 18, -198, 300" />
+      <bool name="Background" value="false" />
+    </attributes>
+    <!-- Character Name Label -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="TextID" value="" />
+        <string name="Caption" value="Name:" />
+        <rect name="Rect" value="0, 0, 300, 20" />
+        <bool name="Border" value="False" />
+        <int name="ScrolledLines" value="0" />
+      </attributes>
+    </element>
+    <!-- Character Name -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="characterStaticName" />
+        <string name="TextID" value="" />
+        <string name="Caption" value="Character Name" />
+        <int name="Id" value="49" />
+        <rect name="Rect" value="40, 0, 260, 20" />
+        <int name="ScrolledLines" value="0" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_name_text" id="CharManager" />
+      </bindings>
+    </element>
+    <!-- Character Skill Points Label -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="TextID" value="id_charskillpoints" />
+        <string name="Caption" value="Skill Points:" />
+        <rect name="Rect" value="0, 20, 300, 40" />
+        <bool name="Border" value="False" />
+        <int name="ScrolledLines" value="0" />
+      </attributes>
+    </element>
+    <!-- Character Static Skill Points -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="characterStaticSkillPoints" />
+        <string name="TextID" value="" />
+        <int name="Id" value="52" />
+        <rect name="Rect" value="68, 20, 232, 40" />
+        <int name="ScrolledLines" value="0" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_skillpoints_text" id="CharManager" />
+      </bindings>
+    </element>
+    <!-- Character Kills Label -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="TextID" value="id_charkills" />
+        <string name="Caption" value="Kills:" />
+        <rect name="Rect" value="0, 40, 300, 60" />
+        <int name="ScrolledLines" value="0" />
+      </attributes>
+    </element>
+    <!-- Character Static Kills -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="characterStaticKills" />
+        <string name="TextID" value="" />
+        <int name="Id" value="53" />
+        <rect name="Rect" value="28, 40, 272, 60" />
+        <int name="ScrolledLines" value="0" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_kills_text" id="CharManager" />
+      </bindings>
+    </element>
+    <!-- Character Static Skill Points Debt -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="skillpointdebt" />
+        <string name="TextID" value="" />
+        <int name="Id" value="54" />
+        <rect name="Rect" value="0, 60, 300, 80" />
+        <int name="ScrolledLines" value="0" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_skillpointdebt_text" id="CharManager" />
+        <slot name="setToolTipText" signal="static_skillpointdebt_tooltip" id="CharManager" />
+      </bindings>
+    </element>
+  </element>
+  <!-- End of Character Information Container -->
+  <!-- Slots Title -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="SlotsLabelTitle" />
+      <string name="Caption" value="Slots Available" />
+      <rect name="Rect" value="12, 210, -8, -8" />
+      <rectf name="PercRect" value="0, 0.0, 1.0, 1.0" />
+      <int name="ScrolledLines" value="0" />
+      <enum name="HTextAlign" value="left" />
+      <enum name="Font" value="largeBoldFont" />
+      <string name="ToolTip" value="This section shows how many available slots this character currently has." />
+    </attributes>
+    <!-- Station Slots Label -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="Caption" value="Station Slots:" />
+        <string name="TextID" value="id_baseslots" />
+        <rect name="Rect" value="12, 116, -8, 135" />
+        <rectf name="PercRect" value="0, 0.0, 1.0, 0.0" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="left" />
+        <string name="ToolTip" value="Station slots your character currently has available." />
+      </attributes>
+    </element>
+    <!-- Station Slots Progression -->
+    <element type="progressbar">
+      <attributes>
+        <string name="IdName" value="BaseSlotsProgress" />
+        <rect name="Rect" value="130, 116, -12, 135" />
+        <rectf name="PercRect" value="0, 0.0, 1.0, 0.0" />
+        <bool name="Dynamic" value="true" />
+        <int name="IconWidth" value="22" />
+        <string name="ToolTip" value="Station slots your character currently has available." />
+      </attributes>
+      <bindings>
+        <slot name="setValue" signal="static_base_slot_fraction" id="CharManager" />
+      </bindings>
+      <!-- Station Slot Dynamic Label 0/10 -->
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="BaseSlotsLabelInfo" />
+          <string name="Caption" value="1/1" />
+          <rect name="Rect" value="25, 1, -8, -2" />
+          <rectf name="PercRect" value="0, 0.0, 1.0, 1.0" />
+          <int name="ScrolledLines" value="0" />
+          <enum name="HTextAlign" value="left" />
+          <string name="ToolTip" value="Station slots your character currently has available." />
+        </attributes>
+        <bindings>
+          <slot name="setText" signal="static_base_slot_text" id="CharManager" />
+        </bindings>
+      </element>
+      <!-- Account Station Slots Progression -->
+      <element type="progressbar">
+        <attributes>
+          <string name="IdName" value="AccountSlotsProgress" />
+          <rect name="Rect" value="0, 13, 0, 0" />
+          <rectf name="PercRect" value="0, 0.0, 1.0, 1.0" />
+          <bool name="Dynamic" value="true" />
+          <int name="IconWidth" value="22" />
+          <string name="ToolTip" value="Station slots your whole account currently has available." />
+        </attributes>
+        <bindings>
+          <slot name="setValue" signal="static_account_base_slot_fraction" id="CharManager" />
+          <slot name="setToolTipText" signal="static_account_base_slot_text" id="CharManager" />
+        </bindings>
+      </element>
+      <!-- Station Slot Icon -->
+      <element type="customImage">
+        <attributes>
+          <rect name="Rect" value="4, 2, 18, 16" />
+          <rectf name="PercRect" value="0, 0.0, 0.0, 0.0" />
+          <texture name="Texture" value="UI/Images/Items/iconsmall/Base-Kits.png" />
+          <bool name="UseAlphaChannel" value="true" />
+          <string name="ToolTip" value="Station slots your character currently has available." />
+        </attributes>
+      </element>
+    </element>
+    <!-- Drone Slots Label -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="Caption" value="Drone Slots:" />
+        <string name="TextID" value="id_droneslots" />
+        <rect name="Rect" value="12, 146, -8, 165" />
+        <rectf name="PercRect" value="0, 0.0, 1.0, 0.0" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="left" />
+        <string name="ToolTip" value="Permanent drone slots your character currently has available." />
+      </attributes>
+    </element>
+    <!-- Drone Slots Progression -->
+    <element type="progressbar">
+      <attributes>
+        <string name="IdName" value="DroneSlotsProgress" />
+        <rect name="Rect" value="130, 146, -12, 165" />
+        <rectf name="PercRect" value="0, 0.0, 1.0, 0.0" />
+        <bool name="Dynamic" value="true" />
+        <int name="IconWidth" value="22" />
+        <string name="ToolTip" value="Permanent drone slots your character currently has available." />
+      </attributes>
+      <bindings>
+        <slot name="setValue" signal="static_perma_drone_slot_fraction" id="CharManager" />
+      </bindings>
+      <!-- Drone Slot Icon -->
+      <element type="customImage">
+        <attributes>
+          <rect name="Rect" value="4, 2, 18, 16" />
+          <rectf name="PercRect" value="0, 0.0, 0.0, 0.0" />
+          <texture name="Texture" value="UI/Images/Items/iconsmall/Perma-Drone.png" />
+          <bool name="UseAlphaChannel" value="true" />
+          <string name="ToolTip" value="Permanent drone slots your character currently has available." />
+        </attributes>
+      </element>
+      <!-- Drone Slot Dynamic Label 0/10 -->
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="DroneSlotsLabelInfo" />
+          <string name="Caption" value="1/1" />
+          <rect name="Rect" value="25, 1, -8, -2" />
+          <rectf name="PercRect" value="0, 0.0, 1.0, 1.0" />
+          <int name="ScrolledLines" value="0" />
+          <enum name="HTextAlign" value="left" />
+          <string name="ToolTip" value="Permanent drone slots your character currently has available." />
+        </attributes>
+        <bindings>
+          <slot name="setText" signal="static_perma_drone_slot_text" id="CharManager" />
+        </bindings>
+      </element>
+    </element>
+    <!-- Combat Bot Slots Label -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="Caption" value="Combat Bots:" />
+        <string name="TextID" value="id_combatslots" />
+        <rect name="Rect" value="12, 56, -8, 75" />
+        <rectf name="PercRect" value="0, 0.0, 1.0, 0.0" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="left" />
+        <string name="ToolTip" value="Combat bot slots your character currently has available." />
+      </attributes>
+    </element>
+    <!-- Combat Bot Slots Progression -->
+    <element type="progressbar">
+      <attributes>
+        <string name="IdName" value="CombatSlaveSlotsProgress" />
+        <rect name="Rect" value="130, 56, -12, 75" />
+        <rectf name="PercRect" value="0, 0.0, 1.0, 0.0" />
+        <bool name="Dynamic" value="true" />
+        <int name="IconWidth" value="22" />
+        <string name="ToolTip" value="Combat bot slots your character currently has available." />
+      </attributes>
+      <bindings>
+        <slot name="setValue" signal="static_combat_slave_slot_fraction" id="CharManager" />
+      </bindings>
+      <!-- Combat Bot Slot Dynamic Label 0/10 -->
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="CombatSlaveSlotsLabelInfo" />
+          <string name="Caption" value="1/1" />
+          <rect name="Rect" value="25, 1, -8, -2" />
+          <rectf name="PercRect" value="0, 0.0, 1.0, 1.0" />
+          <int name="ScrolledLines" value="0" />
+          <enum name="HTextAlign" value="left" />
+          <string name="ToolTip" value="Combat bot slots your character currently has available." />
+        </attributes>
+        <bindings>
+          <slot name="setText" signal="static_combat_slave_slot_text" id="CharManager" />
+        </bindings>
+      </element>
+      <!-- Wild Bot Slots Progression -->
+      <element type="progressbar">
+        <attributes>
+          <string name="IdName" value="WildSlaveSlotsProgress" />
+          <rect name="Rect" value="0, 13, 0, 0" />
+          <rectf name="PercRect" value="0, 0.0, 1.0, 1.0" />
+          <bool name="Dynamic" value="true" />
+          <int name="IconWidth" value="22" />
+          <string name="ToolTip" value="Wild bot slots your character currently has available." />
+        </attributes>
+        <bindings>
+          <slot name="setValue" signal="static_wild_slave_slot_fraction" id="CharManager" />
+          <slot name="setToolTipText" signal="static_wild_slave_slot_text" id="CharManager" />
+          <slot name="setVisible" signal="static_showwildslave" id="CharManager" />
+        </bindings>
+      </element>
+      <!-- Combat Bot Slot Icon -->
+      <element type="customImage">
+        <attributes>
+          <rect name="Rect" value="4, 2, 18, 16" />
+          <rectf name="PercRect" value="0, 0.0, 0.0, 0.0" />
+          <texture name="Texture" value="UI/Images/Items/iconsmall/Control-Bot.png" />
+          <bool name="UseAlphaChannel" value="true" />
+          <string name="ToolTip" value="Combat bot slots your character currently has available." />
+        </attributes>
+      </element>
+    </element>
+    <!-- Trade Bot Slots Label -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="Caption" value="Trade Bots:" />
+        <string name="TextID" value="id_tradeslots" />
+        <rect name="Rect" value="12, 86, -8, 105" />
+        <rectf name="PercRect" value="0, 0.0, 1.0, 0.0" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="left" />
+        <string name="ToolTip" value="Trade bot slots your character currently has available." />
+      </attributes>
+    </element>
+    <!-- Trade Bot Slots Progression -->
+    <element type="progressbar">
+      <attributes>
+        <string name="IdName" value="TradeSlaveSlotsProgress" />
+        <rect name="Rect" value="130, 86, -12, 105" />
+        <rectf name="PercRect" value="0, 0.0, 1.0, 0.0" />
+        <bool name="Dynamic" value="true" />
+        <int name="IconWidth" value="22" />
+        <string name="ToolTip" value="Trade bot slots your character currently has available." />
+      </attributes>
+      <bindings>
+        <slot name="setValue" signal="static_trade_slave_slot_fraction" id="CharManager" />
+      </bindings>
+      <!-- Trade Bot Slot Icon -->
+      <element type="customImage">
+        <attributes>
+          <rect name="Rect" value="4, 2, 18, 16" />
+          <rectf name="PercRect" value="0, 0.0, 0.0, 0.0" />
+          <texture name="Texture" value="UI/Images/Items/iconsmall/Trade-Bay.png" />
+          <bool name="UseAlphaChannel" value="true" />
+          <string name="ToolTip" value="Trade bot slots your character currently has available." />
+        </attributes>
+      </element>
+      <!-- Trade Bot Slot Dynamic Label 0/10 -->
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="TradeSlaveSlotsLabelInfo" />
+          <string name="Caption" value="1/1" />
+          <rect name="Rect" value="25, 1, -8, -2" />
+          <rectf name="PercRect" value="0, 0.0, 1.0, 1.0" />
+          <int name="ScrolledLines" value="0" />
+          <enum name="HTextAlign" value="left" />
+          <string name="ToolTip" value="Trade bot slots your character currently has available." />
+        </attributes>
+        <bindings>
+          <slot name="setText" signal="static_trade_slave_slot_text" id="CharManager" />
+        </bindings>
+      </element>
+	</element>
+	  <!-- Ship Slots Label -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="Caption" value="Ships:" />
+        <string name="TextID" value="id_shipslots" />
+        <rect name="Rect" value="12, 26, -8, 45" />
+        <rectf name="PercRect" value="0, 0.0, 1.0, 0.0" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="left" />
+        <string name="ToolTip" value="Ship slots your character currently has available. Includes deployed bots and ships in stasis." />
+      </attributes>
+    </element>
+    <!-- Ship Slots Progression -->
+    <element type="progressbar">
+      <attributes>
+        <string name="IdName" value="ShipSlotsProgress" />
+        <rect name="Rect" value="130, 26, -12, 45" />
+        <rectf name="PercRect" value="0, 0.0, 1.0, 0.0" />
+        <bool name="Dynamic" value="true" />
+        <int name="IconWidth" value="22" />
+        <string name="ToolTip" value="Ship slots your character currently has available. Includes deployed bots and ships in stasis." />
+      </attributes>
+      <bindings>
+        <slot name="setValue" signal="static_ship_slot_fraction" id="CharManager" />
+      </bindings>
+      <!-- Ship Slot Icon -->
+      <element type="customImage">
+        <attributes>
+          <rect name="Rect" value="4, 2, 18, 16" />
+          <rectf name="PercRect" value="0, 0.0, 0.0, 0.0" />
+          <texture name="Texture" value="UI/Images/Items/iconsmall/Ship.png" />
+          <bool name="UseAlphaChannel" value="true" />
+          <string name="ToolTip" value="Ship slots your character currently has available. Includes deployed bots and ships in stasis." />
+        </attributes>
+      </element>
+      <!-- Ship Slot Dynamic Label 0/10 -->
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="ShipSlotsLabelInfo" />
+          <string name="Caption" value="1/1" />
+          <rect name="Rect" value="25, 1, -8, -2" />
+          <rectf name="PercRect" value="0, 0.0, 1.0, 1.0" />
+          <int name="ScrolledLines" value="0" />
+          <enum name="HTextAlign" value="left" />
+          <string name="ToolTip" value="Ship slots your character currently has available. Includes deployed bots and ships in stasis." />
+        </attributes>
+        <bindings>
+          <slot name="setText" signal="static_ship_slot_text" id="CharManager" />
+        </bindings>
+      </element>
+    </element>
+  </element>
+</element>

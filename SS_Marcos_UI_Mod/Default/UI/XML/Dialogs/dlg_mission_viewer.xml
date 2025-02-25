@@ -1,0 +1,130 @@
+	<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="missionViewerDialog" />
+		<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+		<rect name="Rect" value="8, 69, -8, -8" />
+		<int name="Flags" value="0" />
+		<bool name="Movable" value="false" />
+		<bool name="Visible" value="true" />
+		<bool name="DrawBackground" value="true" />
+	</attributes>
+	<bindings>
+		<signal name="created" slot="InitMissionViewer" id="MissionsManager" />
+		<signal name="revealed" slot="InitMissionViewer" id="MissionsManager" />
+	</bindings>
+  	<element type="customEditBox">
+		<attributes>
+			<string name="IdName" value="missionViewerTableSearch" />
+			<string name="TextID" value="" />
+			<int name="Id" value="20" />
+			<!--<rect name="Rect" value="161, 8, 420, 37" />-->
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<rect name="Rect" value="165, 165, -8, 195" />
+			<string name="PlaceholderText" value="Search..." />
+			<string name="ToolTip" value="Search missions." />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="OnMissionViewerTableSearchChanged" id="MissionsManager" />
+			<slot name="setText" signal="mission_viewer_table_search_text" id="MissionsManager" />
+		</bindings>
+	</element>
+
+	<element type="customTable">
+		<attributes>
+			<string name="IdName" value="missionViewerTableMissionz" />
+			<string name="TextID" value="" />
+			<int name="Id" value="19" />
+
+			<!-- <rect name="Rect" value="161, 37, 420, 191" /> -->
+			<rect name="Rect" value="8, 200, -8, -8" />
+			<rectf name="PercRect" value="0, 0, 1, 1"/>
+
+
+			<int name="ColumnCount" value="4" />
+			<int name="ActiveTab" value="2" />
+			<enum name="CurrentOrdering" value="ascending" />
+			<int name="SecondaryTab" value="1" />
+		
+
+			<string name="Column0name" value="" />
+			<int name="Column0width" value="1" />
+
+			<string name="Column1name" value="Difficulty" />
+			<int name="Column1width" value="10" />
+			<enum name="Column1OrderingMode" value="ascend_descend" />
+			
+
+			<string name="Column2name" value="Status" />
+			<int name="Column2width" value="70" />
+			<enum name="Column2OrderingMode" value="ascend_descend" />
+
+			<string name="Column3name" value="Mission" />
+			<int name="Column3width" value="174" />
+			<enum name="Column3OrderingMode" value="ascend_descend" />
+			<int name="DrawFlags" value="4" />
+		</attributes>
+		<bindings>
+			<slot name="setAll" signal="table_missions_all" id="MissionsManager" />
+			<slot name="setSelectedData" signal="table_missions_select" id="MissionsManager" />
+			<signal name="item_selected_data" slot="OnMissionViewerTableSelect" id="MissionsManager" />
+			<signal name="item_right_clicked_data" slot="OnMissionViewerTableSelectRButtonDown" id="MissionsManager" />
+		</bindings>
+	</element>
+	<element type="customImage">
+		<attributes>
+			<string name="IdName" value="missionViewerPortrait" />
+			<!-- 150x150 -->
+			<rect name="Rect" value="8, 8, 158, 158" />
+			<!-- texture name="Texture" value="UI/Images/MissionGivers/01.png" / -->
+			<bool name="ScaleImage" value="false" />
+			<bool name="UseAlphaChannel" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="clearImage" signal="clear_image_missions_portrait" id="MissionsManager" />
+			<slot name="loadImage" signal="set_image_missions_portrait" id="MissionsManager" />
+		</bindings>
+	</element>
+
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="missionViewerStaticDisplay" />
+			<int name="Id" value="100" />
+			<rect name="Rect" value="165, 8, -8, 158" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<bool name="Border" value="false" />
+			<bool name="AutoScroll" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_display_text" id="MissionsManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="missionViewerButtonAbort" />
+			<string name="TextID" value="" />
+			<int name="Id" value="20" />
+			<rect name="Rect" value="8, 165, 80, 195" />
+			<string name="Caption" value="Abort" />
+			<string name="ToolTip" value="This removes the currently selected mission from being in your log." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="OnAbortMission" id="MissionsManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="missionViewerButtonToggleActive" />
+			<string name="TextID" value="" />
+			<int name="Id" value="20" />
+			<rect name="Rect" value="88, 165, 157, 195" />
+			<string name="Caption" value="Deactivate" />
+			<string name="ToolTip" value="This enables/disables the mission from appearing in your mission tracker." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="OnToggleActiveMission" id="MissionsManager" />
+			<slot name="setText" signal="button_activate_caption" id="MissionsManager" />
+		</bindings>
+	</element>
+</element>

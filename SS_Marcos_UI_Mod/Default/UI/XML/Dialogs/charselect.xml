@@ -1,0 +1,743 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="characterSelectDialog" />
+    <int name="Id" value="9513" />
+    <int name="BorderStyle" value="2" />
+    <rect name="Rect" value="-512, -288, 512, 288" />
+      <rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+    <bool name="Visible" value="false" />
+    <bool name="Movable" value="true" />
+    <int name="Flags" value="0" />
+    <bool name="KeepOnScreen" value="true" />
+    <color name="WindowBackgroundColor" value="80100e73" />
+  </attributes>
+  <bindings>
+    <slot name='setVisible' signal='charselect_visible' id='ConnectManager' />
+    <signal name="revealed" slot="makeFocus" id="charSelectButtonOne" />
+  </bindings>
+
+  <!--<element type="customImage">
+    <attributes>
+      <string name="TextID" value="" />
+      <string name="AnimatorTag" value="HighlightOnMouseOver" />
+      <rect name="Rect" value="0, 0, 1024, 576" />
+      <texture name="Texture" value="UI/Images/Dialogs/1024x579xStars.png" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+  </element>-->
+<!--
+  <element type="customImage">
+    <attributes>
+      <string name="TextID" value="" />
+      <string name="AnimatorTag" value="HighlightOnMouseOver" />
+      <rect name="Rect" value="0, 0, 1024, 576" />
+      <texture name="Texture" value="UI/Images/Dialogs/1024x579xSplash2.png" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+  </element>
+-->
+  <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <!--<string name="AnimatorTag" value="HighlightOnMouseOver" />-->
+        <rect name="Rect" value="0, 0, 1024, 576" />
+        <texture name="Texture" value="UI/Images/Dialogs/1024x579xSplash3.png" />
+        <bool name="ScaleImage" value="false" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+
+  <!--<element type="customImage">
+
+    <attributes>
+      <int name="Id" value="-1" />
+      <string name="Caption" value="" />
+      <rect name="Rect" value="150, 0, 610, 160" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="false" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="-1" />
+      <bool name="NoClip" value="false" />
+      <bool name="UseAlphaChannel" value="true" />
+      <color name="Color" value="ffffffff" />
+      <bool name="ScaleImage" value="false" />
+      <texture name="Texture" value="UI/Images/Dialogs/logosmall.png" />
+    </attributes>
+
+  </element>-->
+
+  <element type="itempreview">
+    <attributes>
+      <int name="Id" value="1001" />
+      <string name="Caption" value="" />
+      <rect name="Rect" value="26, 180, 198, 400" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <int name="BorderStyle" value="2" />
+    </attributes>
+  </element>
+
+  <element type="itempreview">
+    <attributes>
+      <int name="Id" value="1002" />
+      <string name="Caption" value="" />
+      <rect name="Rect" value="226, 180, 398, 400" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+    </attributes>
+  </element>
+
+  <element type="itempreview">
+    <attributes>
+      <int name="Id" value="1003" />
+      <string name="Caption" value="" />
+      <rect name="Rect" value="426, 180, 598, 400" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+    </attributes>
+  </element>
+
+  <element type="itempreview">
+    <attributes>
+      <int name="Id" value="1004" />
+      <string name="Caption" value="" />
+      <rect name="Rect" value="626, 180, 798, 400" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+    </attributes>
+  </element>
+
+  <element type="itempreview">
+    <attributes>
+      <int name="Id" value="1005" />
+      <string name="Caption" value="" />
+      <rect name="Rect" value="826, 180, 998, 400" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+    </attributes>
+  </element>
+
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="optionsButtonDisconnect" />
+      <string name="Caption" value="Disconnect" />
+      <rect name="Rect" value="920, 20, 1020, 40" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="CreateGuiDialog" id="GuiFactory" arg="connectionDialog"/>
+      <signal name="button_clicked" slot="Disconnect" id="ConnectManager" />
+    </bindings>
+  </element>
+
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="subscription_status" />
+      <rect name="Rect" value="16, 140, -16, 160" />
+      <rect name="PercRect" value="0, 0, 1, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="NoClip" value="false" />
+      <enum name="HTextAlign" value="center" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="subscription_status_text" id="ConnectManager" />
+    </bindings>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="last_login" />
+      <rect name="Rect" value="16, 160, -16, 180" />
+      <rect name="PercRect" value="0, 0, 1, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="NoClip" value="false" />
+      <enum name="HTextAlign" value="center" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="last_login_text" id="ConnectManager" />
+    </bindings>
+  </element>
+
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="charSelectButtonOneLarge" />
+      <string name="Caption" value="Click to Select" />
+      <rect name="Rect" value="16, 180, 208, 522" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="false" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="SelectCharacter1" id="ConnectManager" />
+      <slot name="setVisible" signal="button_character1_visible" id="ConnectManager" />
+    </bindings>
+  </element>
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="charSelectButtonTwoLarge" />
+      <string name="Caption" value="Click to Select" />
+      <rect name="Rect" value="216, 180, 408, 522" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="false" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="SelectCharacter2" id="ConnectManager" />
+      <slot name="setVisible" signal="button_character2_visible" id="ConnectManager" />
+    </bindings>
+  </element>
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="charSelectButtonThreeLarge" />
+      <string name="Caption" value="Click to Select" />
+      <rect name="Rect" value="416, 180, 608, 522" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="false" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="SelectCharacter3" id="ConnectManager" />
+      <slot name="setVisible" signal="button_character3_visible" id="ConnectManager" />
+    </bindings>
+  </element>
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="charSelectButtonFourLarge" />
+      <string name="Caption" value="Click to Select" />
+      <rect name="Rect" value="616, 180, 808, 522" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="false" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="SelectCharacter4" id="ConnectManager" />
+      <slot name="setVisible" signal="button_character4_visible" id="ConnectManager" />
+    </bindings>
+  </element>
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="charSelectButtonFiveLarge" />
+      <string name="Caption" value="Click to Select" />
+      <rect name="Rect" value="816, 180, 1008, 522" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="false" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="SelectCharacter5" id="ConnectManager" />
+      <slot name="setVisible" signal="button_character5_visible" id="ConnectManager" />
+    </bindings>
+  </element>
+
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="charSelectTextOne" />
+      <string name="Caption" value="Character One" />
+      <rect name="Rect" value="16, 390, 208, 482" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="Border" value="true" />
+      <enum name="HTextAlign" value="center" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="button_character1_text" id="ConnectManager" />
+      <slot name="setVisible" signal="button_character1_visible" id="ConnectManager" />
+    </bindings>
+  </element>
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="charSelectButtonOne" />
+      <string name="Caption" value="Select Character" />
+      <rect name="Rect" value="16, 486, 208, 522" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="SelectCharacter1" id="ConnectManager" />
+      <slot name="trigger" signal="key_pressed_1" id="DeviceKeyboard" />
+      <slot name="setVisible" signal="button_character1_visible" id="ConnectManager" />
+      <slot name="makeFocus" signal="button_character1_visible" id="ConnectManager" />
+    </bindings>
+  </element>
+
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="charSelectTextTwo" />
+      <string name="Caption" value="Character Two" />
+      <rect name="Rect" value="216, 390, 408, 482" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="Border" value="true" />
+      <enum name="HTextAlign" value="center" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="button_character2_text" id="ConnectManager" />
+      <slot name="setVisible" signal="button_character2_visible" id="ConnectManager" />
+    </bindings>
+  </element>
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="charSelectButtonTwo" />
+      <string name="Caption" value="Select Character" />
+      <rect name="Rect" value="216, 486, 408, 522" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="SelectCharacter2" id="ConnectManager" />
+      <slot name="trigger" signal="key_pressed_2" id="DeviceKeyboard" />
+      <slot name="setVisible" signal="button_character2_visible" id="ConnectManager" />
+      <slot name="makeFocus" signal="button_character2_visible" id="ConnectManager" />
+    </bindings>
+  </element>
+
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="charSelectTextThree" />
+      <string name="Caption" value="Character Three" />
+      <rect name="Rect" value="416, 390, 608, 482" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="Border" value="true" />
+      <enum name="HTextAlign" value="center" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="button_character3_text" id="ConnectManager" />
+      <slot name="setVisible" signal="button_character3_visible" id="ConnectManager" />
+    </bindings>
+  </element>
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="charSelectButtonThree" />
+      <string name="Caption" value="Select Character" />
+      <rect name="Rect" value="416, 486, 608, 522" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="SelectCharacter3" id="ConnectManager" />
+      <slot name="trigger" signal="key_pressed_3" id="DeviceKeyboard" />
+      <slot name="setVisible" signal="button_character3_visible" id="ConnectManager" />
+      <slot name="makeFocus" signal="button_character3_visible" id="ConnectManager" />
+    </bindings>
+  </element>
+
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="charSelectTextFour" />
+      <string name="Caption" value="Character Four" />
+      <rect name="Rect" value="616, 390, 808, 482" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="Border" value="true" />
+      <enum name="HTextAlign" value="center" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="button_character4_text" id="ConnectManager" />
+      <slot name="setVisible" signal="button_character4_visible" id="ConnectManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="charSelectButtonFour" />
+      <string name="Caption" value="Select Character" />
+      <rect name="Rect" value="616, 486, 808, 522" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="SelectCharacter4" id="ConnectManager" />
+      <slot name="trigger" signal="key_pressed_4" id="DeviceKeyboard" />
+      <slot name="setVisible" signal="button_character4_visible" id="ConnectManager" />
+      <slot name="makeFocus" signal="button_character4_visible" id="ConnectManager" />
+    </bindings>
+  </element>
+
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="charSelectTextFive" />
+      <string name="Caption" value="Character Five" />
+      <rect name="Rect" value="816, 390, 1008, 482" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="Border" value="true" />
+      <enum name="HTextAlign" value="center" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="button_character5_text" id="ConnectManager" />
+      <slot name="setVisible" signal="button_character5_visible" id="ConnectManager" />
+    </bindings>
+  </element>
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="charSelectButtonFive" />
+      <string name="Caption" value="Select Character" />
+      <rect name="Rect" value="816, 486, 1008, 522" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="true" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="3" />
+      <bool name="NoClip" value="false" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="AllowFocus" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="SelectCharacter5" id="ConnectManager" />
+      <slot name="trigger" signal="key_pressed_5" id="DeviceKeyboard" />
+      <slot name="setVisible" signal="button_character5_visible" id="ConnectManager" />
+      <slot name="makeFocus" signal="button_character5_visible" id="ConnectManager" />
+    </bindings>
+  </element>
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="charOffsetInc" />
+      <string name="Caption" value="--&gt;" />
+      <rect name="Rect" value="948, 530, 1008, 550" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="ScaleImage" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="IncCharOffset" id="ConnectManager" />
+      <slot name="trigger" signal="key_pressed_right" id="DeviceKeyboard" />
+      <slot name="setVisible" signal="button_offsetinc_visible" id="ConnectManager" />
+    </bindings>
+  </element>
+    <element type="customButton">
+    <attributes>
+      <string name="IdName" value="charOffsetDec" />
+      <string name="Caption" value="&lt;--" />
+      <rect name="Rect" value="886, 530, 946 , 550" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="PushButton" value="false" />
+      <texture name="Image" value="" />
+      <rect name="ImageRect" value="0, 0, 0, 0" />
+      <texture name="PressedImage" value="" />
+      <rect name="PressedImageRect" value="0, 0, 0, 0" />
+      <bool name="UseAlphaChannel" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="ScaleImage" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="DecCharOffset" id="ConnectManager" />
+      <slot name="trigger" signal="key_pressed_left" id="DeviceKeyboard" />
+      <slot name="setVisible" signal="button_offsetdec_visible" id="ConnectManager" />
+    </bindings>
+  </element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="newCharacterHackBGV2" />
+      <int name="Id" value="-1" />
+      <string name="Caption" value="Create new character:" />
+      <rect name="Rect" value="816, 152, 1008, 250" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="NoClip" value="false" />
+      <enum name="LeftAlign" value="upperLeft" />
+      <enum name="RightAlign" value="upperLeft" />
+      <enum name="TopAlign" value="upperLeft" />
+      <enum name="BottomAlign" value="upperLeft" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="false" />
+      <bool name="TabGroup" value="false" />
+      <bool name="Border" value="true" />
+      <bool name="WordWrap" value="true" />
+      <bool name="Background" value="true" />
+      <bool name="OverrideColorEnabled" value="false" />
+      <color name="OverrideColor" value="65ffffff" />
+      <bool name="OverrideBgColorEnabled" value="false" />
+      <color name="OverrideBgColor" value="65d2d2d2" />
+      <enum name="HTextAlign" value="upperLeft" />
+      <enum name="VTextAlign" value="upperLeft" />
+    </attributes>
+    <bindings>
+      <slot name="setVisible" signal="entry_newcharacter_visible" id="ConnectManager" />
+    </bindings>
+  </element>
+
+  <element type="customEditBox">
+    <attributes>
+      <string name="IdName" value="newCharacterEdit" />
+      <string name="Caption" value="Type name here. Press enter to confirm." />
+      <rect name="Rect" value="816, 170, 1008, 250" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <enum name="LeftAlign" value="upperLeft" />
+      <enum name="RightAlign" value="upperLeft" />
+      <enum name="TopAlign" value="upperLeft" />
+      <enum name="BottomAlign" value="upperLeft" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="false" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="-1" />
+      <bool name="NoClip" value="false" />
+      <bool name="Border" value="false" />
+      <bool name="OverrideColorEnabled" value="false" />
+      <bool name="OverrideBGColorEnabled" value="false" />
+      <bool name="WordWrap" value="true" />
+      <bool name="Background" value="false" />
+      <bool name="Border" value="false" />
+      <bool name="RestrainTextInside" value="true" />
+      <color name="OverrideColor" value="65ffffff" />
+      <color name="BGColor" value="fad2d2d2" />
+      <enum name="HTextAlign" value="upperLeft" />
+      <enum name="VTextAlign" value="upperLeft" />
+    </attributes>
+    <bindings>
+      <signal name="focused" slot="setText" id="newCharacterEdit" arg="" />
+      <signal name="value_entered" slot="makeFocus" id="charOffset" />
+      <signal name="value_changed" slot="CharNameChanged" id="ConnectManager" />
+      <signal name="value_entered" slot="CharCreate" id="ConnectManager" />
+      <signal name="value_entered" slot="toggleVisibility" id="characterSelectDialog" />
+      <slot name="setVisible" signal="entry_newcharacter_visible" id="ConnectManager" />
+    </bindings>
+  </element>
+
+  <!--<element type="staticText">
+    <attributes>
+      <int name="Id" value="-1" />
+      <string name="IdName" value="newsAndStuff" />
+      <string name="Caption" value="News and Stuff." />
+      <rect name="Rect" value="490, 154, 1006, 567" />
+      <position name="MinSize" value="1, 1" />
+      <position name="MaxSize" value="0, 0" />
+      <bool name="Visible" value="true" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="false" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="-1" />
+      <bool name="NoClip" value="false" />
+      <bool name="Border" value="false" />
+      <bool name="OverrideColorEnabled" value="false" />
+      <bool name="OverrideBGColorEnabled" value="false" />
+      <bool name="WordWrap" value="true" />
+      <bool name="Background" value="false" />
+      <bool name="RestrainTextInside" value="true" />
+      <color name="OverrideColor" value="65ffffff" />
+      <color name="BGColor" value="fad2d2d2" />
+      <enum name="HTextAlign" value="upperLeft" />
+      <enum name="VTextAlign" value="upperLeft" />
+    </attributes>
+
+  </element>-->
+
+</element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="windowRestoreChar" />
+      <int name="Id" value="1510" />
+      <rect name="Rect" value="-18, 12, -2, 28" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <texture name="Image" value="UI/Images/Buttons/restorebutton_up.png" />
+      <texture name="PressedImage" value="UI/Images/Buttons/restorebutton_down.png" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnWindowRestore" id="GameManager"/>
+      <slot name="setVisible" signal="windowrestorebutton_visible" id="GameManager" />
+    </bindings>
+  </element>

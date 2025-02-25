@@ -1,0 +1,140 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="neuroWorkshopDialog" />
+		<rect name="PercRect" value="0.0, 0.0, 0.5, 0.5" />
+		<rect name="Rect" value="100, 100, 600, 650" />
+		<int name="Flags" value="0" />
+		<bool name="Movable" value="true" />
+		<bool name="Visible" value="false" />
+		<bool name="DrawBackground" value="true" />
+	</attributes>
+	<bindings>
+		<signal name="revealed" slot="RefreshNeurobinding" id="NeurobindingManager" />
+	</bindings>
+	<element type="customImage">
+		<attributes>
+			<string name="IdName" value="neuroWorkshopAttendee" />
+			<rect name="Rect" value="8, 8, 158, 158" />
+			<texture name="Texture" value="UI/Images/MissionGivers/70.png" />
+			<bool name="ScaleImage" value="true" />
+			<bool name="UseAlphaChannel" value="true" />
+		</attributes>
+		<bindings>
+		</bindings>
+	</element>
+	<element type="customImage">
+		<attributes>
+			<string name="IdName" value="neuroWorkshopHeader" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<rect name="Rect" value="160, 8, 0, 40" />
+			<texture name="Texture" value="UI/Images/Dialogs/Neuroenhance.png" />
+			<bool name="ScaleImage" value="false" />
+			<bool name="UseAlphaChannel" value="true" />
+		</attributes>
+		<bindings>
+		</bindings>
+	</element>
+
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="neuroworkshopDescription" />
+			<string name="TextID" value="id_neuro_workshopdesc" />
+			<int name="Id" value="100" />
+			<rect name="Rect" value="168, 46, -8, 150" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+		</attributes>
+	</element>
+	
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="neuroworkshopCurrentItemLabel" />
+			<string name="TextID" value="id_neuro_currentitem" />
+			<rect name="Rect" value="8, 166, 110, 200" />
+			<rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+			<enum name="Font" value="mediumBoldFont" />
+		</attributes>
+	</element>
+	<element type="customComboBox">
+		<attributes>
+			<string name="IdName" value="neuroworkshopCurrentItemCombo" />
+			<string name="TextID" value="" />
+			<rect name="Rect" value="120, 166, 350, 185" />
+			<rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+		</attributes>
+		<bindings>
+			<signal name="item_selected_data" slot="SetSelectedItemData" id="NeurobindingManager" />
+			<slot name="setText" signal="comboNeuroWorkshopItemText" id="NeurobindingManager" />
+			<slot name="setItemData" signal="comboNeuroWorkshopItemData" id="NeurobindingManager" />
+			<slot name="setSelectedIndex" signal="comboSetSelected" id="NeurobindingManager" />
+		</bindings>
+	</element>
+	
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="neuroworkshopCurrentItemLabel" />
+			<string name="TextID" value="id_neuro_currentmods" />
+			<rect name="Rect" value="210, 195, 0, 210" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<enum name="Font" value="mediumBoldFont" />
+		</attributes>
+	</element>
+	<element type="customTable">
+		<attributes>
+			<string name="IdName" value="controlTableNeurobindingMods" />
+			<string name="TextID" value="" />
+			<int name="Id" value="423" />
+			<rect name="Rect" value="8, 220, -8, -44" />
+			<rectf name="PercRect" value="0, 0, 1, 1" />
+			<int name="ColumnCount" value="3" />
+			<string name="Column0name" value="" />
+			<color name="Column0color" value="0000000" />
+			<int name="Column0width" value="0" />
+			<enum name="Column0OrderingMode" value="" />
+			<string name="Column1name" value="Mod" />
+			<int name="Column1width" value="1" />
+			<enum name="Column1OrderingMode" value="" />
+			<string name="Column2name" value="Description" />
+			<enum name="Column2OrderingMode" value="" />
+			<bool name="ResizableColumns" value="true" />
+			<int name="DrawFlags" value="0" />
+			<bool name="DrawBack" value="true" />
+			<bool name="UseOverrideBgColor" value="true" />
+			<color name="OverrideBgColor" value="8F000000" />
+			<bool name="AutoScroll" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="setAll" signal="modTableAllItems" id="NeurobindingManager" />
+		</bindings>
+	</element>
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="neuroworkshopRollButton" />
+			<string name="TextID" value="id_neuro_rollprimarymod" />
+			<int name="Id" value="100" />
+			<rect name="Rect" value="-60, -34, 60, -6" />	  
+			<rectf name="PercRect" value="0.5, 1.0, 0.5, 1.0" />	
+			<string name="ToolTip" value="Set the station name."/>		  
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="RollMod" id="NeurobindingManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="neurobindingButtonClose" />
+			<int name="Id" value="966" />
+			<rect name="Rect" value="-18, 2, -2, 18" />
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+			<texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+			<texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="false" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="toggleVisibility" id="neuroWorkshopDialog" />
+		</bindings>
+	</element>
+</element>
+

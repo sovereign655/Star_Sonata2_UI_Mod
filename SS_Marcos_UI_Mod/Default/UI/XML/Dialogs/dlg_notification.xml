@@ -1,0 +1,66 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="notificationMessageBox" />
+		<int name="Flags" value="0" />
+		<rect name="Rect" value="0, 0, 500, 300" />
+		<bool name="Movable" value="true" />
+		<bool name="Visible" value="false" />
+		<int name="BorderStyle" value="2" />
+	</attributes>
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="NotificationOK" />
+			<string name="TextID" value="" />
+			<int name="Id" value="20" />
+			<string name="Caption" value="OK" />
+			<rect name="Rect" value="120, 250, 210, 280" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="HideNotification" id="NotificationsManager" />
+		</bindings>
+	</element>
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="NotificationRetain" />
+			<string name="TextID" value="" />
+			<int name="Id" value="21" />
+			<string name="Caption" value="Retain" />
+			<rect name="Rect" value="290, 250, 380, 280" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="HideMessageBox" id="NotificationsManager" />
+		</bindings>
+	</element>
+	
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="NotificationTitleText" />
+			<int name="Id" value="30" />
+			<rect name="Rect" value="5, 5, 495, 35" />
+			<string name="Caption" value="" />
+		</attributes>
+	</element>
+	
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="NotificationInnerText" />
+			<int name="Id" value="31" />
+			<rect name="Rect" value="5, 35, 495, 230" />
+			<string name="Caption" value="" />
+			<bool name="Border" value="true" />
+			<bool name="AutoScroll" value="true" />
+		</attributes>
+	</element>
+	
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="NotificationTime" />
+			<int name="Id" value="32" />
+			<rect name="Rect" value="5, 5, 495, 35" />
+			<string name="Caption" value="" />
+			<bool name="Visible" value="false" />
+		</attributes>
+	</element>
+</element>

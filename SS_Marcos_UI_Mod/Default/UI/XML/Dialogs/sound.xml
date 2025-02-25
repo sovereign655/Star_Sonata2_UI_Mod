@@ -1,0 +1,232 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="soundDialog" />
+    <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />	
+    <rect name="Rect" value="10, 101, -10, -40" />	
+    <int name="Flags" value="0" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="true" />
+    <bool name="DrawBackground" value="true" />
+  </attributes>
+	<bindings>
+		<signal name="created" slot="LoadConfigOptions" id="OptionsManager" />
+		<signal name="created" slot="LoadOptions" id="DeviceOptionsManager" />		
+	</bindings>
+  <!-- Use Sound Checkbox -->
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="optionsCheckUseSound" />
+			<string name="TextID" value="id_use_sound" />
+			<int name="Id" value="17" />
+			<string name="Caption" value="Use Sound" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="8, 8, -8, 30" />
+			<bool name="Value" value="true" />
+      <string name="ToolTip" value="Enables or disables all sounds from the game." />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetCheckUseSound" id="OptionsManager" />
+			<slot name="setValue" signal="check_usesound_text" id="OptionsManager" />
+		</bindings>
+	</element>
+  <!-- Master Volume Text -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_volume" />
+			<string name="Caption" value="Master Volume:" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="10, 38, -10, 100" />
+      <string name="ToolTip" value="Adjusts all the sound volumes from the game." />
+		</attributes>
+    <!-- Master Volume Percentage Text -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="optionsStaticVolume" />
+        <string name="TextID" value="" />
+        <int name="Id" value="22" />
+        <string name="Caption" value="0" />
+        <rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />	
+        <rect name="Rect" value="-25, 0, 0, 30" />
+        <string name="ToolTip" value="Percentage of master volume." />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_volume_text" id="OptionsManager" />
+      </bindings>
+    </element>
+    <!-- Master Volume Slider -->
+    <element type="slider">
+      <attributes>
+        <string name="IdName" value="optionsSliderVolume" />
+        <rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />	
+        <rect name="Rect" value="0, 20, 430, 40" />  
+        <string name="ToolTip" value="Sets the master volume of all sound effects." />      
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetSliderVolume" id="OptionsManager" />
+        <signal name="value_changed" slot="setText" id="optionsStaticVolume" />
+        <slot name="setText" signal="slider_volume_text" id="OptionsManager" />
+        <slot name="setValue" signal="slider_volume" id="OptionsManager" />
+      </bindings>
+    </element>
+	</element>
+  <!-- Background Volume Text -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_backgroundmusic" />
+			<string name="Caption" value="Background Music:" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<rect name="Rect" value="15, 85, -10, 133" />
+      <string name="ToolTip" value="Adjusts the background music volume." />
+		</attributes>
+    <!-- Background Volume Percentage Text -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="optionsStaticBgVolume" />
+        <string name="TextID" value="" />
+        <int name="Id" value="36" />
+        <string name="Caption" value="0" />
+        <rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />	
+        <rect name="Rect" value="-25, 0, 0, 30" />
+        <string name="ToolTip" value="Percentage of background music." />
+      </attributes> 
+      <bindings>
+        <slot name="setText" signal="static_bgvolume_text" id="OptionsManager" />
+      </bindings>
+    </element>
+    <!-- Background Volume Slider -->
+    <element type="slider">
+      <attributes>
+        <string name="IdName" value="optionsSliderBgVolume" />
+        <rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />	
+        <rect name="Rect" value="0, 20, 425, 40" /> 
+        <string name="ToolTip" value="Sets the background music volume." />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetSliderBgVolume" id="OptionsManager" />
+        <signal name="value_changed" slot="setText" id="optionsStaticBgVolume" />
+        <slot name="setText" signal="slider_bgvolume_text" id="OptionsManager" />
+        <slot name="setValue" signal="slider_bgvolume" id="OptionsManager" />
+      </bindings>
+    </element>
+	</element>
+  <!-- FX Volume Text -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_fxvolume" />
+			<string name="Caption" value="FX volume:" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<rect name="Rect" value="15, 133, -10, 180" />   
+      <string name="ToolTip" value="Adjusts the effects volume." />      
+		</attributes>
+    <!-- FX Volume Percentage Text -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="optionsStaticFXVolume" />
+        <string name="TextID" value="" />
+        <int name="Id" value="36" />
+        <string name="Caption" value="0" />
+        <rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />	
+        <rect name="Rect" value="-25, 0, 0, 30" />     
+        <string name="ToolTip" value="Percentage of FX volume." /> 
+      </attributes> 
+      <bindings>
+        <slot name="setText" signal="static_fxvolume_text" id="OptionsManager" />
+      </bindings>
+    </element>     
+    <!-- FX Volume Slider -->  
+    <element type="slider">
+      <attributes>
+        <string name="IdName" value="optionsSliderFXVolume" />
+        <rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />	
+        <rect name="Rect" value="0, 20, 425, 40" /> 
+        <string name="ToolTip" value="Sets the FX volume: weapons, engines and etc..." /> 
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetSliderFXVolume" id="OptionsManager" />
+        <signal name="value_changed" slot="setText" id="optionsStaticFXVolume" />
+        <slot name="setText" signal="slider_fxvolume_text" id="OptionsManager" />
+        <slot name="setValue" signal="slider_fxvolume" id="OptionsManager" />
+      </bindings>
+    </element>    
+	</element>
+	<!-- UI Volume Text -->  
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_uivolume" />
+			<string name="Caption" value="UI volume:" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<rect name="Rect" value="15, 180, -10, 220" />         
+      <string name="ToolTip" value="Adjusts the user interface volume." /> 
+		</attributes>
+    <!-- UI Volume Percentage Text -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="optionsStaticUIVolume" />
+        <string name="TextID" value="" />
+        <int name="Id" value="36" />
+        <string name="Caption" value="0" />
+        <rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />	
+        <rect name="Rect" value="-25, 0, 0, 30" />     
+        <string name="ToolTip" value="Percentage of UI volume." />
+      </attributes> 
+      <bindings>
+        <slot name="setText" signal="static_uivolume_text" id="OptionsManager" />
+      </bindings>
+    </element> 
+    <!-- UI Volume Slider -->
+    <element type="slider">
+      <attributes>
+        <string name="IdName" value="optionsSliderUIVolume" />
+        <rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />	
+        <rect name="Rect" value="0, 20, 425, 40" />      
+        <string name="ToolTip" value="Sets the UI volume: buttons, toggling dialogues and etc..." />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetSliderUIVolume" id="OptionsManager" />
+        <signal name="value_changed" slot="setText" id="optionsStaticUIVolume" />
+        <slot name="setText" signal="slider_uivolume_text" id="OptionsManager" />
+        <slot name="setValue" signal="slider_uivolume" id="OptionsManager" />
+      </bindings>
+    </element>    
+	</element>
+	<!-- Tutorial Volume Text -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_tutvolume" />
+			<string name="Caption" value="Tutorial Volume:" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<rect name="Rect" value="15, 230, -10, 270" />        
+      <string name="ToolTip" value="Adjusts the tutorial sound effects." />
+		</attributes>
+    <!-- Tutorial Volume Percentage Text -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="optionsStaticTUTVolume" />
+        <string name="TextID" value="" />
+        <int name="Id" value="36" />
+        <string name="Caption" value="0" />
+        <rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />	
+        <rect name="Rect" value="-25, 0, 0, 30" />
+        <string name="ToolTip" value="Percentage of tutorial volume." />
+      </attributes> 
+      <bindings>
+        <slot name="setText" signal="static_tutvolume_text" id="OptionsManager" />
+      </bindings>
+    </element>
+    <!-- Tutorial Volume Slider -->
+    <element type="slider">
+      <attributes>
+        <string name="IdName" value="optionsSliderTUTVolume" />
+        <rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />	
+        <rect name="Rect" value="0, 20, 425, 40" />    
+        <string name="ToolTip" value="Sets the tutorial volume." />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetSliderTUTVolume" id="OptionsManager" />
+        <signal name="value_changed" slot="setText" id="optionsStaticTUTVolume" />
+        <slot name="setText" signal="slider_tutvolume_text" id="OptionsManager" />
+        <slot name="setValue" signal="slider_tutvolume" id="OptionsManager" />
+      </bindings>
+    </element>    
+	</element>  
+</element>

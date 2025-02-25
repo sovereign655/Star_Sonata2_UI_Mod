@@ -1,0 +1,9 @@
+<element type="customWindow">
+		<attributes>
+			<string name="IdName" value="ccntainerPanelWindow" />
+			<rect name="Rect" value="20, 50, 580, 530" />
+			<int name="Flags" value="0" />
+			<bool name="Movable" value="false" />
+			<int name="ResizeBorderWidth" value="0" />
+		</attributes>
+</element>

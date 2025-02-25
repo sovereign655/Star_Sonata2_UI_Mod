@@ -1,0 +1,200 @@
+	<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="genericListDialog" />			
+		<int name="Id" value="222" />
+		<rect name="Rect" value="100, 100, 300, 350" />
+		<int name="Flags" value="0" />
+		<bool name="Movable" value="true" />
+		<bool name="Visible" value="false" />
+		<bool name="ClickThrough" value="true"/>
+	</attributes>
+	<bindings>
+		<slot name="setVisible" signal="listselection_visible" id="GenericListSelectionManager" />
+		<signal name="revealed" slot="bringToTop" id="genericListDialog" />
+	</bindings>
+	
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="genericListsoundInfo" />
+			<int name="Id" value="64" />
+			<string name="Caption" value="
+				|default:show:DialogOpen.wav|
+				|default:hide:DialogClose.wav|
+				|default:action:default:|
+				|groupinvite:show:SquadInvite.wav|
+				|groupinvite:hide:|
+				|groupinvite:action:yes:SquadAccept.wav|
+				|groupinvite:action:yes:SquadAccept.wav|
+				|teaminvite:show:SquadInvite.wav|
+				|teaminvite:hide:|
+				|teaminvite:action:default:|
+				|teaminvite:action:yes:SquadAccept.wav|
+			" />
+			<rect name="Rect" value="0, 0, 300, 16" />
+			<bool name="Visible" value="false" />
+		</attributes>
+	</element>
+	
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="genericListStaticIntro" />
+			<string name="TextID" value="" />
+			<int name="Id" value="65" />
+			<rect name="Rect" value="4, 20, -4, 102" />
+			<rectf name="PercRect" value="0, 0, 1, 0"/>
+			<int name="ScrolledLines" value="0" />
+			<enum name="HTextAlign" value="center" />
+			<enum name="VTextAlign" value="upperLeft" />
+			<bool name="WordWrap" value="true"/>
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_intro_text" id="GenericListSelectionManager" />
+		</bindings>
+	</element>
+	
+	<element type="customTable">
+		<attributes>
+			<string name="IdName" value="genericListTableChoiceList" />
+			<string name="TextID" value="" />
+			<int name="Id" value="67" />
+			<rect name="Rect" value="4, 77, 196, 217" />
+			<int name="ColumnCount" value="1" />
+			<string name="Column0name" value="Select" />
+			<color name="Column0color" value="ffb7f9ff" />
+			<int name="Column0width" value="90" />
+			<enum name="Column0OrderingMode" value="" />
+			<bool name="ResizableColumns" value="false" />
+			<int name="DrawFlags" value="0" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="table_choice_visible" id="GenericListSelectionManager" />
+			<slot name="setText" signal="table_choice_text" id="GenericListSelectionManager" />
+			<slot name="addColumn" signal="table_choice_addcolumn" id="GenericListSelectionManager" />
+			<signal name="item_selected_index" slot="SetListSelection" id="GenericListSelectionManager" />			
+			<signal name="item_double_clicked_index" slot="ChooseListSelection" id="GenericListSelectionManager" />			
+		</bindings>
+	</element>
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="genericListButtonOk" />			
+			<int name="Id" value="68" />
+			<rect name="Rect" value="4, 221, 98, 246" />			
+			<string name="Caption" value="Ok" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="click_button_ok_visible" id="GenericListSelectionManager" />
+			<signal name="button_clicked" slot="ChooseSelection" id="GenericListSelectionManager" />
+		</bindings>
+	</element>
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="genericListButtonCancel" />			
+			<int name="Id" value="69" />
+			<rect name="Rect" value="102, 221, 196, 246" />			
+			<string name="Caption" value="Cancel" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="click_button_cancel_visible" id="GenericListSelectionManager" />
+			<signal name="button_clicked" slot="HideList" id="GenericListSelectionManager" />
+		</bindings>
+	</element>
+
+	<!-- ############## -->
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="genericListButton1" />			
+			<int name="Id" value="69" />
+			<rect name="Rect" value="4, 106, -4, 131" />
+			<rectf name="PercRect" value="0, 0, 1, 0"/>	
+			<string name="Caption" value="Button1" />
+			<bool name="Visible" value="true"/>
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="click_button_1_visible" id="GenericListSelectionManager" />
+			<slot name="setText" signal="click_button_1_text" id="GenericListSelectionManager" />
+			<signal name="button_clicked" slot="ClickButton1" id="GenericListSelectionManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="genericListButton2" />			
+			<int name="Id" value="70" />
+			<rect name="Rect" value="4, 135, -4, 160" />
+			<rectf name="PercRect" value="0, 0, 1, 0"/>	
+			<string name="Caption" value="Button2" />
+			<bool name="Visible" value="true"/>
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="click_button_2_visible" id="GenericListSelectionManager" />
+			<slot name="setText" signal="click_button_2_text" id="GenericListSelectionManager" />
+			<signal name="button_clicked" slot="ClickButton2" id="GenericListSelectionManager" />
+		</bindings>
+	</element>
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="genericListButton3" />			
+			<int name="Id" value="71" />
+			<rect name="Rect" value="4, 164, -4, 189" />
+			<rectf name="PercRect" value="0, 0, 1, 0"/>		
+			<string name="Caption" value="Button3" />
+			<bool name="Visible" value="true"/>
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="click_button_3_visible" id="GenericListSelectionManager" />
+			<slot name="setText" signal="click_button_3_text" id="GenericListSelectionManager" />
+			<signal name="button_clicked" slot="ClickButton3" id="GenericListSelectionManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="genericListButton4" />			
+			<int name="Id" value="72" />
+			<rect name="Rect" value="4, 193, -4, 218" />
+			<rectf name="PercRect" value="0, 0, 1, 0"/>			
+			<string name="Caption" value="Button4" />
+			<bool name="Visible" value="true"/>
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="click_button_4_visible" id="GenericListSelectionManager" />
+			<slot name="setText" signal="click_button_4_text" id="GenericListSelectionManager" />
+			<signal name="button_clicked" slot="ClickButton4" id="GenericListSelectionManager" />
+		</bindings>
+	</element>
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="genericListButtonCancel2" />			
+			<int name="Id" value="73" />
+			<rect name="Rect" value="4, 221, 196, 246" />			
+			<string name="Caption" value="Cancel" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="click_button_1_visible" id="GenericListSelectionManager" />
+			<signal name="button_clicked" slot="HideList" id="GenericListSelectionManager" />
+		</bindings>
+	</element>
+	
+	<!-- ############## -->
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="genericListClose" />
+			<int name="Id" value="66" />
+			<rect name="Rect" value="-18, 2, -2, 18" />
+			<rectf name="PercRect" value="1, 0, 1, 0"/>
+			<texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+			<texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="false" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="toggleVisibility" id="genericListDialog" />
+		</bindings>
+	</element>
+</element>

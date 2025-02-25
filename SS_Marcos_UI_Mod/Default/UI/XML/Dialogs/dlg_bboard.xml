@@ -1,0 +1,415 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="bBoardDialog" />
+    <int name="Flags" value="0" />
+    <rectf name="PercRect" value="0, 0, 1, 1" />
+    <rect name="Rect" value="13, 96, -13, -13" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="false" />
+    <bool name="DrawBackground" value="true" />
+  </attributes>
+  <bindings>
+    <signal name="revealed" slot="OnInitBulletinBoard" id="BulletinBoardManager" />
+  </bindings>
+<!--
+  <element type="customImage">
+    <attributes>
+      <rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5"/>
+      <rect name="Rect" value="-292, -250, 220, 200"/>
+      <texture name="Texture" value="UI/Images/Backgrounds/Wormhole.png" />
+      <bool name="ScaleImage" value="False" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+  </element>
+-->
+
+
+  <!-- Show Bulletin Board Button -->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="btnShowBB" />
+      <string name="Caption" value="Bulletin Board" />
+      <rectf name="PercRect" value="0, 0, 0, 0" />
+      <rect name="Rect" value="8, 8, 108, 32" />
+      <texture name="DisabledImage" value="" />
+      <rect name="DisabledImageRect" value="0, 0, 0, 0" />
+      <bool name="Visible" value="false" />
+      <string name="ToolTip" value="Show bulletin board." />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="toggleVisibility" id="bBoardButtonAddGlobal"/>
+      <signal name="button_clicked" slot="toggleVisibility" id="bBoardTableGlobal"/>
+      <signal name="button_clicked" slot="toggleVisibility" id="bboardTableInfluence"/>
+      <signal name="button_clicked" slot="toggleVisibility" id="generalImageBmDom"/>
+      <signal name="button_clicked" slot="toggleVisibility" id="generalStaticDomStatus"/>
+      <signal name="button_clicked" slot="toggleVisibility" id="btnShowBB"/>
+      <signal name="button_clicked" slot="toggleVisibility" id="btnShowScores"/>
+      
+      <signal name="button_clicked" slot="hide" id="id_topplayers"/>
+      <signal name="button_clicked" slot="hide" id="bBoardTableTopPlayers"/>
+      <signal name="button_clicked" slot="hide" id="bBoardButtonMoreTop"/>
+      <signal name="button_clicked" slot="hide" id="id_topteams"/>
+      <signal name="button_clicked" slot="hide" id="bBoardTableTopTeams"/>
+      <signal name="button_clicked" slot="hide" id="bBoardButtonMoreTopTeams"/>
+      <signal name="button_clicked" slot="hide" id="bBoardStaticTeamInfo"/>
+	  
+	  <signal name="button_clicked" slot="show" id="btnShowDgnScores"/>
+	  <signal name="button_clicked" slot="hide" id="bBoardTableTopDGSquads"/>
+    </bindings>
+  </element>
+  
+  <!-- Show Top Scores Button -->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="btnShowScores" />
+      <string name="Caption" value="Top Scores" />
+      <rectf name="PercRect" value="0, 0, 0, 0" />
+      <rect name="Rect" value="8, 8, 108, 32" />
+      <texture name="DisabledImage" value="" />
+      <rect name="DisabledImageRect" value="0, 0, 0, 0" />
+      <bool name="Visible" value="true" />
+      <string name="ToolTip" value="Show top scores." />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="hide" id="bBoardButtonAddGlobal"/>
+      <signal name="button_clicked" slot="hide" id="bBoardTableGlobal"/>
+      <signal name="button_clicked" slot="hide" id="bboardTableInfluence"/>
+      <signal name="button_clicked" slot="hide" id="generalImageBmDom"/>
+      <signal name="button_clicked" slot="hide" id="generalStaticDomStatus"/>      
+      <signal name="button_clicked" slot="show" id="btnShowBB"/>
+      <signal name="button_clicked" slot="hide" id="btnShowScores"/>
+
+      <signal name="button_clicked" slot="show" id="id_topplayers"/>
+      <signal name="button_clicked" slot="show" id="bBoardTableTopPlayers"/>
+      <signal name="button_clicked" slot="show" id="bBoardButtonMoreTop"/>
+      <signal name="button_clicked" slot="show" id="id_topteams"/>
+      <signal name="button_clicked" slot="show" id="bBoardTableTopTeams"/>
+      <signal name="button_clicked" slot="show" id="bBoardButtonMoreTopTeams"/>
+      <signal name="button_clicked" slot="show" id="bBoardStaticTeamInfo"/>
+	  
+	  <signal name="button_clicked" slot="show" id="btnShowDgnScores"/>
+	  <signal name="button_clicked" slot="hide" id="bBoardTableTopDGSquads"/>
+    </bindings>
+  </element>
+  
+  <!-- Show DG Top Scores Button -->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="btnShowDgnScores" />
+      <string name="Caption" value="Rift Scores" />
+      <rectf name="PercRect" value="0, 0, 0, 0" />
+      <rect name="Rect" value="116, 8, 216, 32" />
+      <texture name="DisabledImage" value="" />
+      <rect name="DisabledImageRect" value="0, 0, 0, 0" />
+      <bool name="Visible" value="true" />
+      <string name="ToolTip" value="Top Rift Scaling scores." />
+    </attributes>
+    <bindings>
+	  <signal name="button_clicked" slot="hide" id="bBoardButtonAddGlobal"/>
+      <signal name="button_clicked" slot="hide" id="bBoardTableGlobal"/>
+      <signal name="button_clicked" slot="hide" id="bboardTableInfluence"/>
+      <signal name="button_clicked" slot="hide" id="generalImageBmDom"/>
+      <signal name="button_clicked" slot="hide" id="generalStaticDomStatus"/>      
+      <signal name="button_clicked" slot="show" id="btnShowBB"/>
+      <signal name="button_clicked" slot="hide" id="btnShowScores"/>
+	  
+	  <signal name="button_clicked" slot="hide" id="id_topplayers"/>
+      <signal name="button_clicked" slot="hide" id="bBoardTableTopPlayers"/>
+      <signal name="button_clicked" slot="hide" id="bBoardButtonMoreTop"/>
+      <signal name="button_clicked" slot="hide" id="id_topteams"/>
+      <signal name="button_clicked" slot="hide" id="bBoardTableTopTeams"/>
+      <signal name="button_clicked" slot="hide" id="bBoardButtonMoreTopTeams"/>
+      <signal name="button_clicked" slot="hide" id="bBoardStaticTeamInfo"/>
+
+	  <signal name="button_clicked" slot="hide" id="btnShowDgnScores"/>
+      <signal name="button_clicked" slot="show" id="bBoardTableTopDGSquads"/>
+    </bindings>
+  </element>
+  
+
+  
+  <!-- Emperor Image -->
+  <element type="customImage">
+    <attributes>
+      <string name="IdName" value="generalImageBmDom"/>
+      <string name="TextID" value=""/>
+      <int name="Id" value="115"/>
+      <rect name="Rect" value="10, 40, 84, 96"/>
+      <texture name="Texture" value="img/station/dom/dom1.png"/>
+      <bool name="UseAlphaChannel" value="true"/>
+	  <bool name="ScaleImage" value="true" />	
+    </attributes>
+    <bindings>
+      <slot name="loadImage" signal="image_bmdom_load" id="GeneralPropManager"/>
+    </bindings>
+  </element>
+  <!-- Emperor Description -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="generalStaticDomStatus"/>
+      <!--<string name="TextID" value="id_dom_status" />-->
+      <string name="Caption" value="A cool, winter breeze comes in from the north"/>
+      <rectf name="PercRect" value="0, 0, 1, 0"/>
+      <rect name="Rect" value="90, 40, -8, 96"/>
+      <int name="ScrolledLines" value="0"/>
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_domstatus_text" id="GeneralPropManager"/>
+    </bindings>
+  </element>
+
+  <element type="customTable">
+    <attributes>
+      <string name="IdName" value="bboardTableInfluence"/>
+      <string name="TextID" value=""/>
+      <int name="Id" value="117"/>
+      <rectf name="PercRect" value="0, 0, 1, 0.5"/>
+      <rect name="Rect" value="8, 102, -8, -4"/>
+      <int name="ColumnCount" value="3"/>
+      <string name="Column0name" value="Rank"/>
+      <int name="Column0width" value="70"/>
+      <enum name="Column0OrderingMode" value=""/>
+      <color name="Column0color" value="ffb7f9ff" />
+      <string name="Column1name" value="Team"/>
+      <int name="Column1width" value="120"/>
+      <enum name="Column1OrderingMode" value=""/>
+      <color name="Column1color" value="ffb7f9ff" />
+      <string name="Column2name" value="Influence"/>
+      <int name="Column2width" value="120"/>
+      <enum name="Column2OrderingMode" value=""/>
+      <color name="Column2color" value="ffb7f9ff" />
+      <bool name="ResizableColumns" value="false"/>
+      <int name="DrawFlags" value="4" />
+      <bool name="DrawBack" value="true"/>
+    </attributes>
+    <bindings>
+      <slot name="setAll" signal="table_rankings_all" id="GeneralPropManager"/>
+    </bindings>
+  </element>
+
+
+
+  <!-- Bulletin Board Add Button -->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="bBoardButtonAddGlobal" />
+      <string name="TextID" value="id_addglobal" />
+      <int name="Id" value="79" />
+      <string name="Caption" value="Add..." />
+      <rectf name="PercRect" value="1, 0, 1, 0" />
+      <rect name="Rect" value="-108, 8, -8, 32" />
+      <texture name="DisabledImage" value="" />
+      <rect name="DisabledImageRect" value="0, 0, 0, 0" />
+      <bool name="Visible" value="true" />
+      <string name="ToolTip" value="Add your own bulletin board message for credits." />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnAddGlobal" id="BulletinBoardManager" />
+    </bindings>
+  </element>
+  <!-- Bulletin Board Table -->
+  <element type="customTable">
+    <attributes>
+      <string name="IdName" value="bBoardTableGlobal" />
+      <string name="TextID" value="" />
+      <int name="Id" value="85" />
+      <rectf name="PercRect" value="0, 0.5, 1, 1" />
+      <rect name="Rect" value="8, 4, -8, -8" />
+      <int name="ColumnCount" value="3" />
+      <string name="Column0name" value="Author" />
+      <color name="Column0color" value="ffb7f9ff" />
+      <int name="Column0width" value="150" />
+      <enum name="Column0OrderingMode" value="" />
+      <string name="Column1name" value="Credits" />
+      <color name="Column1color" value="ffb7f9ff" />
+      <int name="Column1width" value="60" />
+      <enum name="Column1OrderingMode" value="" />
+      <string name="Column2name" value="Message" />
+      <color name="Column2color" value="ffb7f9ff" />
+      <int name="Column2width" value="512" />
+      <enum name="Column2OrderingMode" value="" />
+      <bool name="ResizableColumns" value="false" />
+      <int name="DrawFlags" value="4" />
+      <bool name="DrawBack" value="true" />
+      <bool name="UseOverrideBgColor" value="true" />
+      <color name="OverrideBgColor" value="8F000000" />
+      <bool name="Visible" value="true" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="table_bboard_text" id="BulletinBoardManager" />
+    </bindings>
+  </element>
+  <!-- Top Teams Title -->
+  <!--
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_topteams" />
+      <string name="Caption" value="Top Teams" />
+      <rectf name="PercRect" value="0, 0, 1, 0.5" />
+      <rect name="Rect" value="8, 40, -8, -4" />
+      <int name="ScrolledLines" value="0" />
+      <bool name="Visible" value="false" />
+    </attributes>
+  </element>
+  -->
+  <!-- More Teams Button -->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="bBoardButtonMoreTopTeams" />
+      <string name="TextID" value="More Teams" />
+      <int name="Id" value="81" />
+      <rectf name="PercRect" value="1, 0, 1, 0" />
+      <rect name="Rect" value="-108, 8, -8, 32" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="true" />
+      <bool name="Visible" value="false" />
+      <string name="ToolTip" value="Show more teams within the top teams list." />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnMoreTopTeams" id="BulletinBoardManager" />
+    </bindings>
+  </element>  
+  <!-- Top Teams Table -->
+  <element type="customTable">
+    <attributes>
+      <string name="IdName" value="bBoardTableTopTeams" />
+      <string name="TextID" value="" />
+      <int name="Id" value="83" />
+      <rectf name="PercRect" value="0, 0, 0.5, 0.5" />
+      <rect name="Rect" value="8, 40, -4, -4" />
+      <int name="ColumnCount" value="2" />
+      <string name="Column0name" value="Team Name" />
+      <color name="Column0color" value="ffb7f9ff" />
+      <int name="Column0width" value="125" />
+      <enum name="Column0OrderingMode" value="" />
+      <string name="Column1name" value="Score" />
+      <color name="Column1color" value="ffb7f9ff" />
+      <int name="Column1width" value="38" />
+      <enum name="Column1OrderingMode" value="" />
+      <bool name="ResizableColumns" value="false" />
+      <int name="DrawFlags" value="4" />
+      <bool name="DrawBack" value="true" />
+      <bool name="UseOverrideBgColor" value="true" />
+      <color name="OverrideBgColor" value="8F000000" />
+      <bool name="Visible" value="false" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="table_topteams_text" id="BulletinBoardManager" />
+      <signal name="item_selected_index" slot="OnItemchangedTopTeams" id="BulletinBoardManager" />
+    </bindings>
+  </element>
+  <!-- Team Info -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="bBoardStaticTeamInfo" />
+      <string name="TextID" value="" />
+      <int name="Id" value="82" />
+      <rectf name="PercRect" value="0.5, 0, 1, 0.5" />
+      <rect name="Rect" value="4, 40, -8, -4" />
+      <bool name="Border" value="true" />
+      <int name="ScrolledLines" value="0" />
+      <bool name="AutoScroll" value="true"/>
+      <bool name="Visible" value="false" />
+      <enum name="Font" value="largeFont"/>
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_teaminfo_text" id="BulletinBoardManager" />
+    </bindings>
+  </element>  
+  <!-- Top Players Table Title -->
+  <!--
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_topplayers" />
+      <string name="Caption" value="Top Players" />
+    <rectf name="PercRect" value="0, 0.4, 1, 0.4" />
+      <rect name="Rect" value="273, 2, -1, 15" />
+      <int name="ScrolledLines" value="0" />
+      <bool name="Visible" value="false" />
+    </attributes>
+  </element>
+  -->
+  <!-- Top Players Table -->
+  <element type="customTable">
+    <attributes>
+      <string name="IdName" value="bBoardTableTopPlayers" />
+      <string name="TextID" value="" />
+      <int name="Id" value="84" />
+      <rectf name="PercRect" value="0, 0.5, 1, 1" />
+      <rect name="Rect" value="8, 4, -8, -8" />
+      <int name="ColumnCount" value="3" />
+      <string name="Column0name" value="Level" />
+      <color name="Column0color" value="ffb7f9ff" />
+      <int name="Column0width" value="75" />
+      <enum name="Column0OrderingMode" value="" />
+      <string name="Column1name" value="Player Name" />
+      <color name="Column1color" value="ffb7f9ff" />
+      <int name="Column1width" value="104" />
+      <enum name="Column1OrderingMode" value="" />
+      <string name="Column2name" value="Team" />
+      <color name="Column2color" value="ffb7f9ff" />
+      <int name="Column2width" value="100" />
+      <enum name="Column2OrderingMode" value="" />
+      <bool name="ResizableColumns" value="false" />
+      <int name="DrawFlags" value="4" />
+      <bool name="DrawBack" value="true" />
+      <bool name="UseOverrideBgColor" value="true" />
+      <color name="OverrideBgColor" value="8F000000" />
+      <bool name="Visible" value="false" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="table_topplayers_text" id="BulletinBoardManager" />  
+    </bindings>
+  </element>
+  <!-- More Top Players Table Button -->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="bBoardButtonMoreTop" />
+      <string name="TextID" value="More Players" />
+      <int name="Id" value="80" />
+      <rectf name="PercRect" value="1, 1, 1, 1" />
+      <rect name="Rect" value="-124, -31, -24, -8" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="true" />
+      <bool name="Visible" value="false" />
+      <string name="ToolTip" value="Show more players within the top player list." />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnMoreTop" id="BulletinBoardManager" />
+    </bindings>
+  </element>
+  
+  <!-- DG Scores Table -->
+  <element type="customTable">
+    <attributes>
+      <string name="IdName" value="bBoardTableTopDGSquads" />
+      <string name="TextID" value="" />
+      <int name="Id" value="84" />
+      <rectf name="PercRect" value="0, 0, 1, 1" />
+      <rect name="Rect" value="8, 40, -8, -8" />
+      <int name="ColumnCount" value="3" />
+      <string name="Column0name" value="Diff" />
+      <color name="Column0color" value="ffb7f9ff" />
+      <int name="Column0width" value="30" />
+      <enum name="Column0OrderingMode" value="ascend_descend" />
+      <string name="Column1name" value="Boss" />
+      <color name="Column1color" value="ffb7f9ff" />
+      <int name="Column1width" value="104" />
+      <enum name="Column1OrderingMode" value="ascend_descend" />
+      <string name="Column2name" value="Squad" />
+      <color name="Column2color" value="ffb7f9ff" />
+      <int name="Column2width" value="100" />
+      <enum name="Column2OrderingMode" value="ascend_descend" />
+	  
+      <bool name="ResizableColumns" value="false" />
+      <int name="DrawFlags" value="4" />
+      <bool name="DrawBack" value="true" />
+      <bool name="UseOverrideBgColor" value="true" />
+      <color name="OverrideBgColor" value="8F000000" />
+      <bool name="Visible" value="false" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="table_topdgsquad_text" id="BulletinBoardManager" />  
+    </bindings>
+  </element>
+</element>

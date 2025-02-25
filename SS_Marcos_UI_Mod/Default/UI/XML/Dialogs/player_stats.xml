@@ -1,0 +1,245 @@
+<element type="customStaticText">
+  <attributes>
+    <string name="IdName" value="playerStatsCont" />
+    
+    <!--rect name="Rect" value="-113, -170, 113, 124" /-->
+    <!--rectf name="PercRect" value="0.5, 1.0, 0.5, 1.0" /-->
+    
+    <rect name="Rect" value="4, -170, 0, 124" />
+    <rectf name="PercRect" value="0.45, 1.0, 0.95, 1.0" />
+    <bool name="Visible" value="true" />
+  </attributes>
+  <bindings>
+  </bindings>
+  <!-- Shield Bar -->
+  <element type="progressbar">
+    <attributes>
+      <string name="IdName" value="progress1" />
+      <rect name="Rect" value="4, 3, 566, 32" />
+      <int name="IconWidth" value="22" />
+      <texture name="ProgressEmptyImage" value="bars.main.all" />
+      <rect name="ProgressEmptyImageRect" value="0, 0, 562, 29" />
+      <texture name="ProgressFilledImage" value="bars.main.all" />
+      <rect name="ProgressFilledImageRect" value="0, 122, 562, 151" />
+    </attributes>
+    <bindings>
+      <slot name="setValue" signal="player_shields" id="GameManager" />
+      <slot name="setToolTipText" signal="player_shield_tooltip" id="GameManager" />
+    </bindings>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="shieldText" />
+        <rect name="Rect" value="24, 3, 564, 17" />
+        <bool name="OverrideColorEnabled" value="true" />
+        <color name="OverrideColor" value="ffffffff" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="player_shields_text" id="GameManager" />
+      </bindings>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <rect name="Rect" value="3, 3, 19, 19" />
+        <texture name="Texture" value="bars.icon.blue" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <rect name="Rect" value="4, 4, 18, 18" />
+        <string name="SpriteBank" value="items_small" />
+        <string name="SpriteName" value="Shield" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="ScaleImage" value="false" />
+      </attributes>
+    </element>
+  </element>
+  <!-- Energy Bar -->
+  <element type="progressbar">
+    <attributes>
+      <string name="IdName" value="progress2" />
+      <rect name="Rect" value="4, 31, 566, 60" />
+      <int name="IconWidth" value="22" />
+      <texture name="ProgressEmptyImage" value="bars.main.all" />
+      <rect name="ProgressEmptyImageRect" value="0, 86, 562, 106" />
+      <texture name="ProgressFilledImage" value="bars.main.all" />
+      <rect name="ProgressFilledImageRect" value="0, 213, 562, 233" />
+    </attributes>
+    <bindings>
+      <slot name="setValue" signal="player_energy" id="GameManager" />
+      <slot name="setToolTipText" signal="player_energy_tooltip" id="GameManager" />
+    </bindings>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="energyText" />
+        <rect name="Rect" value="24, 3, 564, 17" />
+        <bool name="OverrideColorEnabled" value="true" />
+        <color name="OverrideColor" value="ffffffff" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="player_energy_text" id="GameManager" />
+      </bindings>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <rect name="Rect" value="3, 3, 19, 19" />
+        <texture name="Texture" value="bars.icon.orange" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <rect name="Rect" value="4, 4, 18, 18" />
+        <string name="SpriteBank" value="items_small" />
+        <string name="SpriteName" value="Energy" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="ScaleImage" value="false" />
+      </attributes>
+    </element>
+  </element>
+  <!-- Visibility Bar -->
+  <element type="progressbar">
+    <attributes>
+      <string name="IdName" value="progress4" />
+      <rect name="Rect" value="4, 58, 566, 87" />
+      <int name="IconWidth" value="22" />
+      <texture name="ProgressEmptyImage" value="bars.main.all" />
+      <rect name="ProgressEmptyImageRect" value="0, 51, 562, 70" />
+      <texture name="ProgressFilledImage" value="bars.main.all" />
+      <rect name="ProgressFilledImageRect" value="0, 173, 562, 193" />
+    </attributes>
+    <bindings>
+      <slot name="setValue" signal="player_visibility_progress" id="GameManager" />
+      <slot name="setToolTipText" signal="player_visibility_tooltip" id="GameManager" />
+    </bindings>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="visText" />
+        <rect name="Rect" value="24, 3, 564, 17" />
+        <bool name="OverrideColorEnabled" value="true" />
+        <color name="OverrideColor" value="ffffffff" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="player_visibility_tooltip" id="GameManager" />
+      </bindings>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <rect name="Rect" value="3, 3, 19, 19" />
+        <texture name="Texture" value="bars.icon.gray" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <rect name="Rect" value="4, 4, 18, 18" />
+        <string name="SpriteBank" value="items_small" />
+        <string name="SpriteName" value="Cloak" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="ScaleImage" value="false" />
+      </attributes>
+    </element>
+  </element>
+  <!-- experience -->
+  <element type="progressbar">
+    <attributes>
+      <string name="IdName" value="progressxpbar" />
+      <rect name="Rect" value="4, 85, 129, 104" />
+      <int name="IconWidth" value="22" />
+      <texture name="ProgressEmptyImage" value="bars.main.all" />
+      <rect name="ProgressEmptyImageRect" value="0, 257, 129, 276" />
+      <texture name="ProgressFilledImage" value="bars.main.all" />
+      <rect name="ProgressFilledImageRect" value="0, 283, 129, 303" />
+    </attributes>
+    <bindings>
+      <slot name="setValue" signal="xp_bar_value" id="GameManager" />
+      <slot name="setToolTipText" signal="xp_bar_tooltip" id="GameManager" />
+      <slot name="setText" signal="xp_bar_text" id="GameManager" />
+    </bindings>
+    <element type="customImage">
+      <attributes>
+        <rect name="Rect" value="3, 2, 19, 18" />
+        <texture name="Texture" value="bars.icon.gray" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <rect name="Rect" value="4, 3, 18, 17" />
+        <string name="SpriteBank" value="items_small" />
+        <string name="SpriteName" value="Experience" />
+        <bool name="CenterImage" value="true" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="ScaleImage" value="false" />
+      </attributes>
+    </element>
+  </element>
+  <!-- damage widget -->
+  <element type="progressbar">
+    <attributes>
+      <string name="IdName" value="progressDamage" />
+      <rect name="Rect" value="111, 85, 266, 104" />
+      <int name="IconWidth" value="49" />
+      <texture name="ProgressEmptyImage" value="bars.main.all" />
+      <rect name="ProgressEmptyImageRect" value="0, 309, 155, 328" />
+      <texture name="ProgressFilledImage" value="bars.main.all" />
+      <rect name="ProgressFilledImageRect" value="0, 335, 155, 355" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="player_damage_text" id="GameManager" />
+      <slot name="setToolTipText" signal="player_damage_tooltip" id="GameManager" />
+      <signal name="button_clicked" slot="OnRepairWidget" id="GameManager" />
+    </bindings>
+    <element type="customImage">
+      <attributes>
+        <rect name="Rect" value="28, 2, 45, 18" />
+        <texture name="Texture" value="bars.icon.gray" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <rect name="Rect" value="29, 4, 43, 19" />
+        <string name="SpriteBank" value="items_small" />
+        <string name="SpriteName" value="Alloys" />
+        <bool name="CenterImage" value="true" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="ScaleImage" value="false" />
+      </attributes>
+    </element>
+  </element>
+  <!-- Hull Space -->
+  <element type="progressbar">
+    <attributes>
+      <string name="IdName" value="progressHullSpace" />
+      <rect name="Rect" value="248, 76, 565, 104" />
+      <int name="IconWidth" value="69" />
+      <texture name="ProgressEmptyImage" value="bars.main.all" />
+      <rect name="ProgressEmptyImageRect" value="0, 361, 317, 389" />
+      <texture name="ProgressFilledImage" value="bars.main.all" />
+      <rect name="ProgressFilledImageRect" value="0, 395, 317, 424" />
+    </attributes>
+    <bindings>
+      <slot name="setValue" signal="player_hull_usage" id="GameManager" />
+      <slot name="setText" signal="player_hull_space_text" id="GameManager" />
+      <slot name="setToolTipText" signal="player_hull_space_tooltip" id="GameManager" />
+    </bindings>
+    <element type="customImage">
+      <attributes>
+        <rect name="Rect" value="45, 7, 63, 23" />
+        <texture name="Texture" value="bars.icon.gray" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <rect name="Rect" value="46, 8, 60, 23" />
+        <bool name="CenterImage" value="true" />
+        <string name="SpriteBank" value="items_small" />
+        <string name="SpriteName" value="Item" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="ScaleImage" value="false" />
+      </attributes>
+    </element>
+  </element>
+</element>

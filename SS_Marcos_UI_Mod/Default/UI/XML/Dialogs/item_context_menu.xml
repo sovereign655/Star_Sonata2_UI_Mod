@@ -1,0 +1,89 @@
+<element type="customContextMenu">
+	<attributes>
+		<bool name="Visible" value="false" />
+		<string name="IdName" value="shipInventoryMenuOptions" />
+		<int name="ItemCount" value="8" />
+		<int name="CloseHandling" value="4" />
+		<string name="TextID0" value="id_item_equip" />
+		<int name="CommandID0" value="0" />
+		<string name="TextID0" value="id_item_unequip" />
+		<int name="CommandID10" value="1" />
+		<string name="TextID1" value="id_item_use" />
+		<int name="CommandID1" value="2" />
+		<string name="TextID1" value="id_item_use_some" />
+		<int name="CommandID1" value="3" />
+		<string name="TextID2" value="id_item_toss" />
+		<int name="CommandID2" value="4" />
+		<string name="TextID3" value="id_item_toss_some" />
+		<int name="CommandID3" value="5" />
+		<string name="TextID4" value="id_item_sell" />
+		<int name="CommandID4" value="6" />
+		<string name="TextID5" value="id_item_info" />
+		<int name="CommandID5" value="7" />
+		<string name="TextID6" value="id_item_pvp_trade" />
+		<int name="CommandID6" value="8" />
+		<string name="TextID9" value="id_item_pvp_trade_some" />
+		<int name="CommandID9" value="9" />
+		<bool name="KeepOnScreen" value="true" />
+
+	</attributes>
+	<bindings>
+		<slot name="popup" signal="inventory_context_popup" id="ItemContextManager" />
+		<slot name="setText" signal="inventory_context_text" id="ItemContextManager" />
+		<slot name="setUserData" signal="inventory_context_data" id="ItemContextManager" />
+		<signal name="item_selected_data" slot="OnInventoryMenuOptions" id="ItemContextManager" />
+	</bindings>
+	<element type="customContextMenu">
+		<attributes>
+			<string name="IdName" value="shipInventoryMenuTransfer" />
+			<bool name="Visible" value="false" />
+			<string name="ParentItem" value="10" />
+			<int name="CloseHandling" value="4" />
+			<bool name="KeepOnScreen" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="inventory_context_ship_transfer_text" id="ItemContextManager" />
+			<signal name="item_selected_index" slot="OnInventoryMenuXferShip" id="ItemContextManager" />
+		</bindings>
+	</element>
+	<element type="customContextMenu">
+		<attributes>
+			<string name="IdName" value="shipInventoryMenuTransferSome" />
+			<bool name="Visible" value="false" />
+			<string name="ParentItem" value="11" />
+			<int name="CloseHandling" value="4" />
+			<bool name="KeepOnScreen" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="inventory_context_ship_transfer_text" id="ItemContextManager" />
+			<signal name="item_selected_index" slot="OnInventoryMenuXferShipSome" id="ItemContextManager" />
+		</bindings>
+	</element>
+	<element type="customContextMenu">
+		<attributes>
+			<string name="IdName" value="shipInventoryMenuTransferType" />
+			<bool name="Visible" value="false" />
+			<string name="ParentItem" value="16" />
+			<int name="CloseHandling" value="4" />
+			<bool name="KeepOnScreen" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="inventory_context_ship_transfer_text" id="ItemContextManager" />
+			<signal name="item_selected_index" slot="OnInventoryMenuXferShipType" id="ItemContextManager" />
+		</bindings>
+	</element>
+	<element type="customContextMenu">
+		<attributes>
+			<string name="IdName" value="shipInventoryMenuTransferAll" />
+			<bool name="Visible" value="false" />
+			<string name="ParentItem" value="17" />
+			<int name="CloseHandling" value="4" />
+			<bool name="KeepOnScreen" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="inventory_context_ship_transfer_text" id="ItemContextManager" />
+			<signal name="item_selected_index" slot="OnInventoryMenuXferShipAll" id="ItemContextManager" />
+		</bindings>
+	</element>
+
+</element>

@@ -1,0 +1,12 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="spacePanelShade" />
+    <rect name="Rect" value="0, 0, 0, 0" />
+    <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+    <colorf name="Tint" value="0.0 0.0 0.0 0.9" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="false" />
+    <bool name="ClickThrough" value="true" />
+    <int name="BorderStyle" value="0" />
+  </attributes>
+</element>

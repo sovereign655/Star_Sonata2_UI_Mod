@@ -1,0 +1,162 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="shipsDialog" />
+    <int name="Flags" value="0" />
+    <rectf name="PercRect" value="0, 0, 1, 1" />
+    <rect name="Rect" value="13, 96, -13, -13" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="false" />
+    <bool name="DrawBackground" value="true" />
+  </attributes>
+  <bindings>
+    <signal name="revealed" slot="OnInitShips" id="ShipsManager" />
+  </bindings>
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_chooseships" />
+      <string name="Caption" value="Choose between ships you own in this space station" />
+      <rect name="Rect" value="14, 11, 359, 30" />
+    </attributes>
+  </element>
+  <element type="customTable">
+    <attributes>
+      <string name="IdName" value="shipsTableShipList" />
+      <int name="Id" value="151" />
+      <string name="TextID" value="" />
+      <rectf name="PercRect" value="0, 0, 1.0, 1.0" />
+      <rect name="Rect" value="8, 35, -8, -60" />
+      <int name="ColumnCount" value="4" />
+      <int name="ActiveTab" value="0" />
+      <enum name="CurrentOrdering" value="ascending" />
+      <string name="Column0name" value=".." />
+      <int name="Column0width" value="10" />
+      <enum name="Column0OrderingMode" value="ascend_descend" />
+      <string name="Column1name" value="Type" />
+      <int name="Column1width" value="163" />
+      <enum name="Column1OrderingMode" value="ascend_descend" />
+      <string name="Column2name" value="Alias" />
+      <int name="Column2width" value="120" />
+      <enum name="Column2OrderingMode" value="ascend_descend" />
+      <string name="Column3name" value="Engine" />
+      <int name="Column3width" value="90" />
+      <enum name="Column3OrderingMode" value="ascend_descend" />	  
+      <string name="Column4name" value="Shield" />
+      <int name="Column4width" value="90" />
+      <enum name="Column4OrderingMode" value="ascend_descend" />		  
+      <bool name="DrawBack" value="true" />
+      <bool name="UseOverrideBgColor" value="true" />
+      <color name="OverrideBgColor" value="8F000000" />
+      <bool name="AcceptsDrop" value="true" />
+	  <int name="DrawFlags" value="4" />
+    </attributes>
+    <bindings>
+      <slot name="setSelectedIndex" signal="table_shiplist_select" id="ShipsManager" />
+      <slot name="setAll" signal="table_shiplist_all" id="ShipsManager" />
+      <signal name="item_selected_data" slot="OnClickShipList" id="ShipsManager" />
+      <signal name="item_selected_index" slot="OnClickShipListIndex" id="ShipsManager" />
+      <signal name="item_double_clicked_data" slot="OnDoubleClickShipList" id="ShipsManager" />
+      <signal name="item_right_clicked_data" slot="OnRightClickShipList" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customContextMenu">
+    <attributes>
+      <bool name="Visible" value="false" />
+      <string name="IdName" value="shipsMenuOptions*" />
+      <int name="ItemCount" value="5" />
+      <int name="CloseHandling" value="5" />
+      <string name="TextID0" value="id_get_inventory" />
+      <string name="UserData0" value="0" />
+      <int name="CommandID0" value="0" />
+      <string name="TextID1" value="id_set_alias" />
+      <int name="CommandID1" value="1" />
+      <string name="TextID2" value="id_select_ship" />
+      <int name="CommandID2" value="2" />
+      <string name="TextID3" value="is of no importance since overriden by code" />
+      <int name="CommandID3" value="3" />
+      <string name="TextID4" value="id_activate_controlbot" />
+      <int name="CommandID4" value="4" />
+      <bool name="Enabled4" value="false" />
+      <bool name="Visible4" value="false" />
+      <bool name="KeepOnScreen" value="true" />
+    </attributes>
+    <bindings>
+      <slot name="popup" signal="get_inventory_context_popup" id="ShipsManager" />
+      <signal name="item_selected_index" slot="OnShipsMenuOptions" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_currentship" />
+      <string name="Caption" value="Current Ship:" />
+      <rectf name="PercRect" value="0, 1, 0, 1" />
+      <rect name="Rect" value="18, -54, 102, -38" />
+    </attributes>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="shipsStaticCurShip" />
+      <string name="TextID" value="" />
+      <int name="Id" value="15" />
+      <rectf name="PercRect" value="0, 1, 1, 1" />
+      <rect name="Rect" value="104, -54, -18, -38" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_curship_text" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="shipsButtonSellShip" />
+      <string name="TextID" value="id_buttonsellship" />
+      <int name="Id" value="16" />
+      <string name="Caption" value="Sell Ship..." />
+      <rectf name="PercRect" value="0, 1, 0, 1" />
+      <rect name="Rect" value="10, -31, 115, -8" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnSellShip" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="shipsButtonSellShipContent" />
+      <string name="TextID" value="id_buttonsellshipcontent" />
+      <int name="Id" value="17" />
+      <string name="Caption" value="Sell Ship Contents" />
+      <rectf name="PercRect" value="0, 1, 0, 1" />
+      <rect name="Rect" value="130, -31, 245, -8" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnSellShipContent" id="ShipsManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="generalButtonRepairAllShipsDialog"/>
+      <string name="Caption" value="Repair Active"/>
+      <rect name="Rect" value="-235, -31, -135, -8"/>
+      <rectf name="PercRect" value="1, 1, 1, 1"/>
+      <bool name="UseAlphaChannel" value="true"/>
+      <bool name="Border" value="true"/>
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnRepairAll" id="GeneralPropManager"/>
+      <slot name="setEnabled" signal="button_repair_enabled" id="GeneralPropManager"/>
+      <slot name="setToolTipText" signal="button_repair_tooltip" id="GeneralPropManager"/>
+    </bindings>
+  </element>  
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="shipsButtonUpgradeShip" />
+      <string name="TextID" value="id_buttonupgradeship" />
+      <int name="Id" value="18" />
+      <string name="Caption" value="Upgrade Ship" />
+      <rectf name="PercRect" value="1, 1, 1, 1" />
+      <rect name="Rect" value="-125, -31, -10, -8" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnUpgradeButton" id="ShipsManager" />
+      <slot name="setVisible" signal="upgrade_button_visible" id="ShipsManager" />
+    </bindings>
+  </element>
+</element>

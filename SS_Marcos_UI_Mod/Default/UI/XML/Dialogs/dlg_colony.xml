@@ -1,0 +1,249 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="colonyDialog" />
+    <int name="Flags" value="0" />
+    <rectf name="PercRect" value="0, 0, 1, 1" />
+    <rect name="Rect" value="13, 96, -13, -13" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="false" />
+    <bool name="DrawBackground" value="true" />
+  </attributes>
+  <bindings>
+    
+	
+		<signal name="created" slot="RefreshWindow" id="MyPropertyManager" />
+		<signal name="destroyed" slot="WindowInvisible" id="MyPropertyManager" />
+		<signal name="created" slot="WindowVisible" id="MyPropertyManager" />	
+	<signal name="revealed" slot="RequestColonyInfo" id="ColonyManager" />
+	
+  </bindings>
+<!--
+  <element type="customImage">
+    <attributes>
+      <rectf name="PercRect" value="0, 0, 1, 1" />
+      <rect name="Rect" value="0, 0, 0, 0" />
+      <texture name="Texture" value="UI/Images/Backgrounds/colony.png" />
+      <bool name="ScaleImage" value="True" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+  </element>
+-->
+
+
+	<element type="customImage">
+		<attributes>
+			<string name="TextID" value="" />
+			<rect name="Rect" value="8, 8, 156, 120" />
+			<texture name="Texture" value="UI/Images/Misc/colony01.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="ScaleImage" value="true" />				
+		</attributes>
+	</element>	
+
+
+
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_colonyon" />
+      <string name="Caption" value="Colony:" />
+      <rect name="Rect" value="165, 10, 250, 25" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="colonyStaticPlanetName" />
+      <int name="Id" value="88" />
+      <string name="Caption" value="Planet Name" />
+	  <rect name="Rect" value="235, 10, 550, 25" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_planetname_text" id="ColonyManager" />
+    </bindings>
+  </element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_population" />
+      <string name="Caption" value="Population:" />
+	  <rect name="Rect" value="165, 25, 350, 55" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="colonyStaticPopulation" />
+      <string name="TextID" value="" />
+      <int name="Id" value="87" />
+      <string name="Caption" value="0" />
+      <rect name="Rect" value="235, 25, 550, 55" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_population_text" id="ColonyManager" />
+    </bindings>
+  </element>
+
+  
+  
+  
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_suitablility" />
+      <string name="Caption" value="Suitability:" />
+      <rect name="Rect" value="165, 40, 350, 75" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="colonyStaticSuitability" />
+      <string name="TextID" value="" />
+      <int name="Id" value="89" />
+      <string name="Caption" value="0" />
+      <rect name="Rect" value="235, 40, 350, 75" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_suitability_text" id="ColonyManager" />
+    </bindings>
+  </element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_rations" />
+      <string name="Caption" value="Rations:" />
+      <rect name="Rect" value="165, 55, 550, 85" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="colonyStaticRations" />
+      <string name="TextID" value="" />
+      <int name="Id" value="90" />
+      <string name="Caption" value="0" />
+      <rect name="Rect" value="235, 55, 550, 85" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_rations_text" id="ColonyManager" />
+    </bindings>
+  </element>
+
+  
+  
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_age" />
+      <string name="Caption" value="Age:" />
+      <rect name="Rect" value="165, 70, 550, 110" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="colonyStaticAge" />
+      <string name="TextID" value="" />
+      <int name="Id" value="91" />
+      <string name="Caption" value="0" />
+      <rect name="Rect" value="235, 70, 550, 110" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_age_text" id="ColonyManager" />
+    </bindings>
+  </element>
+  
+    <element type="customStaticText">
+    <attributes>
+	  <string name="IdName" value="togglecolonytradingtext" />
+      <string name="TextID" value="id_population" />
+      <string name="Caption" value="Status of this station's trading with colony:" />
+	  <string name="ToolTip" value="Status of this station's trading with colony:"/>
+	  <rect name="Rect" value="165, 85, 360, 110" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+	<bindings>
+	   <slot name="setText" signal="static_togglecolonytrading_text" id="ColonyManager" />
+	</bindings>
+  </element>
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="controlButtonColony" />
+      <int name="Id" value="114" />
+      <string name="Caption" value="Toggle" />
+      <rect name="Rect" value="360, 80, 425, 105" />
+      <string name="ToolTip" value="Enable/disable colony trading with this station."/>
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnColonyTrading" id="ColonyManager" />
+    </bindings>
+  </element>
+	
+  <element type="customTable">
+    <attributes>
+      <string name="IdName" value="colonyTableDemand" />
+      <string name="TextID" value="" />
+      <int name="Id" value="92" />
+      <rectf name="PercRect" value="0, 0, 1, 1" />
+      <rect name="Rect" value="8, 125, -8, -46" />
+      <int name="ColumnCount" value="3" />
+      <string name="Column0name" value="Commodity" />
+      <color name="Column0color" value="ffb7f9ff" />
+      <int name="Column0width" value="263" />
+      <enum name="Column0OrderingMode" value="" />
+      <string name="Column1name" value="Price" />
+      <color name="Column1color" value="ffb7f9ff" />
+      <int name="Column1width" value="90" />
+      <enum name="Column1OrderingMode" value="" />
+      <string name="Column2name" value="# Bought/(Sold) Last Yearly Transaction" />
+      <color name="Column2color" value="ffb7f9ff" />
+      <int name="Column2width" value="109" />
+      <enum name="Column2OrderingMode" value="" />
+      <bool name="ResizableColumns" value="false" />
+      <int name="DrawFlags" value="4" />
+      <bool name="DrawBack" value="true" />
+      <bool name="UseOverrideBgColor" value="true" />
+      <color name="OverrideBgColor" value="8F000000" />
+    </attributes>
+    <bindings>
+      <slot name="setAll" signal="table_demand_all" id="ColonyManager" />
+	  <signal name="item_right_clicked_index" slot="OnColonyRightClick" id="ColonyManager" />
+	  <signal name="item_selected_data" slot="OnColonyTableChanged" id="ColonyManager" />
+    <signal name="item_hovered_data" slot="OnColonyTableItemHoveredData" id="ColonyManager" />
+    </bindings>
+  </element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="" />
+      <string name="Caption" value="Colony will buy and sell from your trade bay at your price. The difference between your's and the colony's value determines the number of goods traded." />
+      <rectf name="PercRect" value="0, 1, 1, 1" />
+      <rect name="Rect" value="12, -44, -8, 0" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+  </element>
+  	<element type="customContextMenu">
+		<attributes>
+			<bool name="Visible" value="false" />
+			<string name="IdName" value="colonyTablecontext" />
+			<int name="ItemCount" value="2" />
+			<int name="CloseHandling" value="4" />			
+			<string name="TextID0" value="id_colony_market_check" />
+			<int name="CommandID0" value="0" />
+			<string name="TextID1" value="id_colony_add_trade_good" />
+			<int name="CommandID1" value="1" />
+			<bool name="KeepOnScreen" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="popup" signal="storehouse_context_popup" id="ColonyManager" />
+			<slot name="setText" signal="storehousecontext_text" id="ColonyManager" />
+			<slot name="setUserData" signal="storehouse_context_data" id="ColonyManager" />				
+			<signal name="item_selected_data" slot="OnColonyContextMenu" id="ColonyManager" />
+		</bindings>
+	</element>
+</element>

@@ -1,0 +1,201 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="selectVendibleDialog" />
+		<string name="Caption" value="Add Trade Good" />
+		<rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+		<rect name="Rect" value="-313, -196, 313, 196" />
+    <position name="MinSize" value="625, 391" />
+    <position name="MaxSize" value="700, 952" />    
+		<int name="Flags" value="0" />
+		<bool name="Movable" value="true" />
+		<int name="BorderStyle" value="2" />
+    <int name="ResizeBorderWidth" value="5" />
+    <bool name="RightResizable" value="true" />	
+    <bool name="BottomResizable" value="true" />    
+		<int name="ResizeBorderWidth" value="0" />
+		<bool name="KeepOnScreen" value="true" />
+		<string name="SoundShow" value="DialogOpen.wav" />
+		<string name="SoundHide" value="DialogClose.wav" />
+	</attributes>
+	<bindings>
+		<signal name="created" slot="InitSelectVendible" id="ControlManager" />
+		<signal name="revealed" slot="bringToTop" id="ControlManager" />
+	</bindings>		
+	<!-- Window Title -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="Caption" value="Add Trade Goods" />
+			<rect name="Rect" value="8, 8, -8, 24" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<enum name="VTextAlign" value="center" />
+			<enum name="HTextAlign" value="left" />
+			<int name="ScrolledLines" value="0" />
+			<enum name="Font" value="largeBoldFont" />
+			<bool name="OverrideColorEnabled" value="true" />
+			<color name="OverrideColor" value="ffffffff" />        
+		</attributes>
+	</element>  
+  <!-- Instruction Description -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_infoeditprice" />
+			<string name="Caption" value="Double-click an item to add it or edit prices" />
+			<rect name="Rect" value="130, 9, -8, 24" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<int name="ScrolledLines" value="0" />
+		</attributes>
+	</element>
+  <!-- Import Button -->
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="vendibleImport" />
+			<string name="TextID" value="id_vendorImport" />
+			<int name="Id" value="45" />
+			<string name="Caption" value="Import" />
+      <rect name="Rect" value="-128, 8, -28, 31" />
+			<rectf name="PercRect" value="1, 0, 1, 0" />
+			<texture name="DisabledImage" value="" />
+			<rect name="DisabledImageRect" value="0, 0, 0, 0" />
+      <string name="ToolTip" value="Allows you to import your custom trade goods. Please look at export for a example." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="vendibleImportClicked" id="ControlManager"/>
+		</bindings>						
+	</element>
+  <!-- Export Button -->
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="vendibleExport" />
+			<string name="TextID" value="id_vendorExport" />
+			<int name="Id" value="45" />
+			<string name="Caption" value="Export" />
+      <rect name="Rect" value="-237, 8, -137, 31" />
+      <rectf name="PercRect" value="1, 0, 1, 0" />
+			<texture name="DisabledImage" value="" />
+			<rect name="DisabledImageRect" value="0, 0, 0, 0" />
+      <string name="ToolTip" value="Exports your current station trade goods added." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="vendibleExportClicked" id="ControlManager"/>
+		</bindings>						
+	</element>  
+  <!-- Trade Table Tabs -->
+	<element type="customTabControl">
+		<attributes>
+			<string name="IdName" value="selectVendibleTabAddGoodSel" />
+			<string name="TextID" value="" />
+			<int name="Id" value="47" />
+			<rect name="Rect" value="15, 35, 465, 67" />
+      <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+			<int name="ActiveTab" value="0" />
+			<string name="IconBankName" value="items_medium" />
+		</attributes>
+		<bindings>
+			<!-- <slot name="setText" signal="tab_vendible_text" id="ControlManager" /> --><!-- uncomment this one and comment setIcons and setTooltips to go back to the scrolled list -->
+			<slot name="setIcons" signal="tab_vendible_icons" id="ControlManager" />
+			<slot name="setTooltips" signal="tab_vendible_tooltips" id="ControlManager" />
+			<signal name="item_selected_index" slot="VendibleTabChanged" id="ControlManager" />										
+		</bindings>
+	</element>  
+  <!-- Trade Table -->  
+	<element type="customTable">
+		<attributes>
+			<string name="IdName" value="selectVendibleTableGoodzList" />
+			<string name="TextID" value="" />
+			<int name="Id" value="46" />
+			<rect name="Rect" value="8, 65, -8, -37" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+			<int name="ColumnCount" value="4" />
+			<string name="Column0name" value="Item" />
+			<color name="Column0color" value="ffb7f9ff" />
+			<int name="Column0width" value="373" />
+			<enum name="Column0OrderingMode" value="ascend_descend" />
+			<string name="Column1name" value="Base Cost" />
+			<color name="Column1color" value="ffb7f9ff" />
+			<int name="Column1width" value="90" />
+			<enum name="Column1OrderingMode" value="ascend_descend" />
+			<enum name="Column1OrderingType" value="numerical" />
+			<string name="Column2name" value="Average Buy" />
+			<color name="Column2color" value="ffb7f9ff" />
+			<int name="Column2width" value="90" />
+			<enum name="Column2OrderingMode" value="ascend_descend" />
+			<enum name="Column2OrderingType" value="numerical" />
+			<string name="Column3name" value="Average Sell" />
+			<color name="Column3color" value="ffb7f9ff" />
+			<int name="Column3width" value="90" />
+			<enum name="Column3OrderingMode" value="ascend_descend" />
+			<enum name="Column3OrderingType" value="numerical" />
+			<bool name="ResizableColumns" value="false" />
+			<int name="DrawFlags" value="4" />
+		</attributes>
+		<bindings>					
+			<slot name="setAll" signal="table_vendibles_all" id="ControlManager" />
+			<signal name="item_selected_data" slot="SelectVendible" id="ControlManager" />
+			<signal name="item_double_clicked_data" slot="DoubleClickVendibleList" id="ControlManager" />
+		</bindings>		
+	</element>
+  <!-- Search Box -->  
+	<element type="customEditBox">
+		<attributes>
+			<string name="IdName" value="vendibleSearch" />
+			<string name="TextID" value="" />
+			<int name="Id" value="20" />
+			<rect name="PercRect" value="0, 1, 1, 1" />
+			<rect name="Rect" value="8, -31, -117, -8" />
+			<string name="PlaceholderText" value="Search..." />
+			<string name="ToolTip" value="Search items to be bought or sold on this station." />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="VendibleSearchChanged" id="ControlManager" />
+			<slot name="setText" signal="vendible_search_edit" id="ControlManager" />
+		</bindings>
+	</element>
+  <!--
+	<element type="customImage">
+		<attributes>
+			<string name="IdName" value="venderUpdate" />
+			<rect name="Rect" value="-83, 67, -8, 159" />
+			<rect name="PercRect" value="1, 0, 1, 0" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="ScaleImage" value="false" />
+			<texture name="Texture" value="UI/Images/Misc/venderUpdate.png" />
+		</attributes>
+		<bindings>
+			<slot name="setColor" signal="vendible_loading_color" id="ControlManager"/>
+		</bindings>
+	</element>
+  -->
+  <!-- Finish Button -->  
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="selectVendibleButtonFinished" />
+			<string name="TextID" value="id_buttonfinished" />
+			<int name="Id" value="45" />
+			<string name="Caption" value="Finished" />
+			<rectf name="PercRect" value="1, 1, 1, 1" />
+			<rect name="Rect" value="-108, -31, -8, -8" />
+			<texture name="DisabledImage" value="" />
+			<rect name="DisabledImageRect" value="0, 0, 0, 0" />
+      <string name="ToolTip" value="Closes this window." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="DestroyGuiDialog" id="GuiFactory" arg="selectVendibleDialog" />
+		</bindings>						
+	</element>
+  <!-- Close Button -->  
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="addtradegoodsButtonClose" />
+			<int name="Id" value="966" />
+			<rect name="Rect" value="-18, 2, -2, 18" />
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+			<texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+			<texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="false" />
+		</attributes>
+		<bindings>
+      <signal name="button_clicked" slot="DestroyGuiDialog" id="GuiFactory" arg="selectVendibleDialog" />
+		</bindings>
+	</element>
+</element>

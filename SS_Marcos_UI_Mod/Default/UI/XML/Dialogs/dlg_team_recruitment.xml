@@ -1,0 +1,313 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="teamRecruitmentDialog" />
+		<rect name="Rect" value="240, 100, 614, 366" />
+		<position name="MinSize" value="374, 266" />
+		<position name="MaxSize" value="500, 400" />		
+		<int name="Flags" value="2" />
+		<int name="BorderStyle" value="2" />
+		<int name="ResizeBorderWidth" value="5" />
+		<!-- <string name="Caption" value="Team Recruitment" /> -->
+		<string name="SoundShow" value="DialogOpen.wav" />
+		<string name="SoundHide" value="DialogClose.wav" />
+		<bool name="HideOnLogout" value="true" />
+		<bool name="KeepOnScreen" value="true" />
+		<bool name="Movable" value="true" />
+		<bool name="Visible" value="false" />
+		<bool name="BottomResizable" value="true" />
+		<bool name="RightResizable" value="true" />			
+	</attributes>
+	<bindings>
+		<signal name="visibility_change" slot="DialogVisibilityChanged" id="LogicManager" />
+		<signal name="visibility_change" slot="OnTeamRecruitmentDialogVisibilityChanged" id="TeamManager" />
+		<signal name="revealed" slot="bringToTop" id="teamRecruitmentDialog" />
+		<signal name="moved" slot="DialogMoved" id="LogicManager" />
+		<signal name="created" slot="OnTeamRecruitmentDialogInit" id="TeamManager" />
+		<signal name="revealed" slot="OnTeamRecruitmentDialogInit" id="TeamManager" />
+		<slot name="setVisible" signal="dialog_team_recruitment_visible" id="TeamManager" />
+	</bindings>
+	<!-- Window Title -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="id_team_recruitment_title" />
+			<string name="TextID" value="" />
+			<string name="Caption" value="Team Recruitment Management" />
+			<rect name="Rect" value="8, 8, 358, 24" />
+			<enum name="VTextAlign" value="center" />
+			<enum name="HTextAlign" value="left" />
+			<int name="ScrolledLines" value="0" />
+			<enum name="Font" value="largeBoldFont" />
+		</attributes>
+	</element>	
+	<!-- Processing Dialog -->
+	<element type="customWindow">
+		<attributes>
+			<string name="IdName" value="teamRecruitmentNoInfoDialog" />
+			<rect name="Rect" value="8, 32, -8, -8" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+			<bool name="Visible" value="true" />
+			<int name="Flags" value="0" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="dialog_team_recruitment_no_info_visible" id="TeamManager" />
+		</bindings>
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="id_team_recruitment_no_info" />
+				<string name="TextID" value="" />
+				<string name="Caption" value="Processing... Only councillors or the director can access this feature." />
+				<rect name="Rect" value="0, 0, 0, 0" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+				<enum name="VTextAlign" value="center" />
+				<enum name="HTextAlign" value="center" />
+				<int name="ScrolledLines" value="0" />
+			</attributes>
+		</element>
+	</element>
+	<!-- Setup Recruitment Window -->
+	<element type="customWindow">
+		<attributes>
+			<string name="IdName" value="teamRecruitmentPostDialog" />
+			<rect name="Rect" value="8, 32, -8, -8" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+			<bool name="Visible" value="false" />
+			<bool name="Border" value="false" />
+			<int name="Flags" value="0" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="dialog_team_recruitment_post_visible" id="TeamManager" />
+		</bindings>
+		<!-- Min Level Number Input -->
+		<!--
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="id_team_recruitment_min_lvl" />
+				<string name="TextID" value="" />
+				<string name="Caption" value="Min Level:" />
+				<rect name="Rect" value="8, 8, 75, 48" />
+				<enum name="VTextAlign" value="center" />
+				<int name="ScrolledLines" value="0" />
+			</attributes>
+		</element>
+		-->
+		<element type="customEditBox">
+			<attributes>
+				<string name="IdName" value="teamRecruitmentMinLvl" />
+				<string name="TextID" value="" />
+				<rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+				<rect name="Rect" value="75, 8, 150, 35" />
+				<string name="Caption" value="0" />
+				<bool name="Visible" value="false" />
+			</attributes>
+			<bindings>
+				<signal name="value_changed" slot="OnTeamRecruitmentMinLvlChanged" id="TeamManager" />
+				<slot name="setText" signal="team_recruitment_min_lvl" id="TeamManager" />
+			</bindings>
+		</element>		
+		<!--
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="id_team_recruitment_classes" />
+				<string name="TextID" value="" />
+				<string name="Caption" value="Classes:" />
+				<rect name="Rect" value="8, 78, 75, 108" />
+				<enum name="VTextAlign" value="center" />
+				<int name="ScrolledLines" value="0" />
+			</attributes>
+		</element>
+		-->
+		<!-- Max Level Number Input -->
+		<!--
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="id_team_recruitment_max_lvl" />
+				<string name="TextID" value="" />
+				<string name="Caption" value="Max Level:" />
+				<rect name="Rect" value="8, 48, 75, 78" />
+				<enum name="VTextAlign" value="center" />
+				<int name="ScrolledLines" value="0" />
+			</attributes>
+		</element>
+		-->		
+		<element type="customEditBox">
+			<attributes>
+				<string name="IdName" value="teamRecruitmentMaxLvl" />
+				<string name="TextID" value="" />
+				<rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+				<rect name="Rect" value="75, 48, 150, 75" />
+				<bool name="Visible" value="false" />
+				<string name="Caption" value="9999" />
+			</attributes>
+			<bindings>
+				<signal name="value_changed" slot="OnTeamRecruitmentMaxLvlChanged" id="TeamManager" />
+				<slot name="setText" signal="team_recruitment_max_lvl" id="TeamManager" />
+			</bindings>
+		</element>
+
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamRecruitmentStartRecruitingButton" />
+				<string name="TextID" value="" />
+				<string name="Caption" value="Start Recruiting" />
+				<rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+				<rect name="Rect" value="8, 8, 110, 40" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="OnTeamRecruitmentStart" id="TeamManager" />
+			</bindings>
+		</element>
+
+
+
+
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamRecruitmentClassAddButton" />
+				<string name="TextID" value="" />
+				<string name="Caption" value="Add Class" />
+				<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+				<rect name="Rect" value="-217, 8, -115, 40" />				
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="OnTeamRecruitmentClassAdd" id="TeamManager" />
+			</bindings>
+		</element>		
+		
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamRecruitmentClassRemoveButton" />
+				<string name="TextID" value="" />
+				<string name="Caption" value="Remove Class" />
+				<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+				<rect name="Rect" value="-110, 8, -8, 40" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="OnTeamRecruitmentClassRemove" id="TeamManager" />
+			</bindings>
+		</element>		
+		
+		<!-- List Classes -->
+		<element type="customTable">
+			<attributes>
+				<string name="IdName" value="teamRecruitmentClasses" />
+				<string name="TextID" value="" />
+				<int name="Id" value="179" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+				<rect name="Rect" value="8, 45, -8, -8" />
+				<int name="ColumnCount" value="1" />
+				<string name="Column0name" value="Accepted Classes" />
+				<color name="Column0color" value="ffb7f9ff" />
+				<int name="Column0width" value="130" />        
+				<enum name="Column0OrderingMode" value="ascend_descend" />
+				<int name="DrawFlags" value="4" />
+			</attributes>
+			<bindings>
+				<slot name="setAll" signal="table_team_recruitment_class_all" id="TeamManager" />
+				<signal name="item_selected_data" slot="OnTeamRecruitmentClassSelect" id="TeamManager" />
+			</bindings>
+		</element>		
+	</element>
+	<!-- List Player Requests Window -->
+	<element type="customWindow">
+		<attributes>
+			<string name="IdName" value="teamRecruitmentMembersDialog" />
+			<rect name="Rect" value="8, 32, -8, -8" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+			<bool name="Visible" value="false" />
+			<int name="Flags" value="0" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="dialog_team_recruitment_members_visible" id="TeamManager" />
+		</bindings>
+		<!--
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="id_team_recruitment_members" />
+				<string name="TextID" value="" />
+				<string name="Caption" value="Applying Members:" />
+				<rect name="Rect" value="8, 18, 75, 48" />
+				<enum name="VTextAlign" value="center" />
+				<int name="ScrolledLines" value="0" />
+			</attributes>
+		</element>
+		-->
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamRecruitmentMembersAcceptButton" />
+				<string name="TextID" value="" />
+				<string name="Caption" value="Accept" />
+				<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+				<rect name="Rect" value="-217, 8, -115, 40" />		
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="OnTeamRecruitmentMembersAccept" id="TeamManager" />
+			</bindings>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamRecruitmentMembersRejectButton" />
+				<string name="TextID" value="" />
+				<string name="Caption" value="Reject" />
+				<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+				<rect name="Rect" value="-110, 8, -8, 40" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="OnTeamRecruitmentMembersReject" id="TeamManager" />
+			</bindings>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamRecruitmentStopRecruitingButton" />
+				<string name="TextID" value="" />
+				<string name="Caption" value="Stop Recruiting" />
+				<rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+				<rect name="Rect" value="8, 8, 110, 40" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="OnTeamRecruitmentStop" id="TeamManager" />
+			</bindings>
+		</element>		
+		<element type="customTable">
+			<attributes>
+				<string name="IdName" value="teamRecruitmentMembers" />
+				<string name="TextID" value="" />
+				<int name="Id" value="179" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+				<rect name="Rect" value="8, 45, -8, -8" />
+				<int name="ColumnCount" value="3" />
+				<string name="Column0name" value="Name" />
+				<color name="Column0color" value="ffb7f9ff" />
+				<int name="Column0width" value="130" />        
+				<enum name="Column0OrderingMode" value="ascend_descend" />
+				<string name="Column1name" value="Level" />
+				<color name="Column1color" value="ffb7f9ff" />
+				<int name="Column1width" value="130" />        
+				<enum name="Column1OrderingMode" value="ascend_descend" />
+				<string name="Column2name" value="Classes" />
+				<color name="Column2color" value="ffb7f9ff" />
+				<int name="Column2width" value="130" />        
+				<enum name="Column2OrderingMode" value="ascend_descend" />
+				<int name="DrawFlags" value="4" />
+			</attributes>
+			<bindings>
+				<slot name="setAll" signal="table_team_recruitment_members_all" id="TeamManager" />
+				<signal name="item_selected_data" slot="OnTeamRecruitmentMembersSelect" id="TeamManager" />
+			</bindings>
+		</element>
+	</element>
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="teamRecruitmentButtonClose" />
+			<int name="Id" value="966" />
+			<rect name="Rect" value="-18, 2, -2, 18" />
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+			<texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+			<texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="false" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="toggleVisibility" id="teamRecruitmentDialog" />
+		</bindings>
+	</element>
+</element>

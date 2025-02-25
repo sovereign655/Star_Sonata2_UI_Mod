@@ -1,0 +1,8 @@
+<element type="container">
+	<attributes>
+		<string name="IdName" value="floatyContainer" />
+		<rect name="Rect" value="0, 0, 0, 0" />
+		<rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+		<bool name="Visible" value="true" />
+	</attributes>
+</element>

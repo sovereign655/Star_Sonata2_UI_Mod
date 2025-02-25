@@ -1,0 +1,9 @@
+<element type="chat">
+    <attributes>
+      <string name="IdName" value="spaceChat" />
+			<rect name="Rect" value="42, -472, 0, -42" /> <!-- the initial height of the chat is hardcoded to 100 pixels high (previous default height), but the height provided here minus 33 will be used for the max height of the resizeable chat (so if -470 is used on y1 then the chat will be resizeable up to 400 pixel high 470-37-33) -->
+      <rectf name="PercRect" value="0.0, 1.0, 0.45, 1.0" />
+			<!-- <rect name="TabLayoutRect" value="40, 80, 260, 200" /> -->
+      <!-- <rect name="TabLayoutPercRect" value="0.0, 1.0, 1.0, 1.0" /> -->
+    </attributes>
+</element>

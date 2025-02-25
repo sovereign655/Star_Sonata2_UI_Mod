@@ -1,0 +1,34 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="big_class_skill_ad_window" />
+    <int name="Flags" value="0" />
+    <rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+    <rect name="Rect" value="-315, 145, 315, 272" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="true" />
+    <bool name="StayAtBack" value="true" />
+    <bool name="DrawBackground" value="false" />
+    <bool name="ClickThrough" value="true" />
+  </attributes>
+  <bindings>
+    <slot name="setVisible" signal="show_big_class_ad" id="CharManager" />
+  </bindings>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="big_class_skill_ad_image" />
+      <string name="TextID" value="" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+      <rect name="Rect" value="0, 0, 0, 0" />
+      <texture name="Image" value="UI/Images/Buttons/class_skill_alert.png" />
+      <rect name="ImageRect" value="0, 0, 631, 128" />
+      <texture name="PressedImage" value="UI/Images/Buttons/class_skill_alert.png" />
+      <rect name="PressedImageRect" value="0, 0, 631, 128" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+      <bool name="Visible" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="ForceClassSkillTab" id="CharManager" />
+    </bindings>
+  </element>
+</element>

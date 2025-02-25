@@ -1,0 +1,70 @@
+<element type="customWindow">
+	<attributes>
+		<int name="Flags" value="0" />
+		<string name="IdName" value="tableTestDialog" />
+		<rect name="Rect" value="0, 0, 560, 480" />
+		<bool name="Movable" value="false" />
+	</attributes>
+
+	<bindings>
+		<signal name="created" slot="setText" id="testTable" 
+
+arg="Karearea|41-48cm|Native forests, more particularly in hilly districts.|Whio|53cm|Rivers and streams of mountainous and hilly regions where there is a native forest cover.
+|Apteryx australis|46-56cm|Native forests, some forest remnants and scrub country." />
+		
+		<signal name="created" slot="setUserData" id="testTable" 
+		
+arg="Females are generally bigger and more richly coloured than the males. Young are darker.
+|Once much more widely distributed but seriously affected by the destruction and modification of mountain forests.
+|North Island. South Island and Stewart Island birds are considered to be of separate subspecies.
+
+The differences, however, are not readily apparent in the field. The kiwi is nocturnal and has poor eyesight.
+
+Although it is flightless, it can run very fast." />
+	</bindings>
+	
+	<element type="customStaticText">
+		<attributes>
+			<string name="Caption" value="Native Birds of New Zealand" />
+			<rect name="Rect" value="10, 10, 490, 40" />
+		</attributes>
+	</element>
+	
+	<element type="customTable">
+		<attributes>
+			<string name="IdName" value="testTable" />
+			<rect name="Rect" value="10, 50, 490, 250" />
+			<int name="ColumnCount" value="3" />
+			<string name="Column0name" value="Name" />
+			<color name="Column0color" value="ffb7f9ff" />
+			<int name="Column0width" value="100" />
+			<enum name="Column0OrderingMode" value="ascend" />
+			<string name="Column1name" value="Size" />
+			<color name="Column1color" value="ffb7f9ff" />
+			<int name="Column1width" value="50" />
+			<enum name="Column1OrderingMode" value="descend" />
+			<string name="Column2name" value="Habitat" />
+			<color name="Column2color" value="ffb7f9ff" />
+			<int name="Column2width" value="300" />
+			<enum name="Column2OrderingMode" value="" />
+			<bool name="ResizableColumns" value="false" />
+			<int name="DrawFlags" value="0" />
+			<bool name="DrawBack" value="true" />
+			<bool name="UseOverrideBgColor" value="true" />
+			<color name="OverrideBgColor" value="8F000000" />
+		</attributes>
+		
+		<bindings>
+			<signal name="item_selected_data" slot="setText" id="textDescription" />
+		</bindings>
+	</element>
+
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="textDescription" />
+			<string name="Caption" value="Click on a bird to see the description!" />
+			<rect name="Rect" value="10, 260, 490, 400" />
+			<bool name="WordWrap" value="true" />
+		</attributes>
+	</element>
+</element>

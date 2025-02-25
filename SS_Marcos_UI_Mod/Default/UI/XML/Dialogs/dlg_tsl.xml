@@ -1,0 +1,287 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="tslDialog" />
+    <int name="Flags" value="0" />
+    <rectf name="PercRect" value="0, 0, 1, 1" />
+    <rect name="Rect" value="13, 96, -13, -13" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="false" />
+    <bool name="DrawBackground" value="true" />
+  </attributes>
+  <bindings>
+    <signal name="revealed" slot="RefreshTSLItems" id="TSLManager" />
+  </bindings>
+  <!-- TSL Not Available in this Station Dialog -->
+  <element type="customWindow">
+    <attributes>
+      <string name="IdName" value="tslDialogTransfer" />
+      <int name="Flags" value="0" />
+      <rectf name="PercRect" value="0, 0, 1, 1" />
+      <rect name="Rect" value="0, 0, 0, 0" />
+      <bool name="Visible" value="false" />
+    </attributes>
+    <bindings>
+      <slot name="setVisible" signal="tsl_transfer_visible" id="TSLManager" />
+    </bindings>
+    <!-- TSL Descriptive Text -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="tslStaticDescription" />
+        <string name="Caption" value="The Storage Locker isn't currently attached to this base. In order to transfer it to this new base a transfer fee is required that is computed based on the storage properties (capacity/levels/money/etc). Please note that the Storage Locker is shared across all characters of the same account." />
+        <rectf name="PercRect" value="0, 0, 1, 0" />
+        <rect name="Rect" value="8, 28, -8, 128" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="center" />
+        <enum name="VTextAlign" value="center" />
+      </attributes>
+    </element>
+    <!-- Cost Amount to transfer TSL to a station -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="tslStaticTransferCost" />
+        <string name="Caption" value="Transfer Cost: " />
+        <rectf name="PercRect" value="0.5, 0, 0.5, 0" />
+        <rect name="Rect" value="-85, 256, 85, 286" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="center" />
+        <enum name="VTextAlign" value="center" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_transfercost_text" id="TSLManager" />
+      </bindings>
+    </element>
+    <!-- Information about the TSL (Current: Galaxy, Base Name, Credits within TSL, Storage Capacity) -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="tslStaticInfo" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.5, 0, 0.5, 0" />
+        <rect name="Rect" value="-85, 286, 85, 386" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="center" />
+        <enum name="VTextAlign" value="center" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_info_text" id="TSLManager" />
+      </bindings>
+    </element>
+    <!-- Button to transfer TSL -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="tslButtonTransfer" />
+        <string name="TextID" value="id_buttontsltransfer" />
+        <int name="Id" value="16" />
+        <string name="Caption" value="Transfer..." />
+        <rectf name="PercRect" value="0.5, 0, 0.5, 0" />
+        <rect name="Rect" value="-85, 153, 85, 246" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="OnTSLTransfer" id="TSLManager" />
+      </bindings>
+    </element>
+  </element>
+  <!-- TSL Dialog -->
+  <element type="customWindow">
+    <attributes>
+      <string name="IdName" value="tslDialogManage" />
+      <int name="Flags" value="0" />
+      <rectf name="PercRect" value="0, 0, 1, 1" />
+      <rect name="Rect" value="0, 0, 0, 0" />
+      <bool name="Visible" value="false" />
+    </attributes>
+    <bindings>
+      <slot name="setVisible" signal="tsl_manage_visible" id="TSLManager" />
+    </bindings>
+<!--
+    <element type="customImage">
+      <attributes>
+	    <rectf name="PercRect" value="0.0, 0, 0, 0" />
+        <rect name="Rect" value="0, 0, 0, 0" />
+        <texture name="Texture" value="UI/Images/Backgrounds/Board.png" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+-->
+    <!-- Credits Icon -->
+    <element type="customImage">
+      <attributes>
+        <rectf name="PercRect" value="0, 0, 0, 0" />
+        <rect name="Rect" value="12, 12, 24, 37" />
+        <texture name="Texture" value="UI/Images/Items/iconsmall/Credits.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <string name="ToolTip" value="Credits stored within your Storage Locker." />
+      </attributes>
+    </element>  
+    <!-- Credits Stored within TSL -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="tslStaticCreds" />
+        <string name="Caption" value="Credits: " />
+        <rect name="Rect" value="30, 6, -8, 37" />
+        <rectf name="PercRect" value="0, 0, 0.5, 0" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="left" />
+        <enum name="VTextAlign" value="center" />
+        <string name="ToolTip" value="Credits stored within your Storage Locker." />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_creds_text" id="TSLManager" />
+      </bindings>
+    </element>
+    <!-- Add Money to TSL Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="tslButtonAddMoney" />
+        <string name="TextID" value="id_buttonaddmoney" />
+        <int name="Id" value="16" />
+        <string name="Caption" value="Add Money..." />
+        <rectf name="PercRect" value="1, 0, 1, 0" />
+        <rect name="Rect" value="-216, 8, -116, 31" />
+        <string name="ToolTip" value="Add Credits to your Storage Locker." />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="OnAddMoney" id="TSLManager" />
+      </bindings>
+    </element>
+    <!-- Take Money from TSL Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="tslButtonWithdrawMoney" />
+        <string name="TextID" value="id_buttonwithdrawmoney" />
+        <int name="Id" value="17" />
+        <string name="Caption" value="Withdraw Money..." />
+        <rectf name="PercRect" value="1, 0, 1, 0" />
+        <rect name="Rect" value="-108, 8, -8, 31" />
+        <string name="ToolTip" value="Take Credits from your Storage Locker." />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="OnWithdrawMoney" id="TSLManager" />
+      </bindings>
+    </element>
+    <!-- Search item Input Box -->
+    <element type="customEditBox">
+      <attributes>
+        <string name="IdName" value="tslSearch" />
+        <string name="TextID" value="" />
+        <int name="Id" value="20" />
+        <rectf name="PercRect" value="0, 0, 1, 0" />
+        <rect name="Rect" value="65, 36, -8, 59" />
+        <string name="PlaceholderText" value="Search..." />
+        <string name="ToolTip" value="Search for items in your Storage Locker." />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="TSLSearchChanged" id="TSLManager" />
+        <slot name="setText" signal="tsl_search_text" id="TSLManager" />
+      </bindings>
+    </element>
+    <!-- Search Title -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="TSLSearchButton" />
+        <string name="TextID" value="Search: " />
+        <int name="Id" value="21" />
+        <string name="Caption" value="" />
+        <rect name="Rect" value="12, 38, 63, 59" />
+        <enum name="VTextAlign" value="center" />
+        <string name="ToolTip" value="Search for specific items in your Storage Locker." />
+      </attributes>
+    </element>
+    <!-- TSL Item Table -->
+    <element type="customTable">
+      <attributes>
+        <string name="IdName" value="itemsTableTSLItems" />
+        <string name="TextID" value="" />
+        <int name="Id" value="122" />
+        <rectf name="PercRect" value="0, 0, 1, 1" />
+        <rect name="Rect" value="8, 65, -8, -40" />
+        <bool name="Draggable" value="true" />
+        <int name="SecondaryTab" value="2" />	 <!-- will order those == using that (usually used so that if you order by type, they will also be ordered by their name in each type) -->
+        <int name="ActiveTab" value="4" />
+        <enum name="CurrentOrdering" value="ascending" />
+        <int name="ColumnCount" value="5" />
+        <string name="Column0name" value="#" />
+        <color name="Column0color" value="ffb7f9ff" />
+        <int name="Column0width" value="80" />
+        <enum name="Column0OrderingMode" value="ascend_descend" />
+        <enum name="Column0OrderingType" value="numerical" />
+        <string name="Column1name" value="T" />
+        <!--<color name="Column1color" value="ffb7f9ff" />-->
+        <int name="Column1width" value="200" />
+        <enum name="Column1OrderingMode" value="ascend_descend" />
+        <string name="Column2name" value="ITEM" />
+        <color name="Column2color" value="ffb7f9ff" />
+        <int name="Column2width" value="29" />
+        <enum name="Column2OrderingMode" value="ascend_descend" />
+        <string name="Column3name" value="EQP" />
+        <color name="Column3color" value="ffb7f9ff" />
+        <int name="Column3width" value="154" />
+        <enum name="Column3OrderingMode" value="ascend_descend" />
+        <string name="Column4name" value="TYPE" />
+        <color name="Column4color" value="ffb7f9ff" />
+        <int name="Column4width" value="154" />
+        <enum name="Column4OrderingMode" value="ascend_descend" />
+        <bool name="ResizableColumns" value="false" />
+        <string name="IconBankName" value="items_small" />
+        <int name="DrawFlags" value="4" />
+        <bool name="DrawBack" value="true" />
+        <bool name="UseOverrideBgColor" value="true" />
+        <color name="OverrideBgColor" value="8F000000" />
+        <bool name="MultiSelection" value="true" />
+        <bool name="AcceptsDrop" value="true" />
+      </attributes>
+      <bindings>
+        <slot name="setAll" signal="table_tslitems_all" id="TSLManager" />
+        <signal name="item_double_clicked_data" slot="OnDblclkTSLItems" id="TSLManager" />
+        <signal name="item_right_clicked_data" slot="OnRclickTSLItems" id="TSLManager" />
+        <signal name="item_selected_data" slot="OnSelectTSLItems" id="TSLManager" />
+        <signal name="item_mouse_paused_data" slot="TSLManagerTableItemMousePausedData" id="TSLManager" />
+        <signal name="item_hovered_data" slot="TSLManagerTableItemHoveredData" id="TSLManager" />
+        <signal name="mouse_left" slot="TSLManagerHideHoverTooltip" id="TSLManager" />
+        <signal name="dragged" slot="OnTSLItemDragged" id="TSLManager" />
+        <signal name="dropped" slot="OnTSLItemDrop" id="TSLManager" />
+      </bindings>
+    </element>
+    <!-- Ship Hull Space Icon -->
+    <element type="customImage">
+      <attributes>
+        <rectf name="PercRect" value="0, 1, 0, 1" />
+        <rect name="Rect" value="12, -27, 24, -8" />
+        <texture name="Texture" value="UI/Images/Items/iconsmall/Hullspace.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <string name="ToolTip" value="Current storage capacity and next upgrade cost to expand your Storage Locker by +100." />
+      </attributes>
+    </element>    
+    <!-- TSL Storage Description -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="tslStaticStorage" />
+        <string name="Caption" value="Storage: " />
+        <rectf name="PercRect" value="0, 1, 1, 1" />
+        <rect name="Rect" value="30, -29, -116, -8" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="left" />
+        <enum name="VTextAlign" value="center" />
+        <string name="ToolTip" value="Current storage capacity and next upgrade cost to expand your Storage Locker by +100." />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_storage_text" id="TSLManager" />
+      </bindings>
+    </element>
+    <!-- Expand Storage Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="tslButtonExpandStorage" />
+        <string name="TextID" value="id_buttonexpandstorage" />
+        <int name="Id" value="18" />
+        <string name="Caption" value="Expand Storage" />
+        <rectf name="PercRect" value="1, 1, 1, 1" />
+        <rect name="Rect" value="-108, -32, -8, -8" />
+        <string name="ToolTip" value="Upgrade your Storage Locker's capacity by +100 for credits." />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="OnExpandStorage" id="TSLManager" />
+      </bindings>
+    </element>
+  </element>
+</element>

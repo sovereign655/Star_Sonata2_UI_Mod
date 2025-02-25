@@ -1,0 +1,141 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="autopilottextcontainer" />
+    <int name="Flags" value="0" />
+    <rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+    <rect name="Rect" value="-300, 100, 300, 124" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="true" />
+    <bool name="StayAtBack" value="true" />
+    <bool name="DrawBackground" value="false" />
+    <bool name="ClickThrough" value="true" />
+  </attributes>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="autopilottext" />
+      <rect name="Rect" value="0, 0, 600, 80" />
+      <enum name="HTextAlign" value="center" />
+      <enum name="VTextAlign" value="center" />
+      <bool name="OverrideColorEnabled" value="true" />
+      <color name="OverrideColor" value="A0FFFFFF" />
+      <bool name="WordWrap" value="true" />
+      <enum name="Font" value="largeFont"/>
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="ap_status_text" id="Autopilot" />
+    </bindings>
+  </element>
+</element>
+
+
+
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="fpsdisplay" />
+    <int name="Flags" value="0" />
+    <rect name="Rect" value="0, -100, 0, 0"/>
+		<rectf name="PercRect" value="0.5, 1.0, 1.0, 1.0"/>
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="true" />
+    <bool name="ClickThrough" value="true" />
+    <bool name="StayAtBack" value="true" />
+    <bool name="DrawBackground" value="false" />
+    
+  </attributes>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="fpsdisplaytxtprism" />
+      <rect name="Rect" value="-550, 0, -30, 140"/>
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0"/>
+      <enum name="HTextAlign" value="right" />
+      <enum name="VTextAlign" value="top" />
+      <bool name="OverrideColorEnabled" value="true" />
+      <color name="OverrideColor" value="ddFFFFFF" />
+      <bool name="WordWrap" value="true" />
+      <enum name="Font" value="microSmall"/>
+      <bool name="ClickThrough" value="true" />
+      <string name="TextID" value="Prism:105000" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="fpstatus_text_prism" id="GameManager" />
+    </bindings>
+  </element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="fpsdisplaytxtfps" />
+      <rect name="Rect" value="-485, 0, -30, 140"/>
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0"/>
+      <enum name="HTextAlign" value="right" />
+      <enum name="VTextAlign" value="top" />
+      <bool name="OverrideColorEnabled" value="true" />
+      <color name="OverrideColor" value="ddFFFFFF" />
+      <bool name="WordWrap" value="true" />
+      <enum name="Font" value="microSmall"/>
+      <bool name="ClickThrough" value="true" />
+      <string name="TextID" value="FPS:1145.25" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="fpstatus_text_fps" id="GameManager" />
+    </bindings>
+  </element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="fpsdisplaytxtlfps" />
+      <rect name="Rect" value="-425, 0, -30, 140"/>
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0"/>
+      <enum name="HTextAlign" value="right" />
+      <enum name="VTextAlign" value="top" />
+      <bool name="OverrideColorEnabled" value="true" />
+      <color name="OverrideColor" value="ddFFFFFF" />
+      <bool name="WordWrap" value="true" />
+      <enum name="Font" value="microSmall"/>
+      <bool name="ClickThrough" value="true" />
+      <string name="TextID" value="LogicFps:20000.15" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="fpstatus_text_lfps" id="GameManager" />
+    </bindings>
+  </element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="fpsdisplaytxtdelay" />
+      <rect name="Rect" value="-340, 0, -30, 140"/>
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0"/>
+      <enum name="HTextAlign" value="right" />
+      <enum name="VTextAlign" value="top" />
+      <bool name="OverrideColorEnabled" value="true" />
+      <color name="OverrideColor" value="ddFFFFFF" />
+      <bool name="WordWrap" value="true" />
+      <enum name="Font" value="microSmall"/>
+      <bool name="ClickThrough" value="true" />
+      <string name="TextID" value="AverageServerDelay:   74ms" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="fpstatus_text_delay" id="GameManager" />
+    </bindings>
+  </element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="fpsdisplaytxtband" />
+      <rect name="Rect" value="-205, 0, -30, 140"/>
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0"/>
+      <enum name="HTextAlign" value="right" />
+      <enum name="VTextAlign" value="top" />
+      <bool name="OverrideColorEnabled" value="true" />
+      <color name="OverrideColor" value="ddFFFFFF" />
+      <bool name="WordWrap" value="true" />
+      <enum name="Font" value="microSmall"/>
+      <bool name="ClickThrough" value="true" />
+      <string name="TextID" value="Bandwith: 64201.40bytes/s" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="fpstatus_text_band" id="GameManager" />
+    </bindings>
+  </element>
+</element>

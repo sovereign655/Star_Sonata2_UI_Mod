@@ -1,0 +1,82 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="radarDialog" />
+    <rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+    <rect name="Rect" value="-300, -300, 300, 300" />
+    <position name="MinSize" value="150, 150" />
+    <colorf name="Tint" value="0.5, 0.5, 0.5, 0.5" />
+    <int name="ResizeBorderWidth" value="5" />
+    <bool name="TopResizable" value="true" />
+    <bool name="RightResizable" value="true" />
+    <bool name="BottomResizable" value="true" />
+    <bool name="LeftResizable" value="true" />
+    <bool name="Square" value="true" />
+    <bool name="KeepOnScreen" value="true" />
+    <bool name="Movable" value="true" />
+    <bool name="Visible" value="false" />
+    <int name="Flags" value="0" />
+    <string name="SoundShow" value="DialogOpen.wav" />
+    <string name="SoundHide" value="DialogClose.wav" />
+    <bool name="HideOnLogout" value="true" />
+  </attributes>
+  <bindings>
+    <signal name="moved" slot="DialogMoved" id="LogicManager" />
+    <signal name="evt_resize" slot="DialogMoved" id="LogicManager" />
+    <signal name="visibility_change" slot="DialogVisibilityChanged" id="LogicManager" />
+    <signal name="evt_mouse_on_border" slot="DialogMouseOnBorder" id="LogicManager" />
+    <signal name="revealed" slot="toggleActiveState" id="radarCommand" />
+    <signal name="hidden" slot="toggleActiveState" id="radarCommand" />
+  </bindings>		
+  <element type="radar">
+    <attributes>
+      <string name="IdName" value="spaceRadar" />
+      <int name="Id" value="1" />
+      <rectf name="PercRect" value="0, 0, 1, 1" />
+      <rect name="Rect" value="10, 10, -10, -10" />
+      <bool name="DrawCrossHair" value="false" />
+      <bool name="DrawShip" value="true" />
+      <bool name="DrawFixedRanges" value="true" />
+      <bool name="DrawWeaponRange" value="true" />
+      <bool name="DrawDetectionRange" value="false" />
+    </attributes>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="radarZoomOut" />			
+      <int name="Id" value="2" />
+      <string name="Caption" value="-" />
+      <rect name="Rect" value="11, 1, 31, 21" />
+      <string name="SoundClick" value="CloakOn.wav" />
+    </attributes>
+    <bindings>
+        <signal name="button_clicked" slot="radarZoomOut" id="RadarManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="radarZoomIn" />			
+      <int name="Id" value="3" />
+      <string name="Caption" value="+" />
+      <rect name="Rect" value="42, 1, 63, 21" />
+      <string name="SoundClick" value="CloakOn.wav" />
+    </attributes>
+    <bindings>
+        <signal name="button_clicked" slot="radarZoomIn" id="RadarManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="radarButtonClose" />
+      <int name="Id" value="66" />
+      <rect name="Rect" value="-18, 2, -2, 18" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+      <texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="toggleVisibility" id="radarDialog" />
+    </bindings>
+  </element>
+</element>

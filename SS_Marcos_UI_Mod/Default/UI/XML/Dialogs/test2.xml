@@ -1,0 +1,54 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="TestWindow" />
+		<rect name="Rect" value="50, 50, 350, 250" />
+		<int name="Flags" value="0" />
+		<bool name="Movable" value="true" />
+		<int name="BorderStyle" value="2" />
+		<int name="ResizeBorderWidth" value="0" />
+	</attributes>
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="openTest2" />
+			<rect name="Rect" value="50, 50, 150, 150" />
+			<texture name="Image" value="img/ui/station/buttons/undock.png" />
+			<rect name="ImageRect" value="0, 0, 73, 48" />
+			<texture name="PressedImage" value="img/ui/station/buttons/undockpressed.png" />
+			<rect name="PressedImageRect" value="0, 0, 73, 48" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="false" />
+		</attributes>
+		
+		<bindings>
+			<signal name="button_clicked" slot="CreateGuiDialog" id="GuiFactory" arg="TestWindow2" />
+			<!--
+				<signal name="button_clicked" slot="show" id="TestWindow2" />
+				<signal name="button_clicked" slot="setText" id="testText2" arg="Man" />
+				<signal name="button_clicked" slot="setText" id="testText" arg="Blah" />
+				-->
+		</bindings>
+	</element>
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="closeTest2" />
+			<rect name="Rect" value="150, 50, 250, 150" />
+			<texture name="Image" value="img/ui/station/buttons/undock.png" />
+			<rect name="ImageRect" value="0, 0, 73, 48" />
+			<texture name="PressedImage" value="img/ui/station/buttons/undockpressed.png" />
+			<rect name="PressedImageRect" value="0, 0, 73, 48" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="false" />
+		</attributes>
+		
+		<bindings>
+			<signal name="button_clicked" slot="DestroyGuiDialog" id="GuiFactory" arg="TestWindow2" />
+			<!--
+				<signal name="button_clicked" slot="hide" id="TestWindow2" />
+				<signal name="button_clicked" slot="setText" id="testText2" arg="Dude" />
+				<signal name="button_clicked" slot="setText" id="testText" arg="Yoo" />
+				-->
+		</bindings>
+	</element>
+</element>

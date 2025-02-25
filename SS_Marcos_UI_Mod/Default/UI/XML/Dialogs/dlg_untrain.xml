@@ -1,0 +1,123 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="untrainDialog" />
+    <int name="Flags" value="0" />
+    <rectf name="PercRect" value="0, 0, 1, 1" />
+    <rect name="Rect" value="13, 96, -13, -13" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="false" />
+    <bool name="DrawBackground" value="true" />
+  </attributes>
+  <bindings>
+    <signal name="revealed" slot="InitUntraining" id="SkillzManager" />
+  </bindings>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="untrainStaticTotal" />
+      <int name="Id" value="15" />
+      <string name="Caption" value="__" />
+      <rectf name="PercRect" value="0, 0, 1.0, 0" />
+      <rect name="Rect" value="10, 198, -10, 211" />
+      <enum name="HTextAlign" value="center" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_cost_text" id="SkillzManager" />
+      <slot name="setVisible" signal="static_cost_visible" id="SkillzManager" />
+    </bindings>
+  </element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="untrainStaticDocStoryNeural" />
+      <string name="TextID" value="" />
+      <int name="Id" value="16" />
+      <string name="Caption" value="..." />
+      <rectf name="PercRect" value="0, 0, 1, 0" />
+      <rect name="Rect" value="10, 11, -10, 195" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_untrain_text" id="SkillzManager" />
+    </bindings>
+  </element>
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="untrainButtonOK" />
+      <string name="Caption" value="Show Options" />
+      <int name="Id" value="17" />
+      <rectf name="PercRect" value="0.5, 0, 0.5, 0" />
+      <rect name="Rect" value="-50, 225, 50, 255" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnUntraining" id="SkillzManager" arg="0"/>
+      <slot name="setVisible" signal="button_untrain_visible" id="SkillzManager" />
+    </bindings>
+  </element>
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="untrainButtonOK_all" />
+      <string name="Caption" value="Reset All Skills" />
+      <int name="Id" value="17" />
+      <rectf name="PercRect" value="0.5, 0, 0.5, 0" />
+      <rect name="Rect" value="-50, 225, 50, 255" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnUntraining" id="SkillzManager" arg="0" />
+      <slot name="setVisible" signal="button_resettypes_visible" id="SkillzManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="untrainButtonOK_class" />
+      <string name="Caption" value="Reset Class Skills" />
+      <int name="Id" value="17" />
+      <rectf name="PercRect" value="0.5, 0, 0.5, 0" />
+      <rect name="Rect" value="-246, 263, -128, 290" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnUntraining" id="SkillzManager" arg="1" />
+      <slot name="setVisible" signal="button_resettypes_visible" id="SkillzManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="untrainButtonOK_advclass" />
+      <string name="Caption" value="Reset Adv. Subskills" />
+      <int name="Id" value="17" />
+      <rectf name="PercRect" value="0.5, 0, 0.5, 0" />
+      <rect name="Rect" value="-120, 263, -4, 290" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnUntraining" id="SkillzManager" arg="3" />
+      <slot name="setVisible" signal="button_resettypes_visible" id="SkillzManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="untrainButtonOK_host" />
+      <string name="Caption" value="Reset Hostility Skills" />
+      <int name="Id" value="17" />
+      <rectf name="PercRect" value="0.5, 0, 0.5, 0" />
+      <rect name="Rect" value="4, 263, 120, 290" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnUntraining" id="SkillzManager" arg="4" />
+      <slot name="setVisible" signal="button_resettypes_visible" id="SkillzManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="untrainButtonOK_contres" />
+      <string name="Caption" value="Reset Control Skills" />
+      <int name="Id" value="17" />
+      <rectf name="PercRect" value="0.5, 0, 0.5, 0" />
+      <rect name="Rect" value="128, 263, 246, 290" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnUntraining" id="SkillzManager" arg="2" />
+      <slot name="setVisible" signal="button_resettypes_visible" id="SkillzManager" />
+    </bindings>
+  </element>
+</element>

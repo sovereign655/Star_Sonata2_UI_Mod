@@ -1,0 +1,322 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="actionBar" />
+    <string name="Caption" value="" />
+    <rect name="Rect" value="0, 0, 0, 47" />
+    <rect name="ClippingRectPadding" value="0, 0, 0, 110" />
+    <rectf name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+    <int name="Flags" value="0" />
+    <int name="BorderStyle" value="0" />
+    <bool name="StayAtBack" value="true" />
+    <bool name="ClickThrough" value="true" />
+    <bool name="DrawBackground" value="false" />
+  </attributes>
+  <!-- Weapon Bar -->
+  <element type="progressbar">
+    <attributes>
+      <string name="IdName" value="progress3" />
+      <rect name="Rect" value="54, 55, 280, 77" />
+      <int name="IconWidth" value="22" />
+      <texture name="ProgressEmptyImage" value="bars.main.weapon" />
+      <rect name="ProgressEmptyImageRect" value="0, 0, 226, 22" />
+      <texture name="ProgressFilledImage" value="bars.main.weapon" />
+      <rect name="ProgressFilledImageRect" value="0, 24, 226, 46" />
+      <string name="ToolTip" value="Selected Weapon" />
+      <bool name="AbsorbClicks" value="true" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="recoil_progress_text" id="WeaponManager" />
+      <slot name="setValue" signal="recoil_progress_value" id="WeaponManager" />
+      <signal name="button_clicked" slot="show" id="weaponBox" />
+    </bindings>
+    <element type="customImage">
+      <attributes>
+        <rect name="Rect" value="3, 3, 19, 19" />
+        <texture name="Texture" value="bars.icon.orange" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <rect name="Rect" value="4, 4, 18, 18" />
+        <string name="SpriteBank" value="items_small" />
+        <string name="SpriteName" value="Weapon" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="ScaleImage" value="false" />
+      </attributes>
+    </element>
+  </element>
+  <!-- Player Information -->
+  <element type="elementgrid">
+    <attributes>
+      <rect name="Rect" value="282, 55, 500, 77" />
+      <int name="GridPadding" value="2" />
+      <bool name="AlignRight" value="false" />
+    </attributes>
+    <!-- Credits -->
+    <element type="progressbar">
+      <attributes>
+        <string name="IdName" value="progressCredits" />
+        <rect name="Rect" value="0, 0, 100, 22" />
+        <bool name="Dynamic" value="true" />
+        <int name="IconWidth" value="22" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="player_credits_text" id="GameManager" />
+        <slot name="setToolTipText" signal="player_credits_tooltip" id="GameManager" />
+      </bindings>
+      <element type="customButton">
+        <attributes>
+          <rect name="Rect" value="3, 3, 19, 19" />
+          <bool name="Border" value="true" />
+        </attributes>
+        <element type="customImage">
+          <attributes>
+            <rect name="Rect" value="1, 1, 16, 16" />
+            <string name="SpriteBank" value="items_small" />
+            <string name="SpriteName" value="Credits" />
+            <bool name="CenterImage" value="true" />
+            <bool name="UseAlphaChannel" value="true" />
+            <bool name="ScaleImage" value="false" />
+          </attributes>
+        </element>
+      </element>
+    </element>
+    <!-- Speed Indicator -->
+    <element type="progressbar">
+      <attributes>
+        <string name="IdName" value="progressSpeed" />
+        <rect name="Rect" value="0, 0, 100, 22" />
+        <bool name="Dynamic" value="true" />
+        <int name="IconWidth" value="22" />
+        <string name="ToolTip" value="Current Speed" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="player_speed_text" id="GameManager" />
+      </bindings>
+      <element type="customButton">
+        <attributes>
+          <rect name="Rect" value="3, 3, 19, 19" />
+          <bool name="Border" value="true" />
+        </attributes>
+        <element type="customImage">
+          <attributes>
+            <rect name="Rect" value="1, 1, 16, 16" />
+            <string name="SpriteBank" value="items_small" />
+            <string name="SpriteName" value="Speed" />
+            <bool name="UseAlphaChannel" value="true" />
+            <bool name="ScaleImage" value="false" />
+            <bool name="CenterImage" value="true" />
+          </attributes>
+        </element>
+      </element>
+    </element>
+  </element>
+  <!-- Command Buttons -->
+  <element type="actionbuttongrid">
+    <attributes>
+      <string name="BaseActionTag" value="item" />
+      <int name="ElementCount" value="55" />
+      <string name="IdName" value="itemActionButtonGrid" />
+      <rect name="Rect" value="54, 5, -94, 59" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+      <int name="GridPadding" value="4" />
+      <colorf name="ArrowTint" value="0.5, 1.0, 1.0, 0.8" />
+      <texture name="ArrowLeftImage" value="arrow.left" />
+      <texture name="ArrowRightImage" value="arrow.right" />
+      <bool name="FixedHorizontalEnd" value="false"/>
+    </attributes>
+    <element type="actionbutton">
+      <attributes>
+        <rect name="Rect" value="0, 0, 44, 44" />
+        <texture name="Image" value="small.boxPlus.blue" />
+        <rect name="ImageRect" value="0, 0, 44, 44" />
+        <texture name="HoverImage" value="small.boxPlus.blue" />
+        <rect name="HoverImageRect" value="120, 0, 164, 44" />
+        <texture name="DisabledImage" value="small.boxPlus.gray" />
+        <rect name="DisabledImageRect" value="120, 0, 163, 43" />
+        <texture name="ActiveImage" value="small.boxPlus.orange" />
+        <texture name="ActiveImageReady" value="small.boxPlus.orange.ready" />
+        <rect name="ActiveImageRect" value="0, 0, 44, 44" />
+        <colorf name="HoverTint" value="1.0, 1.0, 1.0, 1.0" />
+        <colorf name="ProgressTint" value="1.0, 1.0, 1.0, 1.0" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+        <texture name="ProgressEmptyImage" value="small.boxPlus.bars" />
+        <rect name="ProgressEmptyImageRect" value="0, 36, 40, 40" />
+        <texture name="ProgressFilledImage" value="small.boxPlus.bars" />
+        <rect name="ProgressFilledImageRect" value="0, 48, 40, 52" />
+        <int name="ProgressBarOffset" value="38" />
+      </attributes>
+    </element>
+  </element>
+<!--Request to dock/undock-->
+<!--
+	<element type="actionbutton">
+		<attributes>
+			<int name="TabOrder" value="12"/>
+			<int name="Id" value="100"/>
+			<string name="IdName" value="requestDock"/>
+			<rect name="Rect" value="-238, 4, -208, 34"/>
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0"/>
+			<texture name="Image" value="command.icon"/>
+			<rect name="ImageRect" value="0, 0, 30, 30"/>
+			<texture name="ActiveImage" value="command.icon.orange"/>
+			<rect name="ActiveImageRect" value="36, 0, 66, 30"/>
+			<texture name="HoverImage" value="command.icon"/>
+			<rect name="HoverImageRect" value="72, 0, 102, 30"/>
+			<texture name="TagImage" value="command.icon.dock"/>
+			<bool name="UseAlphaChannel" value="true"/>
+			<bool name="Border" value="false"/>
+			<string name="ToolTip" value="Attempt Docking/Undocking (R)"/>
+			<string name="ToolTipBody" value="Use to dock/undock with space stations."/>
+			<texture name="ToolTipImage" value="command.icon.dock"/>
+			<int name="MousePauseTime" value="500"/>
+			<rect name="ToolTipRect" value="0, 0, -6, -42"/>
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="OnDockRequest" id="GameManager"/>
+			<slot name="enableActiveState" signal="dockactiveenable" id="GameManager"/>
+			<slot name="disableActiveState" signal="dockactivedisable" id="GameManager"/>
+			<slot name="setToolTipText" signal="docktooltip" id="GameManager"/>
+		</bindings>
+	</element>
+  -->
+<!--Warp Button-->
+<!--
+	<element type="actionbutton">
+		<attributes>
+			<int name="TabOrder" value="11"/>
+			<int name="Id" value="100"/>
+			<string name="IdName" value="requestWarp"/>
+			<rect name="Rect" value="-204, 4, -174, 34"/>
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0"/>
+			<texture name="Image" value="command.icon"/>
+			<rect name="ImageRect" value="0, 0, 30, 30"/>
+			<texture name="ActiveImage" value="command.icon.orange"/>
+			<rect name="ActiveImageRect" value="36, 0, 66, 30"/>
+			<texture name="HoverImage" value="command.icon"/>
+			<rect name="HoverImageRect" value="72, 0, 102, 30"/>
+			<texture name="TagImage" value="command.icon.warp"/>
+			<bool name="UseAlphaChannel" value="true"/>
+			<bool name="Border" value="false"/>
+			<string name="ToolTip" value="Warp (F)"/>
+			<string name="ToolTipBody" value="Use wormholes to travel between systems."/>
+			<texture name="ToolTipImage" value="command.icon.warp"/>
+			<int name="MousePauseTime" value="500"/>
+			<rect name="ToolTipRect" value="0, 0, -6, -42"/>
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="OnWarpRequest" id="GameManager"/>
+			<slot name="enableActiveState" signal="warpactiveenable" id="GameManager"/>
+			<slot name="disableActiveState" signal="warpactivedisable" id="GameManager"/>
+		</bindings>
+	</element>
+  -->
+
+  <!-- Target Box -->
+  <element type="actionbutton">
+    <attributes>
+      <string name="IdName" value="targetbox" />
+      <string name="ActionTag" value="target" />
+      <rect name="Rect" value="-92, 3, -4, 92" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0" />
+      <texture name="Image" value="target.box.blue" />
+      <rect name="ImageRect" value="0, 0, 88, 88" />
+      <texture name="ProgressEmptyImage" value="target.box.blue.bars" />
+    <texture name="ProgressEmptyImage2" value="target.box.bars" />
+      <rect name="ProgressEmptyImageRect" value="0, 18, 78, 20" />
+      <texture name="ProgressFilledImage" value="target.box.blue.bars" />
+    <texture name="ProgressFilledImage2" value="target.box.bars" />
+      <rect name="ProgressFilledImageRect" value="0, 24, 78, 26" />
+      <int name="ProgressBarOffset" value="5" />
+      <int name="ProgressBarOffset2" value="81" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="DrawSecondProgressBar" value="true" />
+      <bool name="Border" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="show" id="targetInfoBox" />
+      <signal name="button_clicked" slot="resetAnimators" id="targetInfoBox" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="windowRestore" />
+      <int name="Id" value="66" />
+      <rect name="Rect" value="-18, 12, -2, 28" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <texture name="Image" value="UI/Images/Buttons/restorebutton_up.png" />
+      <texture name="PressedImage" value="UI/Images/Buttons/restorebutton_down.png" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+      <bool name="Visible" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnWindowRestore" id="GameManager"/>
+      <slot name="setVisible" signal="windowrestorebutton_visible" id="GameManager" />
+    </bindings>
+  </element>
+  <!-- Action Button Grid -->
+  <element type="actionbuttongrid">
+    <attributes>
+      <rect name="Rect" value="502, 55, -96, 77" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 0" />
+      <int name="GridPadding" value="2" />
+      <bool name="AlignRight" value="true" />
+      <int name="ElementCount" value="35" />
+      <string name="IdName" value="targetActionButtonGrid" />
+      <string name="BaseActionTag" value="starget" />
+      <rect name="ClippingRectPadding" value="0, 0, 0, 40" />
+    </attributes>
+    <bindings>
+      <slot name="setElementCount" signal="small_target_grid_count" id="SmallTargetsManager" />
+    </bindings>
+    <element type="actionbutton">
+      <attributes>
+        <rect name="ClippingRectPadding" value="0, 0, 0, 20" />
+        <bool name="NoClip" value="true" />
+        <rect name="Rect" value="0, 0, 22, 22" />
+        <texture name="Image" value="small.box.blue" />
+        <texture name="ActiveImage" value="small.box.orange" />
+        <rect name="ActiveImageRect" value="0, 0, 22, 22" />
+        <rect name="ImageRect" value="0, 0, 22, 22" />
+        <texture name="ProgressEmptyImage" value="small.box.blue.bars" />
+        <texture name="ProgressEmptyImage2" value="small.box.bars" />
+        <rect name="ProgressEmptyImageRect" value="0, 18, 20, 20" />
+        <texture name="ProgressFilledImage" value="small.box.blue.bars" />
+        <texture name="ProgressFilledImage2" value="small.box.bars" />
+        <rect name="ProgressFilledImageRect" value="0, 24, 20, 26" />
+        <texture name="HoverImage" value="small.box.blue" />
+        <rect name="HoverImageRect" value="60, 0, 82, 22" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="DrawSecondProgressBar" value="true" />
+        <texture name="ToolTipImage" value="command.icon.dock" />
+        <string name="ToolTip" value="Attempt Docking/Undocking" />
+        <rect name="ToolTipRect" value="0, 70, -10, -500" />
+        <bool name="Border" value="false" />
+        <int name="ProgressBarOffset" value="1" />
+        <int name="ProgressBarOffset2" value="19" />
+      </attributes>
+    </element>
+    <element type="actionbutton">
+      <attributes>
+        <rect name="ClippingRectPadding" value="0, 0, 0, 40" />
+        <rect name="Rect" value="0, 0, 22, 22" />
+        <texture name="Image" value="small.box.gray" />
+        <rect name="ImageRect" value="0, 0, 22, 22" />
+        <texture name="ProgressEmptyImage" value="small.box.bars" />
+        <rect name="ProgressEmptyImageRect" value="0, 18, 20, 20" />
+        <texture name="ProgressFilledImage" value="small.box.bars" />
+        <rect name="ProgressFilledImageRect" value="0, 24, 20, 26" />
+        <texture name="HoverImage" value="small.box.gray" />
+        <rect name="HoverImageRect" value="60, 0, 82, 22" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="DrawSecondProgressBar" value="true" />
+        <bool name="Border" value="false" />
+        <int name="ProgressBarOffset" value="1" />
+        <int name="ProgressBarOffset2" value="19" />
+      </attributes>
+    </element>
+  </element>
+</element>

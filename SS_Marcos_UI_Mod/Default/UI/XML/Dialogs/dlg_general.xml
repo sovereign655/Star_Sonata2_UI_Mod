@@ -1,0 +1,278 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="generalDialog"/>
+    <int name="Flags" value="0"/>
+    <string name="ParentNode" value="stationDialog"/>
+    <rectf name="PercRect" value="0, 0, 1, 1"/>
+    <rect name="Rect" value="13, 96, -13, -13"/>
+    <bool name="Movable" value="false"/>
+    <bool name="Visible" value="false"/>
+    <bool name="DrawBackground" value="true"/>
+  </attributes>
+  <bindings>
+    <signal name="revealed" slot="OnInitGeneralProp" id="GeneralPropManager"/>
+    <signal name="revealed" slot="OnInitBulletinBoard" id="BulletinBoardManager" />
+  </bindings>
+<!--
+  <element type="customImage">
+    <attributes>
+      <rect name="Rect" value="0, 0, 512, 400"/>
+      <texture name="Texture" value="UI/Images/Backgrounds/trade.png"/>
+      <bool name="ScaleImage" value="False"/>
+      <bool name="UseAlphaChannel" value="true"/>
+    </attributes>
+  </element>
+-->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="generalStaticDescrip"/>
+      <!--<string name="TextID" value="id_descrip" />-->
+      <rect name="Rect" value="8, 8, -8, 153"/>
+      <rectf name="PercRect" value="0, 0, 1, 0"/>
+      <bool name="AutoScroll" value="true"/>
+      <bool name="Border" value="true"/>
+      <bool name="WordWrap" value="true"/>
+      <bool name="Background" value="true"/>
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_descrip_text" id="GeneralPropManager"/>
+    </bindings>
+  </element>
+  <!-- Bulletin Board Table -->
+  <element type="customTable">
+    <attributes>
+      <string name="IdName" value="bBoardTableGlobalGeneral" />
+      <string name="TextID" value="" />
+      <int name="Id" value="85" />
+      <rectf name="PercRect" value="0, 0, 1, 0" />
+      <rect name="Rect" value="8, 161, -8, 253" />
+      <int name="ColumnCount" value="3" />
+      <string name="Column0name" value="Author" />
+      <color name="Column0color" value="ffb7f9ff" />
+      <int name="Column0width" value="150" />
+      <enum name="Column0OrderingMode" value="" />
+      <string name="Column1name" value="Credits" />
+      <color name="Column1color" value="ffb7f9ff" />
+      <int name="Column1width" value="60" />
+      <enum name="Column1OrderingMode" value="" />
+      <string name="Column2name" value="Message" />
+      <color name="Column2color" value="ffb7f9ff" />
+      <int name="Column2width" value="512" />
+      <enum name="Column2OrderingMode" value="" />
+      <bool name="ResizableColumns" value="false" />
+      <int name="DrawFlags" value="4" />
+      <bool name="DrawBack" value="true" />
+      <bool name="UseOverrideBgColor" value="true" />
+      <color name="OverrideBgColor" value="8F000000" />
+      <bool name="Visible" value="true" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="table_bboard_text" id="BulletinBoardManager" />
+    </bindings>
+  </element>  
+  <!--
+  <element type="customImage">
+    <attributes>
+      <string name="IdName" value="generalImageBmDom"/>
+      <string name="TextID" value=""/>
+      <int name="Id" value="115"/>
+      <rect name="Rect" value="10, 130, 84, 186"/>
+      <texture name="Texture" value="img/station/dom/dom1.png"/>
+      <bool name="UseAlphaChannel" value="true"/>
+	  <bool name="ScaleImage" value="true" />	
+    </attributes>
+    <bindings>
+      <slot name="loadImage" signal="image_bmdom_load" id="GeneralPropManager"/>
+    </bindings>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="generalStaticDomStatus"/>
+      <string name="Caption" value="A cool, winter breeze comes in from the north"/>
+      <rectf name="PercRect" value="0, 0, 1, 0"/>
+      <rect name="Rect" value="90, 130, -8, 186"/>
+      <int name="ScrolledLines" value="0"/>
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_domstatus_text" id="GeneralPropManager"/>
+    </bindings>
+  </element>
+  -->
+  <element type="newsviewer">
+    <attributes>
+      <int name="Id" value="-1" />
+      <string name="IdName" value="news_viewer" />
+      <rect name="Rect" value="0, 0, 0, -35" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+      <bool name="Visible" value="false" />
+      <bool name="Enabled" value="true" />
+      <bool name="TabStop" value="false" />
+      <bool name="TabGroup" value="false" />
+      <int name="TabOrder" value="-1" />
+      <bool name="NoClip" value="false" />
+      <bool name="Border" value="false" />
+    </attributes>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="generalButtonGeneral"/>
+      <string name="Caption" value="General"/>
+      <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0"/>
+      <rect name="Rect" value="-276, -30, -8, -8"/>
+      <bool name="UseAlphaChannel" value="true"/>
+      <bool name="Border" value="true"/>
+      <bool name="Visible" value="false" />
+      <string name="ToolTip" value="Show general information about this station." />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="toggleVisibility" id="generalButtonNewsFeed"/>
+      <signal name="button_clicked" slot="toggleVisibility" id="generalButtonGeneral"/>
+      <signal name="button_clicked" slot="toggleVisibility" id="generalStaticDescrip"/>
+      <signal name="button_clicked" slot="toggleVisibility" id="generalTableListMissions"/>
+      <signal name="button_clicked" slot="toggleVisibility" id="generalButtonContactAgent"/>
+      <signal name="button_clicked" slot="toggleVisibility" id="news_viewer"/> 
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="generalButtonNewsFeed"/>
+      <string name="Caption" value="News Feed"/>
+      <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0"/>
+      <rect name="Rect" value="-276, -30, -176, -8"/>
+      <bool name="UseAlphaChannel" value="true"/>
+      <bool name="Border" value="true"/>
+      <bool name="Visible" value="true" />
+      <string name="ToolTip" value="Show the latest Star Sonata news." />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="toggleVisibility" id="generalButtonNewsFeed"/>
+      <signal name="button_clicked" slot="toggleVisibility" id="generalButtonGeneral"/>
+      <signal name="button_clicked" slot="toggleVisibility" id="generalStaticDescrip"/>
+      <signal name="button_clicked" slot="toggleVisibility" id="generalTableListMissions"/>
+      <signal name="button_clicked" slot="toggleVisibility" id="generalButtonContactAgent"/>
+      <signal name="button_clicked" slot="toggleVisibility" id="news_viewer"/>      
+    </bindings>
+  </element> 
+  <!--
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_stationconcourse"/>
+      <string name="Caption" value="Station Concourse"/>
+      <rect name="Rect" value="8, 193, 439, 206"/>
+      <int name="ScrolledLines" value="0"/>
+      <bool name="Visible" value="true" />
+    </attributes>
+  </element>
+  -->
+  <element type="customTable">
+    <attributes>
+      <string name="IdName" value="generalTableListMissions"/>
+      <string name="TextID" value=""/>
+      <int name="Id" value="117"/>
+      <rectf name="PercRect" value="0, 0, 1, 1"/>
+      <rect name="Rect" value="8, 261, -8, -35"/>
+      <int name="ColumnCount" value="3"/>
+      <string name="Column0name" value="Status"/>
+      <int name="Column0width" value="70"/>
+      <enum name="Column0OrderingMode" value="ascend_descend"/>
+      <string name="Column1name" value="Agent"/>
+      <int name="Column1width" value="120"/>
+      <enum name="Column1OrderingMode" value="ascend_descend"/>
+      <string name="Column2name" value="Mission"/>
+      <int name="Column2width" value="276"/>
+      <enum name="Column2OrderingMode" value="ascend_descend"/>
+      <bool name="ResizableColumns" value="false"/>
+      <int name="DrawFlags" value="4" />
+      <bool name="DrawBack" value="true"/>
+	  <int name="ActiveTab" value="0" />
+	  <enum name="CurrentOrdering" value="ascending" />
+      <bool name="UseOverrideBgColor" value="true"/>
+      <color name="OverrideBgColor" value="8F000000"/>
+    </attributes>
+    <bindings>
+      <slot name="setAll" signal="table_listmissions_all" id="GeneralPropManager"/>
+      <signal name="item_double_clicked_data" slot="OnDblclkMission" id="GeneralPropManager"/>
+      <signal name="item_selected_data" slot="OnItemchangedMissionList" id="GeneralPropManager"/>
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="generalButtonContactAgent"/>
+      <string name="Caption" value="Contact Agent"/>
+      <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0"/>
+      <rect name="Rect" value="-168, -30, -8, -8"/>
+      <bool name="UseAlphaChannel" value="true"/>
+      <bool name="Border" value="true"/>
+      <string name="ToolTip" value="View information for currently selected mission." />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnContactAgent" id="GeneralPropManager"/>
+      <slot name="setEnabled" signal="button_contact_enabled" id="GeneralPropManager"/>
+      <!--slot name="setToolTipText" signal="button_contact_tooltip" id="GeneralPropManager"/-->
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="generalButtonFullService"/>
+      <string name="Caption" value="Full Service"/>
+      <rect name="Rect" value="16, -48, 256, -28"/>
+      <rectf name="PercRect" value="0, 1, 0, 1"/>
+      <bool name="UseAlphaChannel" value="true"/>
+      <bool name="Border" value="true"/>
+      <bool name="Visible" value="false"/>
+      <bool name="Enabled" value="false"/>
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnFullService" id="GeneralPropManager"/>
+      <slot name="setVisible" signal="button_full_service_visible" id="GeneralPropManager"/>
+      <slot name="setEnabled" signal="button_full_service_enabled" id="GeneralPropManager"/>
+      <slot name="setText" signal="button_full_service_text" id="GeneralPropManager"/>
+      <slot name="setToolTipText" signal="button_full_service_tooltip" id="GeneralPropManager"/>
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="generalButtonRepairAll"/>
+      <string name="Caption" value="Repair All"/>
+      <rect name="Rect" value="8, -32, 78, -8"/>
+      <rectf name="PercRect" value="0, 1, 0, 1"/>
+      <bool name="UseAlphaChannel" value="true"/>
+      <bool name="Border" value="true"/>
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnRepairAll" id="GeneralPropManager"/>
+      <slot name="setEnabled" signal="button_repair_enabled" id="GeneralPropManager"/>
+      <slot name="setToolTipText" signal="button_repair_tooltip" id="GeneralPropManager"/>
+    </bindings>
+  </element>
+  <element type="customCheckBox">
+    <attributes>
+      <string name="IdName" value="generalCheckboxAutoRepair" />
+      <string name="Caption" value="Auto Repair" />
+      <rect name="Rect" value="86, -32, -280, -8" />
+      <rectf name="PercRect" value="0, 1, 1, 1"/>
+      <string name="ToolTip" value="Automatically repair damaged items every time you dock." />
+    </attributes>
+    <bindings>
+      <signal name="value_changed" slot="OnAutoRepair" id="GeneralPropManager" />
+      <slot name="setValue" signal="checkbox_auto_repair" id="GeneralPropManager" />
+    </bindings>
+  </element>
+  <!--
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="generalButtonViewSkins"/>
+      <string name="Caption" value="Barf's Paint and Body Works"/>
+      <rect name="Rect" value="8, -58, 198, -34"/>
+      <rectf name="PercRect" value="0, 1, 0, 1"/>
+      <bool name="UseAlphaChannel" value="true"/>
+      <bool name="Border" value="true"/>
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnViewShipSkins" id="GeneralPropManager"/>
+      <slot name="setEnabled" signal="button_skins_enabled" id="GeneralPropManager"/>
+      <slot name="setToolTipText" signal="button_skins_tooltip" id="GeneralPropManager"/>
+    </bindings>
+  </element>
+  -->
+</element>

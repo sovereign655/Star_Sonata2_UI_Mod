@@ -1,0 +1,248 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="contentGuide" />
+    <int name="Id" value="2673" />
+    <rect name="Rect" value="210, 150, 910, 700" />
+    <position name="MinSize" value="580, 450" />
+    <position name="MaxSize" value="750, 952" />
+    <int name="Flags" value="0" />
+    <bool name="Movable" value="true" />
+    <bool name="Visible" value="false" />
+    <int name="BorderStyle" value="2" />
+    <int name="ResizeBorderWidth" value="5" />
+    <bool name="RightResizable" value="true" />
+    <bool name="BottomResizable" value="true" />
+    <bool name="HideOnLogout" value="true" />
+    <bool name="KeepOnScreen" value="true" />
+    <string name="SoundShow" value="DialogOpen.wav" />
+    <string name="SoundHide" value="DialogClose.wav" />
+  </attributes>
+  <bindings>
+    <signal name="revealed" slot="bringToTop" id="contentGuide" />
+    <signal name="revealed" slot="ContentGuideRevealed" id="ContentGuideManager" />
+    <slot name="setVisible" signal="content_guide_button_visible" id="ContentGuideManager"/>
+  </bindings>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="Caption" value="Content  Guide" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="20, 8, -30, 60" />
+      <bool name="Border" value="False" />
+      <int name="ScrolledLines" value="0" />
+      <enum name="HTextAlign" value="topLeft" />
+      <enum name="VTextAlign" value="topLeft" />
+      <enum name="Font" value="suiGenLarge" />
+      <bool name="OverrideColorEnabled" value="true" />
+      <color name="OverrideColor" value="ffffffff" />
+    </attributes>
+  </element>
+
+	<element type="customTable">
+		<attributes>
+			<string name="IdName" value="contentGuideTable" />
+			<string name="TextID" value="" />
+			<int name="Id" value="19" />
+
+			<!-- <rect name="Rect" value="161, 37, 420, 191" /> -->
+			<rect name="Rect" value="8, 60, 240, -8" />
+			<rectf name="PercRect" value="0.0, 0.0, 0.0, 1.0"/>
+
+
+			<int name="ColumnCount" value="2" />
+			<int name="ActiveTab" value="0" />
+			<enum name="CurrentOrdering" value="ascending" />
+			<int name="SecondaryTab" value="1" />
+
+			<string name="Column0name" value="" />
+			<int name="Column0width" value="0" />
+
+			<string name="Column1name" value="Title" />
+			<int name="Column1width" value="5" />
+			<enum name="Column1OrderingMode" value="ascend_descend" />
+
+
+			<int name="DrawFlags" value="4" />
+		</attributes>
+		<bindings>
+			<slot name="setAll" signal="table_guides_all" id="ContentGuideManager" />
+			<slot name="setSelectedData" signal="table_guides_select" id="ContentGuideManager" />
+			<signal name="item_selected_data" slot="OnContentGuideTableSelect" id="ContentGuideManager" />
+		</bindings>
+	</element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="contentGuideImages_background_single" />
+      <int name="Id" value="100" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="248, 60, -8, 218" />
+    </attributes>
+    <bindings>
+      <slot name="setVisible" signal="static_singleguide_visibile" id="ContentGuideManager" />
+    </bindings>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="contentGuidesingleImage_background" />
+        <int name="Id" value="100" />
+        <rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+        <rect name="Rect" value="-79, 0, 79, 158" />
+        <bool name="AutoScroll" value="true" />
+        <bool name="Background" value="true"/>
+        <bool name="Border" value="true"/>
+      </attributes>
+      <element type="customImage">
+        <attributes>
+          <string name="IdName" value="contentGuidesingleImage" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+          <rect name="Rect" value="4, 4, -4, -4" />
+          <texture name="Texture" value="UI\Images\MissionGivers\61.png" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="ScaleImage" value="true" />
+          <bool name="Background" value="true"/>
+          <bool name="Border" value="true"/>
+        </attributes>
+        <bindings>
+          <slot name="loadImage" signal="static_centerguide_image" id="ContentGuideManager" />
+        </bindings>
+      </element>
+    </element>
+  </element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="contentGuideImages_background_double" />
+      <int name="Id" value="100" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="248, 60, -8, 218" />
+    </attributes>
+    <bindings>
+      <slot name="setVisible" signal="static_doubleguide_visibile" id="ContentGuideManager" />
+    </bindings>
+
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="contentGuideLeftImage_background" />
+        <int name="Id" value="100" />
+        <rectf name="PercRect" value="0.25, 0.0, 0.25, 0.0" />
+        <rect name="Rect" value="-79, 0, 79, 158" />
+        <bool name="AutoScroll" value="true" />
+        <bool name="Background" value="true"/>
+        <bool name="Border" value="true"/>
+      </attributes>
+      <element type="customImage">
+        <attributes>
+          <string name="IdName" value="contentGuideLeftImage" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+          <rect name="Rect" value="4, 4, -4, -4" />
+          <texture name="Texture" value="UI\Images\MissionGivers\61.png" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="ScaleImage" value="true" />
+          <bool name="Background" value="true"/>
+          <bool name="Border" value="true"/>
+        </attributes>
+        <bindings>
+          <slot name="loadImage" signal="static_leftguide_image" id="ContentGuideManager" />
+        </bindings>
+      </element>
+    </element>
+
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="contentGuideRightImage_background" />
+        <int name="Id" value="100" />
+        <rectf name="PercRect" value="0.75, 0.0, 0.75, 0.0" />
+        <rect name="Rect" value="-79, 0, 79, 158" />
+        <bool name="AutoScroll" value="true" />
+        <bool name="Background" value="true"/>
+        <bool name="Border" value="true"/>
+      </attributes>
+      <element type="customImage">
+        <attributes>
+          <string name="IdName" value="contentGuideRightImage" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+          <rect name="Rect" value="4, 4, -4, -4" />
+        <texture name="Texture" value="UI\Images\Items\iconlarge\Warp-Devices.png" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="ScaleImage" value="true" />
+          <bool name="Background" value="true"/>
+          <bool name="Border" value="true"/>
+        </attributes>
+        <bindings>
+          <slot name="loadImage" signal="static_rightguide_image" id="ContentGuideManager" />
+        </bindings>
+      </element>
+    </element>
+  </element>
+
+
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="contentGuideStaticDisplay" />
+			<int name="Id" value="100" />
+			<rect name="Rect" value="248, 226, -8, -46" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+			<bool name="AutoScroll" value="true" />
+      <bool name="Background" value="true"/>
+      <bool name="Border" value="true"/>
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_display_text" id="ContentGuideManager" />
+		</bindings>
+	</element>
+
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="contentGuideStaticRecLevels" />
+			<string name="Caption" value="" />
+			<int name="Id" value="100" />
+			<rect name="Rect" value="248, -38, -168, -8" />
+			<rect name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+			<bool name="AutoScroll" value="false" />
+      <bool name="Background" value="false"/>
+      <bool name="Border" value="false"/>
+      <enum name="VTextAlign" value="center" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_recommendedlevels_text" id="ContentGuideManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="contentGuideWikiButton" />
+			<string name="TextID" value="" />
+			<int name="Id" value="20" />
+			<rect name="Rect" value="-160, -38, -8, -8" />
+			<rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0"/>
+			<string name="Caption" value="Learn more on the wiki" />
+			<string name="ToolTip" value="Opens a wiki page in your browser with more info on the subject" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="OnWikiButton" id="ContentGuideManager" />
+      <slot name="setVisible" signal="wiki_button_visible" id="ContentGuideManager"/>
+		</bindings>
+	</element>
+
+  <!-- Close button-->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="contentGuideCloseButton" />
+      <int name="Id" value="966" />
+      <rect name="Rect" value="-18, 2, -2, 18" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+      <texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="toggleVisibility" id="contentGuide"/>
+    </bindings>
+  </element>
+</element>
+
+

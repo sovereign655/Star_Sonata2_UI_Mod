@@ -1,0 +1,106 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="activeTweaksDialog" />
+    <rect name="Rect" value="0, 0, 500, 200" />
+    <rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+    <colorf name="Tint" value="1.0, 1.0, 1.0, 0.8" />
+    <position name="MinSize" value="300, 100" />
+    <position name="MaxSize" value="300, 400" />
+    <int name="Flags" value="0" />
+    <int name="BorderStyle" value="2" />
+    <int name="ResizeBorderWidth" value="5" />
+    <string name="AnimatorTag" value="FadeInOnMouseOver" />
+    <bool name="ClickThrough" value="true" />
+    <bool name="Movable" value="true" />
+    <bool name="Visible" value="false" />
+    <bool name="BottomResizable" value="true" />
+    <bool name="RightResizable" value="true" />
+    <bool name="KeepOnScreen" value="true" />
+    <string name="SoundShow" value="DialogOpen.wav" />
+    <string name="SoundHide" value="DialogClose.wav" />
+  </attributes>
+  <bindings>
+    <signal name="moved" slot="DialogMoved" id="LogicManager" />
+    <signal name="evt_resize" slot="DialogMoved" id="LogicManager" />
+    <signal name="visibility_change" slot="DialogVisibilityChanged" id="LogicManager" />
+    <signal name="evt_mouse_on_border" slot="DialogMouseOnBorder" id="LogicManager" />
+    <slot name="setVisible" signal="dialog_tweak_visible" id="TweakManager" />
+    <signal name="revealed" slot="bringToTop" id="activeTweaksDialog" />
+    <signal name="revealed" slot="toggleActiveState" id="activeTweaksButton" />
+    <signal name="hidden" slot="toggleActiveState" id="activeTweaksButton" />
+  </bindings>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="Temporary Bonuses" />
+      <rect name="Rect" value="5, 3, 155, 20" />
+      <enum name="Font" value="mediumBoldFont" />
+    </attributes>
+  </element>
+
+  <element type="customTable">
+    <attributes>
+      <rect name="Rect" value="5, 25, -5, -6" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+      <enum name="RightAlign" value="lowerRight" />
+      <string name="IdName" value="activeBuffStatList" />
+      <bool name="Draggable" value="true" />
+      <string name="TextID" value="" />
+      <int name="Id" value="8952" />
+      <int name="ColumnCount" value="4" />
+      <int name="ActiveTab" value="0" />
+      <int name="SecondaryTab" value="1" />
+      <enum name="CurrentOrdering" value="none" />
+      <int name="CellHeightPadding" value="2" />
+      <bool name="ResizableColumns" value="false" />
+      <bool name="ClickThrough" value="true" />
+
+      <string name="Column0name" value="T" />
+      <int name="Column0width" value="25" />
+      <enum name="Column0OrderingMode" value="none" />
+
+      <string name="Column1name" value="Name" />
+      <int name="Column1width" value="150" />
+      <enum name="Column1OrderingMode" value="none" />
+
+      <string name="Column2name" value="Value" />
+      <int name="Column2width" value="25" />
+      <enum name="Column2OrderingMode" value="none" />
+
+      <string name="Column3name" value="Time Remaining" />
+      <int name="Column3width" value="25" />
+      <enum name="Column3OrderingMode" value="ascend_descend" />
+      <enum name="Column3OrderingType" value="numerical" />
+
+      <int name="DrawFlags" value="8" />
+      <bool name="MultiSelection" value="false" />
+      <string name="IconBankName" value="buffs_small" />
+      <bool name="KeyNavigation" value="false" />
+      <bool name="AcceptsDrop" value="false" />
+      <bool name="UseOverrideBgColor" value="true" />
+      <color name="OverrideBgColor" value="000000FF" />
+    </attributes>
+    <bindings>
+      <slot name="setAll" signal="table_activebuffs_all" id="TweakManager" />
+    </bindings>
+  </element>
+
+  <!-- Exit button -->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="activeTweaksButtonClose" />
+      <int name="Id" value="255" />
+      <rect name="Rect" value="-18, 2, -2, 18" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+      <texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+      <bool name="InheritTint" value="true" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="toggleVisibility" id="activeTweaksDialog" />
+      <signal name="button_clicked" slot="HideCustomTweak" id="TweakManager" />
+    </bindings>
+  </element>
+</element>

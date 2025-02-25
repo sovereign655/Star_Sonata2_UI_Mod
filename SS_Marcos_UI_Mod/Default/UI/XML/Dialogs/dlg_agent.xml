@@ -1,0 +1,186 @@
+	<element type="customWindow">
+		<attributes>
+			<string name="IdName" value="agentDialog" />
+			<rect name="Rect" value="55, 80, 575, 305" />
+			<int name="Flags" value="0" />
+			<bool name="Movable" value="true" />
+			<int name="BorderStyle" value="2" />
+			<int name="ResizeBorderWidth" value="0" />
+			<bool name="Visible" value="false" />
+			<string name="SoundShow" value="DialogOpen.wav" />
+			<string name="SoundHide" value="DialogClose.wav" />
+			<bool name="KeepOnScreen" value="true" />					
+		</attributes>
+		<bindings>
+			<signal name="revealed" slot="bringToTop" id="agentDialog" />					
+			<slot name="setVisible" signal="dialog_agent_visible" id="AgentManager" />
+      <signal name="moved" slot="DialogMoved" id="LogicManager" />
+    </bindings>
+
+		<element type="customImage">
+			<attributes>
+				<string name="TextID" value="" />
+        <int name="Id" value="101" />
+				<string name="IdName" value="agentViewerPortrait" />
+				<!-- 150x150 -->
+				<rect name="Rect" value="5, 37, 155, 188" />
+				<texture name="Texture" value="UI/Images/MissionGivers/01.png" />
+				<bool name="ScaleImage" value="true" />
+        <bool name="CenterImage" value="true" />
+				<bool name="UseAlphaChannel" value="true" />
+			</attributes>
+			<bindings>
+				<slot name="loadImage" signal="image_portrait" id="AgentManager" />				
+			</bindings>
+    </element>	
+		
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="missionName" />			
+        <int name="Id" value="105" />
+        <rect name="Rect" value="50, 0, 475, 32" />
+        <!--bool name="Enabled" value="false" /-->
+        <bool name="Border" value="false" />
+        <enum name="Font" value="largeBoldFont" />
+        <enum name="HTextAlign" value="center" />
+        <enum name="VTextAlign" value="center" />
+        <bool name="AutoScroll" value="false" />
+      </attributes>
+      <bindings>
+        <slot name="setEnabled" signal="mission_name_enabled" id="AgentManager" />
+        <slot name="setVisible" signal="mission_name_visible" id="AgentManager" />
+        <slot name="setText" signal="mission_name_text" id="AgentManager" />
+      </bindings>
+    </element>
+    
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="agentName" />			
+        <int name="Id" value="104" />
+        <rect name="Rect" value="10, 195, 150, 220" />
+        <bool name="ClickThrough" value="true" />
+        <bool name="Border" value="false" />
+        <char name="HTextAlign" value="center" />
+        <char name="VTextAlign" value="center" />
+      </attributes>
+      <bindings>
+        <slot name="setEnabled" signal="agent_name_enabled" id="AgentManager" />
+        <slot name="setVisible" signal="agent_name_visible" id="AgentManager" />
+        <slot name="setText" signal="agent_name_text" id="AgentManager" />
+      </bindings>
+    </element>
+  
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="agentButtonOk" />			
+        <int name="Id" value="15" />
+        <string name="Caption" value="Ok" />
+        <rect name="Rect" value="375, 195, 515, 220" />
+      </attributes>
+      <bindings>
+          <signal name="button_clicked" slot="ChangeMissionStatus" id="AgentManager" />
+          <slot name="setEnabled" signal="button_ok_enabled" id="AgentManager" />
+          <slot name="setVisible" signal="button_ok_visible" id="AgentManager" />
+          <slot name="setText" signal="button_ok_text" id="AgentManager" />
+      </bindings>
+    </element>
+	<!--
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="agentButtonOK" />
+				<string name="TextID" value="" />
+				<int name="Id" value="15" />
+				<rect name="Rect" value="10, 372, 139, 397" />
+				
+				<rect name="ImageRect" value="0, 0, 129, 25" />
+				
+				<rect name="PressedImageRect" value="0, 0, 129, 25" />
+				<bool name="UseAlphaChannel" value="true" />
+				<bool name="Border" value="false" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="ChangeMissionStatus" id="AgentManager" />
+				<slot name="setEnabled" signal="button_ok_enabled" id="AgentManager" />
+				<slot name="setVisible" signal="button_ok_visible" id="AgentManager" />
+			</bindings>
+		</element>
+-->
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="agentButtonCancel" />			
+			<int name="Id" value="16" />
+			<string name="Caption" value="Close" />
+      <rect name="Rect" value="10, 195, 150, 220" />
+      <bool name="Visible" value="false" />
+      <bool name="Enabled" value="false" />
+		</attributes>
+		<bindings>
+				<signal name="button_clicked" slot="HideCustom" id="agentDialog" />
+        <signal name="button_clicked" slot="HideCustom" id="AgentManager" />
+				<!--<slot name="setText" signal="button_cancel_text" id="AgentManager" />-->
+		</bindings>
+	</element>
+<!--
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="agentButtonCancel" />
+				<string name="TextID" value="" />
+				<int name="Id" value="16" />
+				<rect name="Rect" value="283, 371, 374, 398" />
+				<texture name="Image" value="UI/Images/Buttons/close.bmp" />
+				<rect name="ImageRect" value="0, 0, 91, 27" />
+				<texture name="PressedImage" value="UI/Images/Buttons/closeD.bmp" />
+				<rect name="PressedImageRect" value="0, 0, 91, 27" />
+				<bool name="UseAlphaChannel" value="true" />
+				<bool name="Border" value="false" />
+			</attributes>
+		</element>
+
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="agentButtonClose" />
+				<string name="TextID" value="" />
+				<int name="Id" value="17" />
+				<rect name="Rect" value="343, 11, 371, 39" />
+				<texture name="Image" value="UI/Images/Dialogs/closeup.bmp" />
+				<rect name="ImageRect" value="0, 0, 28, 28" />
+				<texture name="PressedImage" value="UI/Images/Dialogs/closedown.bmp" />
+				<rect name="PressedImageRect" value="0, 0, 28, 28" />
+				<bool name="UseAlphaChannel" value="true" />
+				<bool name="Border" value="false" />
+			</attributes>
+		</element>
+-->
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="agentStaticEditDesc" />
+				<string name="Caption" value="staticEditDesc" />
+				<int name="Id" value="100" />
+				<rect name="Rect" value="163, 37, 515, 188" />
+				<bool name="Border" value="true" />
+				<bool name="AutoScroll" value="true" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_desc_text" id="AgentManager" />
+			</bindings>
+		</element>
+    
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="agentButtonClose" />
+        <int name="Id" value="66" />
+        <rect name="Rect" value="-18, 2, -2, 18" />
+        <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+        <texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+        <texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="toggleVisibility" id="agentDialog" />
+        <signal name="button_clicked" slot="HideCustom" id="agentDialog" />
+        <signal name="button_clicked" slot="HideCustom" id="AgentManager" />
+      </bindings>
+    </element>
+	
+	</element>

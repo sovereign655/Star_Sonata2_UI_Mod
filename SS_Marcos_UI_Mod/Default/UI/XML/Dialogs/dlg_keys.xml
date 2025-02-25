@@ -1,0 +1,71 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="keysDialog" />
+    <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />	
+    <rect name="Rect" value="10, 101, -10, -40" />	
+		<int name="Flags" value="0" />
+		<bool name="Movable" value="false" />
+		<bool name="Visible" value="true" />
+		<bool name="DrawBackground" value="true" />
+	</attributes>
+	<bindings>
+		<signal name="created" slot="OnCreateKeys" id="KeysManager" />
+	</bindings>
+  <!-- Description Text -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="keysStaticInfo" />
+			<string name="TextID" value="id_key_info" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="10, 8, -108, 30" />
+			<bool name="WordWrap" value="false" />
+			<enum name="VTextAlign" value="center" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_info_text" id="KeysManager" />
+		</bindings>
+	</element>		
+  <!-- Apply Keys Button -->
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="keysButtonOK" />
+			<int name="Id" value="15" />
+      <rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+			<rect name="Rect" value="-108, 8, -8, 30" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="true" />
+			<string name="Caption" value="Apply" />
+      <string name="ToolTip" value="Apply key changes." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="ChangeKeyController" id="KeysManager" />
+		</bindings>
+	</element>  
+  <!-- Key Table -->
+	<element type="customTable">
+		<attributes>
+			<string name="IdName" value="keysTableActions" />
+			<string name="TextID" value="" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />	
+			<rect name="Rect" value="8, 38, -8, -8" />   
+			<int name="ColumnCount" value="2" />
+			<string name="Column0name" value="Action" />
+			<color name="Column0color" value="ffb7f9ff" />
+			<int name="Column0width" value="200" />
+			<bool name="Column0useCustomOrdering" value="false" />
+			<string name="Column1name" value="Key" />
+			<color name="Column1color" value="ffb7f9ff" />
+			<int name="Column1width" value="200" />
+			<bool name="Column1useCustomOrdering" value="false" />
+			<int name="DrawFlags" value="4" />
+			<bool name="DrawBack" value="true" />
+			<bool name="UseOverrideBgColor" value="true" />
+			<color name="OverrideBgColor" value="8F000000" />			
+		</attributes>
+		<bindings>
+			<signal name="item_double_clicked_data" slot="SetButtonInfo" id="KeysManager" />		
+			<slot name="setText" signal="table_action_text" id="KeysManager" />
+			<slot name="setUserData" signal="table_action_data" id="KeysManager" />
+		</bindings>
+	</element>  
+</element>

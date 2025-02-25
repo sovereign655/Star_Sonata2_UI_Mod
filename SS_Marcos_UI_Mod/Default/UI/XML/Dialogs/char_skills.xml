@@ -1,0 +1,125 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="skillsDialog" />
+		<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+		<rect name="Rect" value="8, 69, -8, -8" />
+		<int name="Flags" value="0" />
+		<bool name="Movable" value="false" />
+		<bool name="Visible" value="true" />
+		<bool name="DrawBackground" value="true" />
+	</attributes>
+	<bindings>
+		<signal name="created" slot="RefreshAll" id="CharManager" />
+	</bindings>
+
+
+	<element type="customImage">
+		<attributes>
+			<string name="TextID" value="" />
+			<rect name="Rect" value="7, 7, 91, 91" />
+			<texture name="Texture" value="UI/Images/Skin/sunkenpanes_512.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<color name="Color" value="88ffffff" />
+			<bool name="ScaleImage" value="true" />
+		</attributes>
+	</element>
+
+
+	<element type="customImage">
+		<attributes>
+			<string name="TextID" value="" />
+			<rect name="Rect" value="13, 15, 85, 85" />
+			<texture name="Texture" value="UI/Images/Items/iconlarge/Experience.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<color name="Color" value="33ffffff" />
+			<bool name="ScaleImage" value="true" />
+		</attributes>
+	</element>
+
+
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_charskillpoints" />
+			<string name="Caption" value="Skill Points:" />
+			<!--<rect name="Rect" value="320, 43, 420, 357" />-->
+			<rect name="Rect" value="-1, 13, 100,120" />
+			<bool name="Border" value="False" />
+			<int name="ScrolledLines" value="0" />
+			<enum name="HTextAlign" value="center" />
+			<enum name="Font" value="mediumBoldFont" />
+		</attributes>
+	</element>
+
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="characterStaticSkillPoints" />
+			<string name="TextID" value="" />
+			<int name="Id" value="52" />
+			<rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+			<rect name="Rect" value="-23, 40, 120, 100" />
+			<int name="ScrolledLines" value="0" />
+			<enum name="HTextAlign" value="center" />
+			<enum name="Font" value="largeBoldFont" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_skillpoints_text" id="CharManager" />
+		</bindings>
+	</element>
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="characterStaticSkillDesc" />
+			<string name="TextID" value="" />
+			<rect name="Rect" value="99, 8, -8, 88" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<bool name="AutoScroll" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_skilldesc_text" id="CharManager" />
+		</bindings>
+	</element>
+	<element type="customEditBox">
+		<attributes>
+			<string name="IdName" value="characterTableSkillsSearch" />
+			<string name="TextID" value="" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<rect name="Rect" value="8, 95, -8, 125" />
+			<string name="PlaceholderText" value="Search..." />
+			<string name="ToolTip" value="Search your available skills." />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="CharacterTableSkillsSearchChanged" id="CharManager" />
+			<slot name="setText" signal="table_skills_search_text" id="CharManager" />
+		</bindings>
+	</element>
+	<element type="customTable">
+		<attributes>
+			<string name="IdName" value="characterTableSkills" />
+			<string name="TextID" value="" />
+			<int name="Id" value="60" />
+			<!--<rect name="Rect" value="125, 45, 321, 237" />-->
+			<!--<rect name="Rect" value="8, 38, 310, 353" />-->
+			<!--<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+				<rect name="Rect" value="8, 8, -118, -8" />-->
+			<rect name="Rect" value="8, 130, -8, -8" />
+			<rectf name="PercRect" value="0, 0, 1, 1"/>
+
+			<int name="ColumnCount" value="2" />
+			<string name="Column0name" value="Skill" />
+			<color name="Column0color" value="ffb7f9ff" />
+			<int name="Column0width" value="251" />
+			<enum name="Column0OrderingMode" value="ascend_descend" />
+			<string name="Column1name" value="Level" />
+			<color name="Column1color" value="ffb7f9ff" />
+			<int name="Column1width" value="36" />
+			<enum name="Column1OrderingMode" value="ascend_descend" />
+			<enum name="Column1OrderingType" value="numerical" />
+			<bool name="ResizableColumns" value="false" />
+			<int name="DrawFlags" value="4" />
+		</attributes>
+		<bindings>
+			<slot name="setAll" signal="table_skills_all" id="CharManager" />
+			<signal name="item_selected_data" slot="SetSkillDescription" id="CharManager" />
+		</bindings>
+	</element>
+
+</element>

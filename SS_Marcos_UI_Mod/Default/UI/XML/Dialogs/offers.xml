@@ -1,0 +1,127 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="offersDialog" />
+    <int name="Id" value="2612373" />
+    <rect name="Rect" value="410, 300, 810, 450" />
+    <int name="Flags" value="0" />
+    <bool name="Movable" value="true" />
+    <bool name="Visible" value="true" />
+    <int name="BorderStyle" value="2" />
+    <bool name="HideOnLogout" value="true" />
+    <bool name="KeepOnScreen" value="true" />
+    <string name="SoundShow" value="DialogOpen.wav" />
+    <string name="SoundHide" value="DialogClose.wav" />
+  </attributes>
+  <bindings>
+    <slot name="setVisible" signal="static_show_offerwindow" id="StoreManager" />
+  </bindings>
+  <!-- START BENEFITS/STATUS AREA-->
+  <element type="customStaticText">
+    <attributes>
+      <string name="Caption" value="Claim  Offer" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="20, 8, -30, 60" />
+      <bool name="Border" value="False" />
+      <int name="ScrolledLines" value="0" />
+      <enum name="HTextAlign" value="center" />
+      <enum name="VTextAlign" value="topLeft" />
+      <enum name="Font" value="suiGenLarge" />
+      <bool name="OverrideColorEnabled" value="true" />
+      <color name="OverrideColor" value="ffffffff" />
+    </attributes>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="" />
+      <string name="Caption" value="" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+      <rect name="Rect" value="8, 50, 0, -8" />
+      <bool name="Background" value="false" />
+    </attributes>
+
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="steamoffer0Text" />
+        <string name="TextID" value="id_steamoffer0" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="16, 0, -16, 0" />
+        <bool name="Border" value="False" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="center" />
+        <enum name="VTextAlign" value="topLeft" />
+        <bool name="OverrideColorEnabled" value="true" />
+        <color name="OverrideColor" value="ffffffff" />
+      </attributes>
+      <bindings>
+        <slot name="setVisible" signal="static_show_offer0" id="StoreManager" />
+      </bindings>
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="steamoffer0Button" />
+          <string name="Caption" value="Claim" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+          <rect name="Rect" value="-40, -20, -4, 0" />
+          <string name="Caption" value="Claim" />
+          <enum name="VTextAlign" value="center" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="ClickedOffer0" id="StoreManager"/>
+        </bindings>
+      </element>
+    </element>
+
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="steamoffer1Text" />
+        <string name="TextID" value="id_steamoffer1" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="16, 0, -16, 0" />
+        <bool name="Border" value="False" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="center" />
+        <enum name="VTextAlign" value="topLeft" />
+        <bool name="OverrideColorEnabled" value="true" />
+        <color name="OverrideColor" value="ffffffff" />
+      </attributes>
+      <bindings>
+        <slot name="setVisible" signal="static_show_offer1" id="StoreManager" />
+      </bindings>
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="steamoffer1Button" />
+          <string name="Caption" value="Claim" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+          <rect name="Rect" value="-40, -20, -4, 0" />
+          <string name="Caption" value="Claim" />
+          <enum name="VTextAlign" value="center" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="ClickedOffer1" id="StoreManager"/>
+        </bindings>
+      </element>
+    </element>
+
+  </element>
+
+
+  <!-- Close button-->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="offersCloseButton" />
+      <int name="Id" value="966" />
+      <rect name="Rect" value="-18, 2, -2, 18" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+      <texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="toggleVisibility" id="offersDialog"/>
+    </bindings>
+  </element>
+</element>
+
+

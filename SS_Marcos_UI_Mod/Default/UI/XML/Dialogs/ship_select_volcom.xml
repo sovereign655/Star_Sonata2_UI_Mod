@@ -1,0 +1,255 @@
+	<element type="customWindow">
+		<attributes>
+			<string name="IdName" value="shipselectvolcomdialog" />
+			<int name="Id" value="668" />
+		  <bool name="Movable" value="false" />
+			<bool name="Visible" value="false" />
+			<int name="Flags" value="0" />
+			<int name="ResizeBorderWidth" value="0" />
+			<rect name="Rect" value="-512, -288, 512, 288" />
+			<rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="shipselectvolcom_dialog_visible" id="ConnectManager" />
+		</bindings>
+		
+	<element type="customImage">
+		<attributes>
+			<string name="TextID" value="" />
+			<rect name="Rect" value="0, 0, 1024, 576" />
+			<texture name="Texture" value="UI/Images/Dialogs/1024x579xSplash6.png" />
+			<bool name="ScaleImage" value="false" />
+			<bool name="UseAlphaChannel" value="true" />
+		</attributes>
+	</element>
+  
+  <element type="itempreview">
+		<attributes>
+			<int name="Id" value="1001" />
+			<string name="Caption" value="" />
+			<rect name="Rect" value="26, 60, 259, 280" />
+			<position name="MinSize" value="1, 1" />
+			<position name="MaxSize" value="0, 0" />
+			<bool name="Visible" value="true" />	
+			<int name="BorderStyle" value="2" />		
+		</attributes>
+	</element>
+
+	<element type="itempreview">
+		<attributes>
+			<int name="Id" value="1002" />
+			<string name="Caption" value="" />
+			<rect name="Rect" value="272, 60, 505, 280" />
+			<position name="MinSize" value="1, 1" />
+			<position name="MaxSize" value="0, 0" />
+			<bool name="Visible" value="true" />			
+		</attributes>
+	</element>
+	
+	<element type="itempreview">
+		<attributes>
+			<int name="Id" value="1003" />
+			<string name="Caption" value="" />
+			<rect name="Rect" value="518, 60, 751, 280" />
+			<position name="MinSize" value="1, 1" />
+			<position name="MaxSize" value="0, 0" />
+			<bool name="Visible" value="false" />			
+		</attributes>
+	</element>
+	
+	<element type="itempreview">
+		<attributes>
+			<int name="Id" value="1004" />
+			<string name="Caption" value="" />
+			<rect name="Rect" value="764, 60, 998, 280" />
+			<position name="MinSize" value="1, 1" />
+			<position name="MaxSize" value="0, 0" />
+			<bool name="Visible" value="true" />			
+		</attributes>
+	</element>
+  
+  <element type="customButton">
+		<attributes>
+			<string name="IdName" value="factionVolcom_RF" />			
+			<int name="Id" value="15" />
+			<string name="Caption" value="Choose Zebucart" />
+			<rect name="Rect" value="26, 260, 259, 280" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="CharCreateVolcomRF" id="ConnectManager" />
+		</bindings>
+	</element>
+		
+  <element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="RFTextBox" />
+			<int name="Id" value="-1" />
+			<string name="Caption" value="Recon Focus specializes in small, fast ships that are hard to hit and can really get around.
+      
+The Zebucart ship is fast and light, and has a super item that shoots a barrage of physical projectiles which are devastating to small targets and often disable anyone caught in the onslaught." />
+			<rect name="Rect" value="26, 286, 259, 530" />
+			<position name="MinSize" value="1, 1" />
+			<position name="MaxSize" value="0, 0" />
+			<bool name="NoClip" value="false" />
+			<enum name="LeftAlign" value="upperLeft" />
+			<enum name="RightAlign" value="upperLeft" />
+			<enum name="TopAlign" value="upperLeft" />
+			<enum name="BottomAlign" value="upperLeft" />
+			<bool name="Visible" value="true" />
+			<bool name="Enabled" value="true" />
+			<bool name="TabStop" value="false" />
+			<bool name="TabGroup" value="false" />
+			<bool name="Border" value="true" />
+			<bool name="WordWrap" value="true" />
+			<bool name="Background" value="true" />
+			<bool name="OverrideColorEnabled" value="false" />
+			<color name="OverrideColor" value="65ffffff" />
+			<bool name="OverrideBgColorEnabled" value="false" />
+			<color name="OverrideBgColor" value="65d2d2d2" />
+			<enum name="HTextAlign" value="upperLeft" />
+			<enum name="VTextAlign" value="upperLeft" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="entry_newcharacter_visible" id="ConnectManager" />
+		</bindings>
+	</element>  
+  
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="factionVolcomCF" />			
+			<int name="Id" value="15" />
+			<string name="Caption" value="Choose Heavy Zebucart" />
+			<rect name="Rect" value="272, 260, 505, 280" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="CharCreateVolcomCF" id="ConnectManager" />
+		</bindings>
+	</element>
+  
+  <element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="RFTextBox" />
+			<int name="Id" value="-1" />
+			<string name="Caption" value="Combat Focus specializes in heavier ships that can both give and take a beating. 
+      
+The Heavy Zebucart is an armored ship with shield regeneration bonuses and has a super item that fires a devastating energy blast." />
+			<rect name="Rect" value="272, 286, 505, 530" />
+			<position name="MinSize" value="1, 1" />
+			<position name="MaxSize" value="0, 0" />
+			<bool name="NoClip" value="false" />
+			<enum name="LeftAlign" value="upperLeft" />
+			<enum name="RightAlign" value="upperLeft" />
+			<enum name="TopAlign" value="upperLeft" />
+			<enum name="BottomAlign" value="upperLeft" />
+			<bool name="Visible" value="true" />
+			<bool name="Enabled" value="true" />
+			<bool name="TabStop" value="false" />
+			<bool name="TabGroup" value="false" />
+			<bool name="Border" value="true" />
+			<bool name="WordWrap" value="true" />
+			<bool name="Background" value="true" />
+			<bool name="OverrideColorEnabled" value="false" />
+			<color name="OverrideColor" value="65ffffff" />
+			<bool name="OverrideBgColorEnabled" value="false" />
+			<color name="OverrideBgColor" value="65d2d2d2" />
+			<enum name="HTextAlign" value="upperLeft" />
+			<enum name="VTextAlign" value="upperLeft" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="entry_newcharacter_visible" id="ConnectManager" />
+		</bindings>
+	</element> 
+  
+  <element type="customButton">
+		<attributes>
+			<string name="IdName" value="factionVolcomSF" />			
+			<int name="Id" value="15" />
+			<string name="Caption" value="Choose Zebu Freighter" />
+			<rect name="Rect" value="518, 260, 751, 280" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="CharCreateVolcomSF" id="ConnectManager" />
+		</bindings>
+	</element>
+  
+  <element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="RFTextBox" />
+			<int name="Id" value="-1" />
+			<string name="Caption" value="Support Focuses specializes in large ships that can buff their allies by using stationary drones, shield transference lasers and energy transference beams. 
+      
+The Zebu Freighter is a large, slower ship that has a powerful drone superitem that can both attack enemies and heal allies." />
+			<rect name="Rect" value="518, 286, 751, 530" />
+			<position name="MinSize" value="1, 1" />
+			<position name="MaxSize" value="0, 0" />
+			<bool name="NoClip" value="false" />
+			<enum name="LeftAlign" value="upperLeft" />
+			<enum name="RightAlign" value="upperLeft" />
+			<enum name="TopAlign" value="upperLeft" />
+			<enum name="BottomAlign" value="upperLeft" />
+			<bool name="Visible" value="true" />
+			<bool name="Enabled" value="true" />
+			<bool name="TabStop" value="false" />
+			<bool name="TabGroup" value="false" />
+			<bool name="Border" value="true" />
+			<bool name="WordWrap" value="true" />
+			<bool name="Background" value="true" />
+			<bool name="OverrideColorEnabled" value="false" />
+			<color name="OverrideColor" value="65ffffff" />
+			<bool name="OverrideBgColorEnabled" value="false" />
+			<color name="OverrideBgColor" value="65d2d2d2" />
+			<enum name="HTextAlign" value="upperLeft" />
+			<enum name="VTextAlign" value="upperLeft" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="entry_newcharacter_visible" id="ConnectManager" />
+		</bindings>
+	</element> 
+  
+  <element type="customButton">
+		<attributes>
+			<string name="IdName" value="factionVolcomFF" />			
+			<int name="Id" value="15" />
+			<string name="Caption" value="Choose Zebu Gunship" />
+			<rect name="Rect" value="764, 260, 998, 280" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="CharCreateVolcomFF" id="ConnectManager" />
+		</bindings>
+	</element>
+  
+  <element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="RFTextBox" />
+			<int name="Id" value="-1" />
+			<string name="Caption" value="Fleet Focus specializes in bringing the heavy firepower via remote-controlled bot ships, fighter and missiles. 
+      
+The Zebu Gunship is a resilient ship with shield and energy bonuses as well as a missile salvo superitem to inflict maximum damage to your foes." />
+			<rect name="Rect" value="764, 286, 998, 530" />
+			<position name="MinSize" value="1, 1" />
+			<position name="MaxSize" value="0, 0" />
+			<bool name="NoClip" value="false" />
+			<enum name="LeftAlign" value="upperLeft" />
+			<enum name="RightAlign" value="upperLeft" />
+			<enum name="TopAlign" value="upperLeft" />
+			<enum name="BottomAlign" value="upperLeft" />
+			<bool name="Visible" value="true" />
+			<bool name="Enabled" value="true" />
+			<bool name="TabStop" value="false" />
+			<bool name="TabGroup" value="false" />
+			<bool name="Border" value="true" />
+			<bool name="WordWrap" value="true" />
+			<bool name="Background" value="true" />
+			<bool name="OverrideColorEnabled" value="false" />
+			<color name="OverrideColor" value="65ffffff" />
+			<bool name="OverrideBgColorEnabled" value="false" />
+			<color name="OverrideBgColor" value="65d2d2d2" />
+			<enum name="HTextAlign" value="upperLeft" />
+			<enum name="VTextAlign" value="upperLeft" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="entry_newcharacter_visible" id="ConnectManager" />
+		</bindings>
+	</element> 
+  
+</element>

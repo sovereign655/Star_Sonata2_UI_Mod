@@ -1,0 +1,21 @@
+<element type="customContextMenu">
+	<attributes>
+		<bool name="Visible" value="false" />
+		<string name="IdName" value="missionMenuOptions" />
+		<int name="CloseHandling" value="4" />
+		<int name="ItemCount" value="3" />
+		<string name="TextID0" value="id_mission_activate" />
+		<int name="CommandID0" value="0" />
+		<string name="TextID1" value="id_mission_deactivate" />
+		<int name="CommandID1" value="1" />
+		<string name="TextID2" value="id_mission_abort" />
+		<int name="CommandID2" value="2" />
+		<bool name="KeepOnScreen" value="true" />
+	</attributes>
+	<bindings>
+		<slot name="popup" signal="mission_context_popup" id="MissionContextManager" />
+		<slot name="setText" signal="mission_context_text" id="MissionContextManager" />
+		<slot name="setUserData" signal="mission_context_data" id="MissionContextManager" />
+		<signal name="item_selected_data" slot="OnMissionMenuOptions" id="MissionContextManager" />
+	</bindings>
+</element>

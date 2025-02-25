@@ -1,0 +1,260 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="neuroWorkshopOptionsDialog" />
+    <rect name="PercRect" value="0.0, 0.0, 0.5, 0.5" />
+    <rect name="Rect" value="700, 100, 1200, 400" />
+    <int name="Flags" value="0" />
+    <bool name="Movable" value="true" />
+    <bool name="Visible" value="false" />
+    <bool name="DrawBackground" value="true" />
+  </attributes>
+  <bindings>
+    <signal name="revealed" slot="RefreshOptions" id="NeurobindingOptionsManager" />
+    <signal name="hidden" slot="onHideNBO" id="NeurobindingOptionsManager" />
+  </bindings>
+
+  <element type="customImage">
+    <attributes>
+      <string name="IdName" value="neuroWorkshopAttendee" />
+      <rect name="Rect" value="8, 8, 78, 78" />
+      <texture name="Texture" value="UI/Images/MissionGivers/70.png" />
+      <bool name="ScaleImage" value="true" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+  </element>
+  <element type="customImage">
+    <attributes>
+      <string name="IdName" value="neuroWorkshopHeader" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="84, 8, -8, 40" />
+      <texture name="Texture" value="UI/Images/Dialogs/Neuroenhance.png" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+    <bindings>
+    </bindings>
+  </element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="neuroworkshopDescription" />
+      <string name="TextID" value="id_neuro_workshopOptionsDesc" />
+      <int name="Id" value="100" />
+      <rect name="Rect" value="88, 46, -8, 150" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+    </attributes>
+  </element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="neuroworkshopOptionsCurrentItemLabel" />
+      <string name="TextID" value="id_neuro_currentitem" />
+      <rect name="Rect" value="8, 98, 310, 128" />
+      <rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+      <enum name="Font" value="mediumBoldFont" />
+    </attributes>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="neuroworkshopOptionsCurrentItemLabel" />
+      <rect name="Rect" value="128, 98, 310, 128" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+      <enum name="Font" value="mediumBoldFont" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="setItemName" id="NeurobindingOptionsManager" />
+    </bindings>
+  </element>
+
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="optionOneFrame"/>
+      <rect name="Rect" value="-238, 128, -88, 258"/>
+      <rectf name="PercRect" value="0.5, 0, 0.5, 0"/>
+      <bool name="Border" value="true"/>
+      <bool name="Background" value="true"/>
+      <bool name="OverrideBgColorEnabled" value="true" />
+      <color name="OverrideBgColor" value="ffffffff" />
+      <bool name="TrackMouseOverChildren" value="true" />
+      <int name="MousePauseTime" value="0"/>
+    </attributes>
+    <bindings>
+      <slot name="setBackgroundOverrideColor" signal="setFirstModBgCol" id="NeurobindingOptionsManager" />
+      <signal name="mouse_hovered" slot="hoverFirstMod" id="NeurobindingOptionsManager" />
+    </bindings>
+    
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="neuroworkshopFirstModName" />
+        <string name="Caption" value="[Unstable][59/100]" />
+        <color name="OverrideColor" value="FFC66F63" />
+        <bool name="OverrideColorEnabled" value="true" />
+        <int name="Id" value="100" />
+        <rect name="Rect" value="6, 4, 0, 40" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="setFirstModName" id="NeurobindingOptionsManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="neuroworkshopFirstModDesc" />
+        <string name="Caption" value="Secrets" />
+        <int name="Id" value="100" />
+        <rect name="Rect" value="6, 44, 0, 0" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="setFirstModDesc" id="NeurobindingOptionsManager" />
+      </bindings>
+    </element>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="optionExistingFrame"/>
+      <rect name="Rect" value="-75, 128, 75, 258"/>
+      <rectf name="PercRect" value="0.5, 0, 0.5, 0"/>
+      <bool name="Border" value="true"/>
+      <bool name="Background" value="true"/>
+      <bool name="OverrideBgColorEnabled" value="true" />
+      <color name="OverrideBgColor" value="ffffffff" />
+      <bool name="TrackMouseOverChildren" value="true" />
+      <int name="MousePauseTime" value="0"/>
+    </attributes>
+    <bindings>
+      <slot name="setBackgroundOverrideColor" signal="setExistingModBgCol" id="NeurobindingOptionsManager" />
+      <signal name="mouse_hovered" slot="hoverExistingMod" id="NeurobindingOptionsManager" />
+    </bindings>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="neuroworkshopExistingModName" />
+        <string name="Caption" value="[Mana Shield][10/100]" />
+        <color name="OverrideColor" value="FFC66F63" />
+        <bool name="OverrideColorEnabled" value="true" />
+        <int name="Id" value="100" />
+        <rect name="Rect" value="6, 4, 0, 40" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="setExistingModName" id="NeurobindingOptionsManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="neuroworkshopExistingModDesc" />
+        <string name="Caption" value="10% more damage received, but 25% of post-resistance damage is applied to energy bank instead" />
+        <int name="Id" value="100" />
+        <rect name="Rect" value="6, 44, 0, 0" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="setExistingModDesc" id="NeurobindingOptionsManager" />
+      </bindings>
+    </element>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="optionTwoFrame"/>
+      <rect name="Rect" value="88, 128, 238, 258"/>
+      <rectf name="PercRect" value="0.5, 0, 0.5, 0"/>
+      <bool name="Border" value="true"/>
+      <bool name="Background" value="true"/>
+      <bool name="OverrideBgColorEnabled" value="true" />
+      <color name="OverrideBgColor" value="ffffffff" />
+      <bool name="TrackMouseOverChildren" value="true" />
+      <int name="MousePauseTime" value="0"/>
+    </attributes>
+    <bindings>
+      <slot name="setBackgroundOverrideColor" signal="setSecondModBgCol" id="NeurobindingOptionsManager" />
+      <signal name="mouse_hovered" slot="hoverSecondMod" id="NeurobindingOptionsManager" />
+    </bindings>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="neuroworkshopSecondModName" />
+        <string name="Caption" value="[Mana Shield][98/100]" />
+        <color name="OverrideColor" value="FFC66F63" />
+        <bool name="OverrideColorEnabled" value="true" />
+        <int name="Id" value="100" />
+        <rect name="Rect" value="6, 4, 0, 40" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="setSecondModName" id="NeurobindingOptionsManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="neuroworkshopSecondModDesc" />
+        <string name="Caption" value="8% more damage received, but 30% of post-resistance damage is applied to energy bank instead" />
+        <int name="Id" value="100" />
+        <rect name="Rect" value="6, 44, 0, 0" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="setSecondModDesc" id="NeurobindingOptionsManager" />
+      </bindings>
+    </element>
+  </element>
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="neuroworkshopOptionsFirstButton" />
+      <string name="TextID" value="id_neuro_bindfirst" />
+      <int name="Id" value="100" />
+      <rect name="Rect" value="-238, 258, -88, 288"/>
+      <rectf name="PercRect" value="0.5, 0, 0.5, 0"/>
+      <string name="ToolTip" value="Bind this mod!"/>
+    </attributes>
+    <bindings>
+      <signal name="mouse_hovered" slot="hoverFirstMod" id="NeurobindingOptionsManager" />
+      <signal name="button_clicked" slot="SelectFirstMod" id="NeurobindingOptionsManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="neuroworkshopOptionsExistingButton" />
+      <string name="TextID" value="id_neuro_keepexisting" />
+      <int name="Id" value="100" />
+      <rect name="Rect" value="-75, 258, 75, 288"/>
+      <rectf name="PercRect" value="0.5, 0, 0.5, 0"/>
+      <string name="ToolTip" value="Keep existing mod"/>
+    </attributes>
+    <bindings>
+      <signal name="mouse_hovered" slot="hoverExistingMod" id="NeurobindingOptionsManager" />
+      <signal name="button_clicked" slot="SelectExistingMod" id="NeurobindingOptionsManager" />
+    </bindings>
+  </element>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="neuroworkshopOptionsSecondButton" />
+      <string name="TextID" value="id_neuro_bindsecond" />
+      <int name="Id" value="100" />
+      <rect name="Rect" value="88, 258, 238, 288"/>
+      <rectf name="PercRect" value="0.5, 0, 0.5, 0"/>
+      <string name="ToolTip" value="Bind this mod!"/>
+    </attributes>
+    <bindings>
+      <signal name="mouse_hovered" slot="hoverSecondMod" id="NeurobindingOptionsManager" />
+      <signal name="button_clicked" slot="SelectSecondMod" id="NeurobindingOptionsManager" />
+    </bindings>
+  </element>
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="neurobindingOptionsButtonClose" />
+      <int name="Id" value="966" />
+      <rect name="Rect" value="-18, 2, -2, 18" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+      <texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+    </attributes>
+    <bindings>
+      <slot name="setColor" signal="setSecondModBtnCol" id="NeurobindingOptionsManager" />
+      <signal name="button_clicked" slot="toggleVisibility" id="neuroWorkshopOptionsDialog" />
+    </bindings>
+  </element>
+</element>
+

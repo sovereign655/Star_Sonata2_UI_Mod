@@ -1,0 +1,422 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="displayDialog" />
+    <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />	
+    <rect name="Rect" value="10, 101, -10, -40" />	    
+		<int name="Flags" value="0" />
+		<bool name="Movable" value="false" />
+		<bool name="Visible" value="true" />
+		<bool name="DrawBackground" value="true" />
+	</attributes>
+	<bindings>
+		<signal name="created" slot="DisplayOptions" id="OptionsManager" />
+	</bindings>
+  <!-- Display Frame Rate Checkbox -->
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="optionsCheckFramerate" />
+			<string name="TextID" value="id_displayframerate" />
+			<int name="Id" value="32" />
+			<string name="Caption" value="Display Frame Rate" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="8, 8, -8, 30" />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetCheckFramerate" id="OptionsManager" />
+			<slot name="setValue" signal="check_framerate_text" id="OptionsManager" />
+		</bindings>
+	</element>
+  <!-- Chat Shading Text -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_chatshading" />
+			<string name="Caption" value="Chat Shading:" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="10, 38, -10, 100" />   
+      <string name="ToolTip" value="Sets the level of chat shading. Turn this down if you feel the chat shade isn't translucent enough." />
+		</attributes>
+    <!-- Chat Shading Percentage Text -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="optionsStaticChatShade" />
+        <string name="TextID" value="" />
+        <int name="Id" value="34" />
+        <string name="Caption" value="100" />
+        <rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />	
+        <rect name="Rect" value="-25, 0, 0, 30" />
+        <string name="ToolTip" value="Percentage of chat shading." />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_chatshade_text" id="OptionsManager" />
+      </bindings>
+    </element>
+    <!-- Chat Shading Slider -->
+    <element type="slider">
+      <attributes>
+        <string name="IdName" value="optionsSliderChatShade" />
+        <rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />	
+        <rect name="Rect" value="0, 20, 430, 40" /> 
+        <string name="ToolTip" value="Sets the level of chat shading. Turn this down if you feel the chat shade isn't translucent enough." />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetSliderChatShade" id="OptionsManager" />
+        <slot name="setText" signal="slider_chatshade_text" id="OptionsManager" />
+      </bindings>
+    </element>    
+	</element>    
+  <!-- Display Floaty Section -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="Caption" value="Display Float Icons" />
+      <rect name="PercRect" value="0.0, 0.0, 0.0, 1.0" />	
+			<rect name="Rect" value="10, 158, 230, -10" />
+      <bool name="Border" value="false" />
+      <enum name="Font" value="mediumBoldFont" />	
+		</attributes>
+    <!-- Target Float Checkbox -->
+    <element type="customCheckBox">
+      <attributes>
+        <string name="IdName" value="displayFloatyTarget" />							
+        <string name="Caption" value="Selected Target" />
+        <rect name="Rect" value="5, 15, 260, 45" />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetDisplayTargetFloaty" id="OptionsManager" />
+        <slot name="setValue" signal="check_targetfloaty_text" id="OptionsManager" />
+      </bindings>
+    </element>
+    <!-- AI Base Float Checkbox -->
+    <element type="customCheckBox">
+      <attributes>
+        <string name="IdName" value="displayFloatyBase" />							
+        <string name="Caption" value="AI Stations" />
+        <rect name="Rect" value="5, 43, 260, 63" />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetDisplayAIBaseFloaty" id="OptionsManager" />
+        <slot name="setValue" signal="check_aibasefloaty_text" id="OptionsManager" />
+      </bindings>
+    </element> 
+    <!-- Team Base Float Checkbox -->
+    <element type="customCheckBox">
+      <attributes>
+        <string name="IdName" value="displayFloatyTeamBase" />							
+        <string name="Caption" value="Team Stations" />
+        <rect name="Rect" value="5, 66, 260, 86" />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetDisplayTeamBaseFloaty" id="OptionsManager" />
+        <slot name="setValue" signal="check_teambasefloaty_text" id="OptionsManager" />
+      </bindings>		
+    </element>
+    <!-- Sun Float Checkbox -->
+    <element type="customCheckBox">
+      <attributes>
+        <string name="IdName" value="displayFloatySun" />							
+        <string name="Caption" value="Sun Solar Bodies" />
+        <rect name="Rect" value="5, 89, 260, 109" />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetDisplaySunFloaty" id="OptionsManager" />
+        <slot name="setValue" signal="check_sunfloaty_text" id="OptionsManager" />
+      </bindings>		
+    </element> 
+    <!-- Bot Float Checkbox -->
+    <element type="customCheckBox">
+      <attributes>
+        <string name="IdName" value="displayFloatySlave" />							
+        <string name="Caption" value="Trade and Combat Bots" />
+        <rect name="Rect" value="5, 112, 260, 132" />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetDisplaySlaveFloaty" id="OptionsManager" />
+        <slot name="setValue" signal="check_slavefloaty_text" id="OptionsManager" />
+      </bindings>		
+    </element>
+    <!-- Drone Float Checkbox -->
+    <element type="customCheckBox">
+      <attributes>
+        <string name="IdName" value="displayFloatyDrone" />							
+        <string name="Caption" value="Temporary and Permanent Drones" />
+        <rect name="Rect" value="5, 132, 260, 162" />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetDisplayDroneFloaty" id="OptionsManager" />
+        <slot name="setValue" signal="check_dronefloaty_text" id="OptionsManager" />
+      </bindings>		
+    </element>
+    <!-- Wormhole Float Checkbox -->
+    <element type="customCheckBox">
+      <attributes>
+        <string name="IdName" value="displayFloatyWormhole" />							
+        <string name="Caption" value="Wormholes" />
+        <rect name="Rect" value="5, 156, 260, 186" />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetDisplayWormholeFloaty" id="OptionsManager" />
+        <slot name="setValue" signal="check_wormholefloaty_text" id="OptionsManager" />
+      </bindings>		
+    </element>
+	</element>
+  <!-- Popup Messages Text --> 
+	<element type="customStaticText">
+		<attributes>
+			<string name="Caption" value="Pop-up Messages:" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />	
+			<rect name="Rect" value="240, 158, -10, -10" />
+      <bool name="Border" value="false" />
+      <enum name="Font" value="mediumBoldFont" />	
+		</attributes>
+    <!-- Damage Popup --> 
+    <element type="customCheckBox">
+      <attributes>
+        <string name="IdName" value="displayDamagePopup" />							
+        <string name="Caption" value="Damage Inflicted" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+        <rect name="Rect" value="5, 15, 0, 45" />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetDisplayDamagePopup" id="OptionsManager" />
+        <slot name="setValue" signal="check_damagepopup_text" id="OptionsManager" />
+      </bindings>		
+    </element>    
+    <!-- Critical Hit Popup --> 
+    <element type="customCheckBox">
+      <attributes>
+        <string name="IdName" value="displayCritPopup" />							
+        <string name="Caption" value="Critical Hit Inflicted" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+        <rect name="Rect" value="5, 43, 0, 63" />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetDisplayCritPopup" id="OptionsManager" />
+        <slot name="setValue" signal="check_critpopup_text" id="OptionsManager" />
+      </bindings>		
+    </element>
+    <!-- Scoop Popup --> 
+    <element type="customCheckBox">
+      <attributes>
+        <string name="IdName" value="displayScoopPopup" />							
+        <string name="Caption" value="Scooped Items" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+       <rect name="Rect" value="5, 66, 0, 86" />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetDisplayScoopPopup" id="OptionsManager" />
+        <slot name="setValue" signal="check_scooppopup_text" id="OptionsManager" />
+      </bindings>		
+    </element>    
+    <!-- Credits Scoop Popup --> 
+    <element type="customCheckBox">
+      <attributes>
+        <string name="IdName" value="displayCreditsPopup" />							
+        <string name="Caption" value="Scooped Credits" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+        <rect name="Rect" value="5, 89, 0, 109" />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetDisplayCreditsPopup" id="OptionsManager" />
+        <slot name="setValue" signal="check_creditspopup_text" id="OptionsManager" />
+      </bindings>		
+    </element>
+    <!-- Bot Credit Scoop Popup --> 
+    <element type="customCheckBox">
+      <attributes>
+        <string name="IdName" value="displaySlaveCreditsPopup" />							
+        <string name="Caption" value="Bot Scooped Credits" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+        <rect name="Rect" value="5, 112, 0, 132" />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetDisplaySlaveCreditsPopup" id="OptionsManager" />
+        <slot name="setValue" signal="check_slavecreditspopup_text" id="OptionsManager" />
+      </bindings>
+    </element>
+    <!-- Bot Damage Popup --> 
+    <element type="customCheckBox">
+      <attributes>
+        <string name="IdName" value="displaySlaveDamagePopup" />							
+        <string name="Caption" value="Bot Damage Inflicted" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+        <rect name="Rect" value="5, 132, 0, 162" />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetDisplaySlaveDamagePopup" id="OptionsManager" />
+        <slot name="setValue" signal="check_slavedamage_text" id="OptionsManager" />
+      </bindings>		
+    </element>
+    <!-- Base Damage Popup --> 
+    <element type="customCheckBox">
+      <attributes>
+        <string name="IdName" value="displayBaseDamagePopup" />							
+        <string name="Caption" value="Station Damage Inflicted" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+        <rect name="Rect" value="5, 156, 0, 186" />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetDisplayBaseDamagePopup" id="OptionsManager" />
+        <slot name="setValue" signal="check_basedamage_text" id="OptionsManager" />
+      </bindings>		
+    </element>  
+    <!-- Drone Damage Popup -->     
+    <element type="customCheckBox">
+      <attributes>
+        <string name="IdName" value="displayDroneDamagePopup" />							
+        <string name="Caption" value="Drone Damage Inflicted" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+        <rect name="Rect" value="5, 180, 0, 210" />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetDisplayDroneDamagePopup" id="OptionsManager" />
+        <slot name="setValue" signal="check_dronedamage_text" id="OptionsManager" />
+      </bindings>		
+    </element>
+    <!-- Damage Taken Popup -->  
+    <element type="customCheckBox">
+      <attributes>
+        <string name="IdName" value="displayPainPopup" />							
+        <string name="Caption" value="Damage Recieved" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+        <rect name="Rect" value="5, 210, 0, 230" />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetDisplayPainPopup" id="OptionsManager" />
+        <slot name="setValue" signal="check_pain_text" id="OptionsManager" />
+      </bindings>
+    </element>
+    <!-- Trade Events Popup --> 
+    <element type="customCheckBox">
+      <attributes>
+        <string name="IdName" value="displayTradePopup" />							
+        <string name="Caption" value="Trade Events" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+        <rect name="Rect" value="5, 235, 0, 255" />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetDisplayTradePopup" id="OptionsManager" />
+        <slot name="setValue" signal="check_trade_text" id="OptionsManager" />
+      </bindings>		
+    </element> 
+	</element>	
+  <!-- Popup Misc Text --> 
+	<element type="customStaticText">
+		<attributes>
+			<string name="Caption" value="Miscellaneous:" />
+			<rect name="Rect" value="10, 345, 240, 500" />
+      <bool name="Border" value="false" />
+      <enum name="Font" value="mediumBoldFont" />	
+		</attributes>
+    <!-- 3D Radar Checkbox -->
+    <element type="customCheckBox">
+      <attributes>
+        <string name="IdName" value="displayPanRadar" />							
+        <string name="Caption" value="Enable 3D Radar" />
+        <rect name="Rect" value="5, 15, 260, 45" />
+		<string name="ToolTip" value="Allows radar to tilt when you do." />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetDisplayPanRadar" id="OptionsManager" />
+        <slot name="setValue" signal="check_radar_text" id="OptionsManager" />
+      </bindings>		
+    </element>
+    <!-- Mission Tracker Checkbox -->
+    <element type="customCheckBox">
+      <attributes>
+        <string name="IdName" value="displayMissionTracker" />							
+        <string name="Caption" value="Enable Mission Tracker" />
+        <rect name="Rect" value="5, 41, 260, 66" />
+		<string name="ToolTip" value="Toggles an on screen tracker of active missions and their objective. Click on a mission to view its details." />
+      </attributes>
+      <bindings>
+        <signal name="value_changed" slot="SetDisplayMissionTracker" id="OptionsManager" />
+        <slot name="setValue" signal="check_mission_tracker_text" id="OptionsManager" />
+      </bindings>		
+    </element>
+  </element>
+  <!-- Font Size Text -->  
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_font_size" />
+			<string name="Caption" value="Font size:" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="10, 133, -10, 163" />
+		</attributes>
+    <!-- Font Size Combo Box -->  
+    <element type="customComboBox">
+      <attributes>
+        <string name="IdName" value="optionsComboFontBaseSize" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+        <rect name="Rect" value="150, 0, -10, 19" />
+      </attributes>
+      <bindings>
+        <signal name="item_selected_text" slot="SetFontBaseSize" id="OptionsManager" />
+        <slot name="setSelectedIndex" signal="combo_font_base_size" id="OptionsManager" />
+        <slot name="setText" signal="combo_font_base_size_text" id="OptionsManager" />
+      </bindings>
+    </element>    
+	</element> 
+  <!-- Selection Rectangle Type Text -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_selection_rectangle_type" />
+			<string name="Caption" value="RTS rectangle type:" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="10, 108, -10, 136" />
+			<string name="ToolTip" value="Standard: Normal draw a square. Planar: No square but still selects objects. Switchable: Same as normal but using shift while draging and dropping swithces to Planar." />
+		</attributes>
+    <!-- Selection Rectangle Combo Box -->
+    <element type="customComboBox">
+      <attributes>
+        <string name="IdName" value="optionsComboMouseSelectionMode" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+        <rect name="Rect" value="150, 0, -10, 19" />
+		<string name="ToolTip" value="Standard: Normal draw a square. Planar: No square but still selects objects. Switchable: Same as normal but using shift while draging and dropping swithces to Planar." />
+      </attributes>
+      <bindings>
+        <signal name="item_selected_index" slot="SetMouseSelectionMode" id="OptionsManager" />
+        <slot name="setSelectedIndex" signal="combo_mouse_selection_mode" id="OptionsManager" />
+        <slot name="setText" signal="combo_mouse_selection_mode_text" id="OptionsManager" />
+      </bindings>
+    </element>    
+	</element>
+  <!-- Ingame Tutorial Text -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_ingametutorial" />
+			<string name="Caption" value="In-game tutorial:" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+			<rect name="Rect" value="10, 82, -10, 110" />
+			<string name="ToolTip" value="Tutorial bot gives tips and hints based off the player's actions." />
+		</attributes>
+    <!-- Ingame Tutorial Combo Box -->
+    <element type="customComboBox">
+      <attributes>
+        <string name="IdName" value="optionsComboTutorial" />
+        <rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+        <rect name="Rect" value="150, -2, -100, 20" />
+        <int name="TabOrder" value="3" />
+		<string name="ToolTip" value="Tutorial bot gives tips and hints based off the player's actions." />
+      </attributes>
+      <bindings>        
+        <signal name="item_selected_index" slot="SetTutorial" id="OptionsManager" />
+        <slot name="setSelectedIndex" signal="combo_tutorial_select" id="OptionsManager" />
+        <slot name="setText" signal="combo_tutorial_text" id="OptionsManager" />
+      </bindings>
+    </element> 
+    <!-- Ingame Tutorial Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="optionsButtonResetTut" />
+        <string name="TextID" value="id_resettut" />
+        <int name="Id" value="29" />
+        <string name="Caption" value="Reset..." />
+        <rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />	
+        <rect name="Rect" value="-92, 0, -10, 19" />
+        <string name="ToolTip" value="Resets the tutorials to the start from scratch." />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="ResetTutorial" id="OptionsManager" />
+      </bindings>
+    </element>
+	</element>   		
+</element>

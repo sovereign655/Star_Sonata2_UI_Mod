@@ -1,0 +1,178 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="possessionsDialog" />
+		<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />		
+		<rect name="Rect" value="8, 69, -8, -8" />
+		<int name="Flags" value="0" />
+		<bool name="Movable" value="false" />
+		<bool name="Visible" value="true" />
+		<bool name="DrawBackground" value="true" />
+	</attributes>
+	<bindings>
+		<signal name="created" slot="RefreshWindow" id="MyPropertyManager" />
+		<signal name="destroyed" slot="WindowInvisible" id="MyPropertyManager" />
+		<signal name="created" slot="WindowVisible" id="MyPropertyManager" />
+	</bindings>
+
+	<element type="customImage">
+		<attributes>
+			<string name="TextID" value="" />
+			<rect name="Rect" value="7, 7, 91, 91" />
+			<texture name="Texture" value="UI/Images/Skin/sunkenpanes_512.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<color name="Color" value="88ffffff" />
+			<bool name="ScaleImage" value="true" />				
+		</attributes>
+	</element>
+
+	<element type="customImage">
+		<attributes>
+			<string name="TextID" value="" />
+			<rect name="Rect" value="13, 15, 85, 85" />
+			<texture name="Texture" value="UI/Images/Items/iconlarge/Crate.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<color name="Color" value="33ffffff" />
+			<bool name="ScaleImage" value="true" />				
+		</attributes>
+	</element>	
+	
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="possessionsStaticInfo" />
+			<string name="TextID" value="" />
+			<int name="Id" value="17" />
+			<!--<rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />	
+			<rect name="Rect" value="320, 8, 420, 100" /> -->
+			<rect name="Rect" value="100, 8, -8, 88" />
+			<rectf name="PercRect" value="0, 0, 1, 0"/>
+			<enum name="RightAlign" value="lowerRight" />
+			<bool name="Border" value="false" />
+			<bool name="AutoScroll" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_info_text" id="MyPropertyManager" />
+		</bindings>
+	</element>
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="releaseSlaveButton" />			
+			<string name="Caption" value="Release Bot" />
+			<rectf name="PercRect" value="0.0 , 0.0, 0.0, 0.0" />
+			<rect name="Rect" value="320, 108, 420, 130" />
+			<bool name="Visible" value="false" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="ReleaseSlave" id="MyPropertyManager" />
+			<slot name="setVisible" signal="button_releaseslave_visible" id="MyPropertyManager" />
+		</bindings>
+	</element>		
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="releaseSlaveButton" />			
+			<string name="Caption" value="Release Bot" />
+			<rectf name="PercRect" value="0.0 , 0.0, 0.0, 0.0" />
+			<rect name="Rect" value="320, 108, 420, 130" />
+			<bool name="Visible" value="false" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="ReleaseSlave" id="MyPropertyManager" />
+			<slot name="setVisible" signal="button_releaseslave_visible" id="MyPropertyManager" />
+		</bindings>
+	</element>	
+  
+  <element type="customButton">
+		<attributes>
+			<string name="IdName" value="leaveStasisButton" />			
+			<string name="Caption" value="Leave Stasis" />
+			<rectf name="PercRect" value="0.0 , 0.0, 0.0, 0.0" />
+			<rect name="Rect" value="320, 138, 420, 160" />
+			<bool name="Visible" value="false" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="LeaveStasisSlave" id="MyPropertyManager" />
+			<slot name="setVisible" signal="button_leavestasisslave_visible" id="MyPropertyManager" />
+		</bindings>
+	</element>	
+
+  <element type="customButton">
+		<attributes>
+			<string name="IdName" value="followMeButton" />			
+			<string name="Caption" value="Follow Me" />
+			<rectf name="PercRect" value="0.0 , 0.0, 0.0, 0.0" />
+			<rect name="Rect" value="320, 168, 420, 190" />
+			<bool name="Visible" value="false" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="FollowMeSlave" id="MyPropertyManager" />
+			<slot name="setVisible" signal="button_followmeslave_visible" id="MyPropertyManager" />
+		</bindings>
+	</element>	
+  
+  <!-- Possessions search bar -->
+  <element type="customEditBox">
+		<attributes>
+			<string name="IdName" value="characterPossessionsTableSearch" />
+			<string name="TextID" value="" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<rect name="Rect" value="8, 95, -8, 125" />
+			<string name="PlaceholderText" value="Search..." />
+			<string name="ToolTip" value="Search your possessions." />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="PossessionsSearchChanged" id="MyPropertyManager" />
+			<slot name="setText" signal="possessions_search_text" id="MyPropertyManager" />
+		</bindings>
+	</element>
+
+	<element type="customTable">
+		<attributes>
+			<string name="IdName" value="possessionsListTable" />
+			<string name="TextID" value="" />
+			<int name="Id" value="135" />
+			<!-- <rect name="Rect" value="8, 4, 309, 255" /> / -->
+			<!--<rect name="Rect" value="8, 8, 310, 353" /> -->
+			<rect name="Rect" value="8, 130, -8, -8" />
+			<rectf name="PercRect" value="0, 0, 1, 1"/>
+			<enum name="RightAlign" value="lowerRight" />
+			<int name="ColumnCount" value="3" />
+			<string name="Column0name" value="Galaxy" />
+			<color name="Column0color" value="ffb7f9ff" />
+			<int name="Column0width" value="117" />
+			<enum name="Column0OrderingMode" value="ascend_descend" />
+			<string name="Column1name" value="Category" />
+			<color name="Column1color" value="ffb7f9ff" />
+			<int name="Column1width" value="70" />
+			<enum name="Column1OrderingMode" value="ascend_descend" />
+			<int name="ActiveTab" value="1" />
+			<enum name="CurrentOrdering" value="ascending" />
+			<string name="Column2name" value="Name" />
+			<color name="Column2color" value="ffb7f9ff" />
+			<int name="Column2width" value="100" />
+			<enum name="Column2OrderingMode" value="ascend_descend" />
+			<bool name="ResizableColumns" value="true" />
+			<int name="DrawFlags" value="4" />
+		</attributes>
+		<bindings>
+			<slot name="setAll" signal="table_possessions_all" id="MyPropertyManager" />
+			<signal name="item_selected_data" slot="SelChangedMyProp" id="MyPropertyManager" />
+			<signal name="item_double_clicked_data" slot="MypropDoubleClicked" id="MyPropertyManager" />
+			<signal name="item_right_clicked_data" slot="MypropRightClicked" id="MyPropertyManager" />
+		</bindings>
+	</element>	
+
+	<!--
+	<element type="customContextMenu">
+		<attributes>
+			<bool name="Visible" value="false" />
+			<string name="IdName" value="possessionsMenuAction" />
+			<int name="ItemCount" value="1" />
+			<int name="CloseHandling" value="4" />			
+			<string name="TextID0" value="id_action_slaverel" />
+			<int name="CommandID0" value="0" />
+		</attributes>
+	</element>
+-->
+
+</element>

@@ -1,0 +1,585 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="tradeDialog" />
+    <rectf name="PercRect" value="0, 0, 1, 1" />
+    <rect name="Rect" value="13, 96, -13, -13" />
+    <int name="Flags" value="0" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="false" />
+    <bool name="DrawBackground" value="true" />
+  </attributes>
+  <bindings>
+    <signal name="revealed" slot="OnInitTrade" id="TradePropManager" />
+  </bindings>
+<!--
+  <element type="customImage">
+    <attributes>
+      <rect name="Rect" value="0, 0, 512, 400" />
+      <texture name="Texture" value="UI/Images/Backgrounds/trade.png" />
+      <bool name="ScaleImage" value="False" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+  </element>
+-->
+
+  <!--
+    <element type="radiobuttongroup">
+      <attributes>
+        <string name="IdName" value="tradeTabGoodSel" />
+        <rect name="Rect" value="10, 11, 485, 58" />
+        <int name="MinTextPadding" value="5" />
+        <int name="ButtonGap" value="0" />
+        <int name="MinNumberOfLines" value="2" />
+        <color name="BGColor" value="00000000" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="tab_good_text" id="TradePropManager" />
+      </bindings>
+    </element>
+  -->
+  <element type="customEditBox">
+    <attributes>
+      <string name="IdName" value="tradeSearch" />
+      <string name="TextID" value="" />
+      <int name="Id" value="20" />
+      <rectf name="PercRect" value="0, 0, 1, 0" />
+      <rect name="Rect" value="8, 4, -8, 28" />
+      <string name="PlaceholderText" value="Search..." />
+			<string name="ToolTip" value="Search for items on this station." />
+    </attributes>
+    <bindings>
+      <signal name="value_changed" slot="TradeFilterChanged" id="TradePropManager" />
+      <slot name="setText" signal="trade_itemfilter_text" id="TradePropManager" />
+    </bindings>
+  </element>
+
+  <element type="customTabControl">
+    <attributes>
+      <string name="IdName" value="tradeTabGoodSel" />
+      <int name="Id" value="1010" />
+      <int name="ActiveTab" value="1" />
+      <rectf name="PercRect" value="0, 0, 0, 0" />
+      <rect name="Rect" value="10, 32, 484, 66" />
+      <bool name="Layered" value="true" />
+      <string name="IconBankName" value="items_medium" />
+    </attributes>
+
+    <bindings>
+      <!--<slot name="setText" signal="tab_good_text" id="TradePropManager" />--><!-- uncomment this one and comment setIcons and setTooltips to go back to the scrolled list -->
+      <slot name="setIcons" signal="tab_good_icons" id="TradePropManager" />
+      <slot name="setTooltips" signal="tab_good_tooltips" id="TradePropManager" />
+      <signal name="item_selected_index" slot="OnSelchangeGoodSelTab" id="TradePropManager" />
+    </bindings>
+  </element>
+
+  <element type="customTable">
+    <attributes>
+      <string name="IdName" value="tradeTableTradeCommodities" />
+      <string name="TextID" value="" />
+      <bool name="Visible" value="false" />
+      <int name="Id" value="148" />
+      <int name="ActiveTab" value="1" />
+      <enum name="CurrentOrdering" value="ascending" />
+      <rectf name="PercRect" value="0, 0, 1.0, 1.0" />
+	    <rect name="Rect" value="8, 64, -8, -84" />
+      <bool name="DrawBack" value="true" />
+      <int name="ColumnCount" value="7" />
+      <string name="Column0name" value="Owned" />
+      <!--<color name="Column0color" value="ffb7f9ff" />-->
+      <int name="Column0width" value="60" />
+      <enum name="Column0OrderingMode" value="ascend_descend" />
+      <string name="Column1name" value="Item" />
+      <!--<color name="Column1color" value="ffb7f9ff" /> -->
+      <int name="Column1width" value="162" />
+      <enum name="Column1OrderingMode" value="ascend_descend" />
+      <string name="Column2name" value="Station" />
+      <!--<color name="Column2color" value="ffb7f9ff" /> -->
+      <int name="Column2width" value="42" />
+      <enum name="Column2OrderingMode" value="ascend_descend" />
+      <string name="Column3name" value="Galaxy" />
+      <!--<color name="Column3color" value="ffb7f9ff" /> -->
+      <int name="Column3width" value="43" />
+      <enum name="Column3OrderingMode" value="ascend_descend" />
+      <string name="Column4name" value="Jumps" />
+      <!--<color name="Column4color" value="ffb7f9ff" /> -->
+      <int name="Column4width" value="40" />
+      <enum name="Column4OrderingMode" value="ascend_descend" />
+      <string name="Column5name" value="Buy" />
+      <enum name="Column5OrderingType" value="numerical" />
+      <!--<color name="Column5color" value="ffb7f9ff" /> -->
+      <int name="Column5width" value="58" />
+      <enum name="Column5OrderingMode" value="ascend_descend" />
+      <string name="Column6name" value="Sell" />
+      <!--<color name="Column6color" value="ffb7f9ff" /> -->
+      <int name="Column6width" value="58" />
+      <enum name="Column6OrderingType" value="numerical" />
+      <enum name="Column6OrderingMode" value="ascend_descend" />
+      <bool name="ResizableColumns" value="true" />
+      <int name="DrawFlags" value="4" />
+      <bool name="UseOverrideBgColor" value="true" />
+      <color name="OverrideBgColor" value="8F000000" />
+      <bool name="AlwaysVerticalScroll" value="true" />
+      <bool name="AcceptsDrop" value="true" />
+    </attributes>
+    <bindings>
+      <slot name="setAll" signal="table_tradecommodities_all" id="TradePropManager" />
+      <slot name="setText" signal="table_tradecommodities_text" id="TradePropManager" />
+      <slot name="setVisible" signal="table_tradecommodities_visible" id="TradePropManager" />
+      <signal name="item_selected_data" slot="OnItemchanged" id="TradePropManager" />
+      <signal name="item_right_clicked_data" slot="OnRclickTradeItems" id="TradePropManager" />
+      <signal name="item_double_clicked_data" slot="OnDblclkTradeItems" id="TradePropManager" />
+    </bindings>
+  </element>
+  <element type="customTable">
+    <attributes>
+      <string name="IdName" value="tradeTableTradeItems" />
+      <string name="TextID" value="" />
+      <int name="Id" value="134" />
+      <int name="ActiveTab" value="3" />
+      <enum name="CurrentOrdering" value="ascending" />
+      <rectf name="PercRect" value="0, 0, 1.0, 1.0" />
+      <!--<rect name="Rect" value="8, 39, -8, -84" />-->
+      <rect name="Rect" value="8, 65, -8, -104" />
+      <bool name="DrawBack" value="true" />
+      <int name="ColumnCount" value="7" />
+      <string name="Column0name" value="Owned" />
+      <!--<color name="Column0color" value="ffb7f9ff" />-->
+      <int name="Column0width" value="25" />
+      <enum name="Column0OrderingMode" value="ascend_descend" />
+      <string name="Column1name" value="T" />
+      <!--<color name="Column1color" value="ffb7f9ff" />-->
+      <int name="Column1width" value="25" />
+      <enum name="Column1OrderingMode" value="ascend_descend" />
+      <string name="Column2name" value="Item" />
+      <!--<color name="Column2color" value="ffb7f9ff" />-->
+      <int name="Column2width" value="207" />
+      <enum name="Column2OrderingMode" value="ascend_descend" />
+      <string name="Column3name" value="Tech" />
+      <!--<color name="Column3color" value="ffb7f9ff" />-->
+      <int name="Column3width" value="40" />
+      <enum name="Column3OrderingMode" value="ascend_descend" />
+      <enum name="Column3OrderingType" value="numerical" />
+      <string name="Column4name" value="Size" />
+      <enum name="Column4OrderingType" value="numerical" />
+      <!--<color name="Column4color" value="ffb7f9ff" />-->
+      <int name="Column4width" value="40" />
+      <enum name="Column4OrderingMode" value="ascend_descend" />
+      <string name="Column5name" value="Buy" />
+      <enum name="Column5OrderingType" value="numerical" />
+      <!--<color name="Column5color" value="ffb7f9ff" />-->
+      <int name="Column5width" value="58" />
+      <enum name="Column5OrderingMode" value="ascend_descend" />
+      <string name="Column6name" value="Sell" />
+      <enum name="Column6OrderingType" value="numerical" />
+      <!--<color name="Column6color" value="ffb7f9ff" />-->
+      <int name="Column6width" value="58" />
+      <enum name="Column6OrderingMode" value="ascend_descend" />
+      <bool name="ResizableColumns" value="true" />
+      <int name="DrawFlags" value="4" />
+      <bool name="UseOverrideBgColor" value="true" />
+      <color name="OverrideBgColor" value="8F000000" />
+      <bool name="AcceptsDrop" value="true" />
+      <bool name="AlwaysVerticalScroll" value="true" />
+      <string name="IconBankName" value="items_small" />
+    </attributes>
+    <bindings>
+      <slot name="setPercRect" signal="table_tradeitems_percrect" id="TradePropManager" />
+      <slot name="setVisible" signal="table_tradeitems_visible" id="TradePropManager" />
+      <slot name="setAll" signal="table_tradeitems_all" id="TradePropManager" />
+      <slot name="setText" signal="table_tradeitems_text" id="TradePropManager" />
+      <signal name="item_selected_data" slot="OnItemchanged" id="TradePropManager" />
+      <signal name="item_right_clicked_data" slot="OnRclickTradeItems" id="TradePropManager" />
+      <signal name="item_double_clicked_data" slot="OnDblclkTradeItems" id="TradePropManager" />
+    </bindings>
+  </element>
+  <!-- Hull Space -->
+  <element type="progressbar">
+    <attributes>
+      <string name="IdName" value="tradeHullSpace" />
+      <rect name="Rect" value="8, -100, -8, -80" />
+      <rectf name="PercRect" value="0, 1.0, 1.0, 1.0" />
+      <bool name="Dynamic" value="true" />
+      <int name="IconWidth" value="22" />
+    </attributes>
+    <bindings>
+      <slot name="setValue" signal="player_hull_usage" id="GameManager" />
+    </bindings>
+  </element>
+  <!-- Ship Hull Space Icon -->
+  <element type="customImage">
+    <attributes>
+      <rect name="Rect" value="12, -98, 24, -80" />
+      <rectf name="PercRect" value="0, 1.0, 0.0, 1.0" />
+      <texture name="Texture" value="UI/Images/Items/iconsmall/Hullspace.png" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+    <bindings>
+        <slot name="setToolTipText" signal="player_hull_space_tooltip" id="GameManager" />
+    </bindings>
+  </element>
+  <!-- Hull Space Label -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="tradeHullSpace_label" />
+        <string name="Caption" value="" />
+        <rect name="Rect" value="30, -99, -8, -80" />
+        <rectf name="PercRect" value="0, 1.0, 1.0, 1.0" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="left" />
+      </attributes>
+    <bindings>
+      <slot name="setText" signal="player_hull_space_text" id="GameManager" />
+      <slot name="setToolTipText" signal="player_hull_space_tooltip" id="GameManager" />
+    </bindings>
+  </element>
+  <!-- Hull Space Free Label -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="tradeHullSpaceFree_label" />
+        <string name="Caption" value="" />
+        <rect name="Rect" value="-148, -99, 140, -80" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="right" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="player_hull_space_tooltip" id="GameManager" />
+        <slot name="setToolTipText" signal="player_hull_space_tooltip" id="GameManager" />
+      </bindings>
+    </element>
+  <!-- Credits player has -->
+  <!-- Credits Icon -->
+  <element type="customImage">
+    <attributes>
+      <rect name="Rect" value="9, -75, 29, -50" />
+      <rectf name="PercRect" value="0, 1.0, 0.0, 1.0" />
+      <texture name="Texture" value="UI/Images/Items/iconsmall/Credits.png" />
+      <bool name="UseAlphaChannel" value="true" />
+      <string name="ToolTip" value="Credits you currently have on you." />
+    </attributes>
+    <bindings>
+      <slot name="setToolTipText" signal="player_hull_space_text" id="GameManager" />
+    </bindings>
+  </element>
+  <!-- Credits Label -->
+  <!--
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_tradecredits" />
+      <string name="Caption" value="Credits:" />
+	  <rect name="Rect" value="26, -75, 73, -50" />
+	  <rectf name="PercRect" value="0, 1.0, 0.0, 1.0" />
+      <int name="ScrolledLines" value="0" />
+	  <string name="ToolTip" value="Credits you currently have on you." />
+    </attributes>
+  </element>
+  -->
+  <!-- Credits Value -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="tradeStaticCreds" />
+      <string name="TextID" value="" />
+      <int name="Id" value="137" />
+      <string name="Caption" value="0" />
+	  <rect name="Rect" value="26, -75, 167, -50" />
+	  <rectf name="PercRect" value="0, 1.0, 0.0, 1.0" />
+      <int name="ScrolledLines" value="0" />
+	  <string name="ToolTip" value="Credits you currently have on you." />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_creds_text" id="TradePropManager" />
+    </bindings>
+  </element>
+  <!-- Undo Button -->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="tradeButtonUndo" />
+      <string name="Caption" value="Undo" />
+      <int name="Id" value="149" />
+      <rectf name="PercRect" value="0, 1, 0, 1" />
+      <rect name="Rect" value="8, -54, 170, -8" />
+      <bool name="UseAlphaChannel" value="true" />
+	  <string name="ToolTip" value="Undo the sell transaction. (AI STATION ONLY)" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnUndo" id="TradePropManager" />
+      <slot name="setEnabled" signal="button_undo_enabled" id="TradePropManager" />
+    </bindings>
+  </element>
+  <!-- Specific Amount -->
+  <!-- Background Box -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="" />
+      <rectf name="PercRect" value="1, 1, 1, 1" />
+      <rect name="Rect" value="-316, -74, -166, -8" />
+      <bool name="Border" value="true" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+  </element>
+  <!-- Title -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_tradequantity" />
+      <string name="Caption" value="Specific Quantity" />
+      <rectf name="PercRect" value="1, 1, 1, 1" />
+      <rect name="Rect" value="-308, -80, -8, -8" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+  </element>
+  <!-- Buy/Sell Edit Value -->
+  <element type="customEditBox">
+    <attributes>
+      <string name="IdName" value="tradeEditQuant" />
+      <string name="TextID" value="" />
+      <int name="MaxChars" value="6" />
+      <int name="Id" value="148" />
+      <rectf name="PercRect" value="1, 1, 1, 1" />
+      <rect name="Rect" value="-308, -64, -255, -14" />
+	  <enum name="HTextAlign" value="center" />
+	  <enum name="VTextAlign" value="center" />
+	  <string name="ToolTip" value="The amount you want to buy or sell." />
+    </attributes>
+    <bindings>
+      <signal name="value_changed" slot="OnQuantChanged" id="TradePropManager" />
+      <slot name="setText" signal="static_quantcntl_text" id="TradePropManager" />
+    </bindings>
+  </element>
+  <!-- Buy Button -->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="tradeButtonTrade" />
+      <string name="Caption" value="Buy" />
+      <int name="Id" value="138" />
+      <rectf name="PercRect" value="1, 1, 1, 1" />
+      <rect name="Rect" value="-247, -64, -172, -42" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+    <bindings>
+      <slot name="setEnabled" signal="button_buy_enabled" id="TradePropManager" />
+      <signal name="button_clicked" slot="OnBuy" id="TradePropManager" />
+    </bindings>
+  </element>
+  <!-- Sell Button -->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="tradeButtonSell" />
+      <string name="Caption" value="Sell" />
+      <int name="Id" value="139" />
+      <rectf name="PercRect" value="1, 1, 1, 1" />
+      <rect name="Rect" value="-247, -36, -172, -14" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+    <bindings>
+      <slot name="setEnabled" signal="button_sell_enabled" id="TradePropManager" />
+      <signal name="button_clicked" slot="OnSell" id="TradePropManager" />
+    </bindings>
+  </element>
+  <!-- Buy/Sell Max Amount -->
+  <!-- Background Box -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="" />
+      <rectf name="PercRect" value="1, 1, 1, 1" />
+      <rect name="Rect" value="-158, -74, -8, -8" />
+      <bool name="Border" value="true" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+  </element>
+  <!-- Title -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_tradelimit" />
+      <rectf name="PercRect" value="1, 1, 1, 1" />
+      <rect name="Rect" value="-150, -80, -8, -8" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+  </element>
+  <!-- Buy Max Button -->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="tradeButtonBuyMax" />
+      <string name="Caption" value="Buy Max" />
+      <int name="Id" value="140" />
+      <rectf name="PercRect" value="1, 1, 1, 1" />
+      <rect name="Rect" value="-91, -64, -16, -42" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+    <bindings>
+      <slot name="setEnabled" signal="button_buymax_enabled" id="TradePropManager" />
+      <signal name="button_clicked" slot="OnBuyMax" id="TradePropManager" />
+    </bindings>
+  </element>
+  <!-- Buy Max Number Label -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="tradeStaticBuyMaxNum" />
+      <string name="TextID" value="" />
+      <int name="Id" value="144" />
+      <string name="Caption" value="0" />
+      <rectf name="PercRect" value="1, 1, 1, 1" />
+      <rect name="Rect" value="-150, -62, -99, -6" />
+      <int name="ScrolledLines" value="0" />
+	    <enum name="HTextAlign" value="center" />
+      <string name="ToolTip" value="Maximum number of itmes you can buy." />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_buymaxnum_text" id="TradePropManager" />
+    </bindings>
+  </element>
+  <!-- Sell Max Button -->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="tradeButtonSellMax" />
+      <string name="Caption" value="Sell Max" />
+      <int name="Id" value="141" />
+      <rectf name="PercRect" value="1, 1, 1, 1" />
+      <rect name="Rect" value="-91, -36, -16, -14" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+    <bindings>
+      <slot name="setEnabled" signal="button_sellmax_enabled" id="TradePropManager" />
+      <signal name="button_clicked" slot="OnSellMax" id="TradePropManager" />
+    </bindings>
+  </element>
+  <!-- Sell Max Number Label -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="tradeStaticSellMaxNum" />
+      <string name="TextID" value="" />
+      <int name="Id" value="145" />
+      <string name="Caption" value="0" />
+      <rectf name="PercRect" value="1, 1, 1, 1" />
+      <rect name="Rect" value="-150, -34, -99, -6" />
+      <int name="ScrolledLines" value="0" />
+	    <enum name="HTextAlign" value="center" />
+      <string name="ToolTip" value="Maximum number of itmes you can sell." />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_sellmaxnum_text" id="TradePropManager" />
+    </bindings>
+  </element>
+
+
+  <!--
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="tradeStaticFilterText" />
+      <string name="TextID" value="" />
+      <int name="Id" value="143" />
+      <string name="Caption" value="Filter :" />
+      <rect name="Rect" value="10, 318, 60, 331" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+    <bindings>
+      <slot name="setVisible" signal="static_filter_visible" id="TradePropManager" />
+    </bindings>
+  </element>
+-->
+
+
+
+
+  <element type="customImage">
+    <attributes>
+      <int name="Id" value="869" />
+      <rect name="Rect" value="352, 42, 480, 170" />
+      <bool name="Visible" value="false" />
+      <texture name="renderTargetShipTrade" value="renderTargetShipTrade" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+    <bindings>
+      <slot name="setVisible" signal="preview_visible" id="TradePropManager" />
+    </bindings>
+  </element>
+
+
+  <element type="customContextMenu">
+    <attributes>
+      <bool name="Visible" value="false" />
+      <string name="IdName" value="tradeMenuTradeOptions" />
+      <int name="ItemCount" value="3" />
+      <int name="CloseHandling" value="4" />
+      <string name="TextID0" value="id_trade_remove" />
+      <int name="CommandID0" value="0" />
+      <string name="TextID1" value="id_trade_modify" />
+      <int name="CommandID1" value="1" />
+      <string name="TextID2" value="id_trade_market_check" />
+      <int name="CommandID2" value="2" />
+      <string name="TextID3" value="id_trade_share_to_chat" />
+      <int name="CommandID3" value="3" />
+      <bool name="KeepOnScreen" value="true" />
+    </attributes>
+    <bindings>
+      <slot name="popup" signal="trade_context_popup" id="TradePropManager" />
+      <slot name="setText" signal="trade_context_text" id="TradePropManager" />
+      <slot name="setUserData" signal="trade_context_data" id="TradePropManager" />
+      <signal name="item_selected_data" slot="OnMenuTradeOptions" id="TradePropManager" />
+    </bindings>
+  </element>
+  <!-- old item information section -->
+  <!-- <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="tradeStaticName" />
+      <string name="TextID" value="" />
+      <int name="Id" value="136" />
+      <string name="Caption" value="Station Goods" />
+      <rectf name="PercRect" value="0, 1, 0, 1" />
+      <rect name="Rect" value="10, -187, 486, -170" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_name_text" id="TradePropManager" />
+    </bindings>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="tradeStaticDescrib" />
+      <string name="TextID" value="id_clickitembuysell" />
+      <string name="Caption" value="Click on an item name to buy or sell" />
+      <rectf name="PercRect" value="0, 1, 0, 1" />
+      <rect name="Rect" value="10, -170, 486, -153" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_descrip_text" id="TradePropManager" />
+    </bindings>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+    <string name="IdName" value="tradeStaticStats" />
+      <string name="TextID" value="" />
+      <rectf name="PercRect" value="0, 1, 0, 1" />
+      <rect name="Rect" value="10, -153, 486, -88" />
+      <bool name="Border" value="false" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_stats_text" id="TradePropManager" />
+    </bindings>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_weight" />
+      <string name="Caption" value="Weight:" />
+      <rectf name="PercRect" value="0, 1, 0, 1" />
+      <rect name="Rect" value="24, -76, 84, -8" />
+      <int name="ScrolledLines" value="0" />
+      <bool name="WordWrap" value="false" />
+    </attributes>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="tradeStaticWeight" />
+      <string name="TextID" value="" />
+      <int name="Id" value="135" />
+      <string name="Caption" value="-" />
+      <rectf name="PercRect" value="0, 1, 0, 1" />
+      <rect name="Rect" value="71, -76, 113, -8" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_weight_text" id="TradePropManager" />
+    </bindings>
+  </element>-->
+</element>

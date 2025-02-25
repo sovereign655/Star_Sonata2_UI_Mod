@@ -1,0 +1,113 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="towingDialog" />
+    <rectf name="PercRect" value="0, 0, 1, 1" />
+    <rect name="Rect" value="13, 96, -13, -13" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="false" />
+    <bool name="DrawBackground" value="true" />
+    <int name="Flags" value="2" />
+  </attributes>
+  <bindings>
+    <signal name="revealed" slot="OnSetTowingActive" id="TowingManager" />
+  </bindings>
+<!--
+  <element type="customImage">
+    <attributes>
+      <rect name="Rect" value="0, 0, 512, 400" />
+      <texture name="Texture" value="UI/Images/Backgrounds/trade.png" />
+      <bool name="ScaleImage" value="False" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+  </element>
+-->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="towingButtonOK" />
+      <string name="TextID" value="" />
+      <int name="Id" value="129" />
+      <rectf name="PercRect" value="1, 1, 1, 1" />
+      <rect name="Rect" value="-119, -57, -30, -32" />
+      <texture name="Image" value="res/buttons/ok.bmp" />
+      <rect name="ImageRect" value="0, 0, 89, 25" />
+      <texture name="PressedImage" value="res/buttons/okD.bmp" />
+      <rect name="PressedImageRect" value="0, 0, 89, 25" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnTowShip" id="TowingManager" />
+    </bindings>
+  </element> 
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="towingStaticDocStory" />
+      <string name="TextID" value="" />
+      <int name="Id" value="130" />
+      <string name="Caption" value="Trans-Galactic Towing Services Ltd" />
+      <rectf name="PercRect" value="0, 0, 1, 0" />
+      <rect name="Rect" value="10, 11, -28, 150" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_docstory_text" id="TowingManager" />
+    </bindings>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="towingStaticDocStory2" />
+      <string name="TextID" value="" />
+      <int name="Id" value="131" />
+      <string name="Caption" value="Trans-Galactic Towing Services Ltd" />
+      <rectf name="PercRect" value="0, 0, 1, 0" />
+      <rect name="Rect" value="10, 245, -28, 341" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_docstory2_text" id="TowingManager" />
+    </bindings>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_selecttowship" />
+      <string name="Caption" value="Select a ship to tow:" />
+      <rect name="Rect" value="10, 160, 331, 175" />
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+  </element>
+  <element type="customTable">
+    <attributes>
+      <string name="IdName" value="towingTableShipsTowing" />
+      <string name="TextID" value="" />
+      <int name="Id" value="132" />
+      <rectf name="PercRect" value="0, 0, 1, 1" />
+      <rect name="Rect" value="10, 183, -9, -67" />
+      <int name="ColumnCount" value="4" />
+      <string name="Column0name" value="Hull Name" />
+      <color name="Column0color" value="ffb7f9ff" />
+      <int name="Column0width" value="200" />
+      <enum name="Column0OrderingMode" value="ascend_descend" />
+      <string name="Column1name" value="Location" />
+      <color name="Column1color" value="ffb7f9ff" />
+      <int name="Column1width" value="200" />
+      <enum name="Column1OrderingMode" value="ascend_descend" />
+      <string name="Column2name" value="Towing Damage" />
+      <color name="Column2color" value="ffb7f9ff" />
+      <int name="Column2width" value="50" />
+      <enum name="Column2OrderingMode" value="ascend_descend" />
+      <bool name="ResizableColumns" value="false" />
+      <int name="DrawFlags" value="0" />
+      <bool name="DrawBack" value="true" />
+      <bool name="UseOverrideBgColor" value="true" />
+      <color name="OverrideBgColor" value="8F000000" />
+      <string name="Column3name" value="In Stasis?" />
+      <color name="Column3color" value="ffb7f9ff" />
+      <int name="Column3width" value="100" />
+      <enum name="Column3OrderingMode" value="ascend_descend" />
+    </attributes>
+    <bindings>
+      <slot name="setAll" signal="table_shipstowing_all" id="TowingManager" />
+      <signal name="item_double_clicked_data" slot="OnTowShip" id="TowingManager" />
+    </bindings>
+  </element>
+</element>

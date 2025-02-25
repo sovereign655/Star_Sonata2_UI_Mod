@@ -1,0 +1,48 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="targetInfoBox" />
+		<string name="Caption" value="" />
+		<rect name="Rect" value="-120, 100, -10, 225" />
+		<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+		<int name="Flags" value="0" />
+		<int name="BorderStyle" value="0" />
+		<bool name="DrawBackground" value="true" />
+		<string name="AnimatorTag" value="FadeInOnMouseOver" />
+    <bool name="ClickThrough" value="true" />
+	</attributes>
+	<bindings>
+		<!--<slot name="show" signal="main_target_info_show" id="TargetManager" />-->
+		<slot name="resetAnimators" signal="main_target_info_show" id="TargetManager" />
+    </bindings>
+	
+	<element type="customStaticText">
+		<attributes>
+			<int name="Id" value="100" />
+			<string name="IdName" value="mainTargetInfoText" />
+			<rect name="Rect" value="6, 6, 105, 606" />
+			<bool name="Border" value="false" />
+			<bool name="ClickThrough" value="true" />
+			<bool name="AutoScroll" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="main_target_info_text" id="TargetManager" />
+		</bindings>
+	</element>
+	
+	<!--
+	<element type="customButton">
+			<attributes>
+				<string name="IdName" value="toggleAnchorTargetInfo" />
+				<rect name="Rect" value="55, 2, 75, 22" />
+				<bool name="PushButton" value="true" />
+				<texture name="Image" value="misc.anchor" />
+				<texture name="PressedImage" value="misc.anchor" />
+				<bool name="UseAlphaChannel" value="true" />
+			</attributes>
+      <bindings>
+        <signal name="button_clicked" slot="resetAnimators" id="targetInfoBox" />		
+		<signal name="button_clicked" slot="toggleAnimating" id="targetInfoBox" />	
+      </bindings>
+    </element>
+	-->
+</element>

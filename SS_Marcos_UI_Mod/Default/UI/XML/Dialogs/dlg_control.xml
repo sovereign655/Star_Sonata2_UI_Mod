@@ -1,0 +1,592 @@
+<element type="customWindow">
+  <!-- Control panel -->
+  <attributes>
+    <string name="IdName" value="controlDialog" />
+    <int name="Flags" value="0" />
+    <rectf name="PercRect" value="0, 0, 1, 1" />
+    <rect name="Rect" value="13, 96, -13, -13" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="false" />
+    <bool name="DrawBackground" value="true" />
+  </attributes>
+  <bindings>
+    <signal name="revealed" slot="OnInitProps" id="ControlManager" />
+    <signal name="hidden" slot="OnHideProps" id="ControlManager" />
+  </bindings>
+  <!-- Credits Icon -->
+  <element type="customImage">
+	<attributes>
+    <rect name="Rect" value="-200, 70, -186, 84" />
+    <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+	  <texture name="Texture" value="UI/Images/Items/iconsmall/Credits.png" />
+	  <bool name="UseAlphaChannel" value="true" />
+	  <string name="ToolTip" value="Credits on this station." />
+	</attributes>
+  </element> 
+  <!-- Base Credits Label -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_credits" />
+      <string name="Caption" value="0" />
+      <rect name="Rect" value="-181, 69, -8, 84" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <int name="ScrolledLines" value="0" />
+      <string name="ToolTip" value="Credits on this station." />
+    </attributes>
+  </element>
+  <!-- Base Static Credits -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="controlStaticCreds" />
+      <string name="TextID" value="" />
+      <string name="Caption" value="Credits:" />
+      <rect name="Rect" value="-136, 69, -8, 84" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <int name="ScrolledLines" value="0" />
+      <string name="ToolTip" value="Credits on this station." />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_creds_text" id="ControlManager" />
+    </bindings>
+  </element>
+  
+  <!-- Station Tech Icon -->
+  <element type="customImage">
+	<attributes>
+	<rect name="Rect" value="-47, 70, -33, 84" />
+	<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />		
+	  <texture name="Texture" value="UI/Images/Items/iconsmall/Base-Kits.png" />
+	  <bool name="UseAlphaChannel" value="true" />
+	  <string name="ToolTip" value="Tech level of this station." />
+	</attributes>
+  </element>   
+  <!-- Station Tech Label -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_tech" />
+      <string name="Caption" value="Tech:" />
+      <rect name="Rect" value="-28, 70, 33, 84" />
+      <rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+      <int name="ScrolledLines" value="0" />
+	  <string name="ToolTip" value="Tech level of this station." />
+    </attributes>
+  </element> 
+  <!-- Station Static Tech -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="controlStaticTech" />
+      <string name="TextID" value="" />
+      <int name="Id" value="110" />
+      <string name="Caption" value="0" />
+      <rect name="Rect" value="8, 70, 43, 84" />
+      <rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+      <int name="ScrolledLines" value="0" />
+      <string name="ToolTip" value="Tech level of this station." />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_tech_text" id="ControlManager" />
+    </bindings>
+  </element>  
+  
+  
+  
+  <!-- Station Owner Icon -->
+  <element type="customImage">
+    <attributes>
+      <rect name="Rect" value="8, 70, 22, 84" />
+      <rectf name="PercRect" value="0, 0.0, 0.0, 0.0" />	
+      <texture name="Texture" value="UI/Images/Items/iconsmall/Info.png" />
+      <bool name="UseAlphaChannel" value="true" />
+      <string name="ToolTip" value="Owner of this station." />
+    </attributes>
+  </element>    
+  <!-- Base Owner Label -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_station_owner" />
+      <string name="Caption" value="Owner:" />
+      <rect name="Rect" value="26, 69, -325, 84" />
+      <rectf name="PercRect" value="0, 0.0, 1.0, 0.0" />      
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+  </element>  
+  <!-- Base Static Owner -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="controlStaticOwner" />
+	  <string name="Caption" value="N/A" />
+      <rect name="Rect" value="70, 69, -200, 84" />
+      <rectf name="PercRect" value="0, 0.0, 1.0, 0.0" />      
+      <int name="ScrolledLines" value="0" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_owner_text" id="ControlManager" />
+    </bindings>    
+  </element>   
+  <!-- Set Base Name Button -->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="controlButtonSetName" />
+      <string name="TextID" value="id_buttonsetname" />
+      <int name="Id" value="100" />
+      <string name="Caption" value="Set Name..." />
+	  <rect name="Rect" value="8, 8, 108, 31" />	  
+	  <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />	
+      <string name="ToolTip" value="Set the station name."/>		  
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnSetName" id="ControlManager" />
+    </bindings>
+  </element>
+  <!-- Add Trade Good Button -->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="controlButtonAddTradeGood" />
+      <string name="TextID" value="id_addtradegood" />
+      <int name="Id" value="102" />
+      <string name="Caption" value="Add Trade Good..." />
+	  <rect name="Rect" value="8, 36, 108, 59" />	  
+	  <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+      <string name="ToolTip" value="Add trade goods to your station trade bay."/>	  
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnAddTradeGood" id="ControlManager" />
+    </bindings>
+  </element>  
+  <!-- Set Base Description Button -->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="controlButtonSetDescription" />
+      <string name="TextID" value="id_buttonsetdescription" />
+      <int name="Id" value="101" />
+      <string name="Caption" value="Set Description..." />
+      <rect name="Rect" value="-104, 8, 104, 31" />
+      <rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+      <string name="ToolTip" value="Set the station description."/>	  
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnSetDescription" id="ControlManager" />
+    </bindings>
+  </element>
+  <!-- Set Team Ownership Button -->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="controlButtonTeamBase" />
+      <string name="TextID" value="id_maketeambase" />
+      <int name="Id" value="111" />
+      <string name="Caption" value="Toggle Team" />
+      <rect name="Rect" value="-104, 36, 104, 59" />
+	  <rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+	  <string name="ToolTip" value="Set the station team ownership, required to own a team galaxy."/>
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnTeamBase" id="ControlManager" />
+      <!--<slot name="setText" signal="button_teambase_text" id="ControlManager" />-->
+    </bindings>
+  </element>
+  <!-- Blank Base Button -->
+  <!--
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="controlButtonuserbaseNone" />
+      <int name="Id" value="501" />
+      <string name="Caption" value="" />
+      <rect name="Rect" value="4, 8, 104, 31" />
+      <rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+      <string name="ToolTip" value=""/>	 
+      <bool name="Enabled" value="false" />
+    </attributes>
+    <bindings>
+    </bindings>
+  </element>  
+  -->
+  <!-- Export Log Button -->
+  <!-- Removed due to new ctrl+c commands 
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="controlButtonUserBaseExportLog" />
+      <int name="Id" value="502" />
+      <string name="Caption" value="Export Log" />
+      <rect name="Rect" value="4, 36, 104, 59" />
+      <rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+      <string name="ToolTip" value="Export your station log."/>	  
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="toggleVisibility" id="controlDialogLog"/>
+    </bindings>
+  </element>
+  -->
+  <!-- Transfer Money From Base Button -->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="controlButtonTransferFromBase" />
+      <string name="TextID" value="id_transferfrombase" />
+      <int name="Id" value="112" />
+      <string name="Caption" value="Transfer Money To Ship..." />
+      <rect name="Rect" value="-108, 8, -8, 31" />	  
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />	
+      <string name="ToolTip" value="Transfer credits to your ship."/>	  
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnXferFromBase" id="ControlManager" />
+    </bindings>
+  </element>
+  <!-- Transfer Money To Base Button -->
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="controlButtonMoneyToBase" />
+      <string name="TextID" value="id_moneytobase" />
+      <int name="Id" value="104" />
+      <string name="Caption" value="Transfer Money To Station..." />
+      <rect name="Rect" value="-108, 36, -8, 59" />	
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <string name="ToolTip" value="Give credits to this station."/>
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnXferMoney" id="ControlManager" />
+    </bindings>
+  </element>   
+  <!-- Shield Bar -->
+  <element type="progressbar">
+    <attributes>
+      <string name="IdName" value="userbaseShieldProgress" />
+      <rect name="Rect" value="8, 92, -4, 114" />
+      <rectf name="PercRect" value="0.0, 0.0, 0.5, 0.0" />
+      <bool name="Dynamic" value="true" />
+      <int name="IconWidth" value="22" />
+      <string name="ToolTip" value="Station Shield"/>
+    </attributes>
+    <bindings>
+      <slot name="setValue" signal="controlShieldsFraction" id="ControlManager" />
+    </bindings>
+    <!-- Shield Icon -->
+    <element type="customImage">
+      <attributes>
+        <rect name="Rect" value="4, 3, 18, 17" />
+        <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />		
+        <texture name="Texture" value="UI/Images/Items/iconsmall/Shield.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <string name="ToolTip" value="Station Shield"/>
+      </attributes>
+    </element> 	
+    <!-- Base Static Shields -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="controlStaticShields" />
+        <string name="TextID" value="" />
+        <int name="Id" value="105" />
+        <string name="Caption" value="0" />
+        <rect name="Rect" value="24, 2, -8, -2" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <int name="ScrolledLines" value="0" />
+        <string name="ToolTip" value="Station Shield"/>
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_shields_text" id="ControlManager" />
+      </bindings>
+    </element>	
+    <!-- Base Static Shields SPS -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="controlStaticShieldsSPS" />
+        <string name="TextID" value="" />
+        <int name="Id" value="105" />
+        <string name="Caption" value="0" />
+        <rect name="Rect" value="-100, 2, -8, -2" />
+        <rectf name="PercRect" value="1.0, 0.0, 1.0, 1.0" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="center" />
+		<string name="ToolTip" value="Shield Per Second"/>
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_shields_tooltip" id="ControlManager" />
+      </bindings>
+    </element>
+  </element>   
+  
+  <!-- Juice/Energy Bar -->
+  <element type="progressbar">
+    <attributes>
+      <string name="IdName" value="userbaseJuiceProgress" />
+      <rect name="Rect" value="8, 119, -4, 141" />
+      <rectf name="PercRect" value="0.0, 0.0, 0.5, 0.0" />
+      <bool name="Dynamic" value="true" />
+      <int name="IconWidth" value="22" />
+      <string name="ToolTip" value="Station Energy"/>
+    </attributes>
+    <bindings>
+      <slot name="setValue" signal="controlJuiceFraction" id="ControlManager" />
+    </bindings>
+    <!-- Energy Icon -->
+    <element type="customImage">
+      <attributes>
+        <rect name="Rect" value="4, 3, 18, 17" />
+        <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />		
+        <texture name="Texture" value="UI/Images/Items/iconsmall/Energy.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <string name="ToolTip" value="Station Energy"/>
+      </attributes>
+    </element> 	
+    <!-- Base Static Juice/Energy -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="controlStaticJuice" />
+        <string name="TextID" value="" />
+        <int name="Id" value="105" />
+        <string name="Caption" value="0" />
+        <rect name="Rect" value="24, 2, -8, -2" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <int name="ScrolledLines" value="0" />
+        <string name="ToolTip" value="Station Energy"/>
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_juice_text" id="ControlManager" />
+      </bindings>
+    </element>	
+    <!-- Base Static Juice/Energy EPS -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="controlStaticJuiceEPS" />
+        <string name="TextID" value="" />
+        <int name="Id" value="105" />
+        <string name="Caption" value="0" />
+        <rect name="Rect" value="-100, 2, -8, -2" />
+        <rectf name="PercRect" value="1.0, 0.0, 1.0, 1.0" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="center" />
+        <string name="ToolTip" value="Energy Per Second"/>
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_juice_tooltip" id="ControlManager" />
+      </bindings>
+    </element>
+  </element>
+  
+  <!-- Workforce Bar -->
+  <element type="progressbar">
+    <attributes>
+      <string name="IdName" value="userbaseWorkforceProgress" />
+      <rect name="Rect" value="4, 92, -8, 114" />
+      <rectf name="PercRect" value="0.5, 0.0, 1.0, 0.0" />
+      <bool name="Dynamic" value="true" />
+      <int name="IconWidth" value="22" />
+      <string name="ToolTip" value="Station Workforce"/>
+    </attributes>
+    <bindings>
+      <slot name="setValue" signal="controlWorkforceFraction" id="ControlManager" />
+    </bindings>
+    <!-- Workforce Icon -->
+    <element type="customImage">
+	  <attributes>
+	    <rect name="Rect" value="4, 4, 18, 18" />
+	    <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />		
+	    <texture name="Texture" value="UI/Images/Items/iconsmall/workforce.png" />
+	    <bool name="UseAlphaChannel" value="true" />
+      <string name="ToolTip" value="Station Workforce"/>
+	  </attributes>
+    </element> 	
+    <!-- Base Static Workforce -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="controlStaticWorkforce" />
+        <string name="TextID" value="" />
+        <int name="Id" value="105" />
+        <string name="Caption" value="0" />
+        <rect name="Rect" value="24, 2, -8, -2" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <int name="ScrolledLines" value="0" />
+        <string name="ToolTip" value="Station Workforce"/>
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_workforce_text" id="ControlManager" />
+      </bindings>
+    </element>	
+    <!-- Base Static Workforce -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="controlStaticWorkforceFree" />
+        <string name="TextID" value="" />
+        <int name="Id" value="105" />
+        <string name="Caption" value="0" />
+        <rect name="Rect" value="-100, 2, -8, -2" />
+        <rectf name="PercRect" value="1.0, 0.0, 1.0, 1.0" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="center" />
+        <string name="ToolTip" value="Station Workforce Available"/>
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_workforce_tooltip" id="ControlManager" />
+      </bindings>
+    </element>
+  </element>  
+  <!-- Hullspace/InternalSpace Bar -->
+  <element type="progressbar">
+    <attributes>
+      <string name="IdName" value="userbaseInternalSpaceProgress" />
+      <rect name="Rect" value="4, 119, -8, 141" />
+      <rectf name="PercRect" value="0.5, 0.0, 1.0, 0.0" />
+      <bool name="Dynamic" value="true" />
+      <int name="IconWidth" value="22" />
+      <string name="ToolTip" value="Station Cargo Hold"/>
+    </attributes>
+    <bindings>
+      <slot name="setValue" signal="controlInternalspaceFraction" id="ControlManager" />
+    </bindings>
+    <!-- Hullspace/InternalSpace Icon -->
+    <element type="customImage">
+      <attributes>
+        <rect name="Rect" value="4, 3, 18, 17" />
+        <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />		
+        <texture name="Texture" value="UI/Images/Items/iconsmall/Hullspace.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <string name="ToolTip" value="Station Cargo Hold"/>
+      </attributes>
+    </element> 	
+    <!-- Base Static Hullspace/InternalSpace -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="controlStaticInternalSpace" />
+        <string name="TextID" value="" />
+        <int name="Id" value="105" />
+        <string name="Caption" value="0" />
+        <rect name="Rect" value="24, 2, -8, -2" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <int name="ScrolledLines" value="0" />
+        <string name="ToolTip" value="Station Cargo Hold"/>
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_internalspace_text" id="ControlManager" />
+      </bindings>
+    </element>	
+    <!-- Base Static Hullspace/InternalSpace -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="controlStaticInternalSpaceFree" />
+        <string name="TextID" value="" />
+        <int name="Id" value="105" />
+        <string name="Caption" value="0" />
+        <rect name="Rect" value="-100, 2, -8, -2" />
+        <rectf name="PercRect" value="1.0, 0.0, 1.0, 1.0" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="center" />
+        <string name="ToolTip" value="Station Cargo Hold Free"/>
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_internalspace_tooltip" id="ControlManager" />
+      </bindings>
+    </element>
+  </element>
+  <!-- Docking Priviliges -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="TextID" value="id_dockingpriviliges" />
+        <rect name="Rect" value="8, 142, 165, 158" />
+        <enum name="HTextAlign" value="center" />
+        <enum name="VTextAlign" value="center" />
+        <string name="ToolTip" value="Docking privileges permit who can dock at this station."/>
+      </attributes>
+    </element>
+    <element type="customComboBox">
+      <attributes>
+        <string name="IdName" value="controlComboDockingPrivs" />
+        <string name="TextID" value="" />
+        <int name="Id" value="109" />
+        <rect name="Rect" value="8, 158, 165, 181" />
+        <bool name="DisableMouseWheel" value="true" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="combo_dockingprivs_text" id="ControlManager" />
+        <signal name="item_selected_index" slot="OnSelchangeDockingPrivs" id="ControlManager" />
+        <slot name="setSelectedIndex" signal="combo_dockingprivs_selected" id="ControlManager" />
+      </bindings>
+    </element>
+  <!-- /Docking Priviliges -->
+  
+  <!-- Construction Priviliges -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="TextID" value="id_constructpriviliges" />
+        <rect name="Rect" value="-80, 142, 80, 158" />
+        <rectf name="PercRect" value="0.5, 0, 0.5, 0" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="center" />
+        <enum name="VTextAlign" value="center" />
+        <string name="ToolTip" value="Construction privileges permit who can build in this station."/>
+      </attributes>
+    </element>
+    <element type="customComboBox">
+      <attributes>
+        <string name="IdName" value="controlComboConstructPrivs" />
+        <string name="TextID" value="" />
+        <int name="Id" value="109" />
+        <rect name="Rect" value="-80, 158, 80, 181" />
+        <rectf name="PercRect" value="0.5, 0, 0.5, 0" />
+        <bool name="DisableMouseWheel" value="true" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="combo_constructprivs_text" id="ControlManager" />
+        <signal name="item_selected_index" slot="OnSelchangeConstructPrivs" id="ControlManager" />
+        <slot name="setSelectedIndex" signal="combo_constructprivs_selected" id="ControlManager" />
+      </bindings>
+    </element>
+  <!-- /Construction Priviliges -->
+
+
+  <!-- Management Priviliges -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="TextID" value="id_managepriviliges" />
+        <rect name="Rect" value="-164, 142, -8, 158" />
+        <rectf name="PercRect" value="1, 0, 1, 0" />
+        <int name="ScrolledLines" value="0" />
+        <enum name="HTextAlign" value="center" />
+        <enum name="VTextAlign" value="center" />
+        <string name="ToolTip" value="Management privileges permit who can gain access to the Control panel in this station."/>
+      </attributes>
+    </element>
+    <element type="customComboBox">
+      <attributes>
+        <string name="IdName" value="controlComboManagePrivs" />
+        <string name="TextID" value="" />
+        <int name="Id" value="109" />
+        <rect name="Rect" value="-164, 158, -8, 181" />
+        <rectf name="PercRect" value="1, 0, 1, 0" />
+        <bool name="DisableMouseWheel" value="true" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="combo_manageprivs_text" id="ControlManager" />
+        <signal name="item_selected_index" slot="OnSelchangeManagePrivs" id="ControlManager" />
+        <slot name="setSelectedIndex" signal="combo_manageprivs_selected" id="ControlManager" />
+      </bindings>
+    </element>
+  <!-- /Management Priviliges -->
+
+  <element type="customTable">
+    <attributes>
+      <string name="IdName" value="controlTableBaseLog" />
+      <string name="TextID" value="" />
+      <int name="Id" value="113" />
+      <rectf name="PercRect" value="0, 0, 1, 1" />
+      <rect name="Rect" value="8, 184, -8, -13" />
+      <int name="ColumnCount" value="2" />
+      <string name="Column0name" value="Time" />
+      <color name="Column0color" value="ffb7f9ff" />
+      <int name="Column0width" value="75" />
+      <enum name="Column0OrderingMode" value="" />
+      <string name="Column1name" value="Event" />
+      <color name="Column1color" value="ffb7f9ff" />
+      <int name="Column1width" value="388" />
+      <enum name="Column1OrderingMode" value="" />
+      <bool name="ResizableColumns" value="false" />
+      <int name="DrawFlags" value="0" />
+      <bool name="DrawBack" value="true" />
+      <bool name="UseOverrideBgColor" value="true" />
+      <color name="OverrideBgColor" value="8F000000" />
+      <bool name="AutoScroll" value="true" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="table_baselog_text" id="ControlManager" />
+    </bindings>
+  </element>
+
+</element>

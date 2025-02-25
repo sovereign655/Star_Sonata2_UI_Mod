@@ -1,0 +1,60 @@
+	<element type="customWindow">
+		<attributes>
+			<string name="IdName" value="blackBoxDialog" />
+			<rect name="Rect" value="150, 150, 750, 453" />
+			<position name="MinSize" value="250, 100" />
+			<position name="MaxSize" value="1000, 600" />
+			<int name="Flags" value="0" />
+			<bool name="Movable" value="true" />
+			<int name="BorderStyle" value="2" />
+			<int name="ResizeBorderWidth" value="5" />
+			<bool name="BottomResizable" value="true" />
+			<bool name="RightResizable" value="true" />
+			<bool name="Visible" value="false" />
+			<bool name="KeepOnScreen" value="true" />					
+		</attributes>
+		<bindings>
+			<signal name="revealed" slot="bringToTop" id="blackBoxDialog" />					
+			<slot name="setVisible" signal="dialog_blackbox_visible" id="BlackBoxManager" />
+		</bindings>		
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="blackBoxButtonOk" />			
+			<int name="Id" value="15" />
+			<string name="Caption" value="Ok" />
+			<rect name="Rect" value="10, -30, 120, -5" />
+			<rectf name="PercRect" value="0, 1, 0, 1" />
+		</attributes>
+		<bindings>
+				<signal name="button_clicked" slot="CloseBlackBox" id="BlackBoxManager" />
+		</bindings>
+	</element>
+
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="blackBoxButtonCopy" />
+        <int name="Id" value="15" />
+        <string name="Caption" value="Copy" />
+        <rect name="Rect" value="-120, -30, -10, -5" />
+        <rectf name="PercRect" value="1, 1, 1, 1" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="CopyBlackBox" id="BlackBoxManager" />
+      </bindings>
+    </element>
+    
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="BlackBoxStaticText" />
+				<rect name="Rect" value="5, 5, -5, -33" />
+				<rectf name="PercRect" value="0, 0, 1, 1" />
+				<bool name="Border" value="true" />
+				<bool name="AutoScroll" value="true" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_blackbox_text" id="BlackBoxManager" />
+			</bindings>
+		</element>
+
+	</element>

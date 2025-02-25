@@ -1,0 +1,114 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="stationDialog" />
+    <rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+    <rect name="Rect" value="-260, -280, 260, 280" />
+    <position name="MinSize" value="520, 560" />
+    <position name="MaxSize" value="1500, 1000" />
+    <int name="Flags" value="0" />
+    <bool name="Movable" value="true" />
+    <int name="BorderStyle" value="2" />
+    <int name="ResizeBorderWidth" value="5" />
+    <bool name="BottomResizable" value="true" />
+    <bool name="RightResizable" value="true" />
+    <bool name="Visible" value="false" />
+    <bool name="KeepOnScreen" value="true" />
+  </attributes>
+  <bindings>
+    <!-- signal name="hidden" slot="OnUndock" id="StationManager" / -->
+    <slot name="setVisible" signal="dialog_visible" id="StationManager" />
+    <slot name="setVisible" signal="station_dialog_visible" id="ConnectManager" />
+    <slot name="setText" signal="dialog_text" id="StationManager" />
+    <signal name="hidden" slot="OnHideProps" id="ControlManager" />
+  </bindings>
+  <element type="customImage">
+    <attributes>
+      <rect name="Rect" value="10, 20, 246, 52" />
+      <texture name="Texture" value="UI/Images/Dialogs/stationheader.png" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+  </element>
+  <element type="customImage">
+    <attributes>
+      <rect name="Rect" value="250, 20, 282, 52" />
+      <texture name="Texture" value="UI/Images/Icons/warning.png" />
+      <bool name="ScaleImage" value="false" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Visible" value="false" />
+      <string name="ToolTip" value="Warning! This station will self destruct if destroyed!"/>
+    </attributes>
+    <bindings>
+      <slot name="setVisible" signal="show_userbase_perm_destroy" id="StationManager"/>
+    </bindings>    
+  </element>
+  
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="generalButtonViewSkins" />
+      <string name="TextID" value="" />
+      <int name="Id" value="19" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="-164, 11, -91, 59" />
+      <texture name="Image" value="UI/Images/Buttons/barfbutton.png" />
+      <rect name="ImageRect" value="0, 0, 73, 48" />
+      <texture name="PressedImage" value="UI/Images/Buttons/barfbuttonD.png" />
+      <rect name="PressedImageRect" value="0, 0, 73, 48" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnViewShipSkins" id="GeneralPropManager"/>
+      <slot name="setEnabled" signal="button_skins_enabled" id="GeneralPropManager"/>
+      <slot name="setToolTipText" signal="button_skins_tooltip" id="GeneralPropManager"/>
+    </bindings>
+  </element>
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="stationButtonUndock" />
+      <string name="TextID" value="" />
+      <int name="Id" value="20" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="-81, 11, -8, 59" />
+      <texture name="Image" value="UI/Images/Dialogs/undockbutton.png" />
+      <rect name="ImageRect" value="0, 0, 73, 48" />
+      <texture name="PressedImage" value="UI/Images/Dialogs/undockbuttonD.png" />
+      <rect name="PressedImageRect" value="0, 0, 73, 48" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnUndock" id="StationManager" />
+    </bindings>
+  </element>
+  <element type="customTabControl">
+    <attributes>
+      <string name="IdName" value="stationTabProperties" />
+      <string name="TextID" value="" />
+      <int name="Id" value="21" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="13, 62, -13, 97" />
+    </attributes>
+    <bindings>
+      <signal name="item_selected_text" slot="OnTabChanged" id="StationManager" />
+      <slot name="setText" signal="tab_text" id="StationManager" />
+    </bindings>
+    <element type="customButton">
+      <attributes>
+        <string name="TextID" value="" />
+        <rect name="Rect" value="36, 1, 68, 33" />
+        <bool name="Visible" value="false" />
+        <int name="TabOrder" value="2" />
+      </attributes>
+    </element>
+    <element type="customButton">
+      <attributes>
+        <string name="TextID" value="" />
+        <rect name="Rect" value="68, 1, 100, 33" />
+        <bool name="Visible" value="false" />
+        <int name="TabOrder" value="2" />
+      </attributes>
+    </element>
+  </element>
+</element>

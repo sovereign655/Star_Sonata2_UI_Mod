@@ -1,0 +1,1097 @@
+<element type="customModalScreen">
+  <attributes>
+    <string name="IdName" value="connectionDialog" />
+    <color name="ModalBGColor" value="00ffffff" />
+  </attributes>
+  <bindings>
+    <signal name="created" slot="LoadOptions" id="ConnectManager" />
+    <signal name="created" slot="makeFocus"   id="connectionEditLogin" />
+  </bindings>
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="windowRestoreConnect" />
+      <int name="Id" value="77" />
+      <bool name="Visible" value="false" />
+      <rect name="Rect" value="-18, 12, -2, 28" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <texture name="Image" value="UI/Images/Buttons/restorebutton_up.png" />
+      <texture name="PressedImage" value="UI/Images/Buttons/restorebutton_down.png" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="OnWindowRestore" id="GameManager"/>
+      <slot name="setVisible" signal="windowrestorebutton_visible" id="GameManager" />
+    </bindings>
+  </element>
+
+  <element type="customWindow">
+    <attributes>
+      <int name="Flags" value="0" />
+      <int name="ResizeBorderWidth" value="0" />
+      <rect name="Rect" value="-512, -288, 512, 288" />
+      <rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+      <color name="WindowBackgroundColor" value="80100e73" />
+    </attributes>
+
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rect name="Rect" value="44, 32, 644, 135" />
+        <texture name="Texture" value="UI/Images/Dialogs/connection_dialog_logo.png" />
+        <bool name="ScaleImage" value="false" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+
+    <!-- Start Legacy Login-->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="legacyLoginContainer" />
+        <string name="Caption" value="" />
+        <rect name="Rect" value="0, 0, 0, 0" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <bool name="Visible" value="false" />
+      </attributes>
+      <bindings>
+        <slot name="setVisible" signal="static_legacyLogin_visible" id="ConnectManager" />
+      </bindings>
+
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="connectionButtonConnect" />
+          <!--<string name="TextID" value="id_connect" />-->
+          <int name="Id" value="15" />
+          <rect name="Rect" value="355, 240, 675, 343" />
+          <texture name="Image" value="UI/Images/Dialogs/Connect.png" />
+          <rect name="ImageRect" value="0, 0, 320, 103" />
+          <texture name="PressedImage" value="UI/Images/Dialogs/ConnectH.png" />
+          <rect name="PressedImageRect" value="0, 0, 320, 103" />
+            <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <bool name="TabStop" value="false" />
+        </attributes>
+        <bindings>
+          <slot name="setVisible" signal="set_connect_visible" id="ConnectManager" />
+          <signal name="button_clicked" slot="Connect" id="ConnectManager" />
+          <!--<slot name="setText" signal="button_connect_text" id="ConnectManager" />-->
+        </bindings>
+      </element>
+
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="connectionButtonConnecting" />
+          <!--<string name="TextID" value="id_connect" />-->
+          <int name="Id" value="15" />
+          <rect name="Rect" value="355, 240, 675, 343" />
+          <texture name="Image" value="UI/Images/Dialogs/Connecting.png" />
+          <rect name="ImageRect" value="0, 0, 320, 103" />
+          <texture name="PressedImage" value="UI/Images/Dialogs/ConnectingH.png" />
+          <rect name="PressedImageRect" value="0, 0, 320, 103" />
+            <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <bool name="TabStop" value="false" />
+          <bool name="Visible" value="false" />
+        </attributes>
+        <bindings>
+          <slot name="setVisible" signal="set_connecting_visible" id="ConnectManager" />
+          <signal name="button_clicked" slot="Connect" id="ConnectManager" />
+          <!--<slot name="setText" signal="button_connect_text" id="ConnectManager" />-->
+        </bindings>
+      </element>
+
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="connectionStaticEditLog" />
+          <rect name="Rect" value="400, 355, 632, 567" />
+          <bool name="Border" value="false" />
+          <bool name="AutoScroll" value="true" />
+        </attributes>
+        <bindings>
+          <slot name="setText" signal="static_log_text" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="connectionStaticLogin" />
+          <string name="TextID" value="id_login" />
+          <int name="Id" value="17" />
+          <string name="Caption" value="Login" />
+          <rect name="Rect" value="24, 263, 209, 286" />
+          <enum name="VTextAlign" value="lowerRight" />
+        </attributes>
+        <bindings>
+          <slot name="setVisible" signal="static_login_visible" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="connectionStaticPassword" />
+          <string name="TextID" value="id_password" />
+          <int name="Id" value="18" />
+          <string name="Caption" value="Password" />
+          <rect name="Rect" value="24, 294, 209, 317" />
+          <enum name="VTextAlign" value="lowerRight" />
+        </attributes>
+        <bindings>
+          <slot name="setVisible" signal="static_password_visible" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customEditBox">
+        <attributes>
+          <string name="IdName" value="connectionEditLogin" />
+          <string name="TextID" value="" />
+          <int name="Id" value="19" />
+          <bool name="TabStop" value="true" />
+          <int name="TabOrder" value="1" />
+          <rect name="Rect" value="78, 263, 202, 286" />
+        </attributes>
+        <bindings>
+          <signal name="value_changed" slot="LoginChanged" id="ConnectManager" />
+          <signal name="value_entered" slot="Connect" id="ConnectManager" />
+          <slot name="setVisible" signal="edit_login_visible" id="ConnectManager" />
+          <slot name="setEnabled" signal="edit_login_enabled" id="ConnectManager" />
+          <slot name="setText" signal="edit_login_text" id="ConnectManager" />
+          <slot name="focus" signal="edit_login_text" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customEditBox">
+        <attributes>
+          <string name="IdName" value="connectionEditPassword" />
+          <string name="TextID" value="" />
+          <int name="Id" value="20" />
+          <int name="TabOrder" value="2" />
+          <rect name="Rect" value="78, 294, 202, 317" />
+          <bool name="PasswordBox" value="true" />
+          <bool name="TabStop" value="true" />
+        </attributes>
+        <bindings>
+          <signal name="value_changed" slot="PasswordChanged" id="ConnectManager" />
+          <signal name="value_entered" slot="Connect" id="ConnectManager" />
+          <slot name="setEnabled" signal="edit_password_enabled" id="ConnectManager" />
+          <slot name="setVisible" signal="edit_password_visible" id="ConnectManager" />
+          <slot name="setText" signal="edit_password_text" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customCheckBox">
+        <attributes>
+          <string name="IdName" value="checkSavePw" />
+          <string name="TextID" value="id_rememberpassword" />
+          <int name="Id" value="21" />
+          <string name="Caption" value="Remember Password" />
+          <rect name="Rect" value="216, 294, 350, 317" />
+          <bool name="TabStop" value="false" />
+        </attributes>
+        <bindings>
+          <signal name="value_changed" slot="SavePWChanged" id="ConnectManager" />
+          <slot name="setEnabled" signal="check_save_pw_enabled" id="ConnectManager" />
+          <slot name="setVisible" signal="check_save_pw_visible" id="ConnectManager" />
+          <slot name="setValue" signal="check_save_pw_checked" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="connectionButtonNewAccount" />
+          <string name="TextID" value="id_newaccount" />
+          <int name="Id" value="28" />
+          <string name="Caption" value="New Account" />
+          <rect name="Rect" value="233, 263, 316, 286" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="NewAccount" id="ConnectManager" />
+          <slot name="setVisible" signal="button_new_account_visible" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <!-- Start Server Status Box-->
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="server_status_box" />
+          <string name="Caption" value="" />
+          <rect name="Rect" value="8, 385, 347, 477" />
+          <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+          <bool name="Visible" value="true" />
+          <bool name="Background" value="true" />
+          <bool name="OverrideBgColorEnabled" value="true" />
+          <color name="OverrideBgColor" value="55000000" />
+        </attributes>
+        <bindings>
+          <!--<slot name="setVisible" signal="static_legacyLogin_visible" id="ConnectManager" />-->
+        </bindings>
+
+        <element type="customImage">
+          <attributes>
+            <string name="IdName" value="server_status_icon" />
+            <string name="TextID" value="" />
+            <rect name="Rect" value="0, -32, 64, 32" />
+            <rectf name="PercRect" value="0.0, 0.5, 0.0, 0.5" />
+            <texture name="Texture" value="UI/Images/Dialogs/bot_status_yellow.png" />
+            <bool name="ScaleImage" value="false" />
+            <bool name="UseAlphaChannel" value="true" />
+            <string name="ToolTip" value="Server Status" />
+          </attributes>
+          <bindings>
+            <slot name="loadImage" signal="static_server_status_icon" id="ConnectManager" />
+          </bindings>
+        </element>
+
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="server_status_text" />
+            <int name="Id" value="17" />
+            <string name="Caption" value="loading..." />
+            <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+            <rect name="Rect" value="64, 0, 0, 0" />
+            <enum name="VTextAlign" value="center" />
+            <enum name="HTextAlign" value="center" />
+            <enum name="Font" value="largeBoldFont" />
+          </attributes>
+          <bindings>
+            <slot name="setText" signal="static_server_status_text" id="ConnectManager" />
+            <slot name="setVisible" signal="static_server_status_text_visible" id="ConnectManager" />
+          </bindings>
+        </element>
+
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="server_status_text_long" />
+            <int name="Id" value="17" />
+            <string name="Caption" value="loading..." />
+            <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+            <rect name="Rect" value="64, 0, 0, 0" />
+            <enum name="VTextAlign" value="upperLeft" />
+            <enum name="HTextAlign" value="center" />
+            <enum name="Font" value="mediumBoldFont" />
+            <bool name="Visible" value="false" />
+            <bool name="AutoScroll" value="true" />
+          </attributes>
+          <bindings>
+            <slot name="setText" signal="static_server_status_text" id="ConnectManager" />
+            <slot name="setVisible" signal="static_server_status_text_long_visible" id="ConnectManager" />
+          </bindings>
+        </element>
+
+      </element>
+      <!-- End Server Status Box-->
+
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="switchLoginMode" />
+          <int name="Id" value="28" />
+          <string name="Caption" value="Switch to Steam Login" />
+          <rect name="Rect" value="78, 485, 261, 507" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="ToggleLoginMode" id="ConnectManager" />
+          <slot name="setVisible" signal="button_toggleLoginMode_visible" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customComboBox">
+        <attributes>
+          <string name="IdName" value="connectionServerDropdown" />
+          <rect name="Rect" value="78, 325, 225, 347" />
+          <int name="TabOrder" value="3" />
+        </attributes>
+        <bindings>
+          <signal name="item_selected_index" slot="SetServerDropdown" id="ConnectManager" />
+          <slot name="setEnabled" signal="edit_serverdropdown_enabled" id="ConnectManager" />
+          <slot name="setSelectedIndex" signal="combo_serverdropdown_selected" id="ConnectManager" />
+          <slot name="setText" signal="combo_serverdropdown_text" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customEditBox">
+        <attributes>
+          <string name="IdName" value="connectionEditHost" />
+          <string name="TextID" value="" />
+          <int name="Id" value="23" />
+          <rect name="Rect" value="78, 355, 225, 377" />
+          <int name="TabOrder" value="4" />
+          <bool name="TabStop" value="true" />
+        </attributes>
+        <bindings>
+          <signal name="value_entered" slot="Connect" id="ConnectManager" />
+          <signal name="value_changed" slot="HostChanged" id="ConnectManager" />
+          <signal name="focus_lost" slot="HostUnfocused" id="ConnectManager" />
+          <slot name="setEnabled" signal="edit_host_enabled" id="ConnectManager" />
+          <!--slot name="setVisible" signal="edit_host_visible" id="ConnectManager" />-->
+          <slot name="setText" signal="edit_host_text" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customEditBox">
+        <attributes>
+          <string name="IdName" value="connectionEditPort" />
+          <string name="TextID" value="" />
+          <int name="Id" value="24" />
+          <rect name="Rect" value="237, 355, 297, 377" />
+          <int name="TabOrder" value="5" />
+          <bool name="TabStop" value="true" />
+        </attributes>
+
+        <bindings>
+          <signal name="value_entered" slot="Connect" id="ConnectManager" />
+          <signal name="value_changed" slot="PortChanged" id="ConnectManager" />
+          <slot name="setEnabled" signal="edit_port_enabled" id="ConnectManager" />
+          <slot name="setText" signal="edit_port_text" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="connectionStaticServer" />
+          <string name="TextID" value="id_server" />
+          <int name="Id" value="25" />
+          <string name="Caption" value="Server" />
+          <rect name="Rect" value="24, 325, 65, 347" />
+          <enum name="VTextAlign" value="lowerRight" />
+          <string name="ToolTip" value="Choose a server to connect to. Liberty is the main game server." />
+        </attributes>
+        <bindings>
+          <!--<slot name="setVisible" signal="static_server_visible" id="ConnectManager" />-->
+        </bindings>
+      </element>
+
+    </element>
+    <!-- End Legacy Login-->
+
+    <!-- Start Steam Login-->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="steamLoginContainer" />
+        <string name="Caption" value="" />
+        <rect name="Rect" value="0, 0, 702, 0" />
+        <rectf name="PercRect" value="0.0, 0.0, 0.0, 1.0" />
+        <bool name="Visible" value="true" />
+      </attributes>
+      <bindings>
+        <slot name="setVisible" signal="static_steamLogin_visible" id="ConnectManager" />
+      </bindings>
+
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="connectionButtonConnect_steam" />
+          <!--<string name="TextID" value="id_connect" />-->
+          <int name="Id" value="15" />
+          <rect name="Rect" value="355, 240, 675, 343" />
+          <texture name="Image" value="UI/Images/Dialogs/Connect.png" />
+          <rect name="ImageRect" value="0, 0, 320, 103" />
+          <texture name="PressedImage" value="UI/Images/Dialogs/ConnectH.png" />
+          <rect name="PressedImageRect" value="0, 0, 320, 103" />
+            <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <bool name="TabStop" value="false" />
+        </attributes>
+        <bindings>
+          <slot name="setVisible" signal="set_steam_connect_visible" id="ConnectManager" />
+          <signal name="button_clicked" slot="PressedSteamLogin" id="ConnectManager" />
+          <!--<slot name="setText" signal="button_connect_text" id="ConnectManager" />-->
+        </bindings>
+      </element>
+
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="connectionButtonConnecting_steam" />
+          <!--<string name="TextID" value="id_connect" />-->
+          <int name="Id" value="15" />
+          <rect name="Rect" value="355, 240, 675, 343" />
+          <texture name="Image" value="UI/Images/Dialogs/Connecting.png" />
+          <rect name="ImageRect" value="0, 0, 320, 103" />
+          <texture name="PressedImage" value="UI/Images/Dialogs/ConnectingH.png" />
+          <rect name="PressedImageRect" value="0, 0, 320, 103" />
+            <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <bool name="TabStop" value="false" />
+          <bool name="Visible" value="false" />
+        </attributes>
+        <bindings>
+          <slot name="setVisible" signal="set_connecting_visible" id="ConnectManager" />
+          <signal name="button_clicked" slot="PressedSteamLogin" id="ConnectManager" />
+          <!--<slot name="setText" signal="button_connect_text" id="ConnectManager" />-->
+        </bindings>
+      </element>
+
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="connectionStaticEditLog_steam" />
+          <rect name="Rect" value="400, 355, 632, 567" />
+          <bool name="Border" value="false" />
+          <bool name="AutoScroll" value="true" />
+        </attributes>
+        <bindings>
+          <slot name="setText" signal="static_log_text" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="connectionStaticLogin_steam" />
+          <int name="Id" value="17" />
+          <string name="Caption" value="Steam ID:" />
+          <rect name="Rect" value="24, 263, 209, 286" />
+          <enum name="VTextAlign" value="lowerRight" />
+        </attributes>
+      </element>
+
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="connectionStaticSteamID" />
+          <int name="Id" value="17" />
+          <string name="Caption" value="loading..." />
+          <rect name="Rect" value="78, 263, 202, 286" />
+          <enum name="VTextAlign" value="lowerRight" />
+          <enum name="Font" value="mediumBoldFont" />
+        </attributes>
+        <bindings>
+          <slot name="setText" signal="static_SteamName" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="connectionStaticAccount_steam" />
+          <int name="Id" value="18" />
+          <string name="Caption" value="Account" />
+          <rect name="Rect" value="24, 294, 209, 317" />
+          <enum name="VTextAlign" value="lowerRight" />
+        </attributes>
+        <bindings>
+          <slot name="setVisible" signal="static_accountSelector_visible" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customComboBox">
+        <attributes>
+          <string name="IdName" value="connectionStaticAccountDropdown_steam" />
+          <rect name="Rect" value="78, 294, 225, 316" />
+          <int name="TabOrder" value="3" />
+        </attributes>
+        <bindings>
+          <signal name="item_selected_index" slot="SetAccountDropdown" id="ConnectManager" />
+          <slot name="setVisible" signal="static_accountSelector_visible" id="ConnectManager" />
+          <slot name="setText" signal="combo_accountdropdown_text" id="ConnectManager" />
+          <slot name="setSelectedIndex" signal="combo_accountdropdown_selected" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="connectionButtonNewAccount_steam" />
+          <string name="TextID" value="id_newaccount" />
+          <int name="Id" value="28" />
+          <string name="Caption" value="New Account" />
+          <rect name="Rect" value="233, 294, 316, 316" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="NewAccount" id="ConnectManager" />
+          <slot name="setVisible" signal="button_new_account_visible" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <!-- Start Server Status Box-->
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="server_status_box_steam" />
+          <string name="Caption" value="" />
+          <rect name="Rect" value="8, 385, 347, 477" />
+          <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+          <bool name="Visible" value="true" />
+          <bool name="Background" value="true" />
+          <bool name="OverrideBgColorEnabled" value="true" />
+          <color name="OverrideBgColor" value="55000000" />
+        </attributes>
+        <bindings>
+          <!--<slot name="setVisible" signal="static_legacyLogin_visible" id="ConnectManager" />-->
+        </bindings>
+
+        <element type="customImage">
+          <attributes>
+            <string name="IdName" value="server_status_icon_steam" />
+            <string name="TextID" value="" />
+            <rect name="Rect" value="0, -32, 64, 32" />
+            <rectf name="PercRect" value="0.0, 0.5, 0.0, 0.5" />
+            <texture name="Texture" value="UI/Images/Dialogs/bot_status_yellow.png" />
+            <bool name="ScaleImage" value="false" />
+            <bool name="UseAlphaChannel" value="true" />
+            <string name="ToolTip" value="Server Status" />
+          </attributes>
+          <bindings>
+            <slot name="loadImage" signal="static_server_status_icon" id="ConnectManager" />
+          </bindings>
+        </element>
+
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="server_status_text_steam" />
+            <int name="Id" value="17" />
+            <string name="Caption" value="loading..." />
+            <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+            <rect name="Rect" value="64, 0, 0, 0" />
+            <enum name="VTextAlign" value="center" />
+            <enum name="HTextAlign" value="center" />
+            <enum name="Font" value="largeBoldFont" />
+          </attributes>
+          <bindings>
+            <slot name="setText" signal="static_server_status_text" id="ConnectManager" />
+            <slot name="setVisible" signal="static_server_status_text_visible" id="ConnectManager" />
+          </bindings>
+        </element>
+
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="server_status_text_long_steam" />
+            <int name="Id" value="17" />
+            <string name="Caption" value="loading..." />
+            <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+            <rect name="Rect" value="64, 0, 0, 0" />
+            <enum name="VTextAlign" value="upperLeft" />
+            <enum name="HTextAlign" value="center" />
+            <enum name="Font" value="mediumBoldFont" />
+            <bool name="Visible" value="false" />
+            <bool name="AutoScroll" value="true" />
+          </attributes>
+          <bindings>
+            <slot name="setText" signal="static_server_status_text" id="ConnectManager" />
+            <slot name="setVisible" signal="static_server_status_text_long_visible" id="ConnectManager" />
+          </bindings>
+        </element>
+
+      </element>
+      <!-- End Server Status Box-->
+
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="switchLoginMode_steam" />
+          <int name="Id" value="28" />
+          <string name="Caption" value="Switch to Non-Steam Login" />
+          <rect name="Rect" value="78, 485, 261, 507" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="ToggleLoginMode" id="ConnectManager" />
+          <slot name="setVisible" signal="button_toggleLoginMode_visible" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customComboBox">
+        <attributes>
+          <string name="IdName" value="connectionServerDropdown_steam" />
+          <rect name="Rect" value="78, 325, 225, 347" />
+          <int name="TabOrder" value="3" />
+        </attributes>
+        <bindings>
+          <signal name="item_selected_index" slot="SetServerDropdown" id="ConnectManager" />
+          <slot name="setEnabled" signal="edit_serverdropdown_enabled" id="ConnectManager" />
+          <slot name="setSelectedIndex" signal="combo_serverdropdown_selected" id="ConnectManager" />
+          <slot name="setText" signal="combo_serverdropdown_text" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customEditBox">
+        <attributes>
+          <string name="IdName" value="connectionEditHost_steam" />
+          <string name="TextID" value="" />
+          <int name="Id" value="23" />
+          <rect name="Rect" value="78, 355, 225, 377" />
+          <int name="TabOrder" value="4" />
+          <bool name="TabStop" value="true" />
+        </attributes>
+        <bindings>
+          <signal name="value_changed" slot="HostChanged" id="ConnectManager" />
+          <signal name="focus_lost" slot="HostUnfocused" id="ConnectManager" />
+          <slot name="setEnabled" signal="edit_host_enabled" id="ConnectManager" />
+          <!--slot name="setVisible" signal="edit_host_visible" id="ConnectManager" />-->
+          <slot name="setText" signal="edit_host_text" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customEditBox">
+        <attributes>
+          <string name="IdName" value="connectionEditPort_steam" />
+          <string name="TextID" value="" />
+          <int name="Id" value="24" />
+          <rect name="Rect" value="237, 355, 297, 377" />
+          <int name="TabOrder" value="5" />
+          <bool name="TabStop" value="true" />
+        </attributes>
+
+        <bindings>
+          <signal name="value_changed" slot="PortChanged" id="ConnectManager" />
+          <slot name="setEnabled" signal="edit_port_enabled" id="ConnectManager" />
+          <slot name="setText" signal="edit_port_text" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="connectionStaticServer_steam" />
+          <string name="TextID" value="id_server" />
+          <int name="Id" value="25" />
+          <string name="Caption" value="Server" />
+          <rect name="Rect" value="24, 325, 65, 347" />
+          <enum name="VTextAlign" value="lowerRight" />
+          <string name="ToolTip" value="Choose a server to connect to. Liberty is the main game server." />
+        </attributes>
+        <bindings>
+          <!--<slot name="setVisible" signal="static_server_visible" id="ConnectManager" />-->
+        </bindings>
+      </element>
+
+    </element>
+    <!-- End Steam Login-->
+
+    <element type="newsviewer">
+      <attributes>
+        <int name="Id" value="-1" />
+        <string name="IdName" value="news_viewer" />
+        <rect name="Rect" value="702, 48, -16, -16" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <bool name="Visible" value="true" />
+        <bool name="Enabled" value="true" />
+        <bool name="TabStop" value="false" />
+        <bool name="TabGroup" value="false" />
+        <int name="TabOrder" value="-1" />
+        <bool name="NoClip" value="false" />
+        <bool name="Border" value="false" />
+      </attributes>
+    </element>
+
+
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="connectionButtonExit" />
+        <string name="TextID" value="id_exitgame" />
+        <int name="Id" value="23" />
+        <string name="Caption" value="Exit Game" />
+        <rect name="Rect" value="910, 10, 1000, 30" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="ExitGame" id="GameManager" />
+      </bindings>
+    </element>
+
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="discordButton" />
+        <string name="Caption" value="" />
+        <rect name="Rect" value="710, 8, 742, 40" />
+        <texture name="Image" value="UI/Images/Icons/SocialMedia/discord.png" />
+        <rect name="PressedImageRect" value="0, 0, 32, 32" />
+        <texture name="PressedImage" value="UI/Images/Icons/SocialMedia/discord.png" />
+        <rect name="PressedImageRect" value="0, 0, 32, 32" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="true" />
+        <bool name="Visible" value="true" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="OnDiscordButton" id="GameManager" />
+      </bindings>
+    </element>
+
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="twitterButton" />
+        <string name="Caption" value="" />
+        <rect name="Rect" value="750, 8, 782, 40" />
+        <texture name="Image" value="UI/Images/Icons/SocialMedia/twitter.png" />
+        <rect name="PressedImageRect" value="0, 0, 32, 32" />
+        <texture name="PressedImage" value="UI/Images/Icons/SocialMedia/twitter.png" />
+        <rect name="PressedImageRect" value="0, 0, 32, 32" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="true" />
+        <bool name="Visible" value="true" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="OnTwitterButton" id="GameManager" />
+      </bindings>
+    </element>
+
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="facebookButton" />
+        <string name="Caption" value="" />
+        <rect name="Rect" value="790, 8, 822, 40" />
+        <texture name="Image" value="UI/Images/Icons/SocialMedia/facebook.png" />
+        <rect name="PressedImageRect" value="0, 0, 32, 32" />
+        <texture name="PressedImage" value="UI/Images/Icons/SocialMedia/facebook.png" />
+        <rect name="PressedImageRect" value="0, 0, 32, 32" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="true" />
+        <bool name="Visible" value="true" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="OnFacebookButton" id="GameManager" />
+      </bindings>
+    </element>
+
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="youtubeButton" />
+        <string name="Caption" value="" />
+        <rect name="Rect" value="830, 8, 862, 40" />
+        <texture name="Image" value="UI/Images/Icons/SocialMedia/youtube.png" />
+        <rect name="PressedImageRect" value="0, 0, 32, 32" />
+        <texture name="PressedImage" value="UI/Images/Icons/SocialMedia/youtube.png" />
+        <rect name="PressedImageRect" value="0, 0, 32, 32" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="true" />
+        <bool name="Visible" value="true" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="OnYoutubeButton" id="GameManager" />
+      </bindings>
+    </element>
+
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="connectionStaticBeta" />
+        <int name="Id" value="30" />
+        <rect name="Rect" value="24, -36, 209, -16" />
+        <rectf name="PercRect" value="0.0, 1.0, 0.0, 1.0" />
+        <enum name="VTextAlign" value="lowerRight" />
+      </attributes>
+      <bindings>
+        <slot name="setVisible" signal="set_BetaClient_visible" id="ConnectManager" />
+        <slot name="setText" signal="set_BetaClientVersion_text" id="ConnectManager" />
+      </bindings>
+    </element>
+
+    <!-- Start New Account Dialog-->
+    <element type="customWindow">
+      <attributes>
+        <string name="IdName" value="newAccountDialog" />
+        <int name="Flags" value="0" />
+        <int name="ResizeBorderWidth" value="0" />
+        <rect name="Rect" value="-283, -214, 284, 215" />
+        <rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+        <bool name="Visible" value="false" />
+      	<color name="WindowBackgroundColor" value="ffffffff" />
+      </attributes>
+      <bindings>
+        <slot name="setVisible" signal="newaccount_visible" id="ConnectManager" />
+        <signal name="revealed" slot="bringToTop" id="newAccountDialog" />
+        <signal name="revealed" slot="setText" id="AccountPasswordEntry" arg=""/>
+        <signal name="revealed" slot="setText" id="AccountPasswordEntryVerify" arg="" />
+        <signal name="revealed" slot="setText" id="AccountEmailEntry" arg=""/>
+        <signal name="revealed" slot="setText" id="AccountEmailEntryVerify" arg="" />
+      </bindings>
+<!--
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="AccountCaption" />
+          <int name="Id" value="22" />
+          <string name="TextID" value="" />
+          <string name="Caption" value="Please enter the following information to create your account" />
+          <rect name="Rect" value="140, 40, 500, 60" />
+        </attributes>
+      </element>
+-->
+
+      <element type="customImage">
+        <attributes>
+          <string name="TextID" value="" />
+          <rect name="Rect" value="0, 0, 600, 450" />
+          <texture name="Texture" value="UI/Images/Dialogs/1024x579xBackground.png" />
+          <bool name="ScaleImage" value="false" />
+          <bool name="UseAlphaChannel" value="false" />
+          <bool name="Border" value="false"/>
+        </attributes>
+      </element>
+
+      <element type="customImage">
+        <attributes>
+          <string name="TextID" value="" />
+          <rect name="Rect" value="60, 50, 522, 90" />
+          <texture name="Texture" value="UI/Images/Dialogs/CreateYourNewAccount.png" />
+          <bool name="ScaleImage" value="false" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false"/>
+        </attributes>
+      </element>
+
+      <element type="customImage">
+        <attributes>
+          <string name="TextID" value="" />
+          <rect name="Rect" value="2, 190, 152, 453" />
+          <texture name="Texture" value="UI/Images/Dialogs/FemaleEFAgentCreateAccount.png" />
+          <bool name="ScaleImage" value="false" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false"/>
+        </attributes>
+      </element>
+
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="AccountLogin" />
+          <int name="Id" value="22" />
+          <string name="TextID" value="" />
+          <string name="Caption" value="Account Login Name*" />
+          <rect name="Rect" value="160, 140, 305, 160" />
+        </attributes>
+      </element>
+
+      <element type="customEditBox">
+        <attributes>
+          <string name="IdName" value="AccountLoginEntry" />
+          <string name="TextID" value="" />
+          <int name="Id" value="20" />
+          <rect name="Rect" value="305, 130, 520, 160" />
+          <int name="TabOrder" value="1" />
+        </attributes>
+        <bindings>
+          <signal name="value_changed" slot="NLoginChanged" id="ConnectManager" />
+          <slot name="setText" signal="edit_nlogin_text" id="ConnectManager" />
+          <!--<signal name="value_changed" slot="AliasChanged" id="ShipsManager" />
+
+          <slot name="setText" signal="ship_alias_text" id="ShipsManager" />-->
+        </bindings>
+      </element>
+
+      <element type="customImage">
+        <attributes>
+          <string name="TextID" value="" />
+          <rect name="Rect" value="530, 130, 560, 160" />
+          <texture name="Texture" value="UI/Images/Icons/question.png" />
+          <bool name="ScaleImage" value="true" />
+          <bool name="UseAlphaChannel" value="true" />
+          <string name="ToolTip" value="Login name help"/>
+          <string name="ToolTipBody" value="Login names must only contain the characters a-z, A-Z, 0-9 and space (' ')"/>
+          <!--texture name="ToolTipImage" value="command.icon.question"/-->
+          <int name="MousePauseTime" value="500"/>
+          <rect name="ToolTipRect" value="0, 0, -6, -42"/>
+          <bool name="Border" value="true"/>
+        </attributes>
+      </element>
+
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="AccountPassword" />
+          <int name="Id" value="22" />
+          <string name="TextID" value="" />
+          <string name="Caption" value="Password*" />
+          <rect name="Rect" value="160, 180, 305, 200" />
+        </attributes>
+      </element>
+
+      <element type="customEditBox">
+        <attributes>
+          <string name="IdName" value="AccountPasswordEntry" />
+          <string name="TextID" value="" />
+          <int name="Id" value="20" />
+          <rect name="Rect" value="305, 170, 520, 200" />
+          <bool name="PasswordBox" value="true" />
+          <int name="TabOrder" value="2" />
+        </attributes>
+        <bindings>
+          <signal name="value_changed" slot="NPasswordChanged" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customImage">
+        <attributes>
+          <string name="TextID" value="" />
+          <rect name="Rect" value="530, 170, 560, 200" />
+          <texture name="Texture" value="UI/Images/Icons/question.png" />
+          <bool name="ScaleImage" value="true" />
+          <bool name="UseAlphaChannel" value="true" />
+          <string name="ToolTip" value="Password help"/>
+          <string name="ToolTipBody" value="Passwords must be at least six characters long"/>
+          <!--texture name="ToolTipImage" value="command.icon.question"/-->
+          <int name="MousePauseTime" value="500"/>
+          <rect name="ToolTipRect" value="0, 0, -6, -42"/>
+          <bool name="Border" value="true"/>
+        </attributes>
+      </element>
+
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="AccountPasswordVerify" />
+          <int name="Id" value="22" />
+          <string name="TextID" value="" />
+          <string name="Caption" value="Verify Password*" />
+          <rect name="Rect" value="160, 220, 305, 240" />
+        </attributes>
+      </element>
+
+      <element type="customEditBox">
+        <attributes>
+          <string name="IdName" value="AccountPasswordEntryVerify" />
+          <string name="TextID" value="" />
+          <int name="Id" value="20" />
+          <rect name="Rect" value="305, 210, 520, 240" />
+          <bool name="PasswordBox" value="true" />
+          <bool name="OverrideColorEnabled" value="true" />
+          <color name="OverrideColor" value="ffff00ff" />
+          <int name="TabOrder" value="3" />
+        </attributes>
+        <bindings>
+          <signal name="value_changed" slot="NPasswordVerifyChanged" id="ConnectManager" />
+          <slot name="setColor" signal="NPassword_verify_color" id="ConnectManager"/>
+
+          <!--<signal name="value_changed" slot="AliasChanged" id="ShipsManager" />
+          <slot name="setText" signal="ship_alias_text" id="MyPropertyManager" />
+          <slot name="setText" signal="ship_alias_text" id="ShipsManager" />-->
+        </bindings>
+      </element>
+
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="AccountEmail" />
+          <int name="Id" value="22" />
+          <string name="TextID" value="" />
+          <string name="Caption" value="E-mail Address" />
+          <rect name="Rect" value="160, 260, 305, 280" />
+        </attributes>
+      </element>
+
+      <element type="customEditBox">
+        <attributes>
+          <string name="IdName" value="AccountEmailEntry" />
+          <string name="TextID" value="" />
+          <int name="Id" value="20" />
+          <rect name="Rect" value="305, 250, 520, 280" />
+          <int name="TabOrder" value="4" />
+        </attributes>
+        <bindings>
+          <signal name="value_changed" slot="NEmailChanged" id="ConnectManager" />
+          <!--<signal name="value_changed" slot="AliasChanged" id="ShipsManager" />
+          <slot name="setText" signal="ship_alias_text" id="MyPropertyManager" />
+          <slot name="setText" signal="ship_alias_text" id="ShipsManager" />-->
+        </bindings>
+      </element>
+
+      <element type="customImage">
+        <attributes>
+          <string name="TextID" value="" />
+          <rect name="Rect" value="530, 250, 560, 280" />
+          <texture name="Texture" value="UI/Images/Icons/question.png" />
+          <bool name="ScaleImage" value="true" />
+          <bool name="UseAlphaChannel" value="true" />
+          <string name="ToolTip" value="E-mail help"/>
+          <string name="ToolTipBody" value="You can validate your e-mail address by logging in to the website for the reward of one Space Point (worth $0.50 USD)."/>
+          <!--texture name="ToolTipImage" value="command.icon.question"/-->
+          <int name="MousePauseTime" value="500"/>
+          <rect name="ToolTipRect" value="0, 0, -6, -42"/>
+          <bool name="Border" value="true"/>
+        </attributes>
+      </element>
+
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="AccountEmailVerify" />
+          <int name="Id" value="22" />
+          <string name="TextID" value="" />
+          <string name="Caption" value="Verify E-mail Address" />
+          <rect name="Rect" value="160, 300, 305, 320" />
+        </attributes>
+      </element>
+
+      <element type="customEditBox">
+        <attributes>
+          <string name="IdName" value="AccountEmailEntryVerify" />
+          <string name="TextID" value="" />
+          <int name="Id" value="20" />
+          <rect name="Rect" value="305, 290, 520, 320" />
+          <bool name="OverrideColorEnabled" value="true" />
+          <color name="OverrideColor" value="ffff00ff" />
+          <int name="TabOrder" value="5" />
+        </attributes>
+        <bindings>
+          <signal name="value_changed" slot="NEmailVerifyChanged" id="ConnectManager" />
+          <slot name="setColor" signal="NEmail_verify_color" id="ConnectManager"/>
+          <!--<signal name="value_changed" slot="AliasChanged" id="ShipsManager" />
+          <slot name="setText" signal="ship_alias_text" id="MyPropertyManager" />
+          <slot name="setText" signal="ship_alias_text" id="ShipsManager" />-->
+        </bindings>
+      </element>
+
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="LinkedSteamAccount_title" />
+          <int name="Id" value="22" />
+          <string name="TextID" value="" />
+          <string name="Caption" value="Linked Steam Account" />
+          <rect name="Rect" value="160, 340, 305, 360" />
+        </attributes>
+        <bindings>
+          <slot name="setVisible" signal="static_steam_linked_visible" id="ConnectManager" />
+        </bindings>
+      </element>
+
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="LinkedSteamAccount_bg" />
+          <string name="TextID" value="" />
+          <string name="Caption" value="" />
+          <rect name="Rect" value="305, 330, 520, 360" />
+          <bool name="Background" value="true" />
+          <bool name="OverrideBgColorEnabled" value="false" />
+          <color name="OverrideBgColor" value="77000000" />
+        </attributes>
+        <bindings>
+          <slot name="setVisible" signal="static_steam_linked_visible" id="ConnectManager" />
+        </bindings>
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="LinkedSteamAccount_text" />
+            <string name="Caption" value="loading..." />
+            <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+            <rect name="Rect" value="4, 4, 0, 0" />
+            <bool name="Border" value="False" />
+            <enum name="VTextAlign" value="center" />
+            <bool name="OverrideColorEnabled" value="false" />
+            <color name="OverrideColor" value="ffffffff" />
+          </attributes>
+          <bindings>
+            <slot name="setText" signal="static_steam_linked_text" id="ConnectManager" />
+          </bindings>
+        </element>
+      </element>
+
+      <element type="customStaticText">
+        <attributes>
+          <string name="IdName" value="required_fields_text" />
+          <int name="Id" value="22" />
+          <string name="TextID" value="" />
+          <string name="Caption" value="*Required field" />
+          <rect name="Rect" value="160, 380, 305, 400" />
+          <bool name="OverrideColorEnabled" value="true" />
+          <color name="OverrideColor" value="ff999999" />
+        </attributes>
+      </element>
+
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="AccountSubmitButton" />
+          <string name="TextID" value="" />
+          <int name="Id" value="21" />
+          <string name="Caption" value="Create Account" />
+          <rect name="Rect" value="305, 380, 407, 410" />
+        </attributes>
+        <bindings>
+          <signal name='button_clicked' slot='CreateAccount' id='ConnectManager' />
+        </bindings>
+      </element>
+
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="AccountCancelButton" />
+          <string name="TextID" value="" />
+          <int name="Id" value="21" />
+          <string name="Caption" value="Cancel" />
+          <rect name="Rect" value="418, 380, 520, 410" />
+        </attributes>
+        <bindings>
+          <signal name='button_clicked' slot='CancelCreateAccount' id='ConnectManager' />
+        </bindings>
+      </element>
+    </element>
+    <!-- End New Account Dialog-->
+  </element>
+</element>

@@ -1,0 +1,806 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="teamDialog" />
+		<rect name="Rect" value="8, 43, -8, -8" />
+		<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />	
+		<int name="Flags" value="0" />
+		<bool name="Movable" value="false" />
+		<bool name="Visible" value="true" />
+		<bool name="DrawBackground" value="true" />
+	</attributes>
+	<bindings>
+		<signal name="created" slot="OnTeamDialogInit" id="TeamManager" />
+		<signal name="created" slot="OnTeamRecruitmentTeamRefresh" id="TeamManager" />
+		<signal name="revealed" slot="bringToTop" id="teamDialog" />
+	</bindings>
+	<!-- The "create team" group. -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="teamCreateGroup" />
+			<rect name="Rect" value="42, 77, -42, 220" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<bool name="Border" value="true" />
+			<int name="ScrolledLines" value="0" />
+			<bool name="Visible" value="false" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="create_group_visible" id="TeamManager" />
+		</bindings>
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="teamCreatePrompt" />
+				<string name="TextID" value="id_team_create_prompt" />
+				<rect name="Rect" value="8, 8, -8, 64" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="center" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="prompt_text" id="TeamManager" />
+			</bindings>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamCreateButton" />
+				<string name="TextID" value="id_team_create_team" />
+				<rect name="Rect" value="16, 60, -16, 92" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			</attributes>
+			<bindings>
+				<slot name="setEnabled" signal="create_team_button_enabled" id="TeamManager" />
+				<signal name="button_clicked" slot="OnNewTeam" id="TeamManager" />
+			</bindings>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamJoinButton" />
+				<string name="TextID" value="id_team_join_team" />
+				<rect name="Rect" value="16, 100, -16, 132" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			</attributes>
+			<bindings>
+				<!--<slot name="setEnabled" signal="join_team_button_enabled" id="TeamManager" />-->
+				<signal name="button_clicked" slot="OnJoinTeam" id="TeamManager" />
+			</bindings>
+		</element>
+	</element>
+	<!-- The name entry group. -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="teamNameEntryGroup" />
+			<rect name="Rect" value="42, 77, -42, 250" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<bool name="Border" value="true" />
+			<bool name="Visible" value="false" />
+			<int name="ScrolledLines" value="0" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="name_entry_group_visible" id="TeamManager" />
+		</bindings>
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="teamNameEntryPrompt" />
+				<string name="TextID" value="id_team_name_entry_prompt" />
+				<rect name="Rect" value="8, 8, -8, 64" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="top" />
+			</attributes>
+		</element>
+
+		<element type="customEditBox">
+			<attributes>
+				<string name="IdName" value="teamNameEntryEdit" />
+				<rect name="Rect" value="16, 56, -16, 88" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="center" />
+			</attributes>
+			<bindings>
+				<signal name="value_changed" slot="TeamDialogNameEditChanged" id="TeamManager" />
+				<slot name="makeFocus" signal="revealed" id="teamNameEntryGroup" />
+			</bindings>
+		</element>
+
+		<!-- Not used at the moment but it might be needed in future if we do some
+         client-side verification of team names. -->
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="teamNameEntryEditError" />
+				<rect name="Rect" value="16, 90, -16, 108" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="top" />
+				<string name="Caption" value="" />
+				<bool name="OverrideColorEnabled" value="true" />
+				<color name="OverrideColor" value="C0F00010" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="name_edit_error_text" id="TeamManager" />
+			</bindings>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamNameEntryConfirmButton" />
+				<string name="TextID" value="id_team_confirm_create" />
+				<rect name="Rect" value="16, 95, -16, 127" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="TeamDialogConfirmCreateClicked" id="TeamManager" />
+				<slot name="setEnabled" signal="confirm_create_button_enabled" id="TeamManager" />
+			</bindings>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamNameEntryCancelButton" />
+				<string name="TextID" value="id_team_cancel_create" />
+				<rect name="Rect" value="16, 130, -16, 162" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="TeamDialogCancelCreateClicked" id="TeamManager" />
+			</bindings>
+		</element>
+
+	</element><!-- Name Entry Group -->
+	<!-- The team management (main) control group. -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="teamMainGroup" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+			<bool name="Visible" value="false" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="main_group_visible" id="TeamManager" />
+		</bindings>
+		<!-- Team Name -->
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="id_teamname" />
+				<string name="TextID" value="" />
+				<int name="Id" value="1653" />
+				<string name="Caption" value="Team:" />
+				<rect name="Rect" value="8, 8, 50, 32" />
+				<int name="ScrolledLines" value="0" />
+				<enum name="VTextAlign" value="center" />
+				<string name="ToolTip" value="Team name." />
+			</attributes>
+		</element>
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="teamStaticTeamName" />
+				<string name="TextID" value="" />
+				<int name="Id" value="1654" />
+				<rect name="Rect" value="50, 8, -115, 32" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+				<bool name="Border" value="true" />
+				<int name="ScrolledLines" value="0" />
+				<enum name="VTextAlign" value="center" />
+				<string name="ToolTip" value="Team name." />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_teamname_text" id="TeamManager" />
+			</bindings>
+		</element>
+		<!-- Team Rank -->
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="id_teamrank" />
+				<string name="TextID" value="" />
+				<int name="Id" value="1655" />
+				<string name="Caption" value="Rank:" />
+				<rect name="Rect" value="8, 37, 50, 61" />
+				<int name="ScrolledLines" value="0" />
+				<enum name="VTextAlign" value="center" />
+				<string name="ToolTip" value="Your ranking on this team." />
+			</attributes>
+		</element>
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="teamStaticTeamRank" />
+				<string name="TextID" value="" />
+				<int name="Id" value="170" />
+				<rect name="Rect" value="50, 37, -115, 61" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+				<bool name="Border" value="true" />
+				<int name="ScrolledLines" value="0" />
+				<enum name="VTextAlign" value="center" />
+				<string name="ToolTip" value="Your ranking on this team." />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_rank_text" id="TeamManager" />
+			</bindings>
+		</element>
+		<!-- Team Funds -->
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="id_teamfunds" />
+				<string name="TextID" value="" />
+				<int name="Id" value="1656" />
+				<string name="Caption" value="Funds:" />
+				<rect name="Rect" value="8, 66, 50, 90" />
+				<int name="ScrolledLines" value="0" />
+				<enum name="VTextAlign" value="center" />
+				<string name="ToolTip" value="Team credits, in the team bank." />
+			</attributes>
+		</element>
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="teamStaticTeamCredits" />
+				<string name="TextID" value="" />
+				<int name="Id" value="172" />
+				<rect name="Rect" value="50, 66, -115, 90" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />					
+				<bool name="Border" value="true" />
+				<int name="ScrolledLines" value="0" />
+				<enum name="VTextAlign" value="center" />
+				<string name="ToolTip" value="Team credits, in the team bank." />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_credits_text" id="TeamManager" />
+			</bindings>
+		</element>
+		<!-- Team Levels -->
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="id_teamlevel" />
+				<string name="TextID" value="" />
+				<int name="Id" value="1657" />
+				<string name="Caption" value="Level:" />
+				<rect name="Rect" value="8, 94, 50, 118" />
+				<enum name="VTextAlign" value="center" />
+				<int name="ScrolledLines" value="0" />
+				<string name="ToolTip" value="Shows the level of your team. This increases by your team score per day." />
+			</attributes>
+		</element>
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="teamStaticTeamLevel" />
+				<string name="TextID" value="" />
+				<int name="Id" value="173" />
+				<rect name="Rect" value="50, 94, -115, 114" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />					
+				<bool name="Border" value="true" />
+				<enum name="VTextAlign" value="center" />
+				<int name="ScrolledLines" value="0" />
+				<string name="ToolTip" value="Shows the level of your team. This increases by your team score per day." />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_team_level_text" id="TeamManager" />
+			</bindings>
+		</element>
+		<element type="progressbar">
+			<attributes>
+				<string name="IdName" value="progressteamxpbar" />
+				<rect name="Rect" value="50, 110, -115, 117" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+				<bool name="Border" value="true" />
+				<int name="ScrolledLines" value="0" />
+				<enum name="VTextAlign" value="center" />
+			</attributes>
+			<bindings>
+				<slot name="setValue" signal="team_xp_bar_value" id="TeamManager" />
+				<slot name="setToolTipText" signal="team_xp_bar_tooltip" id="TeamManager" />
+			</bindings>
+		</element>		
+		<!-- Team Tithe -->
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="id_teamtithe" />
+				<string name="TextID" value="" />
+				<int name="Id" value="1657" />
+				<string name="Caption" value="Tithe:" />
+				<rect name="Rect" value="8, 122, 50, 146" />
+				<enum name="VTextAlign" value="center" />
+				<int name="ScrolledLines" value="0" />
+				<string name="ToolTip" value="Shows the percentage your team tithes your members. Effects acquiring and transference of credits." />				
+			</attributes>
+		</element>
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="teamStaticTeamTithe" />
+				<string name="TextID" value="" />
+				<int name="Id" value="173" />
+				<rect name="Rect" value="50, 122, -115, 146" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />	
+				<bool name="Border" value="true" />
+				<enum name="VTextAlign" value="center" />
+				<int name="ScrolledLines" value="0" />
+				<string name="ToolTip" value="Shows the percentage your team tithes your members. Effects acquiring and transference of credits." />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_tithe_text" id="TeamManager" />
+			</bindings>
+		</element>		
+		<!-- Team Buttons -->
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamSkillsButton" />
+				<string name="TextID" value="" />
+				<int name="Id" value="668" />
+				<string name="Caption" value="Team Skills" />
+				<rect name="Rect" value="-106, 8, -8, 34" />
+				<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />	
+				<texture name="DisabledImage" value="" />
+				<rect name="DisabledImageRect" value="0, 0, 0, 0" />
+				<string name="ToolTip" value="Spend team skill points to improve your team." />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="OnClickSkills" id="TeamManager" />
+			</bindings>
+		</element>	
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamButtonTeamWebPage" />
+				<string name="TextID" value="id_teamwebpage" />
+				<int name="Id" value="177" />
+				<string name="Caption" value="Team Web Page" />
+				<rect name="Rect" value="-106, 37, -8, 61" />
+				<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+				<texture name="DisabledImage" value="" />
+				<rect name="DisabledImageRect" value="0, 0, 0, 0" />
+				<string name="ToolTip" value="View team page on StarSonata.com (opens a new tab in your default browser)." />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="OnTeamWeb" id="TeamManager" />
+			</bindings>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamControlButton" />
+				<string name="TextID" value="" />
+				<int name="Id" value="668" />
+				<string name="Caption" value="Control" />
+				<rect name="Rect" value="-106, 66, -8, 90" />
+				<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />				
+				<texture name="DisabledImage" value="" />
+				<rect name="DisabledImageRect" value="0, 0, 0, 0" />
+				<string name="ToolTip" value="Control tithe percentage, send or take money from team funds, change team login message, or manage recruitment settings." />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="OnTeamControl" id="TeamManager" />
+			</bindings>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamButtonLeaveTeam" />
+				<string name="TextID" value="id_leaveteam" />
+				<int name="Id" value="175" />
+				<string name="Caption" value="Leave Team" />
+				<rect name="Rect" value="-106, 94, -8, 118" />
+				<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+				<texture name="DisabledImage" value="" />
+				<rect name="DisabledImageRect" value="0, 0, 0, 0" />
+				<string name="ToolTip" value="Leave your current team." />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="OnTeamLeave" id="TeamManager" />
+			</bindings>
+		</element>		
+		<!-- Team member list -->
+		<element type="customCheckBox">
+			<attributes>
+				<string name="IdName" value="checkShowOffline" />
+				<string name="TextID" value="" />
+				<int name="Id" value="1660" />
+				<string name="Caption" value="Show Offline" />
+				<rect name="Rect" value="-106, 156, -8, 183" />
+				<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+				<string name="ToolTip" value="Show offline team members." />
+			</attributes>
+			<bindings>
+				<signal name="value_changed" slot="OnTeamMembersShowOfflineChanged" id="TeamManager" />
+			</bindings>
+		</element>
+		<element type="customEditBox">
+			<attributes>
+				<string name="IdName" value="teamMembersSearch" />
+				<string name="TextID" value="" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+				<rect name="Rect" value="8, 156, -115, 183" />
+				<string name="PlaceholderText" value="Search..." />
+				<string name="ToolTip" value="Search members on your team." />
+			</attributes>
+			<bindings>
+				<signal name="value_changed" slot="OnTeamMembersSearchChanged" id="TeamManager" />
+				<slot name="setText" signal="teammembers_search_text" id="TeamManager" />
+			</bindings>
+		</element>		
+		<element type="customTable">
+			<attributes>
+				<string name="IdName" value="teamTableMembers" />
+				<string name="TextID" value="" />
+				<int name="Id" value="179" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+				<rect name="Rect" value="8, 188, -8, -8" />
+				<int name="ColumnCount" value="6" />
+				<string name="Column0name" value="Name" />
+				<color name="Column0color" value="ffb7f9ff" />
+				<int name="Column0width" value="130" />        
+				<enum name="Column0OrderingMode" value="ascend_descend" />
+				<string name="Column1name" value="Rank" />
+				<color name="Column1color" value="ffb7f9ff" />
+				<int name="Column1width" value="66" />
+				<enum name="Column1OrderingMode" value="ascend_descend" />
+				<string name="Column2name" value="Level" />
+				<color name="Column2color" value="ffb7f9ff" />
+				<int name="Column2width" value="40" />
+				<enum name="Column2OrderingMode" value="ascend_descend" />
+				<enum name="Column2OrderingType" value="numerical" />
+				<string name="Column3name" value="Class" />
+				<color name="Column3color" value="ffb7f9ff" />
+				<int name="Column3width" value="100" />
+				<enum name="Column3OrderingMode" value="ascend_descend" />
+				<string name="Column4name" value="Subscription" />
+				<color name="Column4color" value="ffb7f9ff" />
+				<int name="Column4width" value="100" />
+				<enum name="Column4OrderingMode" value="ascend_descend" />
+				<string name="Column5name" value="Last Online" />
+				<color name="Column5color" value="ffe6e600" />
+				<int name="Column5width" value="77" />
+				<enum name="Column5OrderingMode" value="ascend_descend" />
+				<enum name="Column5OrderingType" value="fuzzy_time" />
+				<bool name="ResizableColumns" value="false" />
+				<int name="DrawFlags" value="6" />
+			</attributes>
+			<bindings>
+				<slot name="setAll" signal="table_teammembers_all" id="TeamManager" />
+				<signal name="item_selected_data" slot="OnTeamMemberSelect" id="TeamManager" />
+				<signal name="item_right_clicked_index" slot="OnTeamMemberRightClick" id="TeamManager" />
+				<signal name="item_double_clicked_data" slot="OnTeamMemberDoubleClick" id="TeamManager" />
+			</bindings>
+		</element>
+	</element>
+	<!-- The team skills group. -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="teamSkillsGroup" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+			<bool name="Visible" value="false" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="team_skills_group_visible" id="TeamManager" />
+		</bindings>
+		<!-- Back button -->
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamBackButton" />
+				<string name="TextID" value="" />
+				<int name="Id" value="668" />
+				<string name="Caption" value="Back" />
+				<rect name="Rect" value="-150, 8, -8, 34" />
+				<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />	
+				<texture name="DisabledImage" value="" />
+				<rect name="DisabledImageRect" value="0, 0, 0, 0" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="OnClickMain" id="TeamManager" />
+			</bindings>
+		</element>	
+		<!-- Train Button -->
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamTrainSkill" />
+				<string name="TextID" value="" />
+				<int name="Id" value="668" />
+				<string name="Caption" value="Train" />
+				<rect name="Rect" value="8, 8, 150, 34" />
+				<rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />	
+				<texture name="DisabledImage" value="" />
+				<rect name="DisabledImageRect" value="0, 0, 0, 0" />
+				<bool name="Visible" value="false" />
+			</attributes>
+			<bindings>
+				<slot name="setVisible" signal="team_skill_train_button_show" id="TeamManager" />
+				<signal name="button_clicked" slot="OnTeamSkillTrain" id="TeamManager" />
+			</bindings>
+		</element>
+		<!-- Team Points -->
+		<element type="customImage">
+			<attributes>
+				<string name="TextID" value="" />
+				<rect name="Rect" value="7, 36, 91, 120" />
+				<texture name="Texture" value="UI/Images/Skin/sunkenpanes_512.png" />
+				<bool name="UseAlphaChannel" value="true" />
+				<color name="Color" value="88ffffff" />
+				<bool name="ScaleImage" value="true" />				
+			</attributes>
+		</element>	
+		<element type="customImage">
+			<attributes>
+				<string name="TextID" value="" />
+				<rect name="Rect" value="13, 44, 85, 114" />
+				<texture name="Texture" value="UI/Images/Items/iconlarge/Experience.png" />
+				<bool name="UseAlphaChannel" value="true" />
+				<color name="Color" value="33ffffff" />
+				<bool name="ScaleImage" value="true" />				
+			</attributes>
+		</element>		
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="id_teamskillpoints" />
+				<string name="TextID" value="" />
+				<int name="Id" value="1657" />
+				<string name="Caption" value="Team Points:" />
+				<rect name="Rect" value="-1, -20, 100,120" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="center" />
+				<int name="ScrolledLines" value="0" />
+				<enum name="Font" value="mediumBoldFont" />	
+			</attributes>
+		</element>
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="teamStaticTeamSkillPoints" />
+				<string name="TextID" value="" />
+				<int name="Id" value="173" />
+				<rect name="Rect" value="-1, 40, 100,120" />
+				<bool name="Border" value="false" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="center" />
+				<int name="ScrolledLines" value="0" />
+				<enum name="Font" value="largeBoldFont" />
+				<string name="ToolTip" value="Team Skill Points Available." />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_team_skill_points_text" id="TeamManager" />
+			</bindings>
+		</element>
+		<!-- Skill Description -->
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="teamStaticTeamSkillDescrip" />
+				<string name="TextID" value="" />
+				<int name="Id" value="173" />
+				<rect name="Rect" value="100, 40, -8, 120" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+				<bool name="Border" value="false" />
+				<int name="ScrolledLines" value="0" />
+				<bool name="AutoScroll" value="true" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="team_skill_description" id="TeamManager" />
+			</bindings>
+		</element>
+		<!-- Skills List -->
+		<element type="customTable">
+			<attributes>
+				<string name="IdName" value="teamTableTeamSkills" />
+				<string name="TextID" value="" />
+				<int name="Id" value="179" />
+				<rect name="Rect" value="8, 125, -8, -8" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+				<int name="ColumnCount" value="4" />
+				<string name="Column0name" value="Skill" />
+				<color name="Column0color" value="ffb7f9ff" />
+				<int name="Column0width" value="181" />        
+				<enum name="Column0OrderingMode" value="" />
+				<string name="Column1name" value="Level" />
+				<color name="Column1color" value="ffb7f9ff" />
+				<enum name="Column1OrderingMode" value="" />
+				<string name="Column2name" value="Cost" />
+				<color name="Column2color" value="ffb7f9ff" />
+				<enum name="Column2OrderingMode" value="" />
+				<string name="Column3name" value="Max" />
+				<color name="Column3color" value="ffb7f9ff" />
+				<enum name="Column3OrderingMode" value="" />
+				<int name="DrawFlags" value="4" />
+			</attributes>
+			<bindings>
+				<slot name="setAll" signal="table_team_skills_all" id="TeamManager" />
+				<signal name="item_selected_data" slot="OnTeamSkillSelect" id="TeamManager" />
+			</bindings>
+		</element>
+	</element>
+	<!-- teamMainGroup -->
+	<!-- The leave confirmation group. -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="teamConfirmLeaveGroup" />
+			<rect name="Rect" value="42, 77, -42, 223" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<bool name="Border" value="true" />
+			<int name="ScrolledLines" value="0" />
+			<bool name="Visible" value="false" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="confirm_leave_group_visible" id="TeamManager" />
+		</bindings>
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="teamConfirmLeavePrompt" />
+				<string name="TextID" value="id_team_confirm_leave_prompt" />
+				<rect name="Rect" value="8, 8, -8, 64" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="center" />
+			</attributes>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamConfirmLeaveButton" />
+				<string name="TextID" value="id_team_confirm_leave" />
+				<rect name="Rect" value="16, 60, -16, 92" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="TeamDialogConfirmLeaveClicked" id="TeamManager" />
+			</bindings>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamCancelLeaveButton" />
+				<string name="TextID" value="id_team_cancel_leave" />
+				<rect name="Rect" value="16, 98, -16, 130" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="TeamDialogCancelLeaveClicked" id="TeamManager" />
+			</bindings>
+		</element>
+	</element>
+	<!-- Leave Confirmation Group -->
+	<!-- The join group. -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="teamJoinGroup" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+			<bool name="Visible" value="false" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="join_group_visible" id="TeamManager" />
+		</bindings>
+		<!--
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="id_team_recruitment_teams" />
+				<string name="TextID" value="" />
+				<string name="Caption" value="Recruiting Teams:" />
+				<rect name="Rect" value="8, 8, -8, 64" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+				<enum name="VTextAlign" value="center" />
+				<int name="ScrolledLines" value="0" />
+			</attributes>
+		</element>
+		-->
+		<!-- Team List -->
+		<element type="customTable">
+			<attributes>
+				<string name="IdName" value="teamRecruitmentTeams" />
+				<string name="TextID" value="" />
+				<int name="Id" value="179" />
+				<rect name="Rect" value="8, 8, -8, -45" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+				<int name="ColumnCount" value="1" />
+				<string name="Column0name" value="Team Name" />
+				<color name="Column0color" value="ffb7f9ff" />
+				<int name="Column0width" value="130" />        
+				<enum name="Column0OrderingMode" value="ascend_descend" />
+				<!--
+				
+				<string name="Column1name" value="Min Level" />
+				<color name="Column1color" value="ffb7f9ff" />
+				<int name="Column1width" value="130" />        
+				<enum name="Column1OrderingMode" value="ascend_descend" />
+				<string name="Column2name" value="Max Level" />
+				<color name="Column2color" value="ffb7f9ff" />
+				<int name="Column2width" value="130" />  				
+				<enum name="Column2OrderingMode" value="ascend_descend" />
+				<string name="Column3name" value="Classes" />
+				<color name="Column3color" value="ffb7f9ff" />
+				<int name="Column3width" value="130" />        
+				<enum name="Column3OrderingMode" value="ascend_descend" />
+				-->
+				<int name="DrawFlags" value="4" />
+			</attributes>
+			<bindings>
+				<slot name="setAll" signal="table_team_recruitment_team_all" id="TeamManager" />
+				<signal name="item_selected_data" slot="OnTeamRecruitmentTeamSelect" id="TeamManager" />
+			</bindings>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamRecruitmentTeamsJoinButton" />
+				<string name="TextID" value="id_team_recruitment_teams_join" />
+				<rect name="Rect" value="8, -8, 93, -40" />
+				<rect name="PercRect" value="0.0, 1.0, 0.0, 1.0" />
+				<bool name="Visible" value="false" />
+				<bool name="Enabled" value="true" />				
+			</attributes>
+			<bindings>
+				<slot name="setVisible" signal="button_team_recruitment_join_visible" id="TeamManager" />
+				<signal name="button_clicked" slot="OnTeamRecruitmentTeamJoin" id="TeamManager" />
+			</bindings>
+		</element>
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamRecruitmentTeamsRefreshButton" />
+				<string name="TextID" value="id_team_recruitment_teams_refresh" />
+				<rect name="Rect" value="100, -8, -103, -40" />
+				<rect name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+				<bool name="Enabled" value="true" />			
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="OnTeamRecruitmentTeamRefresh" id="TeamManager" />
+			</bindings>
+		</element>		
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamRecruitmentTeamsCancelButton" />
+				<string name="TextID" value="id_team_recruitment_teams_cancel" />
+				<rect name="Rect" value="-95, -8, -8, -40" />
+				<rect name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="OnTeamRecruitmentTeamCancel" id="TeamManager" />
+			</bindings>
+		</element>		
+		<!--
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="teamRecruitmentTeamsCancelJoinButton" />
+				<string name="TextID" value="id_team_recruitment_teams_cancel_join" />
+				<rect name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+				<rect name="Rect" value="18, 268, 93, 288" />
+				<bool name="Visible" value="false" />
+			</attributes>
+			<bindings>
+				<slot name="setVisible" signal="button_team_recruitment_cancel_join_visible" id="TeamManager" />
+				<signal name="button_clicked" slot="OnTeamRecruitmentTeamCancelJoin" id="TeamManager" />
+			</bindings>
+		</element>
+		-->
+	</element>
+	<element type="customContextMenu">
+		<attributes>
+			<bool name="Visible" value="false" />
+			<string name="IdName" value="teamMenuTeamOpts" />
+			<int name="ItemCount" value="5" />
+			<int name="CloseHandling" value="4" />			
+			<string name="TextID0" value="id_teamopts_whisper" />
+			<int name="CommandID0" value="0" />
+			<string name="TextID1" value="id_teamopts_invite" />
+			<int name="CommandID1" value="1" />
+			<string name="TextID2" value="id_teamopts_promote" />
+			<int name="CommandID2" value="2" />
+			<string name="TextID3" value="id_teamopts_demote" />
+			<int name="CommandID3" value="3" />
+			<string name="TextID4" value="id_teamopts_boot" />
+			<int name="CommandID4" value="4" />
+			<bool name="KeepOnScreen" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="popup" signal="teammember_context_popup" id="TeamManager" />
+			<slot name="setText" signal="teammember_context_text" id="TeamManager" />
+			<slot name="setUserData" signal="teammember_context_data" id="TeamManager" />				
+			<signal name="item_selected_data" slot="OnMenuTeamOpts" id="TeamManager" />
+		</bindings>
+	</element>
+	<element type="customContextMenu">
+		<attributes>
+			<bool name="Visible" value="false" />
+			<string name="IdName" value="teamMenuTeamControl" />
+			<int name="Id" value="667" />	
+			<rect name="Rect" value="206, 84, 296, 112" />
+			<int name="ItemCount" value="5" />
+			<int name="CloseHandling" value="4" />			
+			<string name="TextID0" value="id_teamcontrol_settithe" />
+			<int name="CommandID0" value="0" />
+			<string name="TextID1" value="id_teamcontrol_givemoney" />
+			<int name="CommandID1" value="1" />
+			<string name="TextID2" value="id_teamcontrol_takemone" />
+			<int name="CommandID2" value="2" />
+			<string name="TextID3" value="id_teamcontrol_team_message" />
+			<int name="CommandID3" value="3" />
+			<string name="TextID4" value="id_teamcontrol_team_recruitment" />
+			<int name="CommandID4" value="4" />
+			<bool name="KeepOnScreen" value="true" />
+			<string name="ToolTip" value="" />
+		</attributes>
+		<bindings>
+			<slot name="popup" signal="menu_control_popup" id="TeamManager" />
+			<signal name="item_selected_index" slot="OnMenuTeamControl" id="TeamManager" />
+		</bindings>
+	</element>
+</element>

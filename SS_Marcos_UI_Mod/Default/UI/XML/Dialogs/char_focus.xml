@@ -1,0 +1,2791 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="classSkillsDialog" />
+    <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+    <rect name="Rect" value="8, 69, -8, -8" />
+    <int name="Flags" value="0" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="true" />
+    <bool name="DrawBackground" value="true" />
+  </attributes>
+  <bindings>
+    <signal name="created" slot="OnInitClassSkill" id="CharManager" />
+    <!--<signal name="created" slot="RefreshAll" id="CharManager" />-->
+  </bindings>
+  <!-- Player has no Focus -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="focusMainPick" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+      <!--<rect name="Rect" value="0, 0, 488, 460" />-->
+      <rect name="Rect" value="0, 0, 0, 0" />
+    </attributes>
+    <bindings>
+      <slot name="setVisible" signal="show_focus_train" id="CharManager" />
+    </bindings>
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rect name="Rect" value="8, 8, 330, 40" />
+        <texture name="Texture" value="UI/Images/SkillTree/pick_focus.png" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+    <!-- Focus Selection Image -->
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusMainPickImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, 50, -8, -110" />
+        <texture name="Texture" value="UI/Images/SkillTree/focus/pick_focus.jpg" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="ffffffff" />
+        <bool name="ScaleImage" value="true" />
+      </attributes>
+    </element>
+    <!-- recon image -->
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusReconPickImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, 50, -8, -110" />
+        <texture name="Texture" value="UI/Images/SkillTree/focus/recon.jpg" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="ffffffff" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="false" />
+      </attributes>
+    </element>
+    <!-- combat image -->
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusCombatPickImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, 50, -8, -110" />
+        <texture name="Texture" value="UI/Images/SkillTree/focus/combat.jpg" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="ffffffff" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="false" />
+      </attributes>
+    </element>
+    <!-- fleet image -->
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusFleetPickImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, 50, -8, -110" />
+        <texture name="Texture" value="UI/Images/SkillTree/focus/fleet.jpg" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="ffffffff" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="false" />
+      </attributes>
+    </element>
+    <!-- support image -->
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusSupportPickImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, 50, -8, -110" />
+        <texture name="Texture" value="UI/Images/SkillTree/focus/support.jpg" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="ffffffff" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="false" />
+      </attributes>
+    </element>
+    <!-- Focus Description Black Background -->
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, -220, -8, -110" />
+        <texture name="Texture" value="UI/Images/SkillTree/black.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="E0000000" />
+        <bool name="ScaleImage" value="true" />
+      </attributes>
+    </element>
+    <!-- Focus Description -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="focusMainDescription" />
+        <string name="Caption" value="Pick your Focus and start your career! Each focus further specialises into two distinct combat classes. Requires level 10, Once chosen, you will be locked into the class. However, you can reset your skills at the central base in Lyceum later in the game if you change your mind.." />
+        <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="16, -218, -16, -110" />
+      </attributes>
+      <bindings>
+      </bindings>
+    </element>
+    <!-- Recon -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="focusReconDescription" />
+        <string name="Caption" value="Recon Focus is all about quick and agile Light Fighters. Seers take the patient approach, staying undetected to ambush their target. Speed Demons have a simple motto: go fast, shoot faster! Short range dogfights are their preferred method of combat." />
+        <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="16, -218, -108, -110" />
+        <bool name="Visible" value="false" />
+      </attributes>
+      <bindings>
+      </bindings>
+    </element>
+    <!-- Combat -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="focusCombatDescription" />
+        <string name="Caption" value="The slow and rugged Heavy Fighters are the ship of choice for Combat Focus. Destroy your targets from a distance as a Ranger or protect your allies and force enemies to attack you as a Berserker, dishing out damage by firing multiple weapons at once." />
+        <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="16, -218, -108, -110" />
+        <bool name="Visible" value="false" />
+      </attributes>
+      <bindings>
+      </bindings>
+    </element>
+    <!-- Fleet -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="focusFleetDescription" />
+        <!-- to be put back in until text wrapping is fixed -->
+        <!--<string name="Caption" value="In their massive Capital Ships, Fleet Commanders take control of a variety of smaller ships, fighters and can even make their enemies fight for them, while assisting their allies with powerful aura generators. Gunners fire two weapons at once, use devastating missiles and have the unique ability to simultaneously target many enemies, allowing them to take on entire fleets by themselves." />-->
+        <string name="Caption" value="In their huge Capital Ships, Fleet Commanders take control of a range of smaller ships, fighters and can even make their enemies fight for them, while helping their allies with aura generators. Gunners fire two weapons at once, use devastating missiles and have the unique ability to target many enemies, allowing them to take on entire fleets by themselves." />
+        <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="16, -218, -108, -110" />
+        <bool name="Visible" value="false" />
+      </attributes>
+      <bindings>
+      </bindings>
+    </element>
+    <!-- Support -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="focusSupportDescription" />
+        <string name="Caption" value="In their combat-fitted Support Freighters, Engineers carry an arsenal of offensive and defensive drones, powerful tractor beams, and unique, specialized equipment, such as modified tractor beams that provide bonuses to allies. Shield Monkeys have unparalleled shield regeneration and healing abilities, allowing them to give up portions of their own shield banks to regenerate the shields of allies." />
+        <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="16, -218, -108, -110" />
+        <bool name="Visible" value="false" />
+      </attributes>
+      <bindings>
+      </bindings>
+    </element>
+    <!-- Recon Focus Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusReconButton" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.27, 1.0, 0.27, 1.0" />
+        <rect name="Rect" value="-115, -104, 115, -60" />
+        <texture name="Image" value="UI/Images/SkillTree/focus/recon_button.png" />
+        <rect name="ImageRect" value="0, 0, 230, 44" />
+        <texture name="PressedImage" value="UI/Images/SkillTree/focus/recon_buttonh.png" />
+        <rect name="PressedImageRect" value="0, 0, 230, 44" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="hide" id="focusMainPickImage" />
+        <signal name="button_clicked" slot="show" id="focusReconPickImage" />
+        <signal name="button_clicked" slot="hide" id="focusCombatPickImage" />
+        <signal name="button_clicked" slot="hide" id="focusSupportPickImage" />
+        <signal name="button_clicked" slot="hide" id="focusFleetPickImage"/>
+        <signal name="button_clicked" slot="hide" id="focusMainDescription" />
+        <signal name="button_clicked" slot="show" id="focusReconDescription" />
+        <signal name="button_clicked" slot="hide" id="focusCombatDescription" />
+        <signal name="button_clicked" slot="hide" id="focusSupportDescription" />
+        <signal name="button_clicked" slot="hide" id="focusFleetDescription"/>
+        <signal name="button_clicked" slot="show" id="focusConfirmButtonRecon"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonCombat"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonFleet"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonSupport"/>
+        <signal name="button_clicked" slot="show" id="focusReconButtonImage"/>
+        <signal name="button_clicked" slot="hide" id="focusCombatButtonImage"/>
+        <signal name="button_clicked" slot="hide" id="focusFleetButtonImage"/>
+        <signal name="button_clicked" slot="hide" id="focusSupportButtonImage"/>
+      </bindings>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusReconButtonImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.27, 1.0, 0.27, 1.0" />
+        <rect name="Rect" value="-115, -104, 115, -60" />
+        <texture name="Texture" value="UI/Images/SkillTree/focus/recon_buttonh.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="ffffffff" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="false" />
+      </attributes>
+    </element>
+    <!-- Combat Focus Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusCombatButton" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.73, 1.0, 0.73, 1.0" />
+        <rect name="Rect" value="-115, -104, 115, -60" />
+        <texture name="Image" value="UI/Images/SkillTree/focus/combat_button.png" />
+        <rect name="ImageRect" value="0, 0, 230, 44" />
+        <texture name="PressedImage" value="UI/Images/SkillTree/focus/combat_buttonh.png" />
+        <rect name="PressedImageRect" value="0, 0, 230, 44" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="hide" id="focusMainPickImage" />
+        <signal name="button_clicked" slot="hide" id="focusReconPickImage" />
+        <signal name="button_clicked" slot="show" id="focusCombatPickImage" />
+        <signal name="button_clicked" slot="hide" id="focusSupportPickImage" />
+        <signal name="button_clicked" slot="hide" id="focusFleetPickImage"/>
+        <signal name="button_clicked" slot="hide" id="focusMainDescription" />
+        <signal name="button_clicked" slot="hide" id="focusReconDescription" />
+        <signal name="button_clicked" slot="show" id="focusCombatDescription" />
+        <signal name="button_clicked" slot="hide" id="focusSupportDescription" />
+        <signal name="button_clicked" slot="hide" id="focusFleetDescription"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonRecon"/>
+        <signal name="button_clicked" slot="show" id="focusConfirmButtonCombat"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonFleet"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonSupport"/>
+        <signal name="button_clicked" slot="hide" id="focusReconButtonImage"/>
+        <signal name="button_clicked" slot="show" id="focusCombatButtonImage"/>
+        <signal name="button_clicked" slot="hide" id="focusFleetButtonImage"/>
+        <signal name="button_clicked" slot="hide" id="focusSupportButtonImage"/>
+      </bindings>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusCombatButtonImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.73, 1.0, 0.73, 1.0" />
+        <rect name="Rect" value="-115, -104, 115, -60" />
+        <texture name="Texture" value="UI/Images/SkillTree/focus/combat_buttonh.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="ffffffff" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="false" />
+      </attributes>
+    </element>
+    <!-- Fleet Focus Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusFleetButton" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.27, 1.0, 0.27, 1.0" />
+        <rect name="Rect" value="-115, -52, 115, -8" />
+        <texture name="Image" value="UI/Images/SkillTree/focus/fleet_button.png" />
+        <rect name="ImageRect" value="0, 0, 230, 44" />
+        <texture name="PressedImage" value="UI/Images/SkillTree/focus/fleet_buttonh.png" />
+        <rect name="PressedImageRect" value="0, 0, 230, 44" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="hide" id="focusMainPickImage" />
+        <signal name="button_clicked" slot="hide" id="focusReconPickImage" />
+        <signal name="button_clicked" slot="hide" id="focusCombatPickImage" />
+        <signal name="button_clicked" slot="hide" id="focusSupportPickImage" />
+        <signal name="button_clicked" slot="show" id="focusFleetPickImage"/>
+        <signal name="button_clicked" slot="hide" id="focusMainDescription" />
+        <signal name="button_clicked" slot="hide" id="focusReconDescription" />
+        <signal name="button_clicked" slot="hide" id="focusCombatDescription" />
+        <signal name="button_clicked" slot="hide" id="focusSupportDescription" />
+        <signal name="button_clicked" slot="show" id="focusFleetDescription"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonRecon"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonCombat"/>
+        <signal name="button_clicked" slot="show" id="focusConfirmButtonFleet"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonSupport"/>
+        <signal name="button_clicked" slot="hide" id="focusReconButtonImage"/>
+        <signal name="button_clicked" slot="hide" id="focusCombatButtonImage"/>
+        <signal name="button_clicked" slot="show" id="focusFleetButtonImage"/>
+        <signal name="button_clicked" slot="hide" id="focusSupportButtonImage"/>
+      </bindings>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusFleetButtonImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.27, 1.0, 0.27, 1.0" />
+        <rect name="Rect" value="-115, -52, 115, -8" />
+        <texture name="Texture" value="UI/Images/SkillTree/focus/fleet_buttonh.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="ffffffff" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="false" />
+      </attributes>
+    </element>
+    <!-- Support Focus Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusSupportButton" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.73, 1.0, 0.73, 1.0" />
+        <rect name="Rect" value="-115, -52, 115, -8" />
+        <texture name="Image" value="UI/Images/SkillTree/focus/support_button.png" />
+        <rect name="ImageRect" value="0, 0, 230, 44" />
+        <texture name="PressedImage" value="UI/Images/SkillTree/focus/support_buttonh.png" />
+        <rect name="PressedImageRect" value="0, 0, 230, 44" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="hide" id="focusMainPickImage" />
+        <signal name="button_clicked" slot="hide" id="focusReconPickImage" />
+        <signal name="button_clicked" slot="hide" id="focusCombatPickImage" />
+        <signal name="button_clicked" slot="show" id="focusSupportPickImage" />
+        <signal name="button_clicked" slot="hide" id="focusFleetPickImage"/>
+        <signal name="button_clicked" slot="hide" id="focusMainDescription" />
+        <signal name="button_clicked" slot="hide" id="focusReconDescription" />
+        <signal name="button_clicked" slot="hide" id="focusCombatDescription" />
+        <signal name="button_clicked" slot="show" id="focusSupportDescription" />
+        <signal name="button_clicked" slot="hide" id="focusFleetDescription"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonRecon"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonCombat"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonFleet"/>
+        <signal name="button_clicked" slot="show" id="focusConfirmButtonSupport"/>
+        <signal name="button_clicked" slot="hide" id="focusReconButtonImage"/>
+        <signal name="button_clicked" slot="hide" id="focusCombatButtonImage"/>
+        <signal name="button_clicked" slot="hide" id="focusFleetButtonImage"/>
+        <signal name="button_clicked" slot="show" id="focusSupportButtonImage"/>
+      </bindings>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusSupportButtonImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.73, 1.0, 0.73, 1.0" />
+        <rect name="Rect" value="-115, -52, 115, -8" />
+        <texture name="Texture" value="UI/Images/SkillTree/focus/support_buttonh.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="ffffffff" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="false" />
+      </attributes>
+    </element>
+    <!-- Confirm Recon Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusConfirmButtonRecon" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-108, -217, -12, -155" />
+        <texture name="Image" value="UI/Images/SkillTree/focus/recon_confirm.png" />
+        <rect name="ImageRect" value="0, 0, 96, 59" />
+        <texture name="DisabledImage" value="UI/Images/SkillTree/focus/recon_confirmd.png" />
+        <rect name="PressedImageRect" value="0, 0, 96, 59" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+        <bool name="Visible" value="false" />
+        <string name="ToolTip" value="Level 10 required to proceed." />
+      </attributes>
+      <bindings>
+        <slot name="setEnabled" signal="focus_button_enable" id="CharManager"/>
+        <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="28" />
+        <signal name="button_clicked" slot="hide" id="focusMainPick"/>
+        <signal name="button_clicked" slot="hide" id="focusTree"/>
+        <signal name="button_clicked" slot="show" id="focusReconPick"/>
+      </bindings>
+    </element>
+    <!-- Confirm Combat Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusConfirmButtonCombat" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-108, -217, -12, -155" />
+        <texture name="Image" value="UI/Images/SkillTree/focus/combat_confirm.png" />
+        <rect name="ImageRect" value="0, 0, 96, 59" />
+        <texture name="DisabledImage" value="UI/Images/SkillTree/focus/combat_confirmd.png" />
+        <rect name="PressedImageRect" value="0, 0, 96, 59" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+        <bool name="Visible" value="false" />
+        <string name="ToolTip" value="Level 10 required to proceed." />
+      </attributes>
+      <bindings>
+        <slot name="setEnabled" signal="focus_button_enable" id="CharManager"/>
+        <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="27" />
+        <signal name="button_clicked" slot="hide" id="focusMainPick"/>
+        <signal name="button_clicked" slot="hide" id="focusTree"/>
+        <signal name="button_clicked" slot="show" id="focusCombatPick"/>
+      </bindings>
+    </element>
+    <!-- Confirm Fleet Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusConfirmButtonFleet" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-108, -217, -12, -155" />
+        <texture name="Image" value="UI/Images/SkillTree/focus/fleet_confirm.png" />
+        <rect name="ImageRect" value="0, 0, 96, 59" />
+        <texture name="DisabledImage" value="UI/Images/SkillTree/focus/fleet_confirmd.png" />
+        <rect name="PressedImageRect" value="0, 0, 96, 59" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+        <bool name="Visible" value="false" />
+        <string name="ToolTip" value="Level 10 required to proceed." />
+      </attributes>
+      <bindings>
+        <slot name="setEnabled" signal="focus_button_enable" id="CharManager"/>
+        <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="99" />
+        <signal name="button_clicked" slot="hide" id="focusMainPick"/>
+        <signal name="button_clicked" slot="hide" id="focusTree"/>
+        <signal name="button_clicked" slot="show" id="focusFleetPick"/>
+      </bindings>
+    </element>
+    <!-- Confirm Support Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusConfirmButtonSupport" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-108, -217, -12, -155" />
+        <texture name="Image" value="UI/Images/SkillTree/focus/support_confirm.png" />
+        <rect name="ImageRect" value="0, 0, 96, 59" />
+        <texture name="DisabledImage" value="UI/Images/SkillTree/focus/support_confirmd.png" />
+        <rect name="PressedImageRect" value="0, 0, 96, 59" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+        <bool name="Visible" value="false" />
+        <string name="ToolTip" value="Level 10 required to proceed." />
+      </attributes>
+      <bindings>
+        <slot name="setEnabled" signal="focus_button_enable" id="CharManager"/>
+        <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="29" />
+        <signal name="button_clicked" slot="hide" id="focusMainPick"/>
+        <signal name="button_clicked" slot="hide" id="focusTree"/>
+        <signal name="button_clicked" slot="show" id="focusSupportPick"/>
+      </bindings>
+    </element>
+  </element>
+  <!-- Player has Recon Focus 1 but no class -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="focusReconPick" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+      <rect name="Rect" value="0, 0, 0, 0" />
+      <bool name="Visible" value="false" />
+    </attributes>
+    <bindings>
+      <slot name="setVisible" signal="show_recon_class_train" id="CharManager"/>
+    </bindings>
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rect name="Rect" value="8, 8, 330, 40" />
+        <texture name="Texture" value="UI/Images/SkillTree/pick_class.png" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+    <!-- Speed Demon Class Image -->
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusClassSDImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, 50, -8, -110" />
+        <texture name="Texture" value="UI/Images/SkillTree/class/speed_demon.jpg" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="ffffffff" />
+        <bool name="ScaleImage" value="true" />
+      </attributes>
+    </element>
+    <!-- Seer Class Image -->
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusClassSeerImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, 50, -8, -110" />
+        <texture name="Texture" value="UI/Images/SkillTree/class/seer.jpg" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="ffffffff" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="false" />
+      </attributes>
+    </element>
+    <!-- Class Description Black Background -->
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, -220, -8, -110" />
+        <texture name="Texture" value="UI/Images/SkillTree/black.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="E0000000" />
+        <bool name="ScaleImage" value="true" />
+      </attributes>
+    </element>
+    <!-- Speed Demon Description -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="focusSDDescription" />
+        <string name="Caption" value="Speed Demons focus on speed, agility and pelting enemies with a barrage of shots in short-range dogfights. " />
+        <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="16, -218, -108, -110" />
+      </attributes>
+      <bindings>
+      </bindings>
+    </element>
+    <!-- Seer Description -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="focusSeerDescription" />
+        <string name="Caption" value="Seers prefer to stay undetected by employing powerful cloaking devices. They embrace the shadows and ambush their enemies for massive damage." />
+        <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="16, -218, -108, -110" />
+        <bool name="Visible" value="false" />
+      </attributes>
+      <bindings>
+      </bindings>
+    </element>
+    <!-- Speed Demon Class Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusSDButton" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.0, 1.0, 0.0, 1.0" />
+        <rect name="Rect" value="8, -105, 238, -8" />
+        <texture name="Image" value="UI/Images/SkillTree/class/sd_button.png" />
+        <rect name="ImageRect" value="0, 0, 230, 97" />
+        <texture name="PressedImage" value="UI/Images/SkillTree/class/sd_buttonh.png" />
+        <rect name="PressedImageRect" value="0, 0, 230, 97" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="hide" id="focusClassSeerImage"/>
+        <signal name="button_clicked" slot="hide" id="focusSeerDescription"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonSeer"/>
+        <signal name="button_clicked" slot="show" id="focusClassSDImage"/>
+        <signal name="button_clicked" slot="show" id="focusSDDescription"/>
+        <signal name="button_clicked" slot="show" id="focusConfirmButtonSD"/>
+        <signal name="button_clicked" slot="show" id="focusSDButtonImage"/>
+        <signal name="button_clicked" slot="hide" id="focusSeerButtonImage"/>
+      </bindings>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusSDButtonImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 1.0, 0.0, 1.0" />
+        <rect name="Rect" value="8, -105, 238, -8" />
+        <texture name="Texture" value="UI/Images/SkillTree/class/sd_buttonh.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="true" />
+      </attributes>
+    </element>
+    <!-- Seer Class Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusSeerButton" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-238, -105, -8, -8" />
+        <texture name="Image" value="UI/Images/SkillTree/class/seer_button.png" />
+        <rect name="ImageRect" value="0, 0, 230, 97" />
+        <texture name="PressedImage" value="UI/Images/SkillTree/class/seer_buttonh.png" />
+        <rect name="PressedImageRect" value="0, 0, 230, 97" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="show" id="focusClassSeerImage"/>
+        <signal name="button_clicked" slot="show" id="focusSeerDescription"/>
+        <signal name="button_clicked" slot="show" id="focusConfirmButtonSeer"/>
+        <signal name="button_clicked" slot="hide" id="focusClassSDImage"/>
+        <signal name="button_clicked" slot="hide" id="focusSDDescription"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonSD"/>
+        <signal name="button_clicked" slot="show" id="focusSDButtonImage"/>
+        <signal name="button_clicked" slot="hide" id="focusSeerButtonImage"/>
+        <signal name="button_clicked" slot="hide" id="focusSDButtonImage"/>
+        <signal name="button_clicked" slot="show" id="focusSeerButtonImage"/>
+      </bindings>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusSeerButtonImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-238, -105, -8, -8" />
+        <texture name="Texture" value="UI/Images/SkillTree/class/seer_buttonh.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="false" />
+      </attributes>
+    </element>
+    <!-- Speed Demon Confirm -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusConfirmButtonSD" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-108, -217, -12, -155" />
+        <texture name="Image" value="UI/Images/SkillTree/class/sd_confirm.png" />
+        <rect name="ImageRect" value="0, 0, 96, 59" />
+        <texture name="DisabledImage" value="UI/Images/SkillTree/class/sd_confirmd.png" />
+        <rect name="PressedImageRect" value="0, 0, 96, 59" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+        <bool name="Visible" value="true" />
+        <string name="ToolTip" value="Level 10 required to proceed." />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="36" />
+        <slot name="setEnabled" signal="class_button_enable" id="CharManager" />
+        <signal name="button_clicked" slot="hide" id="focusReconPick"/>
+        <signal name="button_clicked" slot="show" id="focusTree"/>
+      </bindings>
+    </element>
+    <!-- Seer Confirm -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusConfirmButtonSeer" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-108, -217, -12, -155" />
+        <texture name="Image" value="UI/Images/SkillTree/class/seer_confirm.png" />
+        <rect name="ImageRect" value="0, 0, 96, 59" />
+        <texture name="DisabledImage" value="UI/Images/SkillTree/class/seer_confirmd.png" />
+        <rect name="PressedImageRect" value="0, 0, 96, 59" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+        <bool name="Visible" value="false" />
+        <string name="ToolTip" value="Level 10 required to proceed." />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="43" />
+        <slot name="setEnabled" signal="class_button_enable" id="CharManager" />
+        <signal name="button_clicked" slot="hide" id="focusReconPick"/>
+        <signal name="button_clicked" slot="show" id="focusTree"/>
+      </bindings>
+    </element>
+  </element>
+  <!-- Player has Combat Focus 1 but no class -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="focusCombatPick" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+      <rect name="Rect" value="0, 0, 0, 0" />
+      <bool name="Visible" value="false" />
+    </attributes>
+    <bindings>
+      <slot name="setVisible" signal="show_combat_class_train" id="CharManager"/>
+    </bindings>
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rect name="Rect" value="8, 8, 330, 40" />
+        <texture name="Texture" value="UI/Images/SkillTree/pick_class.png" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+    <!-- Sniper Class Image -->
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusClassSniperImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, 50, -8, -110" />
+        <texture name="Texture" value="UI/Images/SkillTree/class/sniper.jpg" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="ffffffff" />
+        <bool name="ScaleImage" value="true" />
+      </attributes>
+    </element>
+    <!-- Berserker Image -->
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusClassBerserkerImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, 50, -8, -110" />
+        <texture name="Texture" value="UI/Images/SkillTree/class/berserker.jpg" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="ffffffff" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="false" />
+      </attributes>
+    </element>
+    <!-- Class Description Black Background -->
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, -220, -8, -110" />
+        <texture name="Texture" value="UI/Images/SkillTree/black.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="E0000000" />
+        <bool name="ScaleImage" value="true" />
+      </attributes>
+    </element>
+    <!-- Ranger Description -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="focusSniperDescription" />
+        <string name="Caption" value="Ranger attack their targets from great distances, dealing more and more damage with every shot with their unique Ranger Scope. If range is not enough, cloaking devices may assist Rangers in setting up for their attack, or getting away in a pinch." />
+        <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="16, -218, -108, -110" />
+      </attributes>
+      <bindings>
+      </bindings>
+    </element>
+    <!-- Berserker Description -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="focusBerserkerDescription" />
+        <string name="Caption" value="Berserkers fire up to 3 weapons at once and while they are slow and lumbering, their high resistance bonuses make them excellent at soaking up punishment. In addition, they have access to the unique Shield Redistribution Device that regenerates their shields when they deal damage." />
+        <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="16, -218, -108, -110" />
+        <bool name="Visible" value="false" />
+      </attributes>
+      <bindings>
+      </bindings>
+    </element>
+    <!-- Sniper Class Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusSniperButton" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.0, 1.0, 0.0, 1.0" />
+        <rect name="Rect" value="8, -105, 238, -8" />
+        <texture name="Image" value="UI/Images/SkillTree/class/sniper_button.png" />
+        <rect name="ImageRect" value="0, 0, 230, 97" />
+        <texture name="PressedImage" value="UI/Images/SkillTree/class/sniper_buttonh.png" />
+        <rect name="PressedImageRect" value="0, 0, 230, 97" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="show" id="focusClassSniperImage"/>
+        <signal name="button_clicked" slot="show" id="focusSniperDescription"/>
+        <signal name="button_clicked" slot="show" id="focusConfirmButtonSniper"/>
+        <signal name="button_clicked" slot="hide" id="focusClassBerserkerImage"/>
+        <signal name="button_clicked" slot="hide" id="focusBerserkerDescription"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonBerserker"/>
+        <signal name="button_clicked" slot="hide" id="focusBerserkerButtonImage"/>
+        <signal name="button_clicked" slot="show" id="focusSniperButtonImage"/>
+      </bindings>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusSniperButtonImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 1.0, 0.0, 1.0" />
+        <rect name="Rect" value="8, -105, 238, -8" />
+        <texture name="Texture" value="UI/Images/SkillTree/class/sniper_buttonh.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="true" />
+      </attributes>
+    </element>
+    <!-- Berserker Class Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusBerserkerButton" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-238, -105, -8, -8" />
+        <texture name="Image" value="UI/Images/SkillTree/class/berserker_button.png" />
+        <rect name="ImageRect" value="0, 0, 230, 97" />
+        <texture name="PressedImage" value="UI/Images/SkillTree/class/berserker_buttonh.png" />
+        <rect name="PressedImageRect" value="0, 0, 230, 97" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="hide" id="focusClassSniperImage"/>
+        <signal name="button_clicked" slot="hide" id="focusSniperDescription"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonSniper"/>
+        <signal name="button_clicked" slot="show" id="focusClassBerserkerImage"/>
+        <signal name="button_clicked" slot="show" id="focusBerserkerDescription"/>
+        <signal name="button_clicked" slot="show" id="focusConfirmButtonBerserker"/>
+        <signal name="button_clicked" slot="hide" id="focusSniperButtonImage"/>
+        <signal name="button_clicked" slot="show" id="focusBerserkerButtonImage"/>
+      </bindings>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusBerserkerButtonImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-238, -105, -8, -8" />
+        <texture name="Texture" value="UI/Images/SkillTree/class/berserker_buttonh.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="false" />
+      </attributes>
+    </element>
+    <!-- Sniper Confirm -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusConfirmButtonSniper" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-108, -217, -12, -155" />
+        <texture name="Image" value="UI/Images/SkillTree/class/sniper_confirm.png" />
+        <rect name="ImageRect" value="0, 0, 96, 59" />
+        <texture name="DisabledImage" value="UI/Images/SkillTree/class/sniper_confirmd.png" />
+        <rect name="PressedImageRect" value="0, 0, 96, 59" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+        <bool name="Visible" value="true" />
+        <string name="ToolTip" value="Level 10 required to proceed." />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="35" />
+        <slot name="setEnabled" signal="class_button_enable" id="CharManager" />
+        <signal name="button_clicked" slot="hide" id="focusCombatPick"/>
+        <signal name="button_clicked" slot="show" id="focusTree"/>
+      </bindings>
+    </element>
+    <!-- Berserker Confirm -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusConfirmButtonBerserker" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-108, -217, -12, -155" />
+        <texture name="Image" value="UI/Images/SkillTree/class/berserker_confirm.png" />
+        <rect name="ImageRect" value="0, 0, 96, 59" />
+        <texture name="DisabledImage" value="UI/Images/SkillTree/class/berserker_confirmd.png" />
+        <rect name="PressedImageRect" value="0, 0, 96, 59" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+        <bool name="Visible" value="false" />
+        <string name="ToolTip" value="Level 10 required to proceed." />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="100" />
+        <slot name="setEnabled" signal="class_button_enable" id="CharManager" />
+        <signal name="button_clicked" slot="hide" id="focusCombatPick"/>
+        <signal name="button_clicked" slot="show" id="focusTree"/>
+      </bindings>
+    </element>
+  </element>
+  <!-- Player has Fleet Focus 1 but no class -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="focusFleetPick" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+      <rect name="Rect" value="0, 0, 0, 0" />
+      <bool name="Visible" value="false" />
+    </attributes>
+    <bindings>
+      <slot name="setVisible" signal="show_fleet_class_train" id="CharManager"/>
+    </bindings>
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rect name="Rect" value="8, 8, 330, 40" />
+        <texture name="Texture" value="UI/Images/SkillTree/pick_class.png" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+    <!-- Fleet Class Image -->
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusClassFleet2Image" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, 50, -8, -110" />
+        <texture name="Texture" value="UI/Images/SkillTree/class/fleet.jpg" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="ffffffff" />
+        <bool name="ScaleImage" value="true" />
+      </attributes>
+    </element>
+    <!-- Gunner Image -->
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusClassGunnerImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, 50, -8, -110" />
+        <texture name="Texture" value="UI/Images/SkillTree/class/gunner.jpg" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="ffffffff" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="false" />
+      </attributes>
+    </element>
+    <!-- Class Description Black Background -->
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, -220, -8, -110" />
+        <texture name="Texture" value="UI/Images/SkillTree/black.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="E0000000" />
+        <bool name="ScaleImage" value="true" />
+      </attributes>
+    </element>
+    <!-- Fleet Description -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="focusFleet2Description" />
+        <string name="Caption" value="Fleet Commanders use bot-controlled ships and fighters while providing them and their allies with useful combat bonuses through the use of aura generators. In addition, they can capture enemy ships that would not be capturable by other classes." />
+        <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="16, -218, -108, -110" />
+      </attributes>
+      <bindings>
+      </bindings>
+    </element>
+    <!-- Gunner Description -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="focusGunnerDescription" />
+        <string name="Caption" value="Gunners make great use of massive weaponry and powerful missiles. In addition, they gain access to the Deathblossom, a weapon overloader that lets them target many enemies at once." />
+        <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="16, -218, -108, -110" />
+        <bool name="Visible" value="false" />
+      </attributes>
+      <bindings>
+      </bindings>
+    </element>
+    <!-- Fleet Class Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusFleet2Button" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.0, 1.0, 0.0, 1.0" />
+        <rect name="Rect" value="8, -105, 238, -8" />
+        <texture name="Image" value="UI/Images/SkillTree/class/fleet_button.png" />
+        <rect name="ImageRect" value="0, 0, 230, 97" />
+        <texture name="PressedImage" value="UI/Images/SkillTree/class/fleet_buttonh.png" />
+        <rect name="PressedImageRect" value="0, 0, 230, 97" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="show" id="focusClassFleet2Image"/>
+        <signal name="button_clicked" slot="show" id="focusFleet2Description"/>
+        <signal name="button_clicked" slot="show" id="focusConfirmButtonFleet2"/>
+        <signal name="button_clicked" slot="hide" id="focusClassGunnerImage"/>
+        <signal name="button_clicked" slot="hide" id="focusGunnerDescription"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonGunner"/>
+        <signal name="button_clicked" slot="show" id="focusFleet2ButtonImage"/>
+        <signal name="button_clicked" slot="hide" id="focusGunnerButtonImage"/>
+      </bindings>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusFleet2ButtonImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 1.0, 0.0, 1.0" />
+        <rect name="Rect" value="8, -105, 238, -8" />
+        <texture name="Texture" value="UI/Images/SkillTree/class/fleet_buttonh.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="true" />
+      </attributes>
+    </element>
+    <!-- Gunner Class Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusGunnerButton" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-238, -105, -8, -8" />
+        <texture name="Image" value="UI/Images/SkillTree/class/gunner_button.png" />
+        <rect name="ImageRect" value="0, 0, 230, 97" />
+        <texture name="PressedImage" value="UI/Images/SkillTree/class/gunner_buttonh.png" />
+        <rect name="PressedImageRect" value="0, 0, 230, 97" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="hide" id="focusClassFleet2Image"/>
+        <signal name="button_clicked" slot="hide" id="focusFleet2Description"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonFleet2"/>
+        <signal name="button_clicked" slot="show" id="focusClassGunnerImage"/>
+        <signal name="button_clicked" slot="show" id="focusGunnerDescription"/>
+        <signal name="button_clicked" slot="show" id="focusConfirmButtonGunner"/>
+        <signal name="button_clicked" slot="hide" id="focusFleet2ButtonImage"/>
+        <signal name="button_clicked" slot="show" id="focusGunnerButtonImage"/>
+      </bindings>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusGunnerButtonImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-238, -105, -8, -8" />
+        <texture name="Texture" value="UI/Images/SkillTree/class/gunner_buttonh.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="false" />
+      </attributes>
+    </element>
+    <!-- Fleet Commander Confirm -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusConfirmButtonFleet2" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-108, -217, -12, -155" />
+        <texture name="Image" value="UI/Images/SkillTree/class/fc_confirm.png" />
+        <rect name="ImageRect" value="0, 0, 96, 59" />
+        <texture name="DisabledImage" value="UI/Images/SkillTree/class/fc_confirmd.png" />
+        <rect name="PressedImageRect" value="0, 0, 96, 59" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+        <bool name="Visible" value="true" />
+        <string name="ToolTip" value="Level 10 required to proceed." />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="41" />
+        <slot name="setEnabled" signal="class_button_enable" id="CharManager" />
+        <signal name="button_clicked" slot="hide" id="focusFleetPick"/>
+        <signal name="button_clicked" slot="show" id="focusTree"/>
+      </bindings>
+    </element>
+    <!-- Gunner Confirm -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusConfirmButtonGunner" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-108, -217, -12, -155" />
+        <texture name="Image" value="UI/Images/SkillTree/class/gunner_confirm.png" />
+        <rect name="ImageRect" value="0, 0, 96, 59" />
+        <texture name="DisabledImage" value="UI/Images/SkillTree/class/gunner_confirmd.png" />
+        <rect name="PressedImageRect" value="0, 0, 96, 59" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+        <bool name="Visible" value="false" />
+        <string name="ToolTip" value="Level 10 required to proceed." />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="102" />
+        <slot name="setEnabled" signal="class_button_enable" id="CharManager" />
+        <signal name="button_clicked" slot="hide" id="focusFleetPick"/>
+        <signal name="button_clicked" slot="show" id="focusTree"/>
+      </bindings>
+    </element>
+  </element>
+  <!-- Player has Support Focus 1 but no class -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="focusSupportPick" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+      <rect name="Rect" value="0, 0, 0, 0" />
+      <bool name="Visible" value="false" />
+    </attributes>
+    <bindings>
+      <slot name="setVisible" signal="show_support_class_train" id="CharManager"/>
+    </bindings>
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rect name="Rect" value="8, 8, 330, 40" />
+        <texture name="Texture" value="UI/Images/SkillTree/pick_class.png" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+    <!-- Monkey Class Image -->
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusClassMonkeyImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, 50, -8, -110" />
+        <texture name="Texture" value="UI/Images/SkillTree/class/monkey.jpg" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="ffffffff" />
+        <bool name="ScaleImage" value="true" />
+      </attributes>
+    </element>
+    <!-- Engineer Image -->
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusClassEngineerImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, 50, -8, -110" />
+        <texture name="Texture" value="UI/Images/SkillTree/class/engineer.jpg" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="ffffffff" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="false" />
+      </attributes>
+    </element>
+    <!-- Class Description Black Background -->
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="8, -220, -8, -110" />
+        <texture name="Texture" value="UI/Images/SkillTree/black.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <color name="Color" value="E0000000" />
+        <bool name="ScaleImage" value="true" />
+      </attributes>
+    </element>
+    <!-- Monkey Description -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="focusMonkeyDescription" />
+        <string name="Caption" value="Shield Monkeys pilot ships with large bonuses to shield bank and regeneration. They have enhanced abilities to heal allies with shield transference weaponry, making them a vital part of any squad. On their own, Shield Monkeys can let bot-controlled ships take the role of allies." />
+        <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="16, -218, -108, -110" />
+      </attributes>
+      <bindings>
+      </bindings>
+    </element>
+    <!-- Engineer Description -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="focusEngineerDescription" />
+        <string name="Caption" value="Engineers are jacks of all trades, whether it is damaging enemies with offensive drones, keeping allies in the fight with defensive drones or controlling the battlefield with powerful tractor beams. Engineers have access to a variety of specialized equipment, such as tractor beams that can provide energy to allies and shield transference weapons that chain to additional allies." />
+        <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="16, -218, -108, -110" />
+        <bool name="Visible" value="false" />
+      </attributes>
+      <bindings>
+      </bindings>
+    </element>
+    <!-- Monkey Class Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusMonkeyButton" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.0, 1.0, 0.0, 1.0" />
+        <rect name="Rect" value="8, -105, 238, -8" />
+        <texture name="Image" value="UI/Images/SkillTree/class/monkey_button.png" />
+        <rect name="ImageRect" value="0, 0, 230, 97" />
+        <texture name="PressedImage" value="UI/Images/SkillTree/class/monkey_buttonh.png" />
+        <rect name="PressedImageRect" value="0, 0, 230, 97" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="show" id="focusClassMonkeyImage"/>
+        <signal name="button_clicked" slot="show" id="focusMonkeyDescription"/>
+        <signal name="button_clicked" slot="show" id="focusConfirmButtonMonkey"/>
+        <signal name="button_clicked" slot="hide" id="focusClassEngineerImage"/>
+        <signal name="button_clicked" slot="hide" id="focusEngineerDescription"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonEngineer"/>
+        <signal name="button_clicked" slot="show" id="focusMonkeyButtonImage"/>
+        <signal name="button_clicked" slot="hide" id="focusEngineerButtonImage"/>
+      </bindings>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusMonkeyButtonImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 1.0, 0.0, 1.0" />
+        <rect name="Rect" value="8, -105, 238, -8" />
+        <texture name="Texture" value="UI/Images/SkillTree/class/monkey_buttonh.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="true" />
+      </attributes>
+    </element>
+    <!-- Engineer Class Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusEngineerButton" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-238, -105, -8, -8" />
+        <texture name="Image" value="UI/Images/SkillTree/class/engineer_button.png" />
+        <rect name="ImageRect" value="0, 0, 230, 97" />
+        <texture name="PressedImage" value="UI/Images/SkillTree/class/engineer_buttonh.png" />
+        <rect name="PressedImageRect" value="0, 0, 230, 97" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="hide" id="focusClassMonkeyImage"/>
+        <signal name="button_clicked" slot="hide" id="focusMonkeyDescription"/>
+        <signal name="button_clicked" slot="hide" id="focusConfirmButtonMonkey"/>
+        <signal name="button_clicked" slot="show" id="focusClassEngineerImage"/>
+        <signal name="button_clicked" slot="show" id="focusEngineerDescription"/>
+        <signal name="button_clicked" slot="show" id="focusConfirmButtonEngineer"/>
+        <signal name="button_clicked" slot="hide" id="focusMonkeyButtonImage"/>
+        <signal name="button_clicked" slot="show" id="focusEngineerButtonImage"/>
+      </bindings>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusEngineerButtonImage" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-238, -105, -8, -8" />
+        <texture name="Texture" value="UI/Images/SkillTree/class/engineer_buttonh.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="ScaleImage" value="true" />
+        <bool name="Visible" value="false" />
+      </attributes>
+    </element>
+    <!-- Monkey Confirm -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusConfirmButtonMonkey" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-108, -217, -12, -155" />
+        <texture name="Image" value="UI/Images/SkillTree/class/monkey_confirm.png" />
+        <rect name="ImageRect" value="0, 0, 96, 59" />
+        <texture name="DisabledImage" value="UI/Images/SkillTree/class/monkey_confirmd.png" />
+        <rect name="PressedImageRect" value="0, 0, 96, 59" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+        <bool name="Visible" value="true" />
+        <string name="ToolTip" value="Level 10 required to proceed." />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="39" />
+        <slot name="setEnabled" signal="class_button_enable" id="CharManager" />
+        <signal name="button_clicked" slot="hide" id="focusSupportPick"/>
+        <signal name="button_clicked" slot="show" id="focusTree"/>
+      </bindings>
+    </element>
+    <!-- Engineer Confirm -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusConfirmButtonEngineer" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="1.0, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="-108, -217, -12, -155" />
+        <texture name="Image" value="UI/Images/SkillTree/class/engineer_confirm.png" />
+        <rect name="ImageRect" value="0, 0, 96, 59" />
+        <texture name="DisabledImage" value="UI/Images/SkillTree/class/engineer_confirmd.png" />
+        <rect name="PressedImageRect" value="0, 0, 96, 59" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+        <bool name="Visible" value="false" />
+        <string name="ToolTip" value="Level 10 required to proceed." />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="101" />
+        <slot name="setEnabled" signal="class_button_enable" id="CharManager" />
+        <signal name="button_clicked" slot="hide" id="focusSupportPick"/>
+        <signal name="button_clicked" slot="show" id="focusTree"/>
+      </bindings>
+    </element>
+  </element>
+  <!-- SEPERATOR Filter above, Skill Tree below -->
+  <!-- Focus Tree -->
+  <element type="customImage">
+    <attributes>
+      <string name="IdName" value="focusTreeBackground" />
+      <string name="TextID" value="" />
+      <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+      <rect name="Rect" value="-1, -45, 690, 920" />
+      <texture name="Texture" value="UI/Images/SkillTree/skill_tree_background.png" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Visible" value="false" />
+      <color name="Color" value="44ffffff" />
+    </attributes>
+    <bindings>
+      <slot name="setVisible" signal="show_full_class_tree" id="CharManager"/>
+    </bindings>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="focusTree" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+      <rect name="Rect" value="0, 25, 0, 0" />
+      <bool name="Visible" value="false" />
+    </attributes>
+    <bindings>
+      <slot name="setVisible" signal="show_full_class_tree" id="CharManager"/>
+    </bindings>
+    <!-- Titles -->
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 0.10, 0.0, 0.10" />
+        <rect name="Rect" value="8, -20, 194, 20" />
+        <texture name="Texture" value="UI/Images/SkillTree/tree_title/focus.png" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 0.30, 0.0, 0.30" />
+        <rect name="Rect" value="8, -20, 194, 20" />
+        <texture name="Texture" value="UI/Images/SkillTree/tree_title/class.png" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 0.50, 0.0, 0.50" />
+        <rect name="Rect" value="8, -20, 194, 20" />
+        <texture name="Texture" value="UI/Images/SkillTree/tree_title/sub_skill.png" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.0, 0.75, 0.0, 0.75" />
+        <rect name="Rect" value="8, -20, 194, 20" />
+        <texture name="Texture" value="UI/Images/SkillTree/tree_title/adv_skill.png" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+
+    <!-- Zen of Focus Type -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="FocusZenFocusType" />
+        <rectf name="PercRect" value="0, 1.0, 0.55, 1.0" />
+        <rect name="Rect" value="8, -64, -8, -32" />
+      </attributes>
+      <bindings>
+        <slot name="setVisible" signal="static_focusZen_enable" id="CharManager" />
+      </bindings>
+      <!-- Zen of Focus Type Progress -->
+      <element type="progressbar">
+        <attributes>
+          <string name="IdName" value="FocusZenFocusProgress" />
+          <rectf name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+          <rect name="Rect" value="0, 3, -30, 21" />
+          <bool name="Dynamic" value="true" />
+          <int name="IconWidth" value="22" />
+          <int name="MousePauseTime" value="0" />
+        </attributes>
+        <bindings>
+          <slot name="setValue" signal="static_focusZen_fraction" id="CharManager" />
+          <slot name="setToolTipText" signal="static_focusZen_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_focusZen_tooltip" id="CharManager" />
+        </bindings>
+        <!-- Zen of Focus Type Icon -->
+        <element type="customImage">
+          <attributes>
+            <rect name="Rect" value="4, 1, 18, 15" />
+            <rectf name="PercRect" value="0, 0.0, 0.0, 0.0" />
+            <texture name="Texture" value="UI/Images/Items/iconsmall/Fighters.png" />
+            <bool name="UseAlphaChannel" value="true" />
+            <string name="ToolTip" value="Current zen level." />
+          </attributes>
+        </element>
+        <!-- Zen of Focus Type Label -->
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="focusZen_text" />
+            <string name="Caption" value="Zen of Capital Ships - 0/0" />
+            <rect name="Rect" value="24, 0, 0, 20" />
+            <rectf name="PercRect" value="0, 0.0, 1.0, 1.0" />
+            <int name="ScrolledLines" value="0" />
+            <enum name="HTextAlign" value="left" />
+            <int name="MousePauseTime" value="0" />
+          </attributes>
+          <bindings>
+            <slot name="setText" signal="static_focusZen_text" id="CharManager" />
+            <slot name="setToolTipText" signal="static_focusZen_text" id="CharManager" />
+            <slot name="setToolTipBodyText" signal="static_focusZen_tooltip" id="CharManager" />
+          </bindings>
+        </element>
+      </element>
+      <!-- Zen of Focus Type Add Button -->
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="FocusZenFocusButton" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+          <rect name="Rect" value="-24, 0, 0, 24" />
+          <texture name="Image" value="UI/Images/SkillTree/add_zen_skill.png" />
+          <rect name="ImageRect" value="0, 0, 24, 24" />
+          <texture name="PressedImage" value="UI/Images/SkillTree/add_zen_skilld.png" />
+          <rect name="PressedImageRect" value="0, 0, 24, 24" />
+          <texture name="DisabledImage" value="UI/Images/SkillTree/add_zen_skilld.png" />
+          <rect name="DisabledImageRect" value="0, 0, 24, 24" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <int name="MousePauseTime" value="0" />
+          <bool name="Enabled" value="false" />
+        </attributes>
+        <bindings>
+          <slot name="setImage" signal="FocusZenFocusButtonImage" id="FocusManager" />
+          <slot name="setVisible" signal="static_focusZen_showTrain" id="CharManager" />
+          <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="FocusZen" />
+          <slot name="setEnabled" signal="static_focusZen_enable" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="FocusFocusClassButtonText" id="FocusManager" />
+        </bindings>
+      </element>
+    </element>
+   <!-- Zen of Class Type -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="FocusZenClassType" />
+        <rectf name="PercRect" value="0, 1.0, 0.55, 1.0" />
+        <rect name="Rect" value="8, -32, -8, -8" />
+      </attributes>
+      <bindings>
+        <slot name="setVisible" signal="static_classZen_enable" id="CharManager" />
+      </bindings>
+      <!-- Zen of Class Type Progress -->
+      <element type="progressbar">
+        <attributes>
+          <string name="IdName" value="FocusZenClassProgress" />
+          <rectf name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+          <rect name="Rect" value="0, 3, -30, 21" />
+          <bool name="Dynamic" value="true" />
+          <int name="IconWidth" value="22" />
+          <int name="MousePauseTime" value="0" />
+        </attributes>
+        <bindings>
+          <slot name="setValue" signal="static_classZen_fraction" id="CharManager" />
+          <slot name="setToolTipText" signal="static_classZen_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_classZen_tooltip" id="CharManager" />
+        </bindings>
+        <!-- Zen of Class Type Icon -->
+        <element type="customImage">
+          <attributes>
+            <rect name="Rect" value="4, 1, 18, 15" />
+            <rectf name="PercRect" value="0, 0.0, 0.0, 0.0" />
+            <texture name="Texture" value="UI/Images/Items/iconsmall/Slave-Stasis-Gen.png" />
+            <bool name="UseAlphaChannel" value="true" />
+            <string name="ToolTip" value="Current zen level." />
+          </attributes>
+        </element>
+        <!-- Zen of Class Type Label Value -->
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="classZen_text" />
+            <string name="Caption" value="Zen of Fleet Commander - 0/0" />
+            <rect name="Rect" value="24, 0, 0, 20" />
+            <rectf name="PercRect" value="0, 0.0, 1.0, 1.0" />
+            <int name="ScrolledLines" value="0" />
+            <enum name="HTextAlign" value="left" />
+            <int name="MousePauseTime" value="0" />
+          </attributes>
+          <bindings>
+            <slot name="setText" signal="static_classZen_text" id="CharManager" />
+            <slot name="setToolTipText" signal="static_classZen_text" id="CharManager" />
+            <slot name="setToolTipBodyText" signal="static_classZen_tooltip" id="CharManager" />
+          </bindings>
+        </element>
+      </element>
+      <!-- Zen of Class Type Add Button -->
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="FocusZenClassButton" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+          <rect name="Rect" value="-24, 0, 0, 24" />
+          <texture name="Image" value="UI/Images/SkillTree/add_zen_skill.png" />
+          <rect name="ImageRect" value="0, 0, 24, 24" />
+          <texture name="PressedImage" value="UI/Images/SkillTree/add_zen_skilld.png" />
+          <rect name="PressedImageRect" value="0, 0, 24, 24" />
+          <texture name="DisabledImage" value="UI/Images/SkillTree/add_zen_skilld.png" />
+          <rect name="DisabledImageRect" value="0, 0, 24, 24" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <int name="MousePauseTime" value="0" />
+          <bool name="Enabled" value="false" />
+        </attributes>
+        <bindings>
+          <slot name="setImage" signal="FocusZenClassButtonImage" id="FocusManager" />
+          <slot name="setVisible" signal="static_classZen_showTrain" id="CharManager" />
+          <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="ClassZen" />
+          <slot name="setEnabled" signal="static_classZen_enable" id="CharManager" />
+          <slot name="setToolTipText" signal="FocusZenClassButtonText" id="FocusManager" />
+        </bindings>
+      </element>
+    </element>
+
+    <!-- Tree Grid/Lines -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="RowOne1" />
+        <rectf name="PercRect" value="0.5, 0.1, 0.72, 0.1" />
+        <rect name="Rect" value="36, -2, -48, 2" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="6048bbff" />
+        <bool name="Visible" value="true" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_RowOne1_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="RowOnePointer1" />
+        <rectf name="PercRect" value="0.72, 0.1, 0.72, 0.1" />
+        <rect name="Rect" value="-48, -4, -40, 4" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="9048bbff" />
+        <bool name="Visible" value="true" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_RowOne1_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="RowOne2" />
+        <rectf name="PercRect" value="0.72, 0.1, 1.0, 0.1" />
+        <rect name="Rect" value="36, -2, -88, 2" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="60888888" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_RowOne2_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="RowOnePointer2" />
+        <rectf name="PercRect" value="1.0, 0.1, 1.0, 0.1" />
+        <rect name="Rect" value="-88, -4, -80, 4" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="90888888" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_RowOne2_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="ColOne1" />
+        <rectf name="PercRect" value="0.5, 0.1, 0.5, 0.3" />
+        <rect name="Rect" value="-2, 36, 2, -44" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="6048bbff" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_ColOne1_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="ColOnePointer1" />
+        <rectf name="PercRect" value="0.5, 0.3, 0.5, 0.3" />
+        <rect name="Rect" value="-4, -44, 4, -36" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="9048bbff" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_ColOne1_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="ColOne2" />
+        <rectf name="PercRect" value="0.72, 0.1, 0.72, 0.3" />
+        <rect name="Rect" value="-2, 36, 2, -44" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="60888888" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_ColOne2_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="ColOnePointer2" />
+        <rectf name="PercRect" value="0.72, 0.3, 0.72, 0.3" />
+        <rect name="Rect" value="-4, -44, 4, -36" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="90888888" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_ColOne2_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="ColOne3" />
+        <rectf name="PercRect" value="1.0, 0.1, 1.0, 0.3" />
+        <rect name="Rect" value="-38, 36, -42, -44" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="60888888" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_ColOne3_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="ColOnePointer3" />
+        <rectf name="PercRect" value="1.0, 0.3, 1.0, 0.3" />
+        <rect name="Rect" value="-36, -44, -44, -36" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="90888888" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_ColOne3_color" id="CharManager" />
+      </bindings>
+    </element>
+
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="RowTwo1" />
+        <rectf name="PercRect" value="0.5, 0.3, 0.72, 0.3" />
+        <rect name="Rect" value="36, -2, -48, 2" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="6048bbff" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_RowTwo1_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="RowTwoPointer1" />
+        <rectf name="PercRect" value="0.72, 0.3, 0.72, 0.3" />
+        <rect name="Rect" value="-48, -4, -40, 4" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="9048bbff" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_RowTwo1_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="RowTwo2" />
+        <rectf name="PercRect" value="0.72, 0.3, 1.0, 0.3" />
+        <rect name="Rect" value="36, -2, -88, 2" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="6048bbff" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_RowTwo2_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="RowTwoPointer2" />
+        <rectf name="PercRect" value="1.0, 0.3, 1.0, 0.3" />
+        <rect name="Rect" value="-88, -4, -80, 4" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="9048bbff" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_RowTwo2_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="ColTwo1" />
+        <rectf name="PercRect" value="0.5, 0.30, 0.5, 0.50" />
+        <rect name="Rect" value="-2, 40, 2, -44" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="6048bbff" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_ColTwo1_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="ColTwoPointer1" />
+        <rectf name="PercRect" value="0.5, 0.50, 0.5, 0.50" />
+        <rect name="Rect" value="-4, -44, 4, -36" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="9048bbff" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_ColTwo1_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="ColTwo2" />
+        <rectf name="PercRect" value="0.72, 0.30, 0.72, 0.50" />
+        <rect name="Rect" value="-2, 40, 2, -44" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="6048bbff" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_ColTwo2_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="ColTwoPointer2" />
+        <rectf name="PercRect" value="0.72, 0.50, 0.72, 0.50" />
+        <rect name="Rect" value="-4, -44, 4, -36" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="9048bbff" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_ColTwo2_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="ColTwo3" />
+        <rectf name="PercRect" value="1.0, 0.30, 1.0, 0.50" />
+        <rect name="Rect" value="-38, 40, -42, -44" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="6048bbff" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_ColTwo3_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="ColTwoPointer3" />
+        <rectf name="PercRect" value="1.0, 0.50, 1.0, 0.50" />
+        <rect name="Rect" value="-36, -44, -44, -36" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="9048bbff" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_ColTwo3_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="ColThree1" />
+        <rectf name="PercRect" value="0.5, 0.50, 0.5, 0.75" />
+        <rect name="Rect" value="-2, 40, 2, -46" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="6048bbff" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_ColThree1_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="ColThreePointer1" />
+        <rectf name="PercRect" value="0.5, 0.75, 0.5, 0.75" />
+        <rect name="Rect" value="-4, -46, 4, -38" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="6048bbff" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_ColThree1_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="ColThree2" />
+        <rectf name="PercRect" value="0.72, 0.50, 0.72, 0.75" />
+        <rect name="Rect" value="-2, 40, 2, -46" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="6048bbff" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_ColThree2_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="ColThreePointer2" />
+        <rectf name="PercRect" value="0.72, 0.75, 0.72, 0.75" />
+        <rect name="Rect" value="-4, -46, 4, -38" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="9048bbff" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_ColThree2_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="ColThree3" />
+        <rectf name="PercRect" value="1.0, 0.50, 1.0, 0.75" />
+        <rect name="Rect" value="-38, 40, -42, -46" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="6048bbff" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_ColThree3_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="ColThreePointer3" />
+        <rectf name="PercRect" value="1.0, 0.75, 1.0, 0.75" />
+        <rect name="Rect" value="-36, -46, -44, -38" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="9048bbff" />
+      </attributes>
+      <bindings>
+        <slot name="setBackgroundOverrideColor" signal="static_focus2_ColThree3_color" id="CharManager" />
+      </bindings>
+    </element>
+    <!-- Focus 1 button -->
+
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusBtn1_back" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.5, 0.1, 0.5, 0.1" />
+        <rect name="Rect" value="-40, -40, 40, 40" />
+        <texture name="Texture" value="UI/Images/SkillTree/skill_back.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="ScaleImage" value="true" />
+        <color name="Color" value="ff246677" />
+      </attributes>
+      <bindings>
+        <slot name="setColor" signal="static_focus1_background_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusBtn1" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.5, 0.10, 0.5, 0.10" />
+        <rect name="Rect" value="-32, -32, 32, 32" />
+        <texture name="Image" value="UI/Images/SkillTree/combat1glow.png" />
+        <rect name="ImageRect" value="0, 0, 64, 64" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+        <int name="MousePauseTime" value="0" />
+        <bool name="Enabled" value="false" />
+      </attributes>
+      <bindings>
+        <slot name="setToolTipText" signal="static_focus1_tooltip_text" id="CharManager" />
+        <slot name="setToolTipBodyText" signal="static_focus1_tooltip_body_text" id="CharManager" />
+        <slot name="setImage" signal="static_focus1_image" id="CharManager" />
+      </bindings>
+    </element>
+    <!-- Focus 2 button -->
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusBtn2_back" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.72, 0.10, 0.72, 0.10" />
+        <rect name="Rect" value="-40, -40, 40, 40" />
+        <texture name="Texture" value="UI/Images/SkillTree/skill_back.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="ScaleImage" value="true" />
+        <color name="Color" value="aaffffff" />
+      </attributes>
+      <bindings>
+        <slot name="setColor" signal="static_focus2_background_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusBtn2" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="0.72, 0.10, 0.72, 0.10" />
+        <rect name="Rect" value="-32, -32, 32, 32" />
+        <texture name="Image" value="UI/Images/SkillTree/combat2glow.png" />
+        <rect name="ImageRect" value="0, 0, 64, 64" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+        <int name="MousePauseTime" value="0" />
+        <bool name="Enabled" value="false" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="Focus" />
+        <slot name="setEnabled" signal="focus2_enable" id="CharManager" />
+        <slot name="setToolTipText" signal="static_focus2_tooltip_text" id="CharManager" />
+        <slot name="setToolTipBodyText" signal="static_focus2_tooltip_body_text" id="CharManager" />
+        <slot name="setImage" signal="static_focus2_image" id="CharManager" />
+      </bindings>
+    </element>
+    <!-- Focus 3 button -->
+    <element type="customImage">
+      <attributes>
+        <string name="IdName" value="focusBtn3_back" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="1.0, 0.10, 1.0, 0.10" />
+        <rect name="Rect" value="-80, -40, 0, 40" />
+        <texture name="Texture" value="UI/Images/SkillTree/skill_back.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="ScaleImage" value="true" />
+        <color name="Color" value="77888888" />
+      </attributes>
+      <bindings>
+        <slot name="setColor" signal="static_focus3_background_color" id="CharManager" />
+      </bindings>
+    </element>
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusBtn3" />
+        <string name="TextID" value="" />
+        <rectf name="PercRect" value="1.0, 0.10, 1.0, 0.10" />
+        <rect name="Rect" value="-72, -32, -8, 32" />
+        <texture name="Image" value="UI/Images/SkillTree/combat3glow.png" />
+        <rect name="ImageRect" value="0, 0, 64, 64" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+        <int name="MousePauseTime" value="0" />
+        <bool name="Enabled" value="false" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="Focus" />
+        <slot name="setVisible" signal="show_focus3" id="CharManager" />
+        <slot name="setEnabled" signal="focus3_enable" id="CharManager" />
+        <slot name="setToolTipText" signal="static_focus3_tooltip_text" id="CharManager" />
+        <slot name="setToolTipBodyText" signal="static_focus3_tooltip_body_text" id="CharManager" />
+        <slot name="setImage" signal="static_focus3_image" id="CharManager" />
+      </bindings>
+    </element>
+    <!-- Class Section -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="focusClassTree" />
+        <rectf name="PercRect" value="0.0, 0.30, 1.0, 0.30" />
+        <rect name="Rect" value="0, -39, 0, 39" />
+      </attributes>
+      <bindings>
+      </bindings>
+      <!-- Class 1 button -->
+      <element type="customImage">
+        <attributes>
+          <string name="IdName" value="classBtn1_back" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+          <rect name="Rect" value="-40, 1, 40, 81" />
+          <texture name="Texture" value="UI/Images/SkillTree/skill_back.png" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="ScaleImage" value="true" />
+          <color name="Color" value="ff246677" />
+        </attributes>
+        <bindings>
+          <slot name="setColor" signal="static_class1_background_color" id="CharManager" />
+        </bindings>
+      </element>
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="classBtn1" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+          <rect name="Rect" value="-32, 8, 32, 72" />
+          <texture name="Image" value="UI/Images/SkillTree/zerker1glow.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <int name="MousePauseTime" value="0" />
+          <bool name="Enabled" value="false" />
+        </attributes>
+        <bindings>
+          <slot name="setToolTipText" signal="static_class1_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_class1_tooltip_body_text" id="CharManager" />
+          <slot name="setImage" signal="static_class1_image" id="CharManager" />
+        </bindings>
+      </element>
+      <!-- Class 2 button -->
+      <element type="customImage">
+        <attributes>
+          <string name="IdName" value="classBtn2_back" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.72, 0.0, 0.72, 0.0" />
+          <rect name="Rect" value="-40, 1, 40, 81" />
+          <texture name="Texture" value="UI/Images/SkillTree/skill_back.png" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="ScaleImage" value="true" />
+          <color name="Color" value="aaffffff" />
+        </attributes>
+        <bindings>
+          <slot name="setColor" signal="static_class2_background_color" id="CharManager" />
+        </bindings>
+      </element>
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="classBtn2" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.72, 0.0, 0.72, 0.0" />
+          <rect name="Rect" value="-32, 8, 32, 72" />
+          <texture name="Image" value="UI/Images/SkillTree/zerker2.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <int name="MousePauseTime" value="0" />
+          <bool name="Enabled" value="false" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="Class" />
+          <slot name="setEnabled" signal="class2_enable" id="CharManager" />
+          <slot name="setToolTipText" signal="static_class2_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_class2_tooltip_body_text" id="CharManager" />
+          <slot name="setImage" signal="static_class2_image" id="CharManager" />
+        </bindings>
+      </element>
+      <!-- Class 3 button -->
+      <element type="customImage">
+        <attributes>
+          <string name="IdName" value="classBtn3_back" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+          <rect name="Rect" value="-80, 1, 0, 81" />
+          <texture name="Texture" value="UI/Images/SkillTree/skill_back.png" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="ScaleImage" value="true" />
+          <color name="Color" value="77888888" />
+        </attributes>
+        <bindings>
+          <slot name="setColor" signal="static_class3_background_color" id="CharManager" />
+        </bindings>
+      </element>
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="classBtn3" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+          <rect name="Rect" value="-72, 8, -8, 72" />
+          <texture name="Image" value="UI/Images/SkillTree/zerker3.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <int name="MousePauseTime" value="0" />
+          <bool name="Enabled" value="false" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="Class" />
+          <slot name="setVisible" signal="show_class3" id="CharManager" />
+          <slot name="setEnabled" signal="class3_enable" id="CharManager" />
+          <slot name="setToolTipText" signal="static_class3_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_class3_tooltip_body_text" id="CharManager" />
+          <slot name="setImage" signal="static_class3_image" id="CharManager" />
+        </bindings>
+      </element>
+    </element>
+    <!-- Sub Class Section -->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="focusSubClassTree" />
+        <rectf name="PercRect" value="0.0, 0.50, 1.0, 0.50" />
+        <rect name="Rect" value="0, -39, 0, 39" />
+      </attributes>
+      <bindings>
+      </bindings>
+      <!-- Sub Class 1 button -->
+      <element type="customImage">
+        <attributes>
+          <string name="IdName" value="subclassBtn1_back" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+          <rect name="Rect" value="-40, 1, 40, 81" />
+          <texture name="Texture" value="UI/Images/SkillTree/skill_back.png" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="ScaleImage" value="true" />
+          <color name="Color" value="ff246677" />
+        </attributes>
+        <bindings>
+          <slot name="setColor" signal="static_sub1_background_color" id="CharManager" />
+        </bindings>
+      </element>
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="subclassBtn1" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+          <rect name="Rect" value="-32, 8, 32, 72" />
+          <texture name="Image" value="UI/Images/SkillTree/107.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <int name="MousePauseTime" value="0" />
+          <bool name="Enabled" value="false" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="Sub1" />
+          <slot name="setEnabled" signal="sub1_enable" id="CharManager" />
+          <slot name="setToolTipText" signal="static_sub1_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_sub1_tooltip_body_text" id="CharManager" />
+          <slot name="setImage" signal="static_sub1_image" id="CharManager" />
+        </bindings>
+        <element type="customImage">
+          <attributes>
+            <string name="TextID" value="" />
+            <rectf name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+            <rect name="Rect" value="32, 0, 0, 16" />
+            <texture name="Texture" value="UI/Images/SkillTree/black.png" />
+            <bool name="UseAlphaChannel" value="true" />
+            <color name="Color" value="E0000000" />
+            <bool name="ScaleImage" value="true" />
+          </attributes>
+        </element>
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="subclassBtn1Description" />
+            <string name="Caption" value="0/3" />
+            <rectf name="PercRect" value="0, 0, 1, 0" />
+            <rect name="Rect" value="32, 0, 0, 16" />
+            <enum name="HTextAlign" value="center" />
+          </attributes>
+          <bindings>
+            <slot name="setText" signal="static_sub1_numtrained_text" id="CharManager" />
+          </bindings>
+        </element>
+      </element>
+      <!-- Sub Class 2 button -->
+      <element type="customImage">
+        <attributes>
+          <string name="IdName" value="subclassBtn2_back" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.72, 0.0, 0.72, 0.0" />
+          <rect name="Rect" value="-40, 1, 40, 81" />
+          <texture name="Texture" value="UI/Images/SkillTree/skill_back.png" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="ScaleImage" value="true" />
+          <color name="Color" value="aaffffff" />
+        </attributes>
+        <bindings>
+          <slot name="setColor" signal="static_sub2_background_color" id="CharManager" />
+        </bindings>
+      </element>
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="subclassBtn2" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.72, 0.0, 0.72, 0.0" />
+          <rect name="Rect" value="-32, 8, 32, 72" />
+          <texture name="Image" value="UI/Images/SkillTree/108.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <int name="MousePauseTime" value="0" />
+          <bool name="Enabled" value="false" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="Sub2" />
+          <slot name="setEnabled" signal="sub2_enable" id="CharManager" />
+          <slot name="setVisible" signal="show_sub2" id="CharManager" />
+          <slot name="setToolTipText" signal="static_sub2_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_sub2_tooltip_body_text" id="CharManager" />
+          <slot name="setImage" signal="static_sub2_image" id="CharManager" />
+        </bindings>
+        <element type="customImage">
+          <attributes>
+            <string name="TextID" value="" />
+            <rectf name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+            <rect name="Rect" value="32, 0, 0, 16" />
+            <texture name="Texture" value="UI/Images/SkillTree/black.png" />
+            <bool name="UseAlphaChannel" value="true" />
+            <color name="Color" value="E0000000" />
+            <bool name="ScaleImage" value="true" />
+          </attributes>
+        </element>
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="subclassBtn2Description" />
+            <string name="Caption" value="0/3" />
+            <rectf name="PercRect" value="0, 0, 1, 0" />
+            <rect name="Rect" value="32, 0, 0, 16" />
+            <enum name="HTextAlign" value="center" />
+          </attributes>
+          <bindings>
+            <slot name="setText" signal="static_sub2_numtrained_text" id="CharManager" />
+          </bindings>
+        </element>
+      </element>
+      <!-- Sub Class 3 button -->
+      <element type="customImage">
+        <attributes>
+          <string name="IdName" value="subclassBtn3_back" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+          <rect name="Rect" value="-80, 1, 0, 81" />
+          <texture name="Texture" value="UI/Images/SkillTree/skill_back.png" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="ScaleImage" value="true" />
+          <color name="Color" value="77888888" />
+        </attributes>
+        <bindings>
+          <slot name="setColor" signal="static_sub3_background_color" id="CharManager" />
+        </bindings>
+      </element>
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="subclassBtn3" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+          <rect name="Rect" value="-72, 8, -8, 72" />
+          <texture name="Image" value="UI/Images/SkillTree/106.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <int name="MousePauseTime" value="0" />
+          <bool name="Enabled" value="false" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="TrainClassSkill" id="CharManager" arg="Sub3" />
+          <slot name="setEnabled" signal="sub3_enable" id="CharManager" />
+          <slot name="setVisible" signal="show_sub3" id="CharManager" />
+          <slot name="setToolTipText" signal="static_sub3_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_sub3_tooltip_body_text" id="CharManager" />
+          <slot name="setImage" signal="static_sub3_image" id="CharManager" />
+        </bindings>
+        <element type="customImage">
+          <attributes>
+            <string name="TextID" value="" />
+            <rectf name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+            <rect name="Rect" value="32, 0, 0, 16" />
+            <texture name="Texture" value="UI/Images/SkillTree/black.png" />
+            <bool name="UseAlphaChannel" value="true" />
+            <color name="Color" value="E0000000" />
+            <bool name="ScaleImage" value="true" />
+          </attributes>
+        </element>
+        <element type="customStaticText">
+          <attributes>
+            <string name="IdName" value="subclassBtn3Description" />
+            <string name="Caption" value="0/3" />
+            <rectf name="PercRect" value="0, 0, 1, 0" />
+            <rect name="Rect" value="32, 0, 0, 16" />
+            <enum name="HTextAlign" value="center" />
+          </attributes>
+          <bindings>
+            <slot name="setText" signal="static_sub3_numtrained_text" id="CharManager" />
+          </bindings>
+        </element>
+      </element>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="focusAdvSkillTree" />
+        <rectf name="PercRect" value="0.0, 0.75, 1.0, 0.75" />
+        <rect name="Rect" value="0, -40, 0, 40" />
+      </attributes>
+      <bindings>
+      </bindings>
+      <!-- Adv Skill 1 button -->
+      <element type="customImage">
+        <attributes>
+          <string name="IdName" value="advBtn1_back" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+          <rect name="Rect" value="-40, -40, 40, 40" />
+          <texture name="Texture" value="UI/Images/SkillTree/skill_back.png" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="ScaleImage" value="true" />
+          <color name="Color" value="ff246677" />
+        </attributes>
+        <bindings>
+          <slot name="setColor" signal="static_adv1_background_color" id="CharManager" />
+        </bindings>
+      </element>
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="advBtn1" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+          <rect name="Rect" value="-32, -32, 32, 32" />
+          <texture name="Image" value="UI/Images/SkillTree/add_skill.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <int name="MousePauseTime" value="0" />
+          <bool name="Enabled" value="false" />
+        </attributes>
+        <bindings>
+          <slot name="setImage" signal="static_adv1_image" id="CharManager" />
+          <signal name="button_clicked" slot="adv_skill_one" id="FocusManager" />
+          <signal name="button_clicked" slot="hide" id="focusTree"/>
+          <signal name="button_clicked" slot="show" id="focusAdvTree"/>
+          <slot name="setEnabled" signal="adv1_enable" id="CharManager" />
+          <slot name="setToolTipText" signal="static_adv1_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_adv1_tooltip_body_text" id="CharManager" />
+        </bindings>
+      </element>
+      <!-- Adv Skill 2 button -->
+      <element type="customImage">
+        <attributes>
+          <string name="IdName" value="advBtn2_back" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.72, 0.5, 0.72, 0.50" />
+          <rect name="Rect" value="-40, -40, 40, 40" />
+          <texture name="Texture" value="UI/Images/SkillTree/skill_back.png" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="ScaleImage" value="true" />
+          <color name="Color" value="aaffffff" />
+        </attributes>
+        <bindings>
+          <slot name="setColor" signal="static_adv2_background_color" id="CharManager" />
+        </bindings>
+      </element>
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="advBtn2" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.72, 0.50, 0.72, 0.50" />
+          <rect name="Rect" value="-32, -32, 32, 32" />
+          <texture name="Image" value="UI/Images/SkillTree/add_skill.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <int name="MousePauseTime" value="0" />
+          <bool name="Enabled" value="false" />
+        </attributes>
+        <bindings>
+          <slot name="setImage" signal="static_adv2_image" id="CharManager" />
+          <signal name="button_clicked" slot="adv_skill_two" id="FocusManager" />
+          <signal name="button_clicked" slot="show" id="focusAdvTree"/>
+          <signal name="button_clicked" slot="hide" id="focusTree"/>
+          <slot name="setEnabled" signal="adv2_enable" id="CharManager" />
+          <slot name="setToolTipText" signal="static_adv2_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_adv2_tooltip_body_text" id="CharManager" />
+        </bindings>
+      </element>
+      <!-- Adv Skill 3 button -->
+      <element type="customImage">
+        <attributes>
+          <string name="IdName" value="advBtn3_back" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="1.0, 0.5, 1.0, 0.5" />
+          <rect name="Rect" value="-80, -40, 0, 40" />
+          <texture name="Texture" value="UI/Images/SkillTree/skill_back.png" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="ScaleImage" value="true" />
+          <color name="Color" value="77888888" />
+        </attributes>
+        <bindings>
+          <slot name="setColor" signal="static_adv3_background_color" id="CharManager" />
+        </bindings>
+      </element>
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="advBtn3" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="1.0, 0.50, 1.0, 0.50" />
+          <rect name="Rect" value="-72, -32, -8, 32" />
+          <texture name="Image" value="UI/Images/SkillTree/add_skill.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <int name="MousePauseTime" value="0" />
+          <bool name="Enabled" value="false" />
+        </attributes>
+        <bindings>
+          <slot name="setImage" signal="static_adv3_image" id="CharManager" />
+          <signal name="button_clicked" slot="adv_skill_three" id="FocusManager" />
+          <signal name="button_clicked" slot="hide" id="focusTree"/>
+          <signal name="button_clicked" slot="show" id="focusAdvTree"/>
+          <slot name="setEnabled" signal="adv3_enable" id="CharManager" />
+          <slot name="setToolTipText" signal="static_adv3_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_adv3_tooltip_body_text" id="CharManager" />
+        </bindings>
+      </element>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="TextID" value="" />
+        <string name="Caption" value="" />
+        <rectf name="PercRect" value="0.55, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="4, -64, -8, -8" />
+        <bool name="Background" value="true" />
+        <bool name="OverrideBgColorEnabled" value="true" />
+        <color name="OverrideBgColor" value="99000000" />
+      </attributes>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="classSkillPointText" />
+        <string name="TextID" value="" />
+        <string name="Caption" value="customtext" />
+        <rectf name="PercRect" value="0.55, 1.0, 1.0, 1.0" />
+        <rect name="Rect" value="4, -56, -16, -12" />
+        <enum name="HTextAlign" value="lowerRight" />
+        <enum name="VTextAlign" value="lowerRight" />
+        <enum name="Font" value="mediumBoldFont" />
+      </attributes>
+      <bindings>
+        <slot name="setText" signal="static_class_skill_point_text" id="CharManager" />
+      </bindings>
+    </element>
+  </element>
+  <!-- Adv Skill Selection -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="focusAdvTree" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+      <rect name="Rect" value="0, 0, 0, 0" />
+      <bool name="Visible" value="false" />
+    </attributes>
+    <bindings>
+    </bindings>
+    <element type="customImage">
+      <attributes>
+        <string name="TextID" value="" />
+        <rect name="Rect" value="8, 8, 330, 40" />
+        <texture name="Texture" value="UI/Images/SkillTree/pick_adv.png" />
+        <bool name="UseAlphaChannel" value="true" />
+      </attributes>
+    </element>
+    <!-- Cancel Button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="focusBack5Button" />
+        <string name="Caption" value="Cancel" />
+        <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+        <rect name="Rect" value="-124, 8, -8, 42" />
+        <string name="ToolTip" value="Cancel Adv. Skill selection." />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="adv_skill_cancel" id="FocusManager" />
+        <signal name="button_clicked" slot="show" id="focusTree"/>
+        <signal name="button_clicked" slot="hide" id="focusAdvTree"/>
+      </bindings>
+    </element>
+    <element type="customStaticText">
+      <attributes>
+        <rectf name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+        <rect name="Rect" value="0, 40, 0, 0" />
+      </attributes>
+      <!-- Center Icon -->
+      <element type="customImage">
+        <attributes>
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+          <rect name="Rect" value="-200, -200, 200, 200" />
+          <texture name="Texture" value="UI/Images/SkillTree/adv_skill_background.png" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="OverrideBgColorEnabled" value="true" />
+          <color name="OverrideBgColor" value="10888888" />
+          <bool name="ScaleImage" value="true" />
+        </attributes>
+      </element>
+      <element type="customButton">
+        <attributes>
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+          <rect name="Rect" value="-32, -32, 32, 32" />
+          <texture name="Image" value="UI/Images/SkillTree/add_skill.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <texture name="PressedImage" value="UI/Images/SkillTree/add_skilld.png" />
+          <rect name="PressedImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <string name="ToolTip" value="Cancel Adv. Skill selection." />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="adv_skill_cancel" id="FocusManager" />
+          <signal name="button_clicked" slot="show" id="focusTree"/>
+          <signal name="button_clicked" slot="hide" id="focusAdvTree"/>
+        </bindings>
+      </element>
+      <!-- 4x Class Subclass Bonus Section -->
+      <!-- Class Bonus 1 button -->
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="trainableAdv0" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.20, 0.30, 0.20, 0.30" />
+          <rect name="Rect" value="-32, -32, 32, 32" />
+          <texture name="Image" value="UI/Images/SkillTree/146.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <texture name="PressedImage" value="UI/Images/SkillTree/146d.png" />
+          <rect name="PressedImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <string name="ToolTip" value="Class Bonus 1 Skill" />
+          <string name="ToolTipBody" value="Test"/>
+          <int name="MousePauseTime" value="0" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="TrainAdvSkill" id="CharManager" arg="0" />
+          <signal name="button_clicked" slot="hide" id="focusAdvTree"/>
+          <signal name="button_clicked" slot="show" id="focusTree"/>
+          <slot name="setEnabled" signal="show_trainable_adv0" id="CharManager" />
+          <slot name="setToolTipText" signal="static_trainable_adv0_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_trainable_adv0_tooltip_body_text" id="CharManager" />
+          <slot name="setImage" signal="static_trainable_adv0_image" id="CharManager" />
+        </bindings>
+      </element>
+      <!-- Class Bonus 2 button -->
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="trainableAdv1" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.35, 0.18, 0.35, 0.18" />
+          <rect name="Rect" value="-32, -32, 32, 32" />
+          <texture name="Image" value="UI/Images/SkillTree/147.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <texture name="PressedImage" value="UI/Images/SkillTree/147d.png" />
+          <rect name="PressedImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <string name="ToolTip" value="Class Bonus 2 Skill" />
+          <string name="ToolTipBody" value="Test"/>
+          <int name="MousePauseTime" value="0" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="TrainAdvSkill" id="CharManager" arg="1" />
+          <signal name="button_clicked" slot="show" id="focusTree"/>
+          <signal name="button_clicked" slot="hide" id="focusAdvTree"/>
+          <slot name="setEnabled" signal="show_trainable_adv1" id="CharManager" />
+          <slot name="setToolTipText" signal="static_trainable_adv1_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_trainable_adv1_tooltip_body_text" id="CharManager" />
+          <slot name="setImage" signal="static_trainable_adv1_image" id="CharManager" />
+        </bindings>
+      </element>
+      <!-- Class Bonus 3 button -->
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="trainableAdv2" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.65, 0.18, 0.65, 0.18" />
+          <rect name="Rect" value="-32, -32, 32, 32" />
+          <texture name="Image" value="UI/Images/SkillTree/148.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <texture name="PressedImage" value="UI/Images/SkillTree/148d.png" />
+          <rect name="PressedImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <string name="ToolTip" value="Class Bonus 3 Skill" />
+          <string name="ToolTipBody" value="Test"/>
+          <int name="MousePauseTime" value="0" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="TrainAdvSkill" id="CharManager" arg="2" />
+          <signal name="button_clicked" slot="show" id="focusTree"/>
+          <signal name="button_clicked" slot="hide" id="focusAdvTree"/>
+          <slot name="setEnabled" signal="show_trainable_adv2" id="CharManager" />
+          <slot name="setToolTipText" signal="static_trainable_adv2_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_trainable_adv2_tooltip_body_text" id="CharManager" />
+          <slot name="setImage" signal="static_trainable_adv2_image" id="CharManager" />
+        </bindings>
+      </element>
+      <!-- Class Bonus 4 button -->
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="trainableAdv3" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.80, 0.30, 0.80, 0.30" />
+          <rect name="Rect" value="-32, -32, 32, 32" />
+          <texture name="Image" value="UI/Images/SkillTree/149.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <texture name="PressedImage" value="UI/Images/SkillTree/149d.png" />
+          <rect name="PressedImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <string name="ToolTip" value="Class Bonus 4 Skill" />
+          <string name="ToolTipBody" value="Test"/>
+          <int name="MousePauseTime" value="0" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="TrainAdvSkill" id="CharManager" arg="3" />
+          <signal name="button_clicked" slot="show" id="focusTree"/>
+          <signal name="button_clicked" slot="hide" id="focusAdvTree"/>
+          <slot name="setEnabled" signal="show_trainable_adv3" id="CharManager" />
+          <slot name="setToolTipText" signal="static_trainable_adv3_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_trainable_adv3_tooltip_body_text" id="CharManager" />
+          <slot name="setImage" signal="static_trainable_adv3_image" id="CharManager" />
+        </bindings>
+      </element>
+      <!-- Bonus 7 button (Focus Bonus) -->
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="trainableAdv4" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.5, 0.15, 0.5, 0.15" />
+          <rect name="Rect" value="-32, -32, 32, 32" />
+          <texture name="Image" value="UI/Images/SkillTree/169.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <texture name="PressedImage" value="UI/Images/SkillTree/169d.png" />
+          <rect name="PressedImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <string name="ToolTip" value="Bonus 7 Skill" />
+          <string name="ToolTipBody" value="Test"/>
+          <int name="MousePauseTime" value="0" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="TrainAdvSkill" id="CharManager" arg="4" />
+          <signal name="button_clicked" slot="show" id="focusTree"/>
+          <signal name="button_clicked" slot="hide" id="focusAdvTree"/>
+          <slot name="setEnabled" signal="show_trainable_adv4" id="CharManager" />
+          <slot name="setToolTipText" signal="static_trainable_adv4_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_trainable_adv4_tooltip_body_text" id="CharManager" />
+          <slot name="setImage" signal="static_trainable_adv4_image" id="CharManager" />
+        </bindings>
+      </element>
+      <!-- Generic Bonus Section -->
+      <!-- Bonus 1 button -->
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="trainableAdv5" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.15, 0.50, 0.15, 0.50" />
+          <rect name="Rect" value="-32, -32, 32, 32" />
+          <texture name="Image" value="UI/Images/SkillTree/162.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <texture name="PressedImage" value="UI/Images/SkillTree/162d.png" />
+          <rect name="PressedImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <string name="ToolTip" value="Shake it off" />
+          <string name="ToolTipBody" value="Test"/>
+          <int name="MousePauseTime" value="0" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="TrainAdvSkill" id="CharManager" arg="5" />
+          <signal name="button_clicked" slot="show" id="focusTree"/>
+          <signal name="button_clicked" slot="hide" id="focusAdvTree"/>
+          <slot name="setEnabled" signal="show_trainable_adv5" id="CharManager" />
+          <slot name="setToolTipText" signal="static_trainable_adv5_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_trainable_adv5_tooltip_body_text" id="CharManager" />
+          <slot name="setImage" signal="static_trainable_adv5_image" id="CharManager" />
+        </bindings>
+      </element>
+      <!-- Bonus 2 button -->
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="trainableAdv6" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.20, 0.70, 0.20, 0.70" />
+          <rect name="Rect" value="-32, -32, 32, 32" />
+          <texture name="Image" value="UI/Images/SkillTree/164.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <texture name="PressedImage" value="UI/Images/SkillTree/164d.png" />
+          <rect name="PressedImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <string name="ToolTip" value="Centered" />
+          <string name="ToolTipBody" value="Test"/>
+          <int name="MousePauseTime" value="0" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="TrainAdvSkill" id="CharManager" arg="6" />
+          <signal name="button_clicked" slot="show" id="focusTree"/>
+          <signal name="button_clicked" slot="hide" id="focusAdvTree"/>
+          <slot name="setEnabled" signal="show_trainable_adv6" id="CharManager" />
+          <slot name="setToolTipText" signal="static_trainable_adv6_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_trainable_adv6_tooltip_body_text" id="CharManager" />
+          <slot name="setImage" signal="static_trainable_adv6_image" id="CharManager" />
+        </bindings>
+      </element>
+      <!-- Bonus 3 button -->
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="trainableAdv7" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.38, 0.82, 0.38, 0.82" />
+          <rect name="Rect" value="-32, -32, 32, 32" />
+          <texture name="Image" value="UI/Images/SkillTree/163.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <texture name="PressedImage" value="UI/Images/SkillTree/163d.png" />
+          <rect name="PressedImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <string name="ToolTip" value="Strategic Deployment" />
+          <string name="ToolTipBody" value="Test"/>
+          <int name="MousePauseTime" value="0" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="TrainAdvSkill" id="CharManager" arg="7" />
+          <signal name="button_clicked" slot="show" id="focusTree"/>
+          <signal name="button_clicked" slot="hide" id="focusAdvTree"/>
+          <slot name="setEnabled" signal="show_trainable_adv7" id="CharManager" />
+          <slot name="setToolTipText" signal="static_trainable_adv7_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_trainable_adv7_tooltip_body_text" id="CharManager" />
+          <slot name="setImage" signal="static_trainable_adv7_image" id="CharManager" />
+        </bindings>
+      </element>
+      <!-- Bonus 4 button -->
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="trainableAdv8" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.58, 0.82, 0.58, 0.82" />
+          <rect name="Rect" value="-32, -32, 32, 32" />
+          <texture name="Image" value="UI/Images/SkillTree/166.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <texture name="PressedImage" value="UI/Images/SkillTree/166d.png" />
+          <rect name="PressedImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <string name="ToolTip" value="Resilient" />
+          <string name="ToolTipBody" value="Test"/>
+          <int name="MousePauseTime" value="0" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="TrainAdvSkill" id="CharManager" arg="8" />
+          <signal name="button_clicked" slot="show" id="focusTree"/>
+          <signal name="button_clicked" slot="hide" id="focusAdvTree"/>
+          <slot name="setEnabled" signal="show_trainable_adv8" id="CharManager" />
+          <slot name="setToolTipText" signal="static_trainable_adv8_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_trainable_adv8_tooltip_body_text" id="CharManager" />
+          <slot name="setImage" signal="static_trainable_adv8_image" id="CharManager" />
+        </bindings>
+      </element>
+      <!-- Bonus 5 button -->
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="trainableAdv9" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.80, 0.70, 0.80, 0.70" />
+          <rect name="Rect" value="-32, -32, 32, 32" />
+          <texture name="Image" value="UI/Images/SkillTree/165.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <texture name="PressedImage" value="UI/Images/SkillTree/165d.png" />
+          <rect name="PressedImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <string name="ToolTip" value="Bot PHD" />
+          <string name="ToolTipBody" value="Test"/>
+          <int name="MousePauseTime" value="0" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="TrainAdvSkill" id="CharManager" arg="9" />
+          <signal name="button_clicked" slot="show" id="focusTree"/>
+          <signal name="button_clicked" slot="hide" id="focusAdvTree"/>
+          <slot name="setEnabled" signal="show_trainable_adv9" id="CharManager" />
+          <slot name="setToolTipText" signal="static_trainable_adv9_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_trainable_adv9_tooltip_body_text" id="CharManager" />
+          <slot name="setImage" signal="static_trainable_adv9_image" id="CharManager" />
+        </bindings>
+      </element>
+      <!-- Bonus 6 button -->
+      <element type="customButton">
+        <attributes>
+          <string name="IdName" value="trainableAdv10" />
+          <string name="TextID" value="" />
+          <rectf name="PercRect" value="0.85, 0.50, 0.85, 0.50" />
+          <rect name="Rect" value="-32, -32, 32, 32" />
+          <texture name="Image" value="UI/Images/SkillTree/167.png" />
+          <rect name="ImageRect" value="0, 0, 64, 64" />
+          <texture name="PressedImage" value="UI/Images/SkillTree/167d.png" />
+          <rect name="PressedImageRect" value="0, 0, 64, 64" />
+          <bool name="UseAlphaChannel" value="true" />
+          <bool name="Border" value="false" />
+          <string name="ToolTip" value="Droney" />
+          <string name="ToolTipBody" value="Test"/>
+          <int name="MousePauseTime" value="0" />
+        </attributes>
+        <bindings>
+          <signal name="button_clicked" slot="TrainAdvSkill" id="CharManager" arg="10" />
+          <signal name="button_clicked" slot="show" id="focusTree"/>
+          <signal name="button_clicked" slot="hide" id="focusAdvTree"/>
+          <slot name="setEnabled" signal="show_trainable_adv10" id="CharManager" />
+          <slot name="setToolTipText" signal="static_trainable_adv10_tooltip_text" id="CharManager" />
+          <slot name="setToolTipBodyText" signal="static_trainable_adv10_tooltip_body_text" id="CharManager" />
+          <slot name="setImage" signal="static_trainable_adv10_image" id="CharManager" />
+        </bindings>
+      </element>
+    </element>
+  </element>
+</element>
+

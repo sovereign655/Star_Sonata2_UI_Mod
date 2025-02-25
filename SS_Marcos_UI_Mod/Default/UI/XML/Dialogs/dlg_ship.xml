@@ -1,0 +1,707 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="shipInfoDialog" />
+		<int name="Id" value="667" />
+    <rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+		<rect name="Rect" value="-420, -293, 420, 293" />
+		<position name="MinSize" value="780, 586" />
+		<position name="MaxSize" value="1069, 960" />	  
+		<int name="Flags" value="0" />
+		<bool name="Movable" value="true" />
+		<int name="ResizeBorderWidth" value="5" />
+		<bool name="Visible" value="false" />
+		<bool name="BottomResizable" value="true" />
+		<bool name="RightResizable" value="true" />					
+		<int name="BorderStyle" value="2" />
+		<bool name="KeepOnScreen" value="true" />
+		<string name="SoundShow" value="DialogOpen.wav" />
+		<string name="SoundHide" value="DialogClose.wav" />
+		<bool name="HideOnLogout" value="true" />
+	</attributes>
+	<bindings>
+		<signal name="revealed" slot="bringToTop" id="shipInfoDialog" />
+		<signal name="revealed" slot="RefreshShipData" id="ShipInfoManager" />	
+		<signal name="revealed" slot="toggleActiveState" id="shipCommandToggle" />
+		<signal name="hidden" slot="toggleActiveState" id="shipCommandToggle" />
+    <signal name="hidden" slot="HideCustom2" id="ShipInfoManager" />
+		<slot name="setVisible" signal="dialog_shipinfo_visible" id="ShipInfoManager" />
+		<signal name="moved" slot="DialogMoved" id="LogicManager" />	
+		<signal name="visibility_change" slot="DialogVisibilityChanged" id="LogicManager" />
+	</bindings>	
+	 <!-- Tweaks Only -->
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="activeTweaksButton" />
+			<string name="TextID" value="" />
+			<int name="Id" value="4000" />
+			<string name="Caption" value="Temporary Bonus Window" />
+			<rect name="Rect" value="10, 10, 200, 40" />
+			<rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+	</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="toggleVisibility" id="activeTweaksDialog"/>
+		</bindings>
+	</element>
+	
+	<!-- Ship 3D Model Background -->
+	<element type="customImage">
+		<attributes>
+			<string name="TextID" value="" />
+			<rect name="Rect" value="-159.5, 8, 159.5, 327" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+			<texture name="Texture" value="UI/Images/Backgrounds/circleshipview.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<color name="Color" value="ccffffff" />
+			<bool name="ScaleImage" value="true" />	
+		</attributes>
+	</element>		
+	<!-- Ship 3D Model Previewer -->
+    <element type="itempreview">
+      <attributes>
+        <bool name="Visible" value="true" />
+        <int name="Id" value="100" />
+		<rect name="Rect" value="-319, -113, 319, 433" />
+		<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+      </attributes>
+    </element>
+	<!-- Ship Hull Name -->
+    <element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="shipStaticHullName" />
+			<string name="TextID" value="" />
+			<int name="Id" value="15" />
+			<string name="Caption" value="hullname" />
+			<rect name="Rect" value="-159.5, 12, 159.5, 48" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+			<enum name="Font" value="largeBoldFont" />
+			<enum name="HTextAlign" value="center" />
+			<enum name="VTextAlign" value="center" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_name_text" id="ShipInfoManager" />
+			<slot name="setToolTipText" signal="static_statstring_text" id="ShipInfoManager" />
+		</bindings>
+	</element>
+    <!-- Tech Level Description -->
+    <element type="customStaticText">
+			<attributes>
+			<string name="IdName" value="shipStaticTechLevel" />
+			<string name="TextID" value="" />
+			<int name="Id" value="17" />
+			<string name="Caption" value="tech" />
+			<rect name="Rect" value="-159.5, 32, 159.5, 59" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />			
+			<enum name="HTextAlign" value="center" />
+			<enum name="VTextAlign" value="center" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_tech_text" id="ShipInfoManager" />
+		</bindings>			
+	</element>
+	<!-- Ship Info Background (Black Rectangle) -->
+	<element type="customImage">
+		<attributes>
+			<string name="TextID" value="" />
+			<rect name="Rect" value="-126, 270, 126, 425" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+			<texture name="Texture" value="UI/Images/Backgrounds/infoshipview.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<color name="Color" value="ccffffff" />
+			<bool name="ScaleImage" value="true" />	
+		</attributes>
+	</element>	
+	<!-- Ship Top Speed Icon -->
+	<element type="customImage">
+		<attributes>
+			<rect name="Rect" value="-120, 282, -100, 312" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+			<texture name="Texture" value="UI/Images/Items/iconsmall/Speed.png" />
+			<bool name="UseAlphaChannel" value="true" />
+		</attributes>
+	</element>	
+	<!-- Ship Top Speed Title -->
+    <element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_shiptopspeed" />
+			<string name="Caption" value="Top Speed:" />
+			<rect name="Rect" value="-100, 280, 100, 310" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+		</attributes>
+	</element>
+    <!-- Ship Top Speed Value -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="shipStaticTopSpeed" />
+			<string name="TextID" value="" />
+			<int name="Id" value="18" />
+			<string name="Caption" value="speed" />
+			<rect name="Rect" value="-25, 280, 300, 310" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_maxspeed_text" id="ShipInfoManager" />
+		</bindings>			
+	</element>
+	<!-- Ship Hull Space Icon -->
+	<element type="customImage">
+		<attributes>
+			<rect name="Rect" value="-120, 297, -100, 327" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+			<texture name="Texture" value="UI/Images/Items/iconsmall/Hullspace.png" />
+			<bool name="UseAlphaChannel" value="true" />
+		</attributes>
+	</element>	
+    <!-- Ship Hull Space Title -->
+    <element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_shiphullspace" />
+			<string name="Caption" value="Hull Space: " />
+			<rect name="Rect" value="-100, 295, 100, 325" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+		</attributes>
+	</element>
+    <!-- Ship Hull Space Value -->
+    <element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="shipStaticSpace" />
+			<string name="TextID" value="" />
+			<int name="Id" value="19" />
+			<string name="Caption" value="hull space" />
+			<rect name="Rect" value="-25, 295, 300, 325" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_space_text" id="ShipInfoManager" />
+		</bindings>
+	</element>
+	<!-- Ship Weight Icon -->
+	<element type="customImage">
+		<attributes>
+			<rect name="Rect" value="-120, 312, -100, 342" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+			<texture name="Texture" value="UI/Images/Items/iconsmall/Weight.png" />
+			<bool name="UseAlphaChannel" value="true" />
+		</attributes>
+	</element>		
+    <!-- Ship Weight Title -->
+    <element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_shipweight" />
+			<string name="Caption" value="Weight:" />
+			<rect name="Rect" value="-100, 310, 100, 340" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+		</attributes>
+	</element>
+    <!-- Ship Weight Value -->
+    <element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="shipStaticWeight" />
+			<string name="TextID" value="" />
+			<int name="Id" value="16" />
+			<string name="Caption" value="weight" />
+			<rect name="Rect" value="-25, 310, 300, 340" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_weight_text" id="ShipInfoManager" />
+		</bindings>
+	</element>
+	<!-- Ship Shield Icon -->
+	<element type="customImage">
+		<attributes>
+			<rect name="Rect" value="-120, 327, -100, 357" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+			<texture name="Texture" value="UI/Images/Items/iconsmall/Shield.png" />
+			<bool name="UseAlphaChannel" value="true" />
+		</attributes>
+	</element>		
+    <!-- Ship Shield Title -->
+    <element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_shipshields" />
+			<string name="Caption" value="Max Shields:" />
+			<rect name="Rect" value="-100, 325, 100, 355" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+		</attributes>
+	</element>
+    <!-- Ship Shield Value -->
+    <element type="customStaticText">
+			<attributes>
+			<string name="IdName" value="shipStaticShields" />
+			<string name="TextID" value="" />
+			<int name="Id" value="19" />
+			<string name="Caption" value="shields" />
+			<rect name="Rect" value="-25, 325, 300, 355" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_shield_text" id="ShipInfoManager" />
+		</bindings>
+	</element>
+	<!-- Ship Energy Icon -->
+	<element type="customImage">
+		<attributes>
+			<rect name="Rect" value="-120, 342, -100, 387" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+			<texture name="Texture" value="UI/Images/Items/iconsmall/Energy.png" />
+			<bool name="UseAlphaChannel" value="true" />
+		</attributes>
+	</element>		
+    <!-- Ship Energy Title -->
+    <element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_shipenergy" />
+			<string name="Caption" value="Max Energy:" />
+			<rect name="Rect" value="-100, 340, 100, 385" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+		</attributes>
+	</element>
+    <!-- Ship Energy Value -->
+    <element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="shipStaticEnergy" />
+			<string name="TextID" value="" />
+			<int name="Id" value="20" />
+			<string name="Caption" value="energy" />
+			<rect name="Rect" value="-25, 340, 300, 385" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_energy_text" id="ShipInfoManager" />
+		</bindings>
+	</element>
+	<!-- Ship Turn Icon -->
+	<element type="customImage">
+		<attributes>
+			<rect name="Rect" value="-120, 357, -100, 402" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+			<texture name="Texture" value="UI/Images/Items/iconsmall/Trade-Bay.png" />
+			<bool name="UseAlphaChannel" value="true" />
+		</attributes>
+	</element>		
+    <!-- Ship Turn Title -->
+    <element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_shipmaxturn" />
+			<string name="Caption" value="Max Turning:" />
+			<rect name="Rect" value="-100, 355, 100, 400" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+		</attributes>
+	</element>
+    <!-- Ship Turn Value -->
+    <element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="shipStaticTurning" />
+			<string name="TextID" value="" />
+			<int name="Id" value="20" />
+			<string name="Caption" value="turning" />
+			<rect name="Rect" value="-25, 355, 300, 400" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_turning_text" id="ShipInfoManager" />
+		</bindings>
+	</element>
+	<!-- Ship Thrust Icon -->
+	<element type="customImage">
+		<attributes>
+			<rect name="Rect" value="-120, 372, -100, 417" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+			<texture name="Texture" value="UI/Images/Items/iconsmall/Engine.png" />
+			<bool name="UseAlphaChannel" value="true" />
+		</attributes>
+	</element>		
+    <!-- Ship Thrust Title -->
+    <element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_shipmaxthrust" />
+			<string name="Caption" value="Max Thrust:" />
+			<rect name="Rect" value="-100, 370, 100, 415" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+		</attributes>
+	</element>
+    <!-- Ship Thrust Value -->
+    <element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="shipStaticThrust" />
+			<string name="TextID" value="" />
+			<int name="Id" value="20" />
+			<string name="Caption" value="thrust" />
+			<rect name="Rect" value="-25, 370, 300, 415" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_thrust_text" id="ShipInfoManager" />
+		</bindings>
+	</element>
+  <!-- Ship Subtype Icon -->
+  <element type="customImage">
+    <attributes>
+      <rect name="Rect" value="-120, 387, -100, 432" />
+      <rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+      <texture name="Texture" value="UI/Images/Items/iconsmall/Ship.png" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+  </element>
+  <!-- Ship Subtype Title -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="TextID" value="id_shipsubtype" />
+      <string name="Caption" value="Subtype:" />
+      <rect name="Rect" value="-100, 385, 100, 430" />
+      <rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+    </attributes>
+  </element>
+  <!-- Subtype  Value -->
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="shipStaticSubtype" />
+      <string name="TextID" value="" />
+      <int name="Id" value="20" />
+      <string name="Caption" value="subtype" />
+      <rect name="Rect" value="-25, 385, 300, 430" />
+      <rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+    </attributes>
+    <bindings>
+      <slot name="setText" signal="static_subtype_text" id="ShipInfoManager" />
+    </bindings>
+  </element>
+
+  <!-- Ship Vis Icon -->
+  <element type="customImage">
+		<attributes>
+      <rect name="Rect" value="-120, 402, -100, 447" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+      <texture name="Texture" value="UI/Images/Items/iconsmall/Cloak.png" />
+      <bool name="UseAlphaChannel" value="true" />
+		</attributes>
+	</element>
+  <!-- Ship Vis Title -->
+    <element type="customStaticText">
+			<attributes>
+      <string name="TextID" value="id_shipvisibility" />
+      <string name="Caption" value="Visibility:" />
+			<rect name="Rect" value="-100, 400, 100, 445" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+		</attributes>
+	</element>
+  <!-- Vis Value -->
+    <element type="customStaticText">
+		<attributes>
+      <string name="IdName" value="shipStaticVis" />
+			<string name="TextID" value="" />
+			<int name="Id" value="20" />
+      <string name="Caption" value="subtype" />
+			<rect name="Rect" value="-25, 400, 300, 445" />
+			<rectf name="PercRect" value="0.5, 0.0, 0.5, 0.0" />
+		</attributes>
+		<bindings>
+      <slot name="setText" signal="static_visibility_text" id="ShipInfoManager" />
+		</bindings>
+	</element>
+    <!-- Resistance Table Title -->
+    <element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_shipresistances" />
+			<string name="Caption" value="Resistances" />
+			<rect name="Rect" value="10, 65, 200, 120" />
+			<rectf name="PercRect" value="0.0, 0.0, 0.2592, 0.471" />
+			<string name="ToolTip" value="Modification to the amount of damage your ship takes." />
+			<enum name="Font" value="smallBoldFont" />
+			<enum name="HTextAlign" value="Right" />
+		</attributes>
+	</element>
+    <!-- Resistance Table Info -->
+    <element type="customStaticText">
+			<attributes>
+			<string name="TextID" value="id_shipresistancesdesc" />
+			<int name="Id" value="21" />
+			<string name="Caption" value="Presents resistance to damage types." />
+			<rect name="Rect" value="15, 80, 200, 120" />
+			<rectf name="PercRect" value="0.0, 0.0, 0.2592, 0.471" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_augtweak_text" id="ShipInfoManager" />
+		</bindings>
+	</element>	
+	<!-- Resistance Table -->
+	<element type="customTable">
+		<attributes>
+			<rect name="Rect" value="10, 100, 0, 0" />
+			<rectf name="PercRect" value="0.0, 0.0, 0.3200, 0.471" />
+			<!--<rectf name="PercRect" value="0.0, 0.0, 0.2692, 0.471" />-->
+			<enum name="RightAlign" value="lowerRight" />			
+			<string name="IdName" value="resistStatList" />
+			<bool name="Draggable" value="false" />
+			<string name="TextID" value="" />
+			<int name="Id" value="8953" />
+			<int name="ColumnCount" value="3" />
+			<int name="ActiveTab" value="0" />
+			<int name="SecondaryTab" value="1" />
+			<bool name="DrawBack" value="false" />
+			<enum name="CurrentOrdering" value="ascending" />
+			<bool name="ResizableColumns" value="false" />
+			<int name="CellHeightPadding" value="2" />
+			<string name="Column0name" value="T" />
+			<int name="Column0width" value="25" />
+			<enum name="Column0OrderingMode" value="ascend_descend" />
+			<string name="Column1name" value="Resistances" />
+			<int name="Column1width" value="150" />
+			<enum name="Column1OrderingMode" value="ascend_descend" />
+			<string name="Column2name" value="" />
+			<int name="Column2width" value="150" />
+			<enum name="Column2OrderingMode" value="ascend_descend" />
+			<enum name="Column2OrderingType" value="alphabetical" />
+			<int name="DrawFlags" value="4" />
+			<bool name="MultiSelection" value="false" />
+			<bool name="KeyNavigation" value="false" />
+			<bool name="AcceptsDrop" value="false" />
+			<string name="IconBankName" value="buffs_small" />
+		</attributes>
+		<bindings>
+			<slot name="setAll" signal="table_resist_all" id="ShipInfoManager" />
+		</bindings>
+	</element>
+	<!-- Temporary Bonuses Table Title -->
+    <element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_shiptweakbonus" />
+			<string name="Caption" value="Buffs" />
+			<rect name="Rect" value="10, 0, 200, 40" />
+			<rectf name="PercRect" value="0.0, 0.4669, 0.0, 0.7" />
+			<string name="ToolTip" value="Bonuses granted by Neurotweaks, Field Generators and Auras." />
+			<enum name="Font" value="smallBoldFont" />
+		</attributes>
+	</element>
+	<!-- NeuroTweak Amount Title -->
+    <element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="shipStaticNeuroTweak" />
+			<string name="TextID" value="" />
+			<int name="Id" value="22" />
+			<string name="Caption" value="neurotweak" />
+			<rect name="Rect" value="15, 0, 200, 40" />
+			<rectf name="PercRect" value="0.0, 0.4919, 0.0, 0.7" />
+			<string name="ToolTip" value="Neurotweaking affects buffs granted by some Neurotweaks, Field Generators and Auras." />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_neurotweak_text" id="ShipInfoManager" />
+		</bindings>
+	</element>
+	<!-- Temporary Bonuses Table -->
+	<element type="customTable">
+		<attributes>
+			<rect name="Rect" value="10, 0, 0, 0" />
+			<rectf name="PercRect" value="0.0, 0.5219, 0.3200, 0.7" />			
+			<enum name="RightAlign" value="lowerRight" />			
+			<string name="IdName" value="buffStatList" />
+			<bool name="Draggable" value="true" />
+			<string name="TextID" value="" />
+			<int name="Id" value="8951" />
+			<int name="ColumnCount" value="3" />
+			<int name="ActiveTab" value="0" />
+			<int name="SecondaryTab" value="1" />
+			<enum name="CurrentOrdering" value="ascending" />
+			<int name="CellHeightPadding" value="2" />
+			<bool name="ResizableColumns" value="false" />
+			<string name="Column0name" value="T" />
+			<int name="Column0width" value="25" />
+			<enum name="Column0OrderingMode" value="ascend_descend" />
+			<string name="Column1name" value="Name" />
+			<int name="Column1width" value="150" />
+			<enum name="Column1OrderingMode" value="ascend_descend" />
+			<enum name="Column1OrderingType" value="alphabetical" />
+			<string name="Column2name" value="Value" />
+			<int name="Column2width" value="25" />
+			<enum name="Column2OrderingMode" value="ascend_descend" />
+			<enum name="Column2OrderingType" value="numerical" />
+			<int name="DrawFlags" value="4" />
+			<bool name="MultiSelection" value="false" />
+			<string name="IconBankName" value="buffs_small" />
+			<bool name="KeyNavigation" value="false" />
+			<bool name="AcceptsDrop" value="false" />
+		</attributes>
+		<bindings>
+			<slot name="setAll" signal="table_buffs_all" id="ShipInfoManager" />
+		</bindings>
+	</element>
+	<!-- Ship Weapons Title -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_shipweaponstable" />
+			<string name="Caption" value="Weapon Stats" />
+			<rect name="Rect" value="10, 0, 100, 0" />
+			<rectf name="PercRect" value="0.0, 0.7087, 0.0, 0.7387" />
+			<string name="ToolTip" value="Damage, range, recoil and other final values of equipped weapons." />
+			<enum name="Font" value="smallBoldFont" />
+		</attributes>
+	</element>
+  <!-- Ship Weapons Checkbox Critical % -->
+  <element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="shipInfoShowCrits" />
+			<string name="TextID" value="id_shipshowcrits" />
+			<rect name="Rect" value="100, 0, 170, 0" />
+			<rectf name="PercRect" value="0.0, 0.7087, 0.0, 0.7387" />	
+			<string name="ToolTip" value="Toggle to show bonus damage from critical hits." />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="ShowCrits" id="ShipInfoManager" />
+			<slot name="setValue" signal="check_show_crits" id="ShipInfoManager" />
+		</bindings>
+	</element>
+  <!-- Ship Weapons Class Mechanics -->
+  <element type="customCheckBox">
+    <attributes>
+      <string name="IdName" value="shipInfoShowClass" />
+      <string name="TextID" value="id_shipshowclass" />
+      <rect name="Rect" value="175, 0, 250, 0" />
+      <rectf name="PercRect" value="0.0, 0.7087, 0.0, 0.7387" />
+    </attributes>
+    <bindings>
+      <signal name="value_changed" slot="ShowClass" id="ShipInfoManager" />
+      <slot name="setValue" signal="check_show_class" id="ShipInfoManager" />
+    </bindings>
+  </element>
+  <!-- Ship Weapons Table -->
+	<element type="customTable">
+		<attributes>
+			<rect name="Rect" value="10, 0, 0, -10" />
+			<rectf name="PercRect" value="0.0, 0.7437, 0.67, 1.0" />
+			<enum name="RightAlign" value="lowerRight" />			
+			<string name="IdName" value="weaponStatList" />
+			<bool name="Draggable" value="true" />
+			<string name="TextID" value="" />
+			<int name="Id" value="8953" />
+			<int name="ColumnCount" value="8" />
+			<int name="ActiveTab" value="0" />
+			<int name="SecondaryTab" value="1" />
+			<enum name="CurrentOrdering" value="ascending" />
+			<int name="CellHeightPadding" value="2" />
+			<bool name="ResizableColumns" value="false" />
+			<string name="Column0name" value="T" />
+			<int name="Column0width" value="25" />
+			<enum name="Column0OrderingMode" value="ascend_descend" />
+			<string name="Column1name" value="Name" />
+			<int name="Column1width" value="150" />
+			<enum name="Column1OrderingMode" value="ascend_descend" />
+			<enum name="Column1OrderingType" value="alphabetical" />
+			<string name="Column2name" value="DPS" />
+			<int name="Column2width" value="25" />
+			<enum name="Column2OrderingMode" value="ascend_descend" />
+			<enum name="Column2OrderingType" value="numerical" />
+			<string name="Column3name" value="DPE" />
+			<int name="Column3width" value="25" />
+			<enum name="Column3OrderingMode" value="ascend_descend" />
+			<enum name="Column3OrderingType" value="numerical" />
+			<string name="Column4name" value="Damage" />
+			<int name="Column4width" value="25" />
+			<enum name="Column4OrderingMode" value="ascend_descend" />
+			<enum name="Column4OrderingType" value="numerical" />
+			<string name="Column5name" value="Recoil" />
+			<int name="Column5width" value="25" />
+			<enum name="Column5OrderingMode" value="ascend_descend" />
+			<enum name="Column5OrderingType" value="numerical" />
+			<string name="Column6name" value="Range" />
+			<int name="Column6width" value="25" />
+			<enum name="Column6OrderingMode" value="ascend_descend" />
+			<enum name="Column6OrderingType" value="numerical" />
+			<string name="Column7name" value="Tracking" />
+			<int name="Column7width" value="25" />
+			<enum name="Column7OrderingMode" value="ascend_descend" />
+			<enum name="Column7OrderingType" value="numerical" />
+			<int name="DrawFlags" value="4" />
+			<bool name="MultiSelection" value="false" />
+			<string name="IconBankName" value="items_small" />
+			<bool name="KeyNavigation" value="false" />
+			<bool name="AcceptsDrop" value="false" />
+		</attributes>
+		<bindings>
+			<slot name="setAll" signal="table_weapons_all" id="ShipInfoManager" />
+		</bindings>
+	</element>
+	<!-- Permanent Bonuses Title -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_shipaugbonus" />
+			<string name="Caption" value="Augmenter, Class and Mod Bonuses" />
+			<rect name="Rect" value="0, 100, -10, 65" />
+			
+			<rectf name="PercRect" value="0.68, 0.0, 1.0, 0.0" />
+			
+			<string name="ToolTip" value="Stat bonuses from Augmenters, Class Skills, Mods and Items." />
+			<enum name="Font" value="smallBoldFont" />
+		</attributes>
+	</element>
+    <!-- Augmenter Tweaking Title -->
+    <element type="customStaticText">
+			<attributes>
+			<string name="IdName" value="shipStaticTweak" />
+			<string name="TextID" value="" />
+			<int name="Id" value="21" />
+			<string name="Caption" value="augtweak" />
+			<rect name="Rect" value="5, 100, -10, 80" />
+			<rectf name="PercRect" value="0.68, 0.0, 1.0, 0.0" />
+			<string name="ToolTip" value="Augmenter Tweaking affects bonuses from augmenters but not mods, other items or class skills." />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_augtweak_text" id="ShipInfoManager" />
+		</bindings>
+	</element>
+	<!-- Permanent Bonuses Table -->
+	<element type="customTable">
+		<attributes>
+			<rect name="Rect" value="0, 100, -10, -10" />
+			<rectf name="PercRect" value="0.68, 0.0, 1.0, 1.0" />
+			<enum name="RightAlign" value="lowerRight" />			
+			<string name="IdName" value="augmenterStatList" />
+			<bool name="Draggable" value="true" />
+			<string name="TextID" value="" />
+			<int name="Id" value="8950" />
+			<int name="ColumnCount" value="3" />
+			<int name="ActiveTab" value="0" />
+			<int name="SecondaryTab" value="1" />
+			<enum name="CurrentOrdering" value="ascending" />
+			<bool name="ResizableColumns" value="false" />
+			<int name="CellHeightPadding" value="2" />
+			<string name="Column0name" value="T" />
+			<int name="Column0width" value="25" />
+			<enum name="Column0OrderingMode" value="ascend_descend" />
+			<string name="Column1name" value="Name" />
+			<int name="Column1width" value="200" />
+			<enum name="Column1OrderingMode" value="ascend_descend" />
+			<enum name="Column1OrderingType" value="alphabetical" />
+			<string name="Column2name" value="Value" />
+			<int name="Column2width" value="25" />
+			<enum name="Column2OrderingMode" value="ascend_descend" />
+			<enum name="Column2OrderingType" value="numerical" />
+			<int name="DrawFlags" value="4" />
+			<bool name="MultiSelection" value="false" />
+			<string name="IconBankName" value="items_small" />
+			<bool name="KeyNavigation" value="false" />
+			<bool name="AcceptsDrop" value="false" />
+			<enum name="Font" value="smallFont" />
+		</attributes>
+		<bindings>
+			<slot name="setAll" signal="table_augmenter_all" id="ShipInfoManager" />
+		</bindings>
+	</element>
+	<!-- Exit button -->
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="shipButtonClose" />
+        <int name="Id" value="66" />
+        <rect name="Rect" value="-18, 2, -2, 18" />
+        <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+        <texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+        <texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+        <bool name="UseAlphaChannel" value="true" />
+        <bool name="Border" value="false" />
+      </attributes>
+      <bindings>
+        <signal name="button_clicked" slot="toggleVisibility" id="shipInfoDialog" />
+        <signal name="button_clicked" slot="HideCustom" id="shipInfoDialog" /> <!--Agent Manager-->
+        <signal name="button_clicked" slot="HideCustom2" id="ShipInfoManager" />
+      </bindings>
+    </element>	
+</element>

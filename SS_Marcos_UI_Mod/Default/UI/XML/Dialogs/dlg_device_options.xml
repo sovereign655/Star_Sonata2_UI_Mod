@@ -1,0 +1,255 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="deviceOptionsDialog" />
+		<string name="Caption" value="" />
+		<rect name="Rect" value="0, 0, 380, 585" />
+		<int name="Flags" value="0" />
+		<int name="BorderStyle" value="2" />
+		<int name="ResizeBorderWidth" value="0" />
+	</attributes>
+	
+	<bindings>
+			<signal name="created" slot="LoadDeviceOptions" id="DeviceOptionsManager" />
+			<signal name="created" slot="makeFocus" id="deviceOptionsDialog" />
+	</bindings>
+	
+	<element type="customImage">
+		<attributes>
+			<string name="Caption" value="" />
+			<rect name="Rect" value="15, 10, 365, 345" />
+			<texture name="Texture" value="UI/Images/Dialogs/logosmall.png" />
+			<bool name="ScaleImage" value="false" />
+			<bool name="UseAlphaChannel" value="true" />
+		</attributes>
+	</element>
+	
+	<!--<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_graphic_opt" />
+			<rect name="Rect" value="200, 15, 380, 50" />
+			<bool name="OverrideColorEnabled" value="true" />
+			<color name="OverrideColor" value="ffb7f9ff" />
+		</attributes>
+	</element>-->		
+	
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_pixel_depth" />
+			<rect name="Rect" value="20, 87, 120, 107" />
+		</attributes>
+	</element>
+	
+	<element type="customComboBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsComboPixelDepth" />
+			<rect name="Rect" value="120, 87, 270, 107" />
+			<int name="TabOrder" value="3" />
+		</attributes>
+		
+		<bindings>
+			<signal name="item_selected_text" slot="SetBitDepth" id="DeviceOptionsManager" />
+			<slot name="setText" signal="combo_bitdepths_text" id="DeviceOptionsManager" />
+		</bindings>
+	</element>				
+	
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="id_resolution" />
+			<rect name="Rect" value="20, 127, 120, 147" />
+		</attributes>
+	</element>
+	
+	<element type="customComboBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsComboResolution" />
+			<rect name="Rect" value="120, 127, 270, 147" />
+			<int name="TabOrder" value="3" />
+		</attributes>
+		
+		<bindings>
+			<signal name="item_selected_text" slot="SetResolution" id="DeviceOptionsManager" />
+			<slot name="setText" signal="combo_resolutions_text" id="DeviceOptionsManager" />
+			<slot name="setSelectedIndex" signal="combo_resolutions_select" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="deviceOptionsStaticGraphicsLevel" />
+			<string name="TextID" value="id_graphics_level" />
+			<rect name="Rect" value="20, 167, 120, 187" />
+		</attributes>
+	</element>
+	
+	<element type="customComboBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsComboGraphicsLevel" />
+			<rect name="Rect" value="120, 167, 270, 187" />
+			<int name="TabOrder" value="3" />
+		</attributes>
+		<bindings>
+			<signal name="item_selected_index" slot="SetGraphicsLevel" id="DeviceOptionsManager" />
+			<slot name="setSelectedIndex" signal="combo_graphicslevels_select" id="DeviceOptionsManager" />
+			<slot name="setText" signal="combo_graphicslevels_text" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsFullScreen" />
+			<string name="TextID" value="id_full_screen" />
+			<rect name="Rect" value="20, 207, 200, 227" />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetFullScreen" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="full_screen_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+	
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsUseHardwareCursor" />
+			<string name="TextID" value="id_use_hardware_cursor" />
+			<rect name="Rect" value="20, 231, 200, 251" />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetUseHardwareCursor" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="use_hardware_cursor_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+	
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsVerticalSync" />
+			<string name="TextID" value="id_vertical_sync" />
+			<rect name="Rect" value="20, 255, 200, 275" />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetVerticalSync" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="vertical_sync_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+	
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsCheckOptions" />
+			<string name="TextID" value="id_show_options" />
+			<rect name="Rect" value="20, 279, 200, 299" />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetShowStartupOptions" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="show_start_up_options_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>		
+
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsDDSTexture" />
+			<string name="TextID" value="id_dds_texture" />
+			<rect name="Rect" value="220, 207, 400, 227" />
+      <string name="ToolTip" value="DDS textures offer reduced memory usage when supported by the GPU, required for texture preload." />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetDDSTexture" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="dds_texture_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsPreloadTexture" />
+			<string name="TextID" value="id_preload_texture" />
+			<rect name="Rect" value="220, 231, 400, 251" />
+      <string name="ToolTip" value="Pre-load textures into memory so that they are not loaded during play, does nothing without DDS texture enabled." />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetPreloadTexture" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="preload_texture_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+
+	<element type="customCheckBox">
+		<attributes>
+		  <string name="IdName" value="deviceOptionsLowQualityTextures" />
+		  <string name="TextID" value="id_low_qual_textures" />
+		  <rect name="Rect" value="220, 255, 400, 275" />
+		</attributes>
+		<bindings>
+		  <signal name="value_changed" slot="SetUseLowQualTextures" id="DeviceOptionsManager" />
+		  <slot name="setValue" signal="low_texture_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOptionsOptGUIRender" />
+			<string name="TextID" value="id_gui_rendering" />
+			<rect name="Rect" value="220, 279, 400, 299" />
+			<string name="ToolTip" value="Checking this may improve performance but it may not work for some computers. In cases of emergency, it can be turned off by using the Scroll Lock key." />		
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetOptGUIRender" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="opt_gui_rendering_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+  
+	<element type="customCheckBox">
+		<attributes>
+			<string name="IdName" value="deviceOrthCamCheckOptions" />
+			<string name="TextID" value="id_orth_cam" />
+			<rect name="Rect" value="20, 303, 220, 323" />
+			<string name="ToolTip" value="Checking this will force a top down view, and change the view from perspective to orthographic. This will give a much more accurate feeling of 2 dimensions." />		
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="SetOptOrthCam" id="DeviceOptionsManager" />
+			<slot name="setValue" signal="opt_ortho_cam_check" id="DeviceOptionsManager" />
+		</bindings>
+	</element>	
+	
+
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="deviceOptionsButtonCancel" />
+			<rect name="Rect" value="275, 338, 364, 363" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="true" />
+			<string name="Caption" value="Cancel" />
+		</attributes>
+		
+		<bindings>
+			<signal name="button_clicked" slot="ExitGame" id="GameManager" />
+		</bindings>
+	</element>	
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="deviceOptionsButtonOK" />
+			<rect name="Rect" value="175, 338, 264, 363" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="true" />
+			<string name="Caption" value="OK" />
+		</attributes>
+		
+		<bindings>
+			<signal name="button_clicked" slot="SaveDeviceOptions" id="DeviceOptionsManager" />
+			<signal name="button_clicked" slot="OnDeviceOptionsSet" id="GameManager" />
+			<slot name="trigger" signal="key_pressed_enter" id="DeviceKeyboard" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="deviceOptionsButtonAuto" />
+			<rect name="Rect" value="16, 338, 85, 363" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="true" />
+			<string name="Caption" value="Auto" />
+		</attributes>
+
+		<bindings>
+			<signal name="button_clicked" slot="ResetToAutomatic" id="DeviceOptionsManager" />
+		</bindings>
+	</element>
+	
+</element>

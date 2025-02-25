@@ -1,0 +1,105 @@
+	<element type="customWindow">
+		<attributes>
+			<string name="IdName" value="newBulletinDialog" />
+			<string name="TextID" value="" />
+			<string name="Caption" value="" />
+			<rect name="Rect" value="21, 105, 499, 227" />
+			<int name="Flags" value="2" />
+			<bool name="Movable" value="true" />
+			<int name="BorderStyle" value="2" />
+			<bool name="KeepOnScreen" value="true" />
+			<string name="SoundShow" value="DialogOpen.wav" />
+			<string name="SoundHide" value="DialogClose.wav" />
+		</attributes>
+		<element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_credits" />
+				<string name="Caption" value="Credits:" />
+				<rect name="Rect" value="10, 32, 60, 52" />
+				<int name="ScrolledLines" value="0" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_credits_text" id="NewBulletinManager" />
+			</bindings>			
+		</element>
+
+		<element type="customEditBox">
+			<attributes>
+				<string name="IdName" value="newBulletinEditCredits" />
+				<string name="TextID" value="" />
+				<int name="Id" value="17" />
+				<rect name="Rect" value="60, 28, 140, 50" />
+				<int name="TabOrder" value="1" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="edit_credits_text" id="NewBulletinManager" />
+				<signal name="value_changed" slot="CreditsChanged" id="NewBulletinManager" />
+			</bindings>			
+		</element>
+
+		<element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_message" />
+				<string name="Caption" value="Message:" />
+				<rect name="Rect" value="10, 72, 70, 85" />
+				<int name="ScrolledLines" value="0" />
+			</attributes>
+		</element>
+
+		<element type="customEditBox">
+			<attributes>
+				<string name="IdName" value="newBulletinEditMessage" />
+				<string name="TextID" value="" />
+				<int name="Id" value="18" />
+				<rect name="Rect" value="60, 68, 470, 90" />
+				<bool name="WordWrap" value="true" />
+				<int name="TabOrder" value="2" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="edit_message_text" id="NewBulletinManager" />
+				<signal name="value_changed" slot="MessageChanged" id="NewBulletinManager" />
+			</bindings>					
+		</element>
+
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="newBulletinButtonOK" />
+				<string name="TextID" value="" />
+				<int name="Id" value="19" />
+				<string name="Caption" value="Ok" />
+				<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+				<rect name="Rect" value="-166, 28, -91, 50" />
+				<!--<texture name="Image" value="res/buttons/ok.bmp" />
+				<rect name="ImageRect" value="0, 0, 89, 25" />
+				<texture name="PressedImage" value="res/buttons/okD.bmp" />
+				<rect name="PressedImageRect" value="0, 0, 89, 25" />
+				<bool name="UseAlphaChannel" value="true" />
+				<bool name="Border" value="false" />-->
+				<int name="TabOrder" value="3" />
+			</attributes>		
+			<bindings>
+				<signal name="button_clicked" slot="OnNewBulletin" id="BulletinBoardManager" />
+			</bindings>			
+		</element>
+
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="newBulletinButtonCancel" />
+				<string name="TextID" value="" />
+				<string name="Caption" value="Cancel" />
+				<int name="Id" value="20" />
+				<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+				<rect name="Rect" value="-8, 28, -83, 50" />
+				<!--<texture name="Image" value="res/buttons/cancel.bmp" />
+				<rect name="ImageRect" value="0, 0, 89, 25" />
+				<texture name="PressedImage" value="res/buttons/cancelD.bmp" />
+				<rect name="PressedImageRect" value="0, 0, 89, 25" />
+				<bool name="UseAlphaChannel" value="true" />-->
+				<int name="TabOrder" value="4" />
+			</attributes>					
+			<bindings>
+				<signal name="button_clicked" slot="DestroyGuiDialog" id="GuiFactory" arg="newBulletinDialog" />
+			</bindings>
+		</element>
+
+	</element>

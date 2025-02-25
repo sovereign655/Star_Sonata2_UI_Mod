@@ -1,0 +1,17 @@
+<bindings>
+	<binding signal="key_pressed_esc" signalID="DeviceKeyboard" slot="ToggleFocusDialog" slotID="GuiFactory" />
+	<!--binding signal="key_pressed_o" signalID="DeviceKeyboard" slot="toggleVisibility" slotID="optionsDialog" /> 
+	<binding signal="key_pressed_f7" signalID="DeviceKeyboard" slot="toggleVisibility" slotID="optionsDialog" /> 
+	<binding signal="key_pressed_i" signalID="DeviceKeyboard" slot="toggleVisibility" slotID="shipInventoryDialog" />
+	<binding signal="key_pressed_f12" signalID="DeviceKeyboard" slot="toggleVisibility" slotID="shipInventoryDialog" />
+	<binding signal="key_pressed_f11" signalID="DeviceKeyboard" slot="toggleVisibility" slotID="radarDialog" />
+	<binding signal="key_pressed_f10" signalID="DeviceKeyboard" slot="toggleVisibility" slotID="shipInfoDialog" />
+	<binding signal="key_pressed_f9" signalID="DeviceKeyboard" slot="toggleVisibility" slotID="characterDialog" />
+	<binding signal="key_pressed_f8" signalID="DeviceKeyboard" slot="toggleVisibility" slotID="contactsDialog" />
+	<binding signal="key_pressed_f6" signalID="DeviceKeyboard" slot="toggleVisibility" slotID="galaxyMapDialog" />
+	<binding signal="key_pressed_m" signalID="DeviceKeyboard" slot="ToggleMissions" slotID="CharManager" />
+	<binding signal="new_frame" signalID="GameManager" slot="UpdateShipImage" slotID="ShipInfoManager" / -->	
+	<binding signal="new_frame" signalID="GameManager" slot="UpdateTradeShipImage" slotID="TradePropManager" />
+	<binding signal="new_frame" signalID="GameManager" slot="UpdateTutorials" slotID="TutorialManager" />
+	<binding signal="new_frame" signalID="GameManager" slot="RefreshControl" slotID="ControlManager" />
+</bindings>

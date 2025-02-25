@@ -1,0 +1,164 @@
+	<element type="customWindow">
+		<attributes>									
+			<string name="IdName" value="moderatorDialogInfo" />
+			<int name="Id" value="9673" />
+			<rect name="Rect" value="665, 150, 1125, 500" />
+			<int name="Flags" value="0" />
+			<bool name="Movable" value="true" />
+			<bool name="Visible" value="false" />
+			<int name="BorderStyle" value="2" />
+			<int name="ResizeBorderWidth" value="5" />
+			<bool name="HideOnLogout" value="true" />
+			<bool name="KeepOnScreen" value="true" />	
+		</attributes>
+		<bindings>
+			<signal name="revealed" slot="RefreshModerator" id="ModeratorManager" />
+			<signal name="revealed" slot="toggleActiveState" id="moderate" />
+			<signal name="hidden" slot="toggleActiveState" id="moderate" />
+			<signal name="evt_resize" slot="DialogMoved" id="LogicManager" />
+			<signal name="evt_mouse_on_border" slot="DialogMouseOnBorder" id="LogicManager" />
+		</bindings>
+	<!-- Window Title -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="Caption" value="Suggested Mute Times" />
+			<rect name="Rect" value="8, 8, -8, 24" />
+      <rectf name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<enum name="VTextAlign" value="center" />
+			<enum name="HTextAlign" value="left" />
+			<int name="ScrolledLines" value="0" />
+			<enum name="Font" value="largeBoldFont" />
+			<bool name="OverrideColorEnabled" value="true" />
+			<color name="OverrideColor" value="65ff7777" />      
+		</attributes>
+	</element>
+	<!-- 5 minutes section, Column 0 -->  
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="" />
+			<string name="Caption" value="5 minutes:"/>
+			<rect name="Rect" value="8, 32, -4, -8" />
+      <rectf name="PercRect" value="0, 0, 0.5, 1" />
+			<int name="ScrolledLines" value="0" />
+		</attributes>		
+    <element type="customStaticText">
+      <attributes>
+        <string name="TextID" value="" />
+        <string name="Caption" value="Give warning."/>
+        <rect name="Rect" value="0, 20, 0, 0" />
+        <rectf name="PercRect" value="0, 0, 1, 1" />
+        <int name="ScrolledLines" value="0" />
+        <bool name="OverrideColorEnabled" value="true" />
+        <color name="OverrideColor" value="65ffffff" />
+      </attributes>
+      <!-- 10 minutes section -->	
+      <element type="customStaticText">
+        <attributes>
+          <string name="TextID" value="" />
+          <string name="Caption" value="10 minutes:"/>
+          <rect name="Rect" value="0, 20, 0, 0" />
+          <rectf name="PercRect" value="0, 0, 1, 1" />
+          <int name="ScrolledLines" value="0" />
+        </attributes>	
+        <element type="customStaticText">
+          <attributes>
+            <string name="TextID" value="" />
+            <string name="Caption" value="For any: discussing mutes or bans (if 10 doesn't work, up it to 120)."/>
+            <rect name="Rect" value="0, 20, 0, 0" />
+            <rectf name="PercRect" value="0, 0, 1, 1" />
+            <int name="ScrolledLines" value="0" />
+            <bool name="OverrideColorEnabled" value="true" />
+            <color name="OverrideColor" value="65ffffff" />
+          </attributes>	
+          <!-- 20 minutes section -->	
+          <element type="customStaticText">
+            <attributes>
+              <string name="TextID" value="" />
+              <string name="Caption" value="20 minutes:"/>
+              <!-- Alter the second number below to push this section down from 10 minutes section, applies to rest-->
+              <rect name="Rect" value="0, 40, 0, 0" />
+              <rectf name="PercRect" value="0, 0, 1, 1" />
+              <int name="ScrolledLines" value="0" />
+            </attributes>
+            <element type="customStaticText">
+              <attributes>
+                <string name="TextID" value="" />
+                <string name="Caption" value="Languages other than English."/>
+                <rect name="Rect" value="0, 20, 0, 0" />
+                <rectf name="PercRect" value="0, 0, 1, 1" />
+                <int name="ScrolledLines" value="0" />
+                <bool name="OverrideColorEnabled" value="true" />
+                <color name="OverrideColor" value="65ffffff" />
+              </attributes>	
+              <!-- 30 minutes section -->
+              <element type="customStaticText">
+                <attributes>
+                  <string name="TextID" value="" />
+                  <string name="Caption" value="30 minutes:"/>
+                  <rect name="Rect" value="0, 20, 0, 0" />
+                  <rectf name="PercRect" value="0, 0, 1, 1" />
+                  <int name="ScrolledLines" value="0" />
+                </attributes>
+                <element type="customStaticText">
+                  <attributes>
+                    <string name="TextID" value="" />
+                    <string name="Caption" value="For any: circumventing the swear filter, spamming or instigating spam, advertising trade in all chat, circumventing the trade timer, adding non-trade messages to trade posts."/>
+                    <rect name="Rect" value="0, 20, 0, 0" />
+                    <rectf name="PercRect" value="0, 0, 1, 1" />
+                    <int name="ScrolledLines" value="0" />
+                    <bool name="OverrideColorEnabled" value="true" />
+                    <color name="OverrideColor" value="65ffffff" />
+                  </attributes>		
+                </element>
+              </element>
+            </element>  
+          </element>
+        </element>
+      </element> 
+    </element>    
+	</element>
+  <!-- 60 minutes section, Column 1 -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="" />
+			<string name="Caption" value="60 minutes:"/>
+ 			<rect name="Rect" value="4, 32, -8, -8" />
+      <rectf name="PercRect" value="0.5, 0, 1, 1" />
+			<int name="ScrolledLines" value="0" />
+		</attributes>		
+    <element type="customStaticText">
+      <attributes>
+        <string name="TextID" value="" />
+        <string name="Caption" value="For any: abusive or sexually explicit language, discussion of (hacking, cheating), impersonating of (admins, moderators), links to inappropriate websites."/>
+        <rect name="Rect" value="0, 20, 0, 0" />
+        <rectf name="PercRect" value="0, 0, 1, 1" />
+        <bool name="OverrideColorEnabled" value="true" />
+        <color name="OverrideColor" value="65ffffff" />
+      </attributes>
+      <!-- 120 minutes section -->
+      <element type="customStaticText">
+        <attributes>
+          <string name="TextID" value="" />
+          <string name="Caption" value="Instant 120 minutes:"/>
+          <rect name="Rect" value="0, 100, 0, 0" />
+          <rectf name="PercRect" value="0, 0, 1, 1" />
+          <int name="ScrolledLines" value="0" />
+        </attributes>	
+        <element type="customStaticText">
+          <attributes>
+            <string name="TextID" value="" />
+            <string name="Caption" value="For any: racism, sexism, harassment, anti-homosexual, real life threats, buying/selling (accounts, real life money, cypto), inappropriate character names."/>
+            <rect name="Rect" value="0, 20, 0, -8" />
+            <rectf name="PercRect" value="0, 0, 1, 1" />
+            <int name="ScrolledLines" value="0" />
+            <bool name="OverrideColorEnabled" value="true" />
+            <color name="OverrideColor" value="65ffffff" />
+          </attributes>		
+        </element>  
+      </element>
+    </element>    
+	</element>
+  
+
+</element>
+

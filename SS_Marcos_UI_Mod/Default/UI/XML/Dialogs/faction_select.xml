@@ -1,0 +1,306 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="factionSelectionDialog" />
+		<ind name="Id" value="668" />
+		<bool name="Movable" value="false" />
+		<bool name="Visible" value="false" />
+		<int name="Flags" value="0" />
+		<int name="ResizeBorderWidth" value="0" />
+		<rect name="Rect" value="-500, -276, 500, 276" />
+		<rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+	</attributes>
+	<bindings>
+		<slot name="setVisible" signal="factionselect_dialog_visible" id="ConnectManager" />
+	</bindings>
+	<!-- background image, does not get hidden-->
+	<element type="customImage">
+		<attributes>
+			<string name="TextID" value="" />
+			<rect name="Rect" value="0, 0, 1000, 552" />
+			<texture name="Texture" value="UI/Images/Faction/intial.png" />
+			<bool name="ScaleImage" value="true" />
+			<bool name="UseAlphaChannel" value="true" />
+		</attributes>
+	</element>
+  <!-- initial button background -->
+  <element type="customImage">
+    <attributes>
+			<string name="TextID" value="" />
+			<rectf name="PercRect" value="0.25, 0.013, 0.5, 0.013" />
+			<rect name="Rect" value="3, 3, 253, 62" />
+			<texture name="Texture" value="UI/Images/Faction/black.png" />
+			<bool name="UseAlphaChannel" value="true" />
+      <color name="Color" value="80000000" />
+			<bool name="ScaleImage" value="true" />
+			<bool name="Visible" value="true" />
+		</attributes>
+	</element>
+  <!-- initial text background -->
+  <element type="customImage">
+    <attributes>
+			<string name="TextID" value="" />
+			<rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+			<rect name="Rect" value="0, -100, 0, 0" />
+			<texture name="Texture" value="UI/Images/Faction/black.png" />
+			<bool name="UseAlphaChannel" value="true" />
+      <color name="Color" value="E0000000" />
+			<bool name="ScaleImage" value="true" />
+			<bool name="Visible" value="true" />
+		</attributes>
+	</element> 
+  <element type="customStaticText">
+    <attributes>
+      <string name="Caption" value="Welcome to the universe, pilot. It&apos;s time for you to decide whether to enlist in the ranks of Earthforce or to strike out on your own as a Pirate.  Once you&apos;ve learned the ropes, you&apos;ll head out into the universe to seek your fortune and fame, or perhaps infamy!" />
+      <rectf name="PercRect" value="0.0, 1.0, 1.0, 1.0" />
+      <rect name="Rect" value="16, -92, -16, -16" />
+      <bool name="Visible" value="true" />
+      <enum name="Font" value="mediumFont" />
+    </attributes>
+    <bindings>
+    </bindings>
+  </element>
+  
+	<!-- Pirate image, hidden to start -->
+	<element type="customImage">
+		<attributes>
+			<string name="IdName" value="factionPiratePickImage" />
+			<string name="TextID" value="" />
+			<rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+			<rect name="Rect" value="-500, -276, 500, 276" />
+			<texture name="Texture" value="UI/Images/Faction/faction/pirate.jpg" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="ScaleImage" value="true" />
+			<bool name="Visible" value="false" />
+		</attributes>
+	</element>
+	<!-- EF image, hidden to start -->
+	<element type="customImage">
+		<attributes>
+			<string name="IdName" value="factionEfPickImage" />
+			<string name="TextID" value="" />
+			<rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+			<rect name="Rect" value="-500, -276, 500, 276" />
+			<texture name="Texture" value="UI/Images/Faction/faction/ef.jpg" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="ScaleImage" value="true" />
+			<bool name="Visible" value="false" />
+		</attributes>
+	</element>
+  <!-- text background -->
+  <element type="customImage">
+    <attributes>
+			<string name="IdName" value="factionTextBackground" />
+			<string name="TextID" value="" />
+			<rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+			<rect name="Rect" value="0, 0, 208, 552" />
+			<texture name="Texture" value="UI/Images/Faction/black.png" />
+			<bool name="UseAlphaChannel" value="true" />
+      <color name="Color" value="E0000000" />
+			<bool name="ScaleImage" value="true" />
+			<bool name="Visible" value="false" />
+		</attributes>
+	</element>
+  <!-- Pirate Logo -->
+  <element type="customImage">
+    <attributes>
+      <string name="IdName" value="factionPirateLogo" />
+      <string name="TextID" value="" />
+      <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+      <rect name="Rect" value="-7, 16, 190, 223" />
+      <texture name="Texture" value="UI/Images/Faction/faction/pirate_logo.png" />
+      <bool name="UseAlphaChannel" value="true" />
+			<bool name="ScaleImage" value="false" />
+			<bool name="Visible" value="false" />
+		</attributes>
+	</element>
+  <!-- EF Logo -->
+  <element type="customImage">
+    <attributes>
+      <string name="IdName" value="factionEfLogo" />
+      <string name="TextID" value="" />
+      <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+      <rect name="Rect" value="16, 16, 184, 184" />
+      <texture name="Texture" value="UI/Images/Faction/faction/ef_logo.png" />
+      <bool name="UseAlphaChannel" value="true" />
+			<bool name="ScaleImage" value="true" />
+			<bool name="Visible" value="false" />
+		</attributes>
+	</element>
+  <!-- Pirate description-->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="factionPirateDescription" />
+        <string name="Caption" value="As a pirate acolyte you&apos;ll begin your journey by smuggling illegal goods and plundering helpless transports for their booty. You&apos;ll let nothing stand in your way to get to the top!" />
+        <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+        <rect name="Rect" value="16, 200, 196, 536" />
+        <bool name="Visible" value="false" />
+        <enum name="Font" value="mediumFont" />
+      </attributes>
+      <bindings>
+      </bindings>
+    </element>
+    <!-- EF description-->
+    <element type="customStaticText">
+      <attributes>
+        <string name="IdName" value="factionEfDescription" />
+        <string name="Caption" value="See the universe and serve your planet! Join up today! Earthforce needs you! As an Earthforce Cadet you&apos;ll join the ranks of Earth&apos;s elite pilots and help defend the universe from all manner of threats - both pirate and alien!" />
+        <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+        <rect name="Rect" value="16, 200, 196, 536" />
+        <bool name="Visible" value="false" />
+        <enum name="Font" value="mediumFont" />
+      </attributes>
+      <bindings>
+      </bindings>
+    </element>
+	<!--Pirate button -->
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="factionPirateButton" />
+			<string name="Caption" value="" />
+			<rectf name="PercRect" value="0.25, 0.013, 0.25, 0.013" />
+			<rect name="Rect" value="0, 0, 256, 65" />
+			<texture name="Image" value="UI/Images/Faction/buttons/pirate_button.png" />
+			<rect name="ImageRect" value="0, 0, 256, 65" />
+			<texture name="PressedImage" value="UI/Images/Faction/buttons/pirate_button_h.png" />
+			<rect name="PressedImageRect" value="0, 0, 256, 65" />
+			<bool name="ScaleImage" value="true" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="false" />
+			<bool name="Visible" value="true" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="hide" id="factionEfPickImage" />
+			<signal name="button_clicked" slot="show" id="factionPiratePickImage" />
+      <signal name="button_clicked" slot="show" id="factionTextBackground" />
+      <signal name="button_clicked" slot="show" id="factionPirateDescription" />
+      <signal name="button_clicked" slot="hide" id="factionEfDescription" />
+      <signal name="button_clicked" slot="show" id="factionPirateLogo" />
+      <signal name="button_clicked" slot="hide" id="factionEfLogo" />
+			<signal name="button_clicked" slot="show" id="factionPirateButtonImage" />
+			<signal name="button_clicked" slot="hide" id="factionEfButtonImage" />
+			<signal name="button_clicked" slot="hide" id="factionConfirmEfButton" />
+			<signal name="button_clicked" slot="show" id="factionConfirmPirateButton" />
+		</bindings>
+	</element>
+	<element type="customImage">
+		<attributes>
+			<string name="IdName" value="factionPirateButtonImage" />
+			<string name="TextID" value="" />
+			<rectf name="PercRect" value="0.25, 0.013, 0.25, 0.013" />
+			<rect name="Rect" value="0, 0, 256, 65" />
+			<texture name="Texture" value="UI/Images/Faction/buttons/pirate_button_h.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<color name="Color" value="ffffffff" />
+			<bool name="ScaleImage" value="true" />
+			<bool name="Visible" value="false" />
+		</attributes>
+	</element>
+	<!--EF button -->
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="factionEfButton" />
+			<string name="Caption" value="" />
+			<rectf name="PercRect" value="0.5, 0.013, 0.5, 0.013" />
+			<rect name="Rect" value="0, 0, 256, 65" />
+			<texture name="Image" value="UI/Images/Faction/buttons/ef_button.png" />
+			<rect name="ImageRect" value="0, 0, 256, 65" />
+			<texture name="PressedImage" value="UI/Images/Faction/buttons/ef_button_h.png" />
+			<rect name="PressedImageRect" value="0, 0, 256, 65" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="false" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="show" id="factionEfPickImage" />
+			<signal name="button_clicked" slot="hide" id="factionPiratePickImage" />
+      <signal name="button_clicked" slot="show" id="factionTextBackground" />
+      <signal name="button_clicked" slot="hide" id="factionPirateDescription" />
+      <signal name="button_clicked" slot="show" id="factionEfDescription" />
+      <signal name="button_clicked" slot="hide" id="factionPirateLogo" />
+      <signal name="button_clicked" slot="show" id="factionEfLogo" />
+			<signal name="button_clicked" slot="hide" id="factionPirateButtonImage" />
+			<signal name="button_clicked" slot="show" id="factionEfButtonImage" />
+			<signal name="button_clicked" slot="show" id="factionConfirmEfButton" />
+			<signal name="button_clicked" slot="hide" id="factionConfirmPirateButton" />
+		</bindings>
+	</element>
+	<element type="customImage">
+		<attributes>
+			<string name="IdName" value="factionEfButtonImage" />
+			<string name="TextID" value="" />
+			<rectf name="PercRect" value="0.5, 0.013, 0.5, 0.013" />
+			<rect name="Rect" value="0, 0, 256, 65" />
+			<texture name="Texture" value="UI/Images/Faction/buttons/ef_button_h.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<color name="Color" value="ffffffff" />
+			<bool name="ScaleImage" value="true" />
+			<bool name="Visible" value="false" />
+		</attributes>
+	</element>
+	<!--Select Pirate button-->
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="factionConfirmPirateButton" />
+			<string name="Caption" value="" />
+			<rectf name="PercRect" value="0.0, 1.0, 0.0, 1.0" />
+			<rect name="Rect" value="0, -81, 217, -31" />
+			<texture name="Image" value="UI/Images/Faction/buttons/join.png"/>
+			<rect name="ImageRect" value="0, 0, 216, 50" />
+			<texture name="PressedImage" value="UI/Images/Faction/buttons/join_h.png" />      
+      <rect name="PressedImageRect" value="0, 0, 216, 50" />      
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="false" />
+			<bool name="Visible" value="false" />
+			<string name="ToolTip" value="Become a Volcom Pirate!" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="CharCreateVolcom" id="ConnectManager" />
+		</bindings>
+	</element>
+	<!-- Select EF Button -->
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="factionConfirmEfButton" />
+			<string name="Caption" value="" />
+			<rectf name="PercRect" value="0.0, 1.0, 0.0, 1.0" />
+			<rect name="Rect" value="0, -81, 216, -31" />
+			<texture name="Image" value="UI/Images/Faction/buttons/join.png"/>
+			<rect name="ImageRect" value="0, 0, 217, 50" />
+			<texture name="PressedImage" value="UI/Images/Faction/buttons/join_h.png" />      
+      <rect name="PressedImageRect" value="0, 0, 216, 50" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="false" />
+			<bool name="Visible" value="false" />
+			<string name="ToolTip" value="Become an Earthforce Cadet!" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="CharCreateCadet" id="ConnectManager" />
+		</bindings>
+	</element>
+	  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="faction_select_close_button" />
+      <int name="Id" value="66" />
+      <rect name="Rect" value="-18, 2, -2, 18" />
+      <rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+      <texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="Border" value="false" />
+    </attributes>
+    <bindings>
+      <signal name="button_clicked" slot="hide" id="factionEfPickImage" />
+      <signal name="button_clicked" slot="hide" id="factionPiratePickImage" />
+      <signal name="button_clicked" slot="hide" id="factionTextBackground" />
+      <signal name="button_clicked" slot="hide" id="factionPirateDescription" />
+      <signal name="button_clicked" slot="hide" id="factionEfDescription" />
+      <signal name="button_clicked" slot="hide" id="factionPirateLogo" />
+      <signal name="button_clicked" slot="hide" id="factionEfLogo" />
+      <signal name="button_clicked" slot="hide" id="factionPirateButtonImage" />
+      <signal name="button_clicked" slot="hide" id="factionEfButtonImage" />
+      <signal name="button_clicked" slot="hide" id="factionConfirmEfButton" />
+      <signal name="button_clicked" slot="hide" id="factionConfirmPirateButton" />
+      <signal name="button_clicked" slot="toggleVisibility" id="factionSelectionDialog" />
+      <signal name="button_clicked" slot="toggleVisibility" id="characterSelectDialog" />
+    </bindings>
+  </element>				
+</element>	

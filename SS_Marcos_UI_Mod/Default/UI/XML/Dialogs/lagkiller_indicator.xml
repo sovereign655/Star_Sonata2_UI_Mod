@@ -1,0 +1,40 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="lagkillerindicator" />
+    <int name="Flags" value="0" />
+    <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+    <rect name="Rect" value="4, 84, 26, 106" />
+    <bool name="Movable" value="false" />
+    <bool name="Visible" value="true" />
+    <bool name="StayAtBack" value="true" />
+    <bool name="DrawBackground" value="false" />
+  </attributes>
+  
+  <element type="customImage">
+    <attributes>
+      <string name="IdName" value="lagkillerindicatorbg" />
+      <rect name="Rect" value="0, 0, 22, 22" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="ScaleImage" value="false" />
+      <texture name="Texture" value="lagkiller.background" />
+      <color name="Color" value="FFffffff" />
+    </attributes>      
+    <bindings>
+      <slot name="setColor" signal="lagkillerindicatorbg" id="LagKillerIndicator" />
+    </bindings>
+	
+  <element type="customImage">
+    <attributes>
+      <string name="IdName" value="lagkillerindicatortxt" />
+      <rect name="Rect" value="0, 0, 22, 22" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="ScaleImage" value="false" />
+      <texture name="Texture" value="lagkiller.text" />
+    </attributes>
+    <bindings>
+     <slot name="setColor" signal="lagkillerindicatortxt" id="LagKillerIndicator" />
+     <slot name="setToolTipText" signal="lagkillerindicatortooltiptxt" id="LagKillerIndicator" />
+    </bindings>
+  </element>
+  </element>
+</element>

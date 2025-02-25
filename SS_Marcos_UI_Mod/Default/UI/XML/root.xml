@@ -1,0 +1,140 @@
+<root>
+	<dialog xml="UI/XML/Dialogs/space_panel.xml" deferred="false">
+		<!-- Lower Base Layer -->
+		<dialog xml="UI/XML/Dialogs/lower_base_layer.xml" deferred="false">
+			<dialog xml="UI/XML/Dialogs/space_panel_shade.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/autopilot_text.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/big_class_skill_ad.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/missiontracker.xml" deferred="false" />
+		</dialog>
+		<!-- Lower Base Layer End -->
+		<!-- Middle Base Layer -->
+		<dialog xml="UI/XML/Dialogs/middle_base_layer.xml" deferred="false">
+      <dialog xml="UI/XML/Dialogs/floaty_container.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/action_bar.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/under_bottom_bar.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/bottom_bar.xml" deferred="false" />
+      <dialog xml="UI/XML/Dialogs/left_bar.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/lagkiller_indicator.xml" deferred="false" />
+      <dialog xml="UI/XML/Dialogs/player_stats.xml" deferred="false" />
+		</dialog>
+		<!-- Middle Base Layer End -->
+		<!-- Upper Base Layer -->
+		<dialog xml="UI/XML/Dialogs/upper_base_layer.xml" deferred="false">
+			<dialog xml="UI/XML/Dialogs/chat.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/dlg_radar.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/galaxy_map.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/target_info.xml" deferred="false" />
+		</dialog>
+		<!-- Upper Base Layer End -->
+		<!-- Lower Dialog Layer -->
+		<dialog xml="UI/XML/Dialogs/lower_dialog_layer.xml" deferred="false">
+			<dialog xml="UI/XML/Dialogs/dlg_transwarp.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/slave_orders.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/slave_jump_galaxy_map.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/dlg_suicide.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/dlg_ship.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/dlg_tweaks.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/ship_alias.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/dlg_select_skin.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/dlg_character.xml" deferred="false" >
+				<dialog xml="UI/XML/Dialogs/char_avatar.xml" deferred="false" />
+				<dialog xml="UI/XML/Dialogs/dlg_possessions.xml" deferred="true" />
+				<dialog xml="UI/XML/Dialogs/char_skills.xml" deferred="true" />
+				<dialog xml="UI/XML/Dialogs/dlg_mission_viewer.xml" deferred="true" />
+				<dialog xml="UI/XML/Dialogs/char_focus.xml" deferred="true" />
+				<dialog xml="UI/XML/Dialogs/char_lockout.xml" deferred="true" />
+			</dialog>
+			<dialog xml="UI/XML/Dialogs/dlg_station_sheet.xml" deferred="false" >
+				<dialog xml="UI/XML/Dialogs/dlg_general.xml" deferred="false" />
+				<dialog xml="UI/XML/Dialogs/dlg_trade.xml" deferred="false" />
+				<dialog xml="UI/XML/Dialogs/dlg_ships.xml" deferred="false" />
+				<dialog xml="UI/XML/Dialogs/dlg_bboard.xml" deferred="false" />
+				<dialog xml="UI/XML/Dialogs/dlg_new_bulletin.xml" deferred="true" />
+				<dialog xml="UI/XML/Dialogs/dlg_skillz.xml" deferred="false" />
+				<dialog xml="UI/XML/Dialogs/dlg_untrain.xml" deferred="false" />
+				<dialog xml="UI/XML/Dialogs/dlg_construction.xml" deferred="false" />
+				<dialog xml="UI/XML/Dialogs/dlg_control.xml" deferred="false"/>
+				<dialog xml="UI/XML/Dialogs/dlg_colony.xml" deferred="false" />
+				<dialog xml="UI/XML/Dialogs/dlg_items.xml" deferred="false" />
+				<dialog xml="UI/XML/Dialogs/dlg_tsl.xml" deferred="false" />
+				<dialog xml="UI/XML/Dialogs/dlg_towing.xml" deferred="false" />
+				<dialog xml="UI/XML/Dialogs/dlg_goodsrecord.xml" deferred="false" />
+			</dialog>
+			<dialog xml="UI/XML/Dialogs/dlg_options.xml" deferred="false" >
+				<dialog xml="UI/XML/Dialogs/dlg_keys.xml" deferred="true" />
+				<dialog xml="UI/XML/Dialogs/dlg_device_options_ingame.xml" deferred="true" />
+				<dialog xml="UI/XML/Dialogs/sound.xml" deferred="false" />
+				<dialog xml="UI/XML/Dialogs/social.xml" deferred="false" />
+				<dialog xml="UI/XML/Dialogs/display.xml" deferred="true" />
+				<dialog xml="UI/XML/Dialogs/lagkiller.xml" deferred="true" />
+			</dialog>
+			<dialog xml="UI/XML/Dialogs/pvp_trade.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/blackbox.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/holobook.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/dlg_new_vendible.xml" deferred="true" />
+			<dialog xml="UI/XML/Dialogs/dlg_select_vendible.xml" deferred="true" />
+			<dialog xml="UI/XML/Dialogs/notifications_grid.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/dlg_notification.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/dlg_contentguide.xml" deferred="false" />
+		</dialog>
+		<!-- Lower Dialog Layer End -->
+		<!-- Upper Dialog Layer -->
+		<dialog xml="UI/XML/Dialogs/upper_dialog_layer.xml" deferred="false">
+			<dialog xml="UI/XML/Dialogs/dlg_inventory.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/dlg_inventory_extended.xml" deferred="true" />
+			<!-- temporary dialogs -->
+			<dialog xml="UI/XML/Dialogs/dlg_store.xml" deferred="false"/>
+			<dialog xml="UI/XML/Dialogs/dlg_subscription.xml" deferred="false"/>
+			<dialog xml="UI/XML/Dialogs/dlg_spacepoints.xml" deferred="false"/>
+			<dialog xml="UI/XML/Dialogs/offers.xml" deferred="false" />
+			<!-- end of temporary dialogs -->
+			<dialog xml="UI/XML/Dialogs/moderator.xml" deferred="false"/>
+			<dialog xml="UI/XML/Dialogs/moderatorInfo.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/dlg_contacts.xml" deferred="false">
+			<dialog xml="UI/XML/Dialogs/dlg_squad.xml" deferred="true" />
+			<dialog xml="UI/XML/Dialogs/dlg_team.xml" deferred="true" />
+			<dialog xml="UI/XML/Dialogs/dlg_friends.xml" deferred="true" />
+			</dialog>
+			<dialog xml="UI/XML/Dialogs/dlg_team_recruitment.xml" deferred="false" />
+		</dialog>
+		<!-- Upper Dialog Layer End -->
+		<!-- Lower Overlay Layer -->
+		<dialog xml="UI/XML/Dialogs/lower_overlay_layer.xml" deferred="false">
+		<dialog xml="UI/XML/Dialogs/tutorial.xml" deferred="false" />
+		<dialog xml="UI/XML/Dialogs/dlg_item_tooltip.xml" deferred="true" />
+		</dialog>
+		<!-- Lower Overlay Layer End -->
+		<!-- Middle Overlay Layer -->
+		<dialog xml="UI/XML/Dialogs/middle_overlay_layer.xml" deferred="false">
+			<dialog xml="UI/XML/Dialogs/weapon_list.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/dlg_target_options.xml" deferred="true" />
+			<dialog xml="UI/XML/Dialogs/dlg_agent.xml" deferred="false" />
+		</dialog>
+		<!-- Middle Overlay Layer End -->
+		<!-- Upper Overlay Layer -->
+		<dialog xml="UI/XML/Dialogs/upper_overlay_layer.xml" deferred="false">
+			<dialog xml="UI/XML/Dialogs/dlg_generic_list.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/generic_entry.xml" deferred="false" />
+		</dialog>
+		<!-- Upper Overlay Layer End -->
+		<!-- Topmost Layer -->
+		<dialog xml="UI/XML/Dialogs/topmost_layer.xml" deferred="false">
+			<dialog xml="UI/XML/Dialogs/item_context_menu.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/dlg_mission_viewer_context_menu.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/dlg_possessions_slavecommand_context_menu.xml" deferred="false" />
+      <dialog xml="UI/XML/Dialogs/topmost_layer.xml" deferred="false"> <!-- we can move that layer to offset the indicator -->
+        <dialog xml="UI/XML/Dialogs/dlg_specialindicator.xml" deferred="false" />
+       </dialog>
+		</dialog>
+		<!-- Topmost Layer End -->
+	</dialog>
+	<!-- Space Panel End -->
+	<dialog xml="UI/XML/Dialogs/dlg_connection.xml" deferred="false" />
+	<dialog xml="UI/XML/Dialogs/charselect.xml" deferred="false" />
+	<dialog xml="UI/XML/Dialogs/faction_select.xml" deferred="false" />
+	<dialog xml="UI/XML/Dialogs/ship_select_cadet.xml" deferred="false" />
+	<dialog xml="UI/XML/Dialogs/ship_select_volcom.xml" deferred="false" />
+	<dialog xml="UI/XML/Dialogs/dlg_device_options.xml" deferred="true" />
+	<dialog xml="UI/XML/Dialogs/bgload_indicator.xml" deferred="false" />
+</root>

@@ -1,0 +1,56 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="weaponBox" />
+		<string name="Caption" value="" />
+		<rect name="Rect" value="54, 77, 279, 217" />
+		<int name="Flags" value="0" />
+		<int name="BorderStyle" value="0" />
+		<bool name="DrawBackground" value="false" />
+		<string name="AnimatorTag" value="FadeOutAndHide" />
+	</attributes>
+	
+	<bindings>
+		<slot name="show" signal="show_weapon_list" id="WeaponManager" />
+		<slot name="resetAnimators" signal="show_weapon_list" id="WeaponManager" />
+    <signal name="revealed" slot="WeaponBoxRevealed" id="WeaponManager" />
+	</bindings>
+
+	<element type="customTable">
+		<attributes>
+			<string name="IdName" value="weaponList" />
+			<string name="Caption" value="" />
+			<rect name="Rect" value="5, 5, 220, 120" />
+			<rect name="ClippingRectPadding" value="0, 0, 0, 20" />
+			<rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+			<int name="DrawFlags" value="12" />
+			<int name="BorderStyle" value="0" />
+			<int name="ColumnCount" value="2" />
+			<string name="Column0name" value="T" />
+			<int name="Column0width" value="25" />
+			<string name="Column1name" value="Weapons" />
+			<int name="Column1width" value="155" />
+			<string name="IconBankName" value="items_small" />
+			<bool name="InheritTint" value="true" /> <!-- We need to set InheritTint to true so that it fades with the window -->
+		</attributes>
+		
+		<bindings>
+			<slot name="setText" signal="weapon_items_text" id="WeaponManager" />
+			<slot name="setIcon" signal="weapon_items_icons" id="WeaponManager" />
+			<slot name="setSelectedIndex" signal="selected_weapon_index" id="WeaponManager" />
+			<signal name="item_selected_index" slot="WeaponManagerWeaponListSelectedIndex" id="WeaponManager" />
+		</bindings>
+	</element>
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="safetyLockStaticText" />
+			<rect name="Rect" value="5, 120, 220, 140" />
+			<bool name="InheritTint" value="true" /> <!-- We need to set InheritTint to true so that it fades with the window -->
+		</attributes>
+
+		<bindings>
+			<slot name="setText" signal="safety_lock_text" id="WeaponManager" />
+			<signal name="button_clicked" slot="WeaponManagerSafetyLockClicked" id="WeaponManager" />
+		</bindings>
+	</element>
+</element>

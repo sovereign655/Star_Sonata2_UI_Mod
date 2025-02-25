@@ -1,0 +1,129 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="TranswarpManager" />
+		<string name="Caption" value="Select Warp Destination" />
+		<rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+		<rect name="Rect" value="-119, 90, 260, 500" />
+		<position name="MinSize" value="379, 300" />
+		<position name="MaxSize" value="379, 600" />
+		<int name="Flags" value="0" />
+		<bool name="Movable" value="true" />
+		<bool name="Visible" value="false" />
+		<int name="BorderStyle" value="2" />
+		<int name="ResizeBorderWidth" value="5" />
+		<bool name="KeepOnScreen" value="true" />
+		<bool name="HideOnLogout" value="true" />
+		<bool name="BottomResizable" value="true" />
+	</attributes>
+	<bindings>
+		<signal name="moved" slot="DialogMoved" id="LogicManager" />
+		<slot name="setVisible" signal="dialog_transwarp_visible" id="TranswarpManager" />
+	</bindings>
+	<element type="customStaticText">
+		<attributes>
+			<string name="TextID" value="Select a transwarp destination..." />
+			<string name="Caption" value="Select a transwarp destination..." />
+			<rect name="Rect" value="8, 8, 230, 32" />
+			<enum name="Font" value="largeBoldFont" />
+		</attributes>
+	</element>
+	
+	<element type="customTable">
+		<attributes>
+			<string name="IdName" value="transwarpManagerTable" />
+			<string name="TextID" value="" />
+			<int name="Id" value="124" />
+			<rectf name="PercRect" value="0, 0, 0, 1.0" />
+			<rect name="Rect" value="10, 33, 369, -48" />
+			<int name="ColumnCount" value="3" />
+			<string name="Column0name" value="Destination" />
+			<int name="CellHeightPadding" value="2" />
+			<int name="ActiveTab" value="0" />
+			<enum name="CurrentOrdering" value="ascending" />
+			<int name="Column0width" value="135" />
+			<enum name="Column0OrderingMode" value="ascend_descend" />
+			<string name="Column1name" value="Jumps" />
+			<int name="Column1width" value="35" />
+			<enum name="Column1OrderingMode" value="ascend_descend" />
+			<enum name="Column1OrderingType" value="numerical" />
+			<string name="Column2name" value="Layer" />
+			<int name="Column2width" value="100" />
+			<enum name="Column2OrderingMode" value="ascend_descend" />
+			<bool name="ResizableColumns" value="false" />
+			<bool name="AlwaysVerticalScroll" value="true" />
+			<int name="DrawFlags" value="4" />
+			<bool name="DrawBack" value="true" />
+			<bool name="UseOverrideBgColor" value="true" />
+			<color name="OverrideBgColor" value="8F000000" />
+		</attributes>
+		<bindings>
+			<slot name="setAll" signal="table_destination_all" id="TranswarpManager" />
+			<signal name="item_selected_data" slot="OnClickList" id="TranswarpManager" />
+			<signal name="item_double_clicked_data" slot="OnDblclkWarp" id="TranswarpManager" />
+			<signal name="item_right_clicked_data" slot="OnRightClickWarp" id="TranswarpManager" />
+			<signal name="item_middle_clicked_data" slot="OnMiddleClickWarp" id="TranswarpManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="transwarpWarpButton" />
+			<string name="TextID" value="" />
+			<int name="Id" value="152" />
+			<string name="Caption" value="Warp" />
+			<rectf name="PercRect" value="0, 1, 0, 1" />
+			<rect name="Rect" value="10, -38, 118, -8" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="OnWarp" id="TranswarpManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="transwarpCancelButton" />
+			<string name="TextID" value="" />
+			<int name="Id" value="153" />
+			<string name="Caption" value="Cancel" />
+			<rectf name="PercRect" value="0, 1, 0, 1" />
+			<rect name="Rect" value="251, -38, 369, -8" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="OnTranswarpCancel" id="TranswarpManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="transwarpButtonClose" />
+			<int name="Id" value="66" />
+			<rect name="Rect" value="-22, 2, -6, 18" />
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+			<texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+			<texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="false" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="OnTranswarpCancel" id="TranswarpManager" />
+		</bindings>
+	</element>
+
+	<element type="actionbutton">
+		<attributes>
+			<string name="IdName" value="transwarpToolTip" />
+			<int name="Id" value="66" />
+			<rect name="Rect" value="-42, 2, -26, 18" />
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+			<texture name="Image" value="UI/Images/Buttons/questionmark.png"/>
+			<texture name="HoverImage" value="UI/Images/Buttons/questionmarkdown.png"/>
+			<bool name="UseAlphaChannel" value="true"/>
+			<bool name="Border" value="false"/>
+			<string name="ToolTip" value="Transwarp"/>
+			<string name="ToolTipBody" value="Select a destination to warp.
+•Click to selecting and pressing warp or double clicking galaxy.
+•Right-click to center the map on a galaxy.
+•Middle-click to link a galaxy in the currently open chat tab." />
+		</attributes>
+	</element>
+</element>

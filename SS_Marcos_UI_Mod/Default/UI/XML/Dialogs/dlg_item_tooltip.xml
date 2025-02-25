@@ -1,0 +1,60 @@
+<!-- 
+  dlg_item_tooltip.xml
+  
+  A container window for floating tooltips. Wraps a CGUIItemTooltip element.
+-->
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="itemTooltipDialog*" />
+    <rect name="Rect" value="0, 0, 256, 182" />
+    <colorf name="Tint" value="1.0, 1.0, 1.0, 1.0" />
+    <bool name="Movable" value="true" />
+    <bool name="Visible" value="false" />
+    <bool name="TrackMouseOverChildren" value="true" />
+    <int name="BorderStyle" value="4" />
+    <int name="Flags" value="0" />
+	<bool name="KeepOnScreen" value="true" />
+	<!--
+	<string name="SoundShow" value="DialogOpen.wav" />
+	<string name="SoundHide" value="DialogClose.wav" />
+	-->
+  </attributes>
+
+  <element type="itemtooltip">
+    <attributes>
+      <string name="IdName" value="itemTooltip*" />
+      <int name="Id" value="100" />
+      <rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+      <rect name="Rect" value="4, 4, -4, -4" />
+      <bool name="InheritTint" value="true" />
+    </attributes>
+  </element>
+
+  <element type="customButton">
+    <attributes>
+      <string name="IdName" value="itemTooltipCloseButton*" />
+      <!-- <string name="TextID" value="id_item_tooltip_close" /> -->
+      <string name="Caption" value="" />
+      <rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+      <rect name="Rect" value="-19, 3, -3, 19" />
+      <bool name="Visible" value="true" />
+      <bool name="Border" value="false" />
+      <bool name="UseAlphaChannel" value="true" />
+      <bool name="InheritTint" value="true" />
+
+      <rect name="ImageRect" value="0, 0, 16, 16" />
+      <rect name="HoveredImageRect" value="0, 0, 16, 16" />
+      <rect name="PressedImageRect" value="0, 0, 16, 16" />
+      <rect name="DisabledImageRect" value="0, 0, 16, 16" />
+      <!-- These are temporary. The button drawing code is broken. -->
+      <texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+      <texture name="HoveredImage" value="UI/Images/Buttons/cross16_down.png" />
+      <texture name="DisabledImage" value="UI/Images/Buttons/cross16_down.png" />
+      <texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+    </attributes>
+  </element>
+
+  
+  
+</element>
+

@@ -1,0 +1,28 @@
+<element type="customWindow">
+		<attributes>
+			<string name="IdName" value="tabTestWindow" />
+			<rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+			<rect name="Rect" value="-300, -250, 300, 300" />
+			<int name="Flags" value="0" />
+			<bool name="Movable" value="true" />
+			<int name="BorderStyle" value="2" />
+			<int name="ResizeBorderWidth" value="0" />
+		</attributes>
+		
+		<bindings>
+			<signal name="created" slot="setText" id="tabTestTabControl"  arg="Connection Dialog|Table Test" />
+			<signal name="created" slot="setUserData" id="tabTestTabControl"  arg="connectionDialog|tableTestDialog" />
+		</bindings>
+		
+		<element type="customTabControl">
+			<attributes>
+				<string name="IdName" value="tabTestTabControl" />
+				<rect name="Rect" value="20, 20, 580, 530" />
+			</attributes>
+			
+			<bindings>
+				<signal name="item_selected_data" slot="CreateGuiDialog" id="GuiFactory" />
+				<signal name="item_last_selected_data" slot="DestroyGuiDialog" id="GuiFactory" />
+			</bindings>
+		</element>
+</element>

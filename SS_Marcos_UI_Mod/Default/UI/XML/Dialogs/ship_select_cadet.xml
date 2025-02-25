@@ -1,0 +1,84 @@
+	<element type="customWindow">
+		<attributes>
+			<string name="IdName" value="shipselectcadetdialog" />
+			<int name="Id" value="668" />
+			<!--<rect name="Rect" value="200, 200, 400, 300" />
+			<int name="Flags" value="0" />
+			<bool name="Movable" value="true" />
+			<bool name="Visible" value="false" />
+			<int name="BorderStyle" value="2" />
+			<int name="ResizeBorderWidth" value="0" />-->
+		    <bool name="Movable" value="false" />
+			<bool name="Visible" value="false" />
+			<int name="Flags" value="0" />
+			<int name="ResizeBorderWidth" value="0" />
+			<rect name="Rect" value="-512, -288, 512, 288" />
+			<rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+		</attributes>
+		<bindings>
+			<!--
+			<signal name="moved" slot="DialogMoved" id="LogicManager" />
+			<signal name="visibility_change" slot="DialogVisibilityChanged" id="LogicManager" />
+			/ -->
+			<slot name="setVisible" signal="shipselectcadet_dialog_visible" id="ConnectManager" />
+		</bindings>
+		
+	<element type="customImage">
+		<attributes>
+			<string name="TextID" value="" />
+			<rect name="Rect" value="0, 0, 1024, 576" />
+			<texture name="Texture" value="UI/Images/Dialogs/1024x579xSplash2" />
+			<bool name="ScaleImage" value="false" />
+			<bool name="UseAlphaChannel" value="true" />
+		</attributes>
+	</element>
+		
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="factionCadet_RF" />			
+			<int name="Id" value="15" />
+			<string name="Caption" value="Select Recon Focus" />
+			<rect name="Rect" value="312, 188, 512, 288" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="CharCreateCadetRF" id="ConnectManager" />
+		</bindings>
+	</element>
+	
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="factionCadetCF" />			
+			<int name="Id" value="15" />
+			<string name="Caption" value="Select Combat Focus" />
+			<rect name="Rect" value="512, 188, 712, 288" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="CharCreateCadetCF" id="ConnectManager" />
+		</bindings>
+	</element>
+  
+  <element type="customButton">
+		<attributes>
+			<string name="IdName" value="factionCadetSF" />			
+			<int name="Id" value="15" />
+			<string name="Caption" value="Select Support Focus" />
+			<rect name="Rect" value="312, 288, 512, 388" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="CharCreateCadetSF" id="ConnectManager" />
+		</bindings>
+	</element>
+  
+  <element type="customButton">
+		<attributes>
+			<string name="IdName" value="factionCadetFF" />			
+			<int name="Id" value="15" />
+			<string name="Caption" value="Select Fleet Focus" />
+			<rect name="Rect" value="512, 288, 712, 388" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="CharCreateCadetFF" id="ConnectManager" />
+		</bindings>
+	</element>
+  
+</element>

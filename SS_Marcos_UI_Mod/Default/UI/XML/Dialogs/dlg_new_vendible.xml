@@ -1,0 +1,212 @@
+
+	<element type="customWindow">
+		<attributes>
+			<string name="IdName" value="newVendibleDialog" />
+			<string name="TextID" value="id_add_good" />
+			<string name="Caption" value="Add Good" />
+			<rect name="Rect" value="100, 100, 550, 350" />
+			<int name="Flags" value="0" />
+			<bool name="Movable" value="true" />
+			<int name="BorderStyle" value="2" />
+			<int name="ResizeBorderWidth" value="0" />
+			<string name="SoundShow" value="DialogOpen.wav" />
+			<string name="SoundHide" value="DialogClose.wav" />
+			<bool name="KeepOnScreen" value="true" />
+		</attributes>
+		<bindings>
+			<signal name="moved" slot="DialogMoved" id="LogicManager" />
+            <signal name="visibility_change" slot="DialogVisibilityChanged" id="LogicManager" />
+        </bindings>
+		<element type="customEditBox">
+			<attributes>
+				<string name="IdName" value="newVendibleEditSell" />
+				<string name="TextID" value="" />
+				<int name="Id" value="15" />
+				<rect name="Rect" value="100, 37, 200, 60" />
+				<bool name="TabStop" value="true" />
+				<int name="TabOrder" value="1" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="edit_sell_text" id="NewVendibleManager" />
+				<slot name="makeFocus" signal="focusFirstEdit" id="NewVendibleManager" />
+				<signal name="value_changed" slot="VendibleSell" id="NewVendibleManager" />
+			</bindings>
+		</element>
+
+		<element type="customEditBox">
+			<attributes>
+				<string name="IdName" value="newVendibleEditBuy" />
+				<string name="TextID" value="" />
+				<int name="Id" value="16" />
+				<rect name="Rect" value="100, 73, 200, 96" />
+				<bool name="TabStop" value="true" />
+				<int name="TabOrder" value="2" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="edit_buy_text" id="NewVendibleManager" />
+				<signal name="value_changed" slot="VendibleBuy" id="NewVendibleManager" />
+			</bindings>
+		</element>
+
+		<element type="customEditBox">
+			<attributes>
+				<string name="IdName" value="newVendibleEditBuyMax" />
+				<string name="TextID" value="" />
+				<int name="Id" value="17" />
+				<rect name="Rect" value="100, 109, 200, 132" />
+				<bool name="TabStop" value="true" />
+				<int name="TabOrder" value="3" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="edit_buymax_text" id="NewVendibleManager" />
+				<signal name="value_changed" slot="VendibleBuyMax" id="NewVendibleManager" />
+			</bindings>
+		</element>
+
+		<element type="customEditBox">
+			<attributes>
+				<string name="IdName" value="newVendibleEditSellMax" />
+				<string name="TextID" value="" />
+				<int name="Id" value="18" />
+				<rect name="Rect" value="100, 145, 200, 168" />
+				<bool name="TabStop" value="true" />
+				<int name="TabOrder" value="4" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="edit_sellmax_text" id="NewVendibleManager" />
+				<signal name="value_changed" slot="VendibleSellMax" id="NewVendibleManager" />
+			</bindings>
+		</element>
+
+		<element type="customEditBox">
+			<attributes>
+				<string name="IdName" value="newVendibleEditMakeMax" />
+				<string name="TextID" value="" />
+				<int name="Id" value="18" />
+				<rect name="Rect" value="100, 181, 200, 204" />
+				<bool name="TabStop" value="true" />
+				<int name="TabOrder" value="5" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="edit_makemax_text" id="NewVendibleManager" />
+				<signal name="value_changed" slot="VendibleMakeMax" id="NewVendibleManager" />
+			</bindings>
+		</element>
+
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="staticGoodName" />					
+				<rect name="Rect" value="10, 13, -8, 37" />
+        <rectf name="PercRect" value="0, 0, 1, 0" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_goodname_text" id="NewVendibleManager" />
+			</bindings>
+		</element>
+
+		<element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_nv_basesells" />
+				<string name="Caption" value="Base sells for:" />
+				<rect name="Rect" value="10, 41, 100, 60" />
+			</attributes>
+		</element>
+
+		<element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_nv_basebuys" />
+				<string name="Caption" value="Base buys for:" />
+				<rect name="Rect" value="10, 77, 100, 96" />
+			</attributes>
+		</element>
+
+		<element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_nv_buymax" />
+				<string name="Caption" value="Buy Max:" />
+				<rect name="Rect" value="10, 113, 100, 132" />
+			</attributes>
+		</element>
+
+		<element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_nv_sellmax" />
+				<string name="Caption" value="Sell Max:" />
+				<rect name="Rect" value="10, 149, 100, 168" />
+			</attributes>
+		</element>
+
+		<element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_nv_makemax" />
+				<string name="Caption" value="Make Max:" />
+				<rect name="Rect" value="10, 185, 100, 204" />
+			</attributes>
+		</element>
+	
+
+		<element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_nv_keeponhand" />
+				<string name="Caption" value="(always keep this many on hand)" />
+				<rect name="Rect" value="205, 149, -8, 168" />
+        <rectf name="PercRect" value="0, 0, 1, 0" />
+			</attributes>
+		</element>
+
+		<element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_nv_maxquantity" />
+				<string name="Caption" value="(do not buy more than this quantity)" />
+				<rect name="Rect" value="205, 113, -8, 132" />
+        <rectf name="PercRect" value="0, 0, 1, 0" />
+			</attributes>
+		</element>
+		
+		<element type="customStaticText">
+			<attributes>
+				<string name="TextID" value="id_nv_maxmake" />
+				<string name="Caption" value="(do not make more than this quantity)" />
+				<rect name="Rect" value="205, 185, -8, 204" />
+        <rectf name="PercRect" value="0, 0, 1, 0" />
+			</attributes>
+		</element>
+
+
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="newVendibleButtonOK" />
+				<string name="TextID" value="" />
+				<string name="Caption" value="Ok" />
+				<int name="Id" value="19" />
+				<rect name="Rect" value="8, 225, 212, 250" />
+				<texture name="DisabledImage" value="" />
+				<rect name="DisabledImageRect" value="0, 0, 0, 0" />
+				<bool name="TabStop" value="true" />
+				<int name="TabOrder" value="6" />
+			</attributes>
+			<bindings>
+				<signal name='button_clicked' slot='VendibleOk' id='NewVendibleManager' />
+				<signal name='button_clicked' slot='DestroyGuiDialog' id='GuiFactory' arg='newVendibleDialog' />
+			</bindings>
+		</element>
+
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="newVendibleButtonCancel" />
+				<string name="TextID" value="" />
+				<string name="Caption" value="Cancel" />
+				<int name="Id" value="20" />
+				<rect name="Rect" value="222, 225, 442, 250" />
+				<texture name="DisabledImage" value="" />
+				<rect name="DisabledImageRect" value="0, 0, 0, 0" />
+				<bool name="TabStop" value="true" />
+				<int name="TabOrder" value="7" />
+			</attributes>
+			<bindings>
+				<signal name='button_clicked' slot='DestroyGuiDialog' id='GuiFactory' arg='newVendibleDialog' />
+			</bindings>
+		</element>
+	</element>
+
+

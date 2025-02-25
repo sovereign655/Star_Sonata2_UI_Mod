@@ -1,0 +1,107 @@
+<element type="actionbuttongrid">
+	<attributes>
+		<!--<rect name="Rect" value="20, 200, 20, 220" />
+    <rectf name="PercRect" value="0.0, 0.0, 0.0, 1.0" />-->
+		<rectf name="PercRect" value="0.0, 0.0, 0.0, 1.0" />
+		<rect name="Rect" value="20, 120, 300, -200" />
+		<int name="GridPadding" value="5" />
+		<bool name="AlignVertical" value="true" />
+		<int name="ElementCount" value="10" />
+		<string name="IdName" value="MissionActionButtonGrid" />
+		<string name="BaseActionTag" value="mtracker" />
+		<rect name="ClippingRectPadding" value="0, 0, 0, 40" />
+	</attributes>
+
+	<bindings>
+		<slot name="setElementCount" signal="mission_tracker_grid_count" id="MissionTrackerManager" />
+	</bindings>
+
+	<element type="actionbutton">
+		<attributes>
+			<bool name="NoClip" value="true" />
+			<rect name="Rect" value="0, 0, 280, 88" />
+			<texture name="Image" value="UI\Images\Dialogs\missiontrackerbg.png" />
+			<bool name="AlignImageTopLeft" value="true" />
+			<bool name="DrawBackground" value="false" />
+			<bool name="UseAlphaChannel" value="true" />
+			<color name="Color" value="00ffffff" />
+			<bool name="Border" value="false" />
+			<bool name="EnabledOverrideTextColor" value="true" />
+			<colorf name="OverrideTextColor" value="1.0,1.0,1.0,1.0" />
+			<rect name="BottomTextRectOverride" value="5,20,275,80" />
+			<!--<rect name="BottomTextRectfOverride" value="0.0,0.0,0.0,1.0" />-->
+		</attributes>
+		<bindings>
+			<!--<slot name="setText" signal="mission_tracker_grid_count" id="MissionTrackerManager" />-->
+		</bindings>
+	</element>
+
+	<element type="actionbutton">
+		<attributes>
+			<rect name="ClippingRectPadding" value="0, 0, 0, 200" />
+			<rect name="Rect" value="0, 0, 220, 22" />
+			<texture name="Image" value="small.box.gray" />
+			<rect name="ImageRect" value="0, 0, 22, 22" />
+			<texture name="ProgressEmptyImage" value="small.box.bars" />
+			<rect name="ProgressEmptyImageRect" value="0, 18, 20, 20" />
+			<texture name="ProgressFilledImage" value="small.box.bars" />
+			<rect name="ProgressFilledImageRect" value="0, 24, 20, 26" />
+			<texture name="HoverImage" value="small.box.gray" />
+			<rect name="HoverImageRect" value="60, 0, 82, 22" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="DrawSecondProgressBar" value="true" />
+			<bool name="Border" value="false" />
+			<int name="ProgressBarOffset" value="1" />
+			<int name="ProgressBarOffset2" value="19" />
+		</attributes>
+	</element>
+</element>
+
+<element type="customButton">
+  <attributes>
+    <string name="IdName" value="toggleMissionTracker" />
+    <string name="TextID" value="" />
+    <int name="Id" value="16" />
+    <string name="Caption" value="-" />
+    <rect name="Rect" value="280, 105, 295, 120" />
+  </attributes>
+  <bindings>
+    <signal name="button_clicked" slot="ToggleExpandAllMissions" id="MissionTrackerManager" />
+	<slot name="setVisible" signal="mission_tracker_visible" id="MissionTrackerManager"/>
+  </bindings>
+</element>
+<!--
+<element type="actionbutton">
+  <attributes>
+    <bool name="NoClip" value="true" />
+<rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+    <rect name="Rect" value="300, 100, 520, 188" />
+<bool name="DrawBackground" value="true" />
+    <bool name="UseAlphaChannel" value="true" />
+    <bool name="Border" value="true" />
+  </attributes>
+  
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="MissionName" />
+      <string name="Caption" value="MissionName2" />
+  <color name="OverrideColor" value="ffffffff" />
+  <bool name="OverrideColorEnabled" value="true" />
+  <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+      <rect name="Rect" value="6, 6, 210, 20" />
+      <bool name="Border" value="false" />
+      <bool name="ClickThrough" value="true" />
+    </attributes>
+  </element>
+  <element type="customStaticText">
+    <attributes>
+      <string name="IdName" value="MissionStatus" />
+      <string name="Caption" value="This is the Mission Status.\nKills of SBA: 0/1" />
+  <rectf name="PercRect" value="0.0, 0.0, 0.0, 0.0" />
+      <rect name="Rect" value="6, 22, 210, 80" />
+      <bool name="Border" value="false" />
+      <bool name="ClickThrough" value="true" />
+    </attributes>
+  </element>
+</element> 
+-->

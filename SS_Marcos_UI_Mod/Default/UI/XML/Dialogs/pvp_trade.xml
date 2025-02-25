@@ -1,0 +1,459 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="PVPTradeDialog" />
+		<int name="Flags" value="0" />
+		<rect name="Rect" value="240, 35, 790, 430" />
+		<bool name="Movable" value="true" />
+		<bool name="Visible" value="false" />
+		<int name="BorderStyle" value="2" />
+		<string name="Caption" value="Trade" />
+		<bool name="IsDraggable" value="true" />
+		<bool name="KeepOnScreen" value="true" />
+		<string name="SoundShow" value="DialogOpen.wav" />
+		<string name="SoundHide" value="DialogClose.wav" />
+	</attributes>
+	<bindings>
+		<signal name="moved" slot="DialogMoved" id="LogicManager" />
+		<signal name="visibility_change" slot="DialogVisibilityChanged" id="LogicManager" />
+		<slot name="setVisible" signal="dialog_pvptrade_visible" id="PvpTradeManager" />
+		<signal name="hidden" slot="OnPvpTradeCancel" id="PvpTradeManager" />
+	</bindings>
+	
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="PvpTradePartner" />
+			<string name="Caption" value="" />
+			<rect name="Rect" value="180, 5, 430, 30" />
+			<position name="MinSize" value="1, 1" />
+			<position name="MaxSize" value="0, 0" />
+			<enum name="LeftAlign" value="upperLeft" />
+			<enum name="RightAlign" value="upperLeft" />
+			<enum name="TopAlign" value="upperLeft" />
+			<enum name="BottomAlign" value="upperLeft" />
+			<bool name="Visible" value="true" />
+			<bool name="Enabled" value="true" />
+			<bool name="TabStop" value="false" />
+			<bool name="TabGroup" value="false" />
+			<int name="TabOrder" value="-1" />
+			<bool name="NoClip" value="false" />
+			<bool name="Border" value="false" />
+			<bool name="OverrideColorEnabled" value="false" />
+			<bool name="OverrideBGColorEnabled" value="false" />
+			<bool name="WordWrap" value="false" />
+			<bool name="Background" value="false" />
+			<bool name="RightToLeft" value="false" />
+			<bool name="RestrainTextInside" value="true" />
+			<color name="OverrideColor" value="65ffffff" />
+			<color name="BGColor" value="fad2d2d2" />
+			<enum name="HTextAlign" value="center" />
+			<enum name="VTextAlign" value="center" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_pvptrade_partner_text" id="PvpTradeManager" />
+		</bindings>
+	</element>
+		
+	<element type="customTable">
+		<attributes>
+			<string name="IdName" value="PvpTradeYours" />
+			<string name="Caption" value="" />
+			<rect name="Rect" value="180, 25, 540, 180" />
+			<bool name="Visible" value="true" />
+			<bool name="Enabled" value="true" />
+			<int name="ColumnCount" value="3" />
+			<bool name="ResizableColumns" value="true" />
+			<int name="DrawFlags" value="4" />
+			<bool name="AcceptsDrop" value="true" />
+			<string name="Column0name" value="T" />
+			<color name="Column0color" value="ffb7f9ff" />
+			<int name="Column0width" value="25" />
+			<enum name="Column0OrderingMode" value="ascend_descend" />
+			<string name="Column1name" value="Item" />
+			<color name="Column1color" value="ffb7f9ff" />
+			<int name="Column1width" value="250" />
+			<enum name="Column1OrderingMode" value="ascend_descend" />
+			<string name="Column2name" value="#" />
+			<color name="Column2color" value="ffb7f9ff" />
+			<int name="Column2width" value="25" />
+			<enum name="Column2OrderingMode" value="ascend_descend" />
+			<string name="IconBankName" value="items_small" />
+			<bool name="MultiSelection" value="true" />	
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="table_pvptrade_yours_text" id="PvpTradeManager" />
+			<slot name="setIcon" signal="table_pvptrade_yours_icons" id="PvpTradeManager" />
+		</bindings>
+	</element>
+
+	<element type="customTable">
+		<attributes>
+			<string name="IdName" value="PvpTradeMine" />
+			<string name="Caption" value="" />
+			<rect name="Rect" value="180, 190, 540, 345" />
+			<bool name="Visible" value="true" />
+			<bool name="Enabled" value="true" />
+			<int name="ColumnCount" value="3" />
+			<bool name="ResizableColumns" value="true" />
+			<int name="DrawFlags" value="4" />
+			<bool name="AcceptsDrop" value="true" />
+			<string name="Column0name" value="T" />
+			<color name="Column0color" value="ffb7f9ff" />
+			<int name="Column0width" value="25" />
+			<enum name="Column0OrderingMode" value="ascend_descend" />
+			<string name="Column1name" value="Item" />
+			<color name="Column1color" value="ffb7f9ff" />
+			<int name="Column1width" value="250" />
+			<enum name="Column1OrderingMode" value="ascend_descend" />
+			<string name="Column2name" value="#" />
+			<color name="Column2color" value="ffb7f9ff" />
+			<int name="Column2width" value="25" />
+			<enum name="Column2OrderingMode" value="ascend_descend" />
+			<string name="IconBankName" value="items_small" />
+			<bool name="MultiSelection" value="true" />
+			<bool name="Draggable" value="true" />
+			<bool name="AcceptsDrop" value="true" />
+		</attributes>
+		<bindings>
+			<signal name="item_selected_index" slot="OnPvpTradeMineSelectChanged" id="PvpTradeManager" />
+			<signal name="item_double_clicked_index" slot="OnPvpTradeMineLDblClk" id="PvpTradeManager" />
+			<signal name="item_right_clicked_index" slot="OnPvpTradeMineRClk" id="PvpTradeManager" />
+			<signal name="dragged" slot="OnPvpTradeItemDragged" id="PvpTradeManager" />
+			<signal name="dropped" slot="OnPvpTradeItemDropped" id="PvpTradeManager" />
+			<slot name="setText" signal="table_pvptrade_mine_text" id="PvpTradeManager" />
+			<slot name="setIcon" signal="table_pvptrade_mine_icons" id="PvpTradeManager" />
+		</bindings>
+
+	</element>
+
+	<element type="customButton">
+
+		<attributes>
+			<string name="IdName" value="PvpTradeCancel" />
+			<string name="Caption" value="Cancel" />
+			<rect name="Rect" value="440, 355, 540, 385" />
+			<position name="MinSize" value="1, 1" />
+			<position name="MaxSize" value="0, 0" />
+			<enum name="LeftAlign" value="upperLeft" />
+			<enum name="RightAlign" value="upperLeft" />
+			<enum name="TopAlign" value="upperLeft" />
+			<enum name="BottomAlign" value="upperLeft" />
+			<bool name="Visible" value="true" />
+			<bool name="Enabled" value="true" />
+			<bool name="TabStop" value="true" />
+			<bool name="TabGroup" value="false" />
+			<int name="TabOrder" value="1" />
+			<bool name="NoClip" value="false" />
+			<bool name="PushButton" value="false" />
+			<texture name="Image" value="" />
+			<rect name="ImageRect" value="0, 0, 0, 0" />
+			<texture name="PressedImage" value="" />
+			<rect name="PressedImageRect" value="0, 0, 0, 0" />
+			<bool name="UseAlphaChannel" value="false" />
+			<bool name="Border" value="true" />
+			<bool name="ScaleImage" value="false" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="OnPvpTradeCancel" id="PvpTradeManager" />
+		</bindings>
+	</element>
+
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="PvpTradeHullspace" />
+			<string name="Caption" value="" />
+			<rect name="Rect" value="180, 325, 430, 355" />
+			<position name="MinSize" value="1, 1" />
+			<position name="MaxSize" value="0, 0" />
+			<enum name="LeftAlign" value="upperLeft" />
+			<enum name="RightAlign" value="upperLeft" />
+			<enum name="TopAlign" value="upperLeft" />
+			<enum name="BottomAlign" value="upperLeft" />
+			<bool name="Visible" value="true" />
+			<bool name="Enabled" value="true" />
+			<bool name="TabStop" value="false" />
+			<bool name="TabGroup" value="false" />
+			<int name="TabOrder" value="-1" />
+			<bool name="NoClip" value="false" />
+			<bool name="Border" value="false" />
+			<bool name="OverrideColorEnabled" value="false" />
+			<bool name="OverrideBGColorEnabled" value="false" />
+			<bool name="WordWrap" value="false" />
+			<bool name="Background" value="false" />
+			<bool name="RightToLeft" value="false" />
+			<bool name="RestrainTextInside" value="true" />
+			<color name="OverrideColor" value="65ffffff" />
+			<color name="BGColor" value="fad2d2d2" />
+			<enum name="HTextAlign" value="center" />
+			<enum name="VTextAlign" value="center" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_pvptrade_hullspace_text" id="PvpTradeManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+
+		<attributes>
+			<string name="IdName" value="PvpTradeAccept" />
+			<string name="Caption" value="Accept" />
+			<rect name="Rect" value="10, 355, 170, 385" />
+			<position name="MinSize" value="1, 1" />
+			<position name="MaxSize" value="0, 0" />
+			<enum name="LeftAlign" value="upperLeft" />
+			<enum name="RightAlign" value="upperLeft" />
+			<enum name="TopAlign" value="upperLeft" />
+			<enum name="BottomAlign" value="upperLeft" />
+			<bool name="Visible" value="true" />
+			<bool name="Enabled" value="true" />
+			<bool name="TabStop" value="true" />
+			<bool name="TabGroup" value="false" />
+			<int name="TabOrder" value="2" />
+			<bool name="NoClip" value="false" />
+			<bool name="PushButton" value="false" />
+			<texture name="Image" value="" />
+			<rect name="ImageRect" value="0, 0, 0, 0" />
+			<texture name="PressedImage" value="" />
+			<rect name="PressedImageRect" value="0, 0, 0, 0" />
+			<bool name="UseAlphaChannel" value="false" />
+			<bool name="Border" value="true" />
+			<bool name="ScaleImage" value="false" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="OnPvpTradeAccept" id="PvpTradeManager" />
+		</bindings>
+	</element>
+
+	<element type="customEditBox">
+		<attributes>
+			<string name="IdName" value="PvpTradeCreditEdit" />
+			<bool name="OverrideColorEnabled" value="false" />
+			<color name="OverrideColor" value="65ffffff" />
+			<int name="MaxChars" value="0" />
+			<bool name="WordWrap" value="false" />
+			<bool name="MultiLine" value="false" />
+			<bool name="AutoScroll" value="true" />
+			<bool name="PasswordBox" value="false" />
+			<string name="PasswordChar" value="*" />
+			<enum name="HTextAlign" value="upperLeft" />
+			<enum name="VTextAlign" value="center" />
+			<int name="Id" value="-1" />
+			<string name="Caption" value="" />
+			<rect name="Rect" value="10, 315, 170, 345" />
+			<position name="MinSize" value="1, 1" />
+			<position name="MaxSize" value="0, 0" />
+			<enum name="LeftAlign" value="upperLeft" />
+			<enum name="RightAlign" value="upperLeft" />
+			<enum name="TopAlign" value="upperLeft" />
+			<enum name="BottomAlign" value="upperLeft" />
+			<bool name="Visible" value="true" />
+			<bool name="Enabled" value="true" />
+			<bool name="TabStop" value="true" />
+			<bool name="TabGroup" value="false" />
+			<int name="TabOrder" value="3" />
+			<bool name="NoClip" value="false" />
+		</attributes>
+		<bindings>
+			<signal name="value_changed" slot="OnPvpTradeCreditsChanged" id="PvpTradeManager" />
+			<signal name="value_entered" slot="OnPvpTradeCreditsChanged" id="PvpTradeManager" />
+			<slot name="setText" signal="edit_pvptrade_our_credits_text" id="PvpTradeManager" />
+		</bindings>
+	</element>
+
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="PvpTradeCredits" />
+			<string name="Caption" value="Credits:" />
+			<rect name="Rect" value="10, 245, 170, 275" />
+			<position name="MinSize" value="1, 1" />
+			<position name="MaxSize" value="0, 0" />
+			<enum name="LeftAlign" value="upperLeft" />
+			<enum name="RightAlign" value="upperLeft" />
+			<enum name="TopAlign" value="upperLeft" />
+			<enum name="BottomAlign" value="upperLeft" />
+			<bool name="Visible" value="true" />
+			<bool name="Enabled" value="true" />
+			<bool name="TabStop" value="false" />
+			<bool name="TabGroup" value="false" />
+			<int name="TabOrder" value="-1" />
+			<bool name="NoClip" value="false" />
+			<bool name="Border" value="false" />
+			<bool name="OverrideColorEnabled" value="false" />
+			<bool name="OverrideBGColorEnabled" value="false" />
+			<bool name="WordWrap" value="true" />
+			<bool name="Background" value="false" />
+			<bool name="RightToLeft" value="false" />
+			<bool name="RestrainTextInside" value="true" />
+			<color name="OverrideColor" value="65ffffff" />
+			<color name="BGColor" value="fad2d2d2" />
+			<enum name="HTextAlign" value="center" />
+			<enum name="VTextAlign" value="center" />
+		</attributes>
+	</element>
+
+	<element type="customStaticText">
+
+		<attributes>
+			<string name="IdName" value="PvpTradeOffer" />
+			<string name="Caption" value="Your offer" />
+			<rect name="Rect" value="10, 190, 170, 220" />
+			<position name="MinSize" value="1, 1" />
+			<position name="MaxSize" value="0, 0" />
+			<enum name="LeftAlign" value="upperLeft" />
+			<enum name="RightAlign" value="upperLeft" />
+			<enum name="TopAlign" value="upperLeft" />
+			<enum name="BottomAlign" value="upperLeft" />
+			<bool name="Visible" value="true" />
+			<bool name="Enabled" value="true" />
+			<bool name="TabStop" value="false" />
+			<bool name="TabGroup" value="false" />
+			<int name="TabOrder" value="-1" />
+			<bool name="NoClip" value="false" />
+			<bool name="Border" value="false" />
+			<bool name="OverrideColorEnabled" value="false" />
+			<bool name="OverrideBGColorEnabled" value="false" />
+			<bool name="WordWrap" value="true" />
+			<bool name="Background" value="false" />
+			<bool name="RightToLeft" value="false" />
+			<bool name="RestrainTextInside" value="true" />
+			<color name="OverrideColor" value="65ffffff" />
+			<color name="BGColor" value="fad2d2d2" />
+			<enum name="HTextAlign" value="center" />
+			<enum name="VTextAlign" value="center" />
+		</attributes>
+
+	</element>
+
+	<element type="customStaticText">
+
+		<attributes>
+			<int name="Id" value="-1" />
+			<string name="Caption" value="Their offer" />
+			<rect name="Rect" value="10, 25, 170, 55" />
+			<position name="MinSize" value="1, 1" />
+			<position name="MaxSize" value="0, 0" />
+			<enum name="LeftAlign" value="upperLeft" />
+			<enum name="RightAlign" value="upperLeft" />
+			<enum name="TopAlign" value="upperLeft" />
+			<enum name="BottomAlign" value="upperLeft" />
+			<bool name="Visible" value="true" />
+			<bool name="Enabled" value="true" />
+			<bool name="TabStop" value="false" />
+			<bool name="TabGroup" value="false" />
+			<int name="TabOrder" value="-1" />
+			<bool name="NoClip" value="false" />
+			<bool name="Border" value="false" />
+			<bool name="OverrideColorEnabled" value="false" />
+			<bool name="OverrideBGColorEnabled" value="false" />
+			<bool name="WordWrap" value="true" />
+			<bool name="Background" value="false" />
+			<bool name="RightToLeft" value="false" />
+			<bool name="RestrainTextInside" value="true" />
+			<color name="OverrideColor" value="65ffffff" />
+			<color name="BGColor" value="fad2d2d2" />
+			<enum name="HTextAlign" value="center" />
+			<enum name="VTextAlign" value="center" />
+		</attributes>
+
+	</element>
+
+	<element type="customStaticText">
+
+		<attributes>
+			<int name="Id" value="-1" />
+			<string name="Caption" value="Credits:" />
+			<rect name="Rect" value="20, 55, 180, 85" />
+			<position name="MinSize" value="1, 1" />
+			<position name="MaxSize" value="0, 0" />
+			<enum name="LeftAlign" value="upperLeft" />
+			<enum name="RightAlign" value="upperLeft" />
+			<enum name="TopAlign" value="upperLeft" />
+			<enum name="BottomAlign" value="upperLeft" />
+			<bool name="Visible" value="true" />
+			<bool name="Enabled" value="true" />
+			<bool name="TabStop" value="false" />
+			<bool name="TabGroup" value="false" />
+			<int name="TabOrder" value="-1" />
+			<bool name="NoClip" value="false" />
+			<bool name="Border" value="false" />
+			<bool name="OverrideColorEnabled" value="false" />
+			<bool name="OverrideBGColorEnabled" value="false" />
+			<bool name="WordWrap" value="true" />
+			<bool name="Background" value="false" />
+			<bool name="RightToLeft" value="false" />
+			<bool name="RestrainTextInside" value="true" />
+			<color name="OverrideColor" value="65ffffff" />
+			<color name="BGColor" value="fad2d2d2" />
+			<enum name="HTextAlign" value="center" />
+			<enum name="VTextAlign" value="center" />
+		</attributes>
+
+	</element>
+
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="PvpTradeCreditOffer" />
+			<string name="Caption" value="0" />
+			<rect name="Rect" value="10, 85, 170, 115" />
+			<position name="MinSize" value="1, 1" />
+			<position name="MaxSize" value="0, 0" />
+			<enum name="LeftAlign" value="upperLeft" />
+			<enum name="RightAlign" value="upperLeft" />
+			<enum name="TopAlign" value="upperLeft" />
+			<enum name="BottomAlign" value="upperLeft" />
+			<bool name="Visible" value="true" />
+			<bool name="Enabled" value="true" />
+			<bool name="TabStop" value="false" />
+			<bool name="TabGroup" value="false" />
+			<int name="TabOrder" value="-1" />
+			<bool name="NoClip" value="false" />
+			<bool name="Border" value="false" />
+			<bool name="OverrideColorEnabled" value="false" />
+			<bool name="OverrideBGColorEnabled" value="false" />
+			<bool name="WordWrap" value="true" />
+			<bool name="Background" value="false" />
+			<bool name="RightToLeft" value="false" />
+			<bool name="RestrainTextInside" value="true" />
+			<color name="OverrideColor" value="65ffffff" />
+			<color name="BGColor" value="fad2d2d2" />
+			<enum name="HTextAlign" value="lowerRight" />
+			<enum name="VTextAlign" value="center" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_pvptrade_credits_text" id="PvpTradeManager" />
+		</bindings>
+	</element>
+	
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="PvpTradeCreditOurOffer" />
+			<string name="Caption" value="0" />
+			<rect name="Rect" value="10, 285, 170, 315" />
+			<position name="MinSize" value="1, 1" />
+			<position name="MaxSize" value="0, 0" />
+			<enum name="LeftAlign" value="upperLeft" />
+			<enum name="RightAlign" value="upperLeft" />
+			<enum name="TopAlign" value="upperLeft" />
+			<enum name="BottomAlign" value="upperLeft" />
+			<bool name="Visible" value="true" />
+			<bool name="Enabled" value="true" />
+			<bool name="TabStop" value="false" />
+			<bool name="TabGroup" value="false" />
+			<int name="TabOrder" value="-1" />
+			<bool name="NoClip" value="false" />
+			<bool name="Border" value="false" />
+			<bool name="OverrideColorEnabled" value="false" />
+			<bool name="OverrideBGColorEnabled" value="false" />
+			<bool name="WordWrap" value="true" />
+			<bool name="Background" value="false" />
+			<bool name="RightToLeft" value="false" />
+			<bool name="RestrainTextInside" value="true" />
+			<color name="OverrideColor" value="65ffffff" />
+			<color name="BGColor" value="fad2d2d2" />
+			<enum name="HTextAlign" value="lowerRight" />
+			<enum name="VTextAlign" value="center" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_pvptrade_our_credits_text" id="PvpTradeManager" />
+		</bindings>
+	</element>
+</element>

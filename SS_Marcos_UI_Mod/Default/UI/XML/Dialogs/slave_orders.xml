@@ -1,0 +1,470 @@
+<element type="customWindow">
+	<attributes>
+
+		<int name="Id" value="1" />
+		<string name="IdName" value="slaveOrderDialog" />
+		<string name="Caption" value="Bot Orders" />
+		<int name="BorderStyle" value="2" />
+		<rect name="Rect" value="270, 10, 740, 560" />
+		<bool name="Visible" value="false" />
+		<bool name="Movable" value="true" />
+		<int name="Flags" value="0" />
+		<bool name="KeepOnScreen" value="true" />		
+		<!-- <string name="SoundShow" value="DialogOpen.wav" />
+		<string name="SoundHide" value="DialogClose.wav" /> -->
+	</attributes>
+	<bindings>
+		<signal name="moved" slot="DialogMoved" id="LogicManager" />
+		<signal name="visibility_change" slot="DialogVisibilityChanged" id="LogicManager" />
+		<slot name="setVisible" signal="dialog_slaveorder_visible" id="SlaveOrderManager" />
+	</bindings>
+
+	<!-- Start Buy list subwindow -->
+	<element type="customWindow">
+		<attributes>
+			<int name="Id" value="1" />
+			<string name="IdName" value="BuyListSelectDialog" />
+			<string name="Caption" value="List Selection" />
+			<int name="BorderStyle" value="2" />
+			<rect name="Rect" value="100, 100, 350, 450" />
+			<bool name="Visible" value="false" />
+			<bool name="Movable" value="false" />
+			<int name="Flags" value="0" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="dialog_buylistselect_visible" id="SlaveOrderManager" />
+			<signal name="revealed" slot="bringToTop" id="BuyListSelectDialog" />
+		</bindings>
+
+		<!-- Buy subwindow header -->
+		<element type="customStaticText">
+			<attributes>
+				<int name="Id" value="1" />
+				<string name="IdName" value="BuyListSelectionText" />
+				<rect name="Rect" value="12, 6, 240, 36" />
+				<bool name="RestrainTextInside" value="true" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_orderlistselect_text" id="SlaveOrderManager" />
+			</bindings>
+		</element>
+		
+				<!-- Buy Search Box -->
+		<element type="customEditBox">
+			<attributes>
+				<string name="IdName" value="BuyListSearchBox" />
+				<string name="TextID" value="" />
+				<rect name="Rect" value="10, 26, 240, 56" />
+				<string name="PlaceholderText" value="Search..." />
+			</attributes>
+			<bindings>
+				<signal name="value_changed" slot="BuyOrderListSearchChanged" id="SlaveOrderManager" />
+				<slot name="setText" signal="buy_search_text" id="SlaveOrderManager" />
+			</bindings>
+		</element>
+
+		<!-- Buy List -->
+		<element type="customListBox">
+			<attributes>
+				<int name="Id" value="1" />
+				<string name="IdName" value="buySelectList" />
+				<rect name="Rect" value="10, 62, 250, 300" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="list_orderlistselect_text" id="SlaveOrderManager" />
+				<slot name="setUserData" signal="list_orderlistselect_data" id="SlaveOrderManager" />
+				<signal name="item_selected_index" slot="ListSelectData" id="SlaveOrderManager" />
+				<signal name="item_double_clicked_index" slot="ListSelectOkData" id="SlaveOrderManager" />
+			</bindings>
+		</element>
+
+		<!-- OK Button -->
+		<element type="customButton">
+			<attributes>
+				<int name="Id" value="1" />
+				<string name="IdName" value="BuyListOrdersOK" />
+				<string name="Caption" value="OK" />
+				<rect name="Rect" value="10, 310, 100, 340" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="ListSelectOk" id="SlaveOrderManager" />
+			</bindings>
+		</element>
+
+		<!-- Cancel button -->
+		<element type="customButton">
+			<attributes>
+				<int name="Id" value="1" />
+				<string name="IdName" value="BuyListOrdersCancel" />
+				<string name="Caption" value="Cancel" />
+				<rect name="Rect" value="150, 310, 240, 340" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="toggleVisibility" id="BuyListSelectDialog" />
+			</bindings>
+		</element>
+	</element>
+	<!-- End Buy list subwindow -->
+
+	<!-- Start Sell list subwindow -->
+	<element type="customWindow">
+		<attributes>
+			<int name="Id" value="1" />
+			<string name="IdName" value="SellListSelectDialog" />
+			<string name="Caption" value="List Selection" />
+			<int name="BorderStyle" value="2" />
+			<rect name="Rect" value="100, 100, 350, 450" />
+			<bool name="Visible" value="false" />
+			<bool name="Movable" value="false" />
+			<int name="Flags" value="0" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="dialog_selllistselect_visible" id="SlaveOrderManager" />
+			<signal name="revealed" slot="bringToTop" id="SellListSelectDialog" />
+		</bindings>
+
+		<!-- Sell subwindow header -->
+		<element type="customStaticText">
+			<attributes>
+				<int name="Id" value="1" />
+				<string name="IdName" value="SellListSelectionText" />
+				<rect name="Rect" value="12, 6, 240, 36" />
+				<bool name="RestrainTextInside" value="true" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_orderlistselect_text" id="SlaveOrderManager" />
+			</bindings>
+		</element>
+
+		<!-- Sell Search Box -->
+		<element type="customEditBox">
+			<attributes>
+				<string name="IdName" value="SellListSearchBox" />
+				<string name="TextID" value="" />
+				<rect name="Rect" value="10, 26, 240, 56" />
+				<string name="PlaceholderText" value="Search..." />
+			</attributes>
+			<bindings>
+				<signal name="value_changed" slot="SellOrderListSearchChanged" id="SlaveOrderManager" />
+				<slot name="setText" signal="sell_search_text" id="SlaveOrderManager" />
+			</bindings>
+		</element>
+
+		<!-- Sell List -->
+		<element type="customListBox">
+			<attributes>
+				<int name="Id" value="1" />
+				<string name="IdName" value="sellSelectList" />
+				<rect name="Rect" value="10, 62, 250, 300" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="list_orderlistselect_text" id="SlaveOrderManager" />
+				<slot name="setUserData" signal="list_orderlistselect_data" id="SlaveOrderManager" />
+				<signal name="item_selected_index" slot="ListSelectData" id="SlaveOrderManager" />
+				<signal name="item_double_clicked_index" slot="ListSelectOkData" id="SlaveOrderManager" />
+			</bindings>
+		</element>
+
+		<!-- OK Button -->
+		<element type="customButton">
+			<attributes>
+				<int name="Id" value="1" />
+				<string name="IdName" value="SellListOrdersOK" />
+				<string name="Caption" value="OK" />
+				<rect name="Rect" value="10, 310, 100, 340" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="ListSelectOk" id="SlaveOrderManager" />
+			</bindings>
+		</element>
+
+		<!-- Cancel button -->
+		<element type="customButton">
+			<attributes>
+				<int name="Id" value="1" />
+				<string name="IdName" value="SellListOrdersCancel" />
+				<string name="Caption" value="Cancel" />
+				<rect name="Rect" value="150, 310, 240, 340" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="toggleVisibility" id="SellListSelectDialog" />
+			</bindings>
+		</element>
+	</element>
+	<!-- End Sell list subwindow -->
+
+	<!-- Start Dock list subwindow -->
+	<element type="customWindow">
+		<attributes>
+			<int name="Id" value="1" />
+			<string name="IdName" value="DockListSelectDialog" />
+			<string name="Caption" value="List Selection" />
+			<int name="BorderStyle" value="2" />
+			<rect name="Rect" value="100, 100, 350, 450" />
+			<bool name="Visible" value="false" />
+			<bool name="Movable" value="false" />
+			<int name="Flags" value="0" />
+		</attributes>
+		<bindings>
+			<slot name="setVisible" signal="dialog_docklistselect_visible" id="SlaveOrderManager" />
+			<signal name="revealed" slot="bringToTop" id="DockListSelectDialog" />
+		</bindings>
+
+		<!-- Dock subwindow header -->
+		<element type="customStaticText">
+			<attributes>
+				<int name="Id" value="1" />
+				<string name="IdName" value="DockListSelectionText" />
+				<rect name="Rect" value="12, 6, 240, 36" />
+				<bool name="RestrainTextInside" value="true" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_orderlistselect_text" id="SlaveOrderManager" />
+			</bindings>
+		</element>
+
+		<!-- Dock Search Box -->
+		<element type="customEditBox">
+			<attributes>
+				<string name="IdName" value="DockListSearchBox" />
+				<string name="TextID" value="" />
+				<rect name="Rect" value="10, 26, 240, 56" />
+				<string name="PlaceholderText" value="Search..." />
+			</attributes>
+			<bindings>
+				<signal name="value_changed" slot="DockOrderListSearchChanged" id="SlaveOrderManager" />
+				<slot name="setText" signal="dock_search_text" id="SlaveOrderManager" />
+			</bindings>
+		</element>
+
+		<!-- Dock List -->
+		<element type="customListBox">
+			<attributes>
+				<int name="Id" value="1" />
+				<string name="IdName" value="dockSelectList" />
+				<rect name="Rect" value="10, 62, 250, 300" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="list_orderlistselect_text" id="SlaveOrderManager" />
+				<slot name="setUserData" signal="list_orderlistselect_data" id="SlaveOrderManager" />
+				<signal name="item_selected_index" slot="ListSelectData" id="SlaveOrderManager" />
+				<signal name="item_double_clicked_index" slot="ListSelectOkData" id="SlaveOrderManager" />
+			</bindings>
+		</element>
+
+		<!-- OK Button -->
+		<element type="customButton">
+			<attributes>
+				<int name="Id" value="1" />
+				<string name="IdName" value="DockListOrdersOK" />
+				<string name="Caption" value="OK" />
+				<rect name="Rect" value="10, 310, 100, 340" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="ListSelectOk" id="SlaveOrderManager" />
+			</bindings>
+		</element>
+
+		<!-- Cancel button -->
+		<element type="customButton">
+			<attributes>
+				<int name="Id" value="1" />
+				<string name="IdName" value="DockListOrdersCancel" />
+				<string name="Caption" value="Cancel" />
+				<rect name="Rect" value="150, 310, 240, 340" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="toggleVisibility" id="DockListSelectDialog" />
+			</bindings>
+		</element>
+	</element>
+	<!-- End Dock list subwindow -->
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="OrderBuyButton" />
+			<string name="Caption" value="Buy" />
+			<rect name="Rect" value="10, 30, 100, 60" />
+			<string name="ToolTip" value="Create an order to buy an item." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="OrderBuy" id="SlaveOrderManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="OrderSellButton" />
+			<string name="Caption" value="Sell" />
+			<rect name="Rect" value="100, 30, 190, 60" />
+			<string name="ToolTip" value="Create an order to sell an item." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="OrderSell" id="SlaveOrderManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="DockOrderButton" />
+			<string name="Caption" value="Dock" />
+			<rect name="Rect" value="190, 30, 280, 60" />
+			<string name="ToolTip" value="Create an order to dock at a station." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="OrderDock" id="SlaveOrderManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="OrderJumpButton" />
+			<string name="Caption" value="Jump" />
+			<rect name="Rect" value="280, 30, 370, 60" />
+			<string name="ToolTip" value="Create an order to warp to a different galaxy." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="OrderJump" id="SlaveOrderManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<int name="Id" value="1" />
+			<string name="IdName" value="slaveOrderDeactivate" />
+			<string name="Caption" value="Deactivate" />
+			<rect name="Rect" value="370, 30, 460, 60" />
+			<string name="ToolTip" value="Create an order to deactivate the bot after docking." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="Deactivate" id="SlaveOrderManager" />
+		</bindings>
+	</element>
+
+	<element type="staticText">
+		<attributes>
+			<rect name="Rect" value="10, 70, 460, 140" />
+			<string name="Caption"
+				value="Your bot will loop these orders. Click on an order to insert after it. Each buy or sell order needs its own dock order before it. For buying and selling, it will always try to do the maximum. If an order fails, the bot will continue with the next order. Make sure you give your bots money if they're going to trade. Also a radar so bots can see stations." />
+		</attributes>
+	</element>
+	
+	<!-- Current orders list -->
+	<element type="customTable">
+		<attributes>
+			<int name="Id" value="1" />
+			<string name="IdName" value="orderList" />
+			<string name="Caption" value="" />
+			<rect name="Rect" value="10, 190, 270, 540" />
+			<enum name="CurrentOrdering" value="ascending" />
+			<int name="ColumnCount" value="1" />
+			<int name="DrawFlags" value="12" />
+		</attributes>
+		<bindings>
+			<slot name="setAll" signal="list_orders_all" id="SlaveOrderManager" />
+			<slot name="setSelectedIndex" signal="list_orders_select" id="SlaveOrderManager" />
+			<signal name="item_selected_data" slot="OrderSelected" id="SlaveOrderManager" />
+			<signal name="item_double_clicked_data" slot="OrderSelectedFinal" id="SlaveOrderManager" />
+		</bindings>
+	</element>
+	<!-- End Current orders list -->
+
+	<element type="customButton">
+		<attributes>
+			<int name="Id" value="1" />
+			<string name="IdName" value="Delete" />
+			<string name="Caption" value="Delete" />
+			<rect name="Rect" value="280, 190, 460, 220" />
+			<string name="ToolTip" value="Delete the currently selected order." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="Delete" id="SlaveOrderManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="MoveOrderUpButton" />
+			<string name="Caption" value="^ Move Up" />
+			<rect name="Rect" value="280, 230, 460, 260" />
+			<string name="ToolTip" value="Move the currently selected order up in queue." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="MoveOrderUp" id="SlaveOrderManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="MoveOrderDownButton" />
+			<string name="Caption" value="v Move Down" />
+			<rect name="Rect" value="280, 270, 460, 300" />
+			<string name="ToolTip" value="Move the currently selected order down in queue." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="MoveOrderDown" id="SlaveOrderManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="CopyLastOrdersButton" />
+			<string name="Caption" value="Duplicate Last Orders" />
+			<rect name="Rect" value="280, 380, 460, 410" />
+			<string name="ToolTip" value="Copy the full list of previously submitted orders to the current order queue." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="CopyLastOrders" id="SlaveOrderManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<int name="Id" value="1" />
+			<string name="IdName" value="DeleteAll" />
+			<string name="Caption" value="Delete All..." />
+			<rect name="Rect" value="280, 420, 460, 450" />
+			<string name="ToolTip" value="Delete all orders in the queue." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="DeleteAll" id="SlaveOrderManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<int name="Id" value="1" />
+			<string name="IdName" value="SlaveOrdersOK" />
+			<string name="Caption" value="OK" />
+			<rect name="Rect" value="280, 510, 370, 540" />
+			<string name="ToolTip" value="Submit bot orders." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="OnOK" id="SlaveOrderManager" />
+		</bindings>
+	</element>
+
+	<element type="customButton">
+		<attributes>
+			<int name="Id" value="1" />
+			<string name="IdName" value="slaveOrderCancel" />
+			<string name="Caption" value="Cancel" />
+			<rect name="Rect" value="370, 510, 460, 540" />
+			<string name="ToolTip" value="Cancel programming bot orders." />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="toggleVisibility" id="slaveOrderDialog" />
+		</bindings>
+	</element>
+
+	<element type="customStaticText">
+		<attributes>
+			<int name="Id" value="1" />
+			<string name="IdName" value="maxOrdersText" />
+			<rect name="Rect" value="10, 150, 460, 180" />
+		</attributes>
+		<bindings>
+			<slot name="setText" signal="static_maxorders_text" id="SlaveOrderManager" />
+		</bindings>
+	</element>
+</element>

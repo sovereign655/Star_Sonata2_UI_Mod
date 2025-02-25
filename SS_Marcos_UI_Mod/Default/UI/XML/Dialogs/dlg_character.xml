@@ -1,0 +1,71 @@
+<element type="customWindow">
+  <attributes>
+    <string name="IdName" value="characterDialog" />
+    <rectf name="PercRect" value="0.5, 0.5, 0.5, 0.5" />
+    <rect name="Rect" value="-275, -269, 275, 269" />
+    <int name="Flags" value="0" />
+    <position name="MinSize" value="550, 560" />
+    <position name="MaxSize" value="700, 952" />
+    <bool name="Movable" value="true" />
+    <int name="BorderStyle" value="2" />
+      <int name="ResizeBorderWidth" value="5" />
+    <bool name="Visible" value="false" />
+      <bool name="BottomResizable" value="true" />
+      <bool name="RightResizable" value="true" />
+    <string name="SoundShow" value="DialogOpen.wav" />
+    <string name="SoundHide" value="DialogClose.wav" />
+    <bool name="KeepOnScreen" value="true" />
+    <bool name="HideOnLogout" value="true" />
+  </attributes>
+  <bindings>
+    <signal name="created" slot="setText" id="characterTab"  arg="Avatar|Possessions|Skills|Missions|Class Skills|Lockouts" />
+    <signal name="created" slot="setUserData" id="characterTab"  arg="avatarDialog|possessionsDialog|skillsDialog|missionViewerDialog|classSkillsDialog|lockoutDialog" />
+    <signal name="revealed" slot="bringToTop" id="characterDialog" />
+    <signal name="revealed" slot="MarkVisible" id="CharManager" />
+    <signal name="revealed" slot="toggleActiveState" id="characterCommandToggle" />
+    <signal name="hidden" slot="toggleActiveState" id="characterCommandToggle" />
+    <signal name="hidden" slot="MarkHidden" id="CharManager" />
+    <signal name="moved" slot="DialogMoved" id="LogicManager" />
+    <signal name="visibility_change" slot="DialogVisibilityChanged" id="LogicManager" />
+    <slot name="setVisible" signal="dialog_character_visible" id="CharManager" />
+  </bindings>
+  <element type="customImage">
+    <attributes>
+      <string name="TextID" value="" />
+      <rect name="Rect" value="5, 5, 170, 37" />
+      <texture name="Texture" value="UI/Images/Dialogs/charheader.png" />
+      <bool name="UseAlphaChannel" value="true" />
+    </attributes>
+  </element>
+  <!--Tab Control-->
+  <element type="customTabControl">
+    <attributes>
+      <string name="IdName" value="characterTab" />
+      <int name="Id" value="666" />
+      <rectf name="PercRect" value="0, 0, 0, 0" />
+      <rect name="Rect" value="8, 35, 483, 69" />
+
+    </attributes>
+    <bindings>
+      <signal name="item_selected_data" slot="SetCurrentTab" id="CharManager" />
+      <signal name="item_selected_data" slot="CreateGuiDialog" id="GuiFactory" />
+      <signal name="item_last_selected_data" slot="DestroyGuiDialog" id="GuiFactory" />
+    </bindings>
+  </element>
+	<element type="customButton">
+		<attributes>
+			<string name="IdName" value="characterButtonClose" />
+			<int name="Id" value="66" />
+			<rect name="Rect" value="-18, 2, -2, 18" />
+			<rectf name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+			<texture name="Image" value="UI/Images/Buttons/cross16_up.png" />
+			<texture name="PressedImage" value="UI/Images/Buttons/cross16_down.png" />
+			<bool name="UseAlphaChannel" value="true" />
+			<bool name="Border" value="false" />
+		</attributes>
+		<bindings>
+			<signal name="button_clicked" slot="toggleVisibility" id="characterDialog" />
+		</bindings>
+	</element>
+</element>
+

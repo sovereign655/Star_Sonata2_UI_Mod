@@ -1,0 +1,253 @@
+<element type="customWindow">
+	<attributes>
+		<string name="IdName" value="friendsDialog" />
+		<rect name="Rect" value="8, 43, -8, -8" />
+		<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />	
+		<int name="Flags" value="0" />
+		<bool name="Movable" value="false" />
+		<bool name="Visible" value="true" />
+		<bool name="DrawBackground" value="true" />
+		<bool name="HideOnLogout" value="true" />
+	</attributes>
+	<bindings>
+		<signal name="created" slot="FriendsDialogInit" id="FriendsManager" />
+		<signal name="revealed" slot="FriendsDialogInit" id="FriendsManager" />
+	</bindings>
+	<!-- The main group. -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="friendsMainGroup" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+			<bool name="Visible" value="false" />
+		</attributes>
+		<bindings>
+			<slot name="show" signal="main_group_show" id="FriendsManager" />
+			<signal name="revealed" slot="hide" id="friendsNameEntryGroup" />
+		</bindings>
+		<!-- The friends management buttons. -->
+		<!-- Target Description/Info -->
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="friendsTargetLabel" />
+				<string name="TextID" value="id_friends_target_label" />
+				<rect name="Rect" value="8, 14, 118, 34" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="center" />
+				<string name="ToolTip" value="The most recently targeted player." />
+			</attributes>
+			<bindings>
+			</bindings>
+		</element>
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="friendsTargetText" />
+				<rect name="Rect" value="8, 34, 118, 60" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="top" />
+				<bool name="OverrideColorEnabled" value="true" />
+				<color name="OverrideColor" value="A0FFFFFF" />
+				<bool name="WordWrap" value="true" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="target_static_text" id="FriendsManager" />
+			</bindings>
+		</element>
+		<!-- Add Target Button -->
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="friendsAddTargetButton" />
+				<string name="TextID" value="id_friends_add_target" />
+				<rect name="Rect" value="-186, 8, -106, 60" />
+				<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+				<string name="ToolTip" value="Add most recently targeted player to your friends list." />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="FriendsDialogAddTargetClicked" id="FriendsManager" />
+				<slot name="setText" signal="add_target_button_text" id="FriendsManager" />
+				<slot name="setEnabled" signal="add_target_button_enabled" id="FriendsManager" />
+			</bindings>
+		</element>
+		<!-- Add Another Button -->
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="friendsAddOtherButton" />
+				<string name="TextID" value="id_friends_add_other" />
+				<rect name="Rect" value="-101, 8, -8, 32" />
+				<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+				<string name="ToolTip" value="Manually add a player to your friends list." />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="FriendsDialogAddOtherClicked" id="FriendsManager" />
+			</bindings>
+		</element>
+		<!-- Remove Button -->
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="friendsRemoveButton" />
+				<string name="TextID" value="id_friends_remove" />
+				<rect name="Rect" value="-101, 36, -8, 60" />
+				<rect name="PercRect" value="1.0, 0.0, 1.0, 0.0" />
+				<string name="ToolTip" value="Remove selected player from your friends list." />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="FriendsDialogRemoveClicked" id="FriendsManager" />
+				<slot name="setEnabled" signal="remove_button_enabled" id="FriendsManager" />
+			</bindings>
+		</element>
+		<!-- The friends table, enclosed in a box. -->
+		<element type="customStaticText">
+			<attributes>
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+				<rect name="Rect" value="0, 60, 0, 0" />
+				<bool name="Border" value="false" />
+				<int name="ScrolledLines" value="0" />
+			</attributes>
+			<!-- Search box -->
+			<element type="customEditBox">
+				<attributes>
+					<string name="IdName" value="friendsSearch" />
+					<string name="TextID" value="" />
+					<rect name="Rect" value="8, 8, -8, 38" />
+					<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+					<string name="PlaceholderText" value="Search..." />
+					<string name="ToolTip" value="Search your friends list." />
+				</attributes>
+				<bindings>
+					<signal name="value_changed" slot="FriendsSearchChanged" id="FriendsManager" />
+					<slot name="setText" signal="friends_search_text" id="FriendsManager" />
+				</bindings>
+			</element>
+			<!-- Friends List -->
+			<element type="customTable">
+				<attributes>
+					<string name="IdName" value="friendsTable" />
+					<rect name="Rect" value="8, 43, -8, -8" />
+					<rect name="PercRect" value="0.0, 0.0, 1.0, 1.0" />
+					<int name="ColumnCount" value="2" />
+					<string name="Column0name" value="Name" />
+					<color name="Column0color" value="ffb7f9ff" />
+					<int name="Column0width" value="170" />
+					<enum name="Column0OrderingMode" value="ascend_descend" />
+					<string name="Column1name" value="Status" />
+					<color name="Column1color" value="ffb7f9ff" />
+					<int name="Column1width" value="88" />
+					<enum name="Column1OrderingMode" value="ascend_descend" />
+					<bool name="ResizableColumns" value="false" />
+					<int name="DrawFlags" value="4" />
+				</attributes>
+				<bindings>
+					<slot name="setAll" signal="friends_table_all" id="FriendsManager" />
+					<signal name="item_selected_data" slot="FriendsDialogTableSelectedData" id="FriendsManager" />
+					<signal name="item_double_clicked_data" slot="ChatOpenWhisper" id="spaceChat" />
+					<signal name="item_right_clicked_data" slot="FriendsDialogTableRightClickedData" id="FriendsManager" />
+				</bindings>
+			</element>
+		</element>
+	</element>
+
+	<!-- The name entry group. -->
+	<element type="customStaticText">
+		<attributes>
+			<string name="IdName" value="friendsNameEntryGroup" />
+			<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			<rect name="Rect" value="42, 77, -42, 255" />
+			<bool name="Border" value="true" />
+			<bool name="visible" value="false" />
+			<int name="ScrolledLines" value="0" />
+		</attributes>
+		<bindings>
+			<slot name="show" signal="name_entry_group_show" id="FriendsManager" />
+			<signal name="revealed" slot="hide" id="friendsMainGroup" />
+		</bindings>
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="friendsNameEntryPrompt" />
+				<string name="TextID" value="id_friends_prompt_name_entry" />
+				<rect name="Rect" value="16, 16, -16, 48" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="top" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="prompt_text" id="FriendsManager" />
+			</bindings>
+		</element>
+
+		<element type="customEditBox">
+			<attributes>
+				<string name="IdName" value="friendsNameEntryEdit" />
+				<rect name="Rect" value="16, 56, -16, 88" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="center" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="name_edit_text" id="FriendsManager" />
+				<signal name="value_changed" slot="FriendsDialogNameEditChanged" id="FriendsManager" />
+				<slot name="makeFocus" signal="revealed" id="friendsNameEntryGroup" />
+			</bindings>
+		</element>
+
+		<element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="friendsNameEntryEditError" />
+				<rect name="Rect" value="16, 90, -16, 108" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+				<enum name="HTextAlign" value="center" />
+				<enum name="VTextAlign" value="top" />
+				<string name="Caption" value="" />
+				<bool name="OverrideColorEnabled" value="true" />
+				<color name="OverrideColor" value="C0F00010" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="name_edit_error_text" id="FriendsManager" />
+			</bindings>
+		</element>
+
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="friendsNameEntryConfirmButton" />
+				<string name="TextID" value="id_friends_confirm_add" />
+				<rect name="Rect" value="16, 98, -16, 130" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="FriendsDialogConfirmAddClicked" id="FriendsManager" />
+				<slot name="setEnabled" signal="confirm_add_button_enabled" id="FriendsManager" />
+			</bindings>
+		</element>
+
+		<element type="customButton">
+			<attributes>
+				<string name="IdName" value="friendsNameEntryCancelButton" />
+				<string name="TextID" value="id_friends_cancel_add" />
+				<rect name="Rect" value="16, 136, -16, 168" />
+				<rect name="PercRect" value="0.0, 0.0, 1.0, 0.0" />
+			</attributes>
+			<bindings>
+				<signal name="button_clicked" slot="FriendsDialogCancelAddClicked" id="FriendsManager" />
+			</bindings>
+		</element>
+	</element>
+
+	<!-- Member context menu. -->
+	<element type="customContextMenu">
+		<attributes>
+			<string name="Visible" value="false" />
+			<string name="IdName" value="friendsMemberContextMenu" />
+			<int name="CloseHandling" value="4" />
+			<int name="ItemCount" value="5" />
+			<string name="TextID0" value="id_friends_context_whisper" />
+			<string name="TextID1" value="id_friends_context_remove" />
+			<string name="IsSeparator2" value="true" />
+			<string name="TextID3" value="id_friends_context_squad_invite" />
+			<string name="TextID4" value="id_friends_context_team_invite" />
+			<bool name="KeepOnScreen" value="true" />
+		</attributes>
+		<bindings>
+			<slot name="popup" signal="table_context_popup" id="FriendsManager" />
+			<slot name="setItemEnabled" signal="table_context_item_enabled" id="FriendsManager" />
+			<signal name="item_selected_index" slot="FriendsDialogTableContextItemSelectedIndex" id="FriendsManager" />
+		</bindings>
+	</element>
+</element>

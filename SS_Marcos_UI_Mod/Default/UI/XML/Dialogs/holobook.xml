@@ -1,0 +1,67 @@
+	<element type="customWindow">
+		<attributes>
+			<string name="IdName" value="storyBoxDialog" />
+			<rect name="Rect" value="0, 0, 390, 528" />
+			<int name="Flags" value="0" />
+			<bool name="Movable" value="true" />
+			<int name="BorderStyle" value="2" />
+			<int name="ResizeBorderWidth" value="0" />
+			<bool name="Visible" value="false" />
+			<bool name="KeepOnScreen" value="true" />					
+		</attributes>
+		<bindings>
+			<signal name="revealed" slot="bringToTop" id="storyBoxDialog" />					
+			<slot name="setVisible" signal="dialog_storybox_visible" id="StoryBoxManager" />
+		</bindings>		
+    
+    <element type="customStaticText">
+			<attributes>
+				<string name="IdName" value="StoryBoxStaticText" />
+				<rect name="Rect" value="8, 8, 382, 487" />
+				<bool name="Border" value="true" />
+				<bool name="AutoScroll" value="true" />
+			</attributes>
+			<bindings>
+				<slot name="setText" signal="static_storybox_text" id="StoryBoxManager" />
+			</bindings>
+		</element>
+
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="storyBoxButtonPrev" />			
+        <int name="Id" value="15" />
+        <string name="Caption" value="Previous" />
+        <rect name="Rect" value="10, 495, 110, 520" />
+      </attributes>
+      <bindings>
+          <signal name="button_clicked" slot="PrevStoryBox" id="StoryBoxManager" />
+          <slot name="setVisible" signal="dialog_storybox_prevbutton_visible" id="StoryBoxManager" />
+      </bindings>
+    </element>
+    
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="storyBoxButtonOk" />			
+        <int name="Id" value="16" />
+        <string name="Caption" value="Close" />
+        <rect name="Rect" value="145, 495, 245, 520" />
+      </attributes>
+      <bindings>
+          <signal name="button_clicked" slot="CloseStoryBox" id="StoryBoxManager" />
+      </bindings>
+    </element>
+    
+    <element type="customButton">
+      <attributes>
+        <string name="IdName" value="storyBoxButtonNext" />			
+        <int name="Id" value="17" />
+        <string name="Caption" value="Next" />
+        <rect name="Rect" value="280, 495, 380, 520" />
+      </attributes>
+      <bindings>
+          <signal name="button_clicked" slot="NextStoryBox" id="StoryBoxManager" />
+          <slot name="setVisible" signal="dialog_storybox_nextbutton_visible" id="StoryBoxManager" />
+      </bindings>
+    </element>
+
+	</element>
