@@ -101,8 +101,10 @@
 		<!-- Upper Dialog Layer End -->
 		<!-- Lower Overlay Layer -->
 		<dialog xml="UI/XML/Dialogs/lower_overlay_layer.xml" deferred="false">
-		<dialog xml="UI/XML/Dialogs/tutorial.xml" deferred="false" />
-		<dialog xml="UI/XML/Dialogs/dlg_item_tooltip.xml" deferred="true" />
+			<dialog xml="UI/XML/Dialogs/dlg_neurobinding.xml" deferred="false" />
+    		<dialog xml="UI/XML/Dialogs/dlg_neurobindingOptions.xml" deferred="false" />    
+			<dialog xml="UI/XML/Dialogs/tutorial.xml" deferred="false" />
+			<dialog xml="UI/XML/Dialogs/dlg_item_tooltip.xml" deferred="true" />
 		</dialog>
 		<!-- Lower Overlay Layer End -->
 		<!-- Middle Overlay Layer -->
@@ -124,7 +126,7 @@
 			<dialog xml="UI/XML/Dialogs/dlg_mission_viewer_context_menu.xml" deferred="false" />
 			<dialog xml="UI/XML/Dialogs/dlg_possessions_slavecommand_context_menu.xml" deferred="false" />
       <dialog xml="UI/XML/Dialogs/topmost_layer.xml" deferred="false"> <!-- we can move that layer to offset the indicator -->
-        <dialog xml="UI/XML/Dialogs/dlg_specialindicator.xml" deferred="false" />
+    	<dialog xml="UI/XML/Dialogs/dlg_specialindicator.xml" deferred="false" />
        </dialog>
 		</dialog>
 		<!-- Topmost Layer End -->
