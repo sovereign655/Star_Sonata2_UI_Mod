@@ -38,7 +38,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-- **Creator**: markoz
+- **Creator**: UI mod Edit is taking markoz's SS_Omega_1.3 UI Mod as a baseline then customizing it further
 - **Modifier**: [Your GitHub Profile](https://github.com/sovereign655)
 
 ## Acknowledgements
