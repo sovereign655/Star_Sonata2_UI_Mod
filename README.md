@@ -1,5 +1,7 @@
 # Star Sonata 2 UI Mod
 
+**Shout Out to Discord User ZEV & ShadowWolf for providing great feedback and recommendations.**
+
 This repository hosts the modifications for the Omega UI Mod created by markoz, tailored specifically for Star Sonata 2. The project aims to enhance the user interface to improve the gaming experience by providing a clearer and more efficient layout.
 
 ## Video Demonstration
@@ -12,7 +14,7 @@ To install the UI mod, follow these steps:
 
 1. **Download the Latest Release**: Navigate to the [Releases](https://github.com/sovereign655/Star_Sonata2_UI_Mod/releases) section of this repository and download the latest version.
 2. **Extract the Files**: Unzip the downloaded file into the `Star Sonata 2` directory on your computer.
-3. **Enable the Mod**: open your `Star Sonata 2` Directory go to Content and replace the Default in their with this one and it'll add the new UI and SFX.
+3. **Enable the Mod**: open your `Star Sonata 2` Directory go to `Content` and Paste the `Custom` Folder in their (There should be a Folder named Default in there already, do not Delete that one, just have the two folder in there) and it'll add the new UI and SFX.
 
 ## Features
 
